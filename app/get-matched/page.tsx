@@ -1,19 +1,53 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { Suspense } from 'react'
 import { MatchQuizFromUrl } from '@/components/MatchQuiz'
-import { Trust } from '@/components/Blocks'
+import { TOTAL_AGENCIES } from '@/lib/areas'
 
 export const metadata: Metadata = { title: 'Get matched with local care agencies', robots: { index: false, follow: false } }
 
-export default function GetMatched() {
+const OUT = /^([A-Z]{1,2}[0-9][A-Z0-9]?)/
+
+export default function GetMatched({ searchParams }: { searchParams: { postcode?: string } }) {
+  const district = OUT.exec((searchParams.postcode ?? '').trim().toUpperCase())?.[1]
   return (
-    <section className="section"><div className="in" style={{ justifyItems: 'start' }}>
-      <div style={{ display: 'grid', gap: 10, maxWidth: 640 }}>
-        <h1 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)' }}>Find care at home near you</h1>
-        <p className="muted">A few quick questions, then up to 3 CQC-registered agencies that cover your area will be in touch. Free, with no obligation.</p>
-        <Trust />
+    <section className="match-page"><div className="in">
+      <div className="match-main">
+        <div className="match-head">
+          <p className="eyebrow">Free matching{district ? ` · ${district}` : ''}</p>
+          <h1>{district ? `Let’s find care at home near ${district}` : 'Let’s find care at home near you'}</h1>
+          <p className="lede">A few quick questions about the care needed. Then up to 3 CQC-registered agencies that cover the area will be in touch.</p>
+          <ul className="trust-chips"><li>About 2 minutes</li><li>Free for families</li><li>No obligation</li><li>No medical questions</li></ul>
+        </div>
+        <Suspense fallback={<div className="quiz">Loading…</div>}><MatchQuizFromUrl /></Suspense>
+        <p className="small muted">Your details are only shared with up to 3 local agencies, and only once you agree on the last step. Read our <Link href="/privacy">privacy notice</Link>.</p>
       </div>
-      <Suspense fallback={<div className="quiz">Loading…</div>}><MatchQuizFromUrl /></Suspense>
+
+      <aside className="match-side" aria-label="What happens next">
+        <figure className="match-photo">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/hero-home.jpg" alt="A smiling carer holding hands with an older woman in her living room" width={1800} height={1092} />
+          <figcaption className="hattie-note">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/brand/hello-hattie-mark.svg" alt="" />
+            <div><p>“Answer a few questions and I’ll do the ring-round for you.”</p><small>Hattie</small></div>
+          </figcaption>
+        </figure>
+        <div className="side-card">
+          <p className="eyebrow">What happens next</p>
+          <ol className="side-steps">
+            <li>We check which registered agencies cover the postcode and offer the care you need</li>
+            <li>Up to 3 of them are sent your details and call you to talk it through</li>
+            <li>Most arrange a visit, then give you a written quote</li>
+            <li>You choose one, or none. There’s nothing to pay us</li>
+          </ol>
+        </div>
+        <div className="side-card dark">
+          <p className="eyebrow">Only registered agencies</p>
+          <p>We only match agencies registered with the Care Quality Commission, from {TOTAL_AGENCIES.toLocaleString('en-GB')} home care agencies on the register in England.</p>
+          <Link href="/how-it-works">How matching works →</Link>
+        </div>
+      </aside>
     </div></section>
   )
 }

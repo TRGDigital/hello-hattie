@@ -5,6 +5,7 @@ import { RadiusDemo } from '@/components/RadiusDemo'
 import { Slot } from '@/components/Slot'
 import { DarkFeature, StoryPanel } from '@/components/Feature'
 import { ARTICLES } from '@/content/articles'
+import { ArticleCard } from '@/components/ArticleCard'
 import { AREAS, AREAS_GENERATED, RATINGS, REGIONS, TOTAL_AGENCIES } from '@/lib/areas'
 import { PROMISE } from '@/lib/site'
 
@@ -20,6 +21,7 @@ const CARE = [
 export default function Home() {
   const guides = ARTICLES.filter((a) => a.kind === 'guide').slice(0, 2)
   const costGuide = ARTICLES.find((a) => a.kind === 'cost')
+  const posts = ARTICLES.filter((a) => a.kind === 'blog').slice(0, 3)
   return (
     <>
       <section className="hero"><div className="in">
@@ -190,6 +192,11 @@ export default function Home() {
         { q: 'Are you a care agency?', a: 'No. We’re a matching service. We don’t employ carers or provide care. The agency you choose provides the care and agrees the details with you.' },
         { q: 'Which areas do you cover?', a: 'We match families with agencies across England. Care agencies in England are registered and inspected by the Care Quality Commission.' },
       ]} />
+
+      <section className="section"><div className="in">
+        <div className="head-row"><div style={{ display: 'grid', gap: 6 }}><p className="eyebrow">From the blog</p><h2>Advice for families arranging care</h2></div><Link href="/blog">All articles</Link></div>
+        <div className="post-grid">{posts.map((a) => <ArticleCard key={a.slug} a={a} />)}</div>
+      </div></section>
 
       <CtaBand />
     </>
