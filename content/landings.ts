@@ -4,7 +4,7 @@
 export type Landing = {
   slug: string
   service: string          // the /{service} page it borrows photos and FAQs from
-  quiz: 'visiting' | 'live_in' | 'overnight'
+  quiz?: 'visiting' | 'live_in' | 'overnight'   // set when the page is clearly one kind; left out, the form asks
   h1: string               // "{loc}" is replaced by " in Malvern", or removed when there is no loc
   sub: string
   bullets: string[]
@@ -30,13 +30,13 @@ export const LANDINGS: Landing[] = [
     bullets: ['Waking or sleeping nights', 'Peace of mind for the whole family', 'Only CQC-registered agencies'],
   },
   {
-    slug: 'dementia-care', service: 'dementia-care-at-home', quiz: 'visiting',
+    slug: 'dementia-care', service: 'dementia-care-at-home',
     h1: 'Dementia care at home{loc}',
     sub: 'Familiar faces and familiar routines, at home. We’ll match you with a CQC-registered agency that offers dementia care near you.',
     bullets: ['Care that keeps their routines', 'Visiting, overnight or live-in care', 'Only CQC-registered agencies'],
   },
   {
-    slug: 'respite-care', service: 'respite-care-at-home', quiz: 'visiting',
+    slug: 'respite-care', service: 'respite-care-at-home',
     h1: 'Respite care at home{loc}, so you can rest',
     sub: 'Cover at home while you take a break from caring. We’ll match you with a CQC-registered agency near you.',
     bullets: ['A few hours, days or weeks', 'Your loved one keeps their routine', 'Only CQC-registered agencies'],

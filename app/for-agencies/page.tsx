@@ -15,14 +15,14 @@ function EnquiryMock() {
       <div className="mock-body">
         <div className="mock-rec"><small>Type of care</small><b>Visiting home care</b></div>
         <dl className="enq">
-          <div><dt>Postcode area</dt><dd>WR14</dd></div>
+          <div className="span"><dt>Address</dt><dd>3 Priory Road, Malvern, WR14 3DR</dd></div>
           <div><dt>Care is for</dt><dd>Mum or dad</dd></div>
           <div><dt>Hours</dt><dd>14 to 28 a week</dd></div>
           <div><dt>Start</dt><dd>As soon as possible</dd></div>
           <div><dt>Funding</dt><dd>Privately</dd></div>
           <div><dt>Best time</dt><dd>Mornings</dd></div>
         </dl>
-        <div className="mock-rec alt"><small>Consent</small><b>Agreed to be contacted by a local agency</b></div>
+        <ul className="enq-badges"><li>Mobile verified by text code</li><li>Email checked</li><li>Address from Royal Mail list</li></ul>
       </div>
     </div>
   )
@@ -46,7 +46,7 @@ export default function ForAgencies() {
             <h1>Enquiries from local families, in the postcodes you cover</h1>
             <p className="lede">Families come to Hello Hattie when they need care at home. When one is looking in your area for the care you offer, their enquiry comes straight to you, and only to you. Every enquiry is exclusive.</p>
             <p className="btn-row"><a className="btn" href="#join">Ask about joining</a><a className="btn ghost" href="#how">How it works</a></p>
-            <ul className="trust-chips"><li>Exclusive enquiries</li><li>Pay per enquiry</li><li>No contract</li><li>A monthly cap you set</li></ul>
+            <ul className="trust-chips"><li>Exclusive enquiries</li><li>Verified details</li><li>Pay per enquiry</li><li>No contract</li><li>A monthly cap you set</li></ul>
           </div>
           <div className="agency-visual">
             <Image src="/images/agency-desk.jpg" alt="A care manager smiling on a headset at her desk" width={1000} height={750} priority sizes="(max-width: 900px) 100vw, 640px" />
@@ -65,17 +65,33 @@ export default function ForAgencies() {
         </div>
       </div></section>
 
-      <section className="section"><div className="in tool-rows">
+      <section className="section"><div className="in">
+        <div style={{ display: 'grid', gap: 10, maxWidth: '64ch' }}>
+          <p className="eyebrow">Checked before it reaches you</p>
+          <h2>Every enquiry is verified, so you’re calling a real family</h2>
+          <p className="muted">Fake numbers and made-up addresses waste your team’s time. Every family goes through the same checks before their enquiry is sent to you.</p>
+        </div>
+        <div className="verify-grid">
+          <div className="card"><span className="v-icon">📍</span><h3>Full address, looked up</h3><p>The family enters their postcode and picks their address from the Royal Mail address list, so you get the exact address where care is needed, not just a postcode.</p></div>
+          <div className="card"><span className="v-icon">💬</span><h3>Mobile confirmed by text code</h3><p>We text a one-time code to the mobile number and the family types it in. If the code isn’t entered, the enquiry isn’t marked as verified.</p></div>
+          <div className="card"><span className="v-icon">📞</span><h3>Phone number checked live</h3><p>Every number, mobile or landline, is checked against the network to confirm it’s a real, working UK number before it’s accepted.</p></div>
+          <div className="card"><span className="v-icon">✉️</span><h3>Email checked</h3><p>We check the email address can receive mail, block throwaway addresses, and suggest fixes for typos like “gmial.com” while the family is typing.</p></div>
+          <div className="card"><span className="v-icon">📝</span><h3>What they need, in their words</h3><p>The type of care, who it’s for, the hours, the kind of help, how soon and how it will be paid for, plus the best time to call.</p></div>
+          <div className="card"><span className="v-icon">✅</span><h3>Consent recorded</h3><p>Every family agrees to be contacted by one local agency. We keep the wording they agreed to and when, so you can contact them with confidence.</p></div>
+        </div>
+      </div></section>
+
+      <section className="section band"><div className="in tool-rows">
         <StoryPanel eyebrow="Enquiries worth calling back" title="Everything you need to prioritise, before you pick up the phone"
           visual={<EnquiryMock />}
           ticks={[
             'The type of care, the hours and how soon it’s needed',
             'How the care will be paid for: privately, by the council, by the NHS or not sure yet',
             'Only postcodes inside the area you told us you cover',
-            'Contact details checked for format, with the family’s agreement to be contacted',
+            'The full address, the verified mobile or checked landline, and a checked email',
             'Exclusive to you, never sent to another agency',
           ]}>
-          <p>Every enquiry comes from a family who has told us what they need and agreed to hear from local agencies. We never ask families about medical conditions, so you have the conversation that matters on the first call.</p>
+          <p>Every enquiry comes from a family who has told us what they need and agreed to hear from a local agency. We never ask families about medical conditions, so you have the conversation that matters on the first call.</p>
         </StoryPanel>
 
         <StoryPanel flip eyebrow="Who we work with" title="Registered agencies that want steady, local work"
@@ -119,6 +135,7 @@ export default function ForAgencies() {
         { q: 'How do families find Hello Hattie?', a: 'Through our website, search engines and online advertising. Families use our guides and free tools, then ask to be matched with agencies near them.' },
         { q: 'Do families know an agency will contact them?', a: 'Yes. On the last step, every family agrees to their details being passed to CQC-registered agencies that cover their area, so they can be contacted about care.' },
         { q: 'Are enquiries shared with other agencies?', a: 'No. Every enquiry is exclusive. Each family’s enquiry is sent to one agency only, and never sold again.' },
+        { q: 'How do you know the details are real?', a: 'The address is picked from the Royal Mail address list, mobiles are confirmed with a text code, every phone number is checked live on the network, and emails are checked before the enquiry is sent. Each enquiry shows which checks it passed.' },
         { q: 'How much does an enquiry cost?', a: 'It depends on your area and the types of care you offer. Get in touch and we’ll talk you through it. You always set a monthly cap.' },
         { q: 'What counts as bad details?', a: 'Contact details that are wrong or unreachable, such as a wrong phone number. You can return those for a credit.' },
         { q: 'Is there a contract?', a: 'No. You pay per enquiry you receive, with a monthly cap you set.' },

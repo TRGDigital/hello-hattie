@@ -53,7 +53,10 @@ export function MatchQuizFromUrl() {
   return <MatchQuiz service={params.get('service') ?? undefined} postcode={params.get('postcode') ?? undefined} />
 }
 
-export function MatchQuiz({ service, place, postcode, embedded = false }: { service?: string; place?: string; postcode?: string; embedded?: boolean }) {
+/** postcodeLast (PPC landing pages): the ad already targets an area, so the form opens on the first
+ *  care question, skips the care-type question when the page sets it, and asks for the postcode on
+ *  the address step at the end, with the contact details. */
+export function MatchQuiz({ service, place, postcode, embedded = false, postcodeLast = false }: { service?: string; place?: string; postcode?: string; embedded?: boolean; postcodeLast?: boolean }) {
   const router = useRouter()
   const idem = useRef(typeof crypto !== 'undefined' && 'randomUUID' in crypto ? crypto.randomUUID() : String(Date.now()))
   const wanted = service ?? ''
@@ -66,10 +69,11 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
 
   // Live-in and overnight care are not booked by the hour, so the hours question is skipped for them.
   const steps = useMemo(() => {
-    const s = ['postcode', 'care_for', 'service', 'hours', 'help', 'urgency', 'funding', 'address', 'contact']
+    let s = ['postcode', 'care_for', 'service', 'hours', 'help', 'urgency', 'funding', 'address', 'contact']
+    if (postcodeLast) s = s.filter((x) => x !== 'postcode' && !(x === 'service' && startService))
     return a.service === 'live_in' || a.service === 'overnight' ? s.filter((x) => x !== 'hours') : s
-  }, [a.service])
-  const [i, setI] = useState(PC.test(a.postcode.trim()) ? 1 : 0)
+  }, [a.service, postcodeLast, startService])
+  const [i, setI] = useState(!postcodeLast && PC.test(a.postcode.trim()) ? 1 : 0)
   const step = steps[Math.min(i, steps.length - 1)]
   const [err, setErr] = useState('')
   const [busy, setBusy] = useState(false)
@@ -84,11 +88,13 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
   const [codeStage, setCodeStage] = useState(false)
   const [code, setCode] = useState('')
   const [phoneToken, setPhoneToken] = useState('')
+  const [challenge, setChallenge] = useState('')
   const checked = useRef<{ phone?: string; email?: string }>({})
 
   useEffect(() => {
     if (step !== 'address') return
-    const pc = a.postcode.trim().toUpperCase()
+    const pc = a.postcode.trim().toUpperCase().replace(/\s+/g, ' ')
+    if (!PC.test(pc)) return
     if (addrs?.pc === pc) return
     setAddrs({ pc, status: 'loading', list: [] })
     fetch(`/api/address?postcode=${encodeURIComponent(pc)}`).then((r) => r.json()).then((b) => {
@@ -118,6 +124,7 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
     if (step === 'urgency' && !a.urgency) return 'Please choose when care is needed.'
     if (step === 'funding' && !a.funding) return 'Please choose how care is likely to be paid for.'
     if (step === 'address') {
+      if (!PC.test(a.postcode.trim().toUpperCase().replace(/\s+/g, ' '))) return 'Please enter the full postcode where care is needed, for example WR14 1AB.'
       if (!manual && !a.address) return 'Please choose the address where care is needed, or enter it yourself.'
       if (manual && (manualLine.trim().length < 3 || manualTown.trim().length < 2)) return 'Please enter the first line of the address and the town.'
     }
@@ -142,11 +149,11 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
     if (chk.email?.status === 'undeliverable') { setErr('Please check the email address. It doesn’t look like it can receive email.'); setBusy(false); return }
     if (chk.phone?.needsCode && !phoneToken) {
       if (!codeStage) {
-        const sent = await postJson<{ ok: boolean; error?: string }>('/api/otp', { action: 'send', phone: a.phone }).catch(() => ({ ok: false, error: '' }))
-        if (sent.ok) { setCodeStage(true); setBusy(false); return }
+        const sent = await postJson<{ ok: boolean; challenge?: string; error?: string }>('/api/otp', { action: 'send', phone: a.phone }).catch(() => ({ ok: false, error: '' } as { ok: boolean; challenge?: string; error?: string }))
+        if (sent.ok) { setChallenge(sent.challenge ?? ''); setCodeStage(true); setBusy(false); return }
         // A text that can't be sent never loses the enquiry: it goes through, marked unverified.
       } else {
-        const v = await postJson<{ ok: boolean; token?: string; error?: string }>('/api/otp', { action: 'check', phone: a.phone, code }).catch(() => ({ ok: false, error: 'Please try again.' } as { ok: boolean; token?: string; error?: string }))
+        const v = await postJson<{ ok: boolean; token?: string; error?: string }>('/api/otp', { action: 'check', phone: a.phone, code, challenge }).catch(() => ({ ok: false, error: 'Please try again.' } as { ok: boolean; token?: string; error?: string }))
         if (!v.ok || !v.token) { setErr(v.error || 'That code isn’t right.'); setBusy(false); return }
         setPhoneToken(v.token)
         return submit(v.token)
@@ -167,7 +174,12 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
         answers: { help: a.help, hours_band: a.hours, best_time: a.best_time, consent_text: CONSENT_TEXT },
         address: a.address, uprn: a.uprn, phone_token: token,
       })
-      void saved
+      // For the thank-you page greeting (this tab only), and a dataLayer event for ad conversion tracking.
+      try {
+        sessionStorage.setItem('hh_done', JSON.stringify({ first: a.name.trim().split(/\s+/)[0], district: a.postcode.trim().toUpperCase().split(' ')[0], verified: !!saved?.verified, best: a.best_time, service: a.service }))
+        const w = window as unknown as { dataLayer?: unknown[] }
+        ;(w.dataLayer = w.dataLayer || []).push({ event: 'lead_submitted', service: a.service, verified: !!saved?.verified })
+      } catch {}
       router.push(`/thank-you?service=${a.service}`)
     } catch (x) {
       setErr(x instanceof Error ? x.message : 'Something went wrong. Please try again.')
@@ -249,8 +261,16 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
 
       {step === 'address' && (
         <div style={{ display: 'grid', gap: 14 }}>
-          <h2><label htmlFor="q-addr">What’s the address where care is needed?</label></h2>
-          <span className="hint">So the agency knows exactly where to visit. {a.postcode.toUpperCase()} <button type="button" className="linkish" onClick={() => { setI(0); setAddrs(null) }}>Change postcode</button></span>
+          <h2><label htmlFor={postcodeLast ? 'q-pc2' : 'q-addr'}>What’s the address where care is needed?</label></h2>
+          {postcodeLast ? (
+            <div className="field">
+              <span className="hint">Start with the postcode, then choose the address. So the agency knows exactly where to visit.</span>
+              <input id="q-pc2" type="text" autoComplete="postal-code" placeholder="Postcode, e.g. WR14 1AB" value={a.postcode}
+                onChange={(e) => { set('postcode', e.target.value.toUpperCase()); set('address', ''); set('uprn', ''); setManual(false); setErr('') }} style={{ textTransform: 'uppercase', maxWidth: 260 }} />
+            </div>
+          ) : (
+            <span className="hint">So the agency knows exactly where to visit. {a.postcode.toUpperCase()} <button type="button" className="linkish" onClick={() => { setI(0); setAddrs(null) }}>Change postcode</button></span>
+          )}
           {!manual && addrs?.status === 'loading' && <p className="muted">Finding addresses…</p>}
           {!manual && addrs?.status === 'ok' && (
             <select id="q-addr" value={a.uprn || a.address} onChange={(e) => {
@@ -262,7 +282,7 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
               {addrs.list.map((l) => <option key={l.uprn ?? l.line} value={l.uprn ?? l.line}>{l.line}</option>)}
             </select>
           )}
-          {manual && (
+          {manual && PC.test(a.postcode.trim().toUpperCase().replace(/\s+/g, ' ')) && (
             <>
               {addrs?.status === 'not_found' && <p className="small muted">We couldn’t find that postcode in the address list. Please type the address.</p>}
               <div className="field"><label htmlFor="q-line">House number and street</label><input id="q-line" type="text" autoComplete="address-line1" value={manualLine} onChange={(e) => { setManualLine(e.target.value); setErr('') }} /></div>
@@ -280,7 +300,7 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
           <span className="hint">We sent a 6-digit code to {a.phone}. This confirms the agency has the right number to call.</span>
           <input id="q-code" type="text" inputMode="numeric" autoComplete="one-time-code" maxLength={6} value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))} style={{ fontSize: '1.5em', letterSpacing: '.3em', maxWidth: 220 }} />
           <p className="small muted">
-            <button type="button" className="linkish" onClick={async () => { setErr(''); const r = await postJson<{ ok: boolean; error?: string }>('/api/otp', { action: 'send', phone: a.phone }); if (!r.ok) setErr(r.error || 'Please try again.') }}>Send a new code</button>
+            <button type="button" className="linkish" onClick={async () => { setErr(''); const r = await postJson<{ ok: boolean; challenge?: string; error?: string }>('/api/otp', { action: 'send', phone: a.phone }); if (!r.ok) setErr(r.error || 'Please try again.'); else { setChallenge(r.challenge ?? ''); setCode('') } }}>Send a new code</button>
             {' · '}
             <button type="button" className="linkish" onClick={() => { setCodeStage(false); setCode(''); setErr('') }}>Change the number</button>
           </p>

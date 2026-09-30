@@ -1,5 +1,5 @@
 import 'server-only'
-import { createHmac, timingSafeEqual } from 'crypto'
+import { createHmac, randomInt, timingSafeEqual } from 'crypto'
 
 // Server-only checks for the matching form: address lookup, phone and email validation (Ideal
 // Postcodes), text-code verification (Twilio Verify) and signing the lead so the database accepts it.
@@ -93,6 +93,33 @@ const twilio = (path: string, form: Record<string, string>) => fetch(`https://ve
   headers: { Authorization: 'Basic ' + Buffer.from(`${TW_SID}:${TW_TOKEN}`).toString('base64'), 'Content-Type': 'application/x-www-form-urlencoded' },
   body: new URLSearchParams(form),
 })
+
+const SENDER = process.env.SMS_SENDER || 'HelloHattie' // UK alphanumeric sender, 11 characters max
+
+/** Text a 6-digit code from "HelloHattie". Returns a challenge the browser sends back with the code:
+ *  an expiry plus an HMAC of phone, code and expiry, so the server keeps no state. If Twilio refuses
+ *  the brand-name sender, fall back to Twilio Verify so the family still gets a code. */
+export async function sendBrandedCode(e164: string): Promise<{ ok: boolean; challenge?: string; error?: string }> {
+  const code = String(randomInt(0, 1_000_000)).padStart(6, '0')
+  const exp = Date.now() + 10 * 60e3
+  try {
+    const r = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${TW_SID}/Messages.json`, {
+      method: 'POST', signal: AbortSignal.timeout(8000),
+      headers: { Authorization: 'Basic ' + Buffer.from(`${TW_SID}:${TW_TOKEN}`).toString('base64'), 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ From: SENDER, To: e164, Body: `${code} is your Hello Hattie code. It confirms the care agency has the right number to call you. Don’t share this code with anyone.` }),
+    })
+    if (r.ok) return { ok: true, challenge: `${exp}.${mac(`sms|${e164}|${code}|${exp}`)}` }
+    console.warn('[otp] branded send refused', r.status, (await r.text()).slice(0, 200))
+  } catch (e) { console.warn('[otp] branded send failed', e) }
+  const v = await sendCode(e164)
+  return v.ok ? { ok: true, challenge: 'verify' } : v
+}
+
+export async function checkAnyCode(e164: string, code: string, challenge: string | undefined): Promise<boolean> {
+  if (!challenge || challenge === 'verify') return checkCode(e164, code)
+  const [exp, sig] = challenge.split('.')
+  return Number(exp) > Date.now() && same(sig ?? '', mac(`sms|${e164}|${code}|${exp}`))
+}
 
 export async function sendCode(e164: string): Promise<{ ok: boolean; error?: string }> {
   try {

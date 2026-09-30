@@ -39,7 +39,7 @@ export default function GoPage({ params, searchParams }: { params: { slug: strin
             </figcaption>
           </figure>
         </div>
-        <HeroMatch title={`Find ${s?.name.toLowerCase() ?? 'care'}${loc ? ` in ${loc}` : ' near you'}`} service={l.quiz} />
+        <HeroMatch title={`Find ${s?.name.toLowerCase() ?? 'care'}${loc ? ` in ${loc}` : ' near you'}`} service={l.quiz} postcodeLast />
       </div></section>
 
       <section className="go-strip"><div className="in">
