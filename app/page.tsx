@@ -9,11 +9,11 @@ import { HONEST, PROMISE } from '@/lib/site'
 
 // The five types of care shown with thumbnails. Each links to its own page.
 const CARE = [
-  { slug: 'home-care', name: 'Visiting care', line: 'Help at the times of day it’s needed most.', link: 'Visiting home care', brief: 'a carer helping an older man with breakfast in his kitchen' },
-  { slug: 'live-in-care', name: 'Live-in care', line: 'A carer who lives in, for support day and night.', link: 'Live-in care', brief: 'a live-in carer and an older woman gardening together' },
-  { slug: 'overnight-care', name: 'Overnight care', line: 'Someone there through the night, awake or asleep.', link: 'Overnight care', brief: 'a calm evening scene, carer settling an older man with a cup of tea' },
-  { slug: 'dementia-care-at-home', name: 'Dementia care at home', line: 'Familiar faces, familiar routines, at home.', link: 'Dementia care at home', brief: 'a carer and an older woman looking through a photo album' },
-  { slug: 'respite-care-at-home', name: 'Respite care', line: 'Cover at home so a family carer can rest.', link: 'Respite care at home', brief: 'a daughter relaxing with a coffee while a carer chats with her father' },
+  { slug: 'home-care', name: 'Visiting care', line: 'Help at the times of day it’s needed most.', link: 'Visiting home care', brief: 'A carer sharing breakfast with an older man in his kitchen', img: '/images/care-visiting.jpg' },
+  { slug: 'live-in-care', name: 'Live-in care', line: 'A carer who lives in, for support day and night.', link: 'Live-in care', brief: 'A live-in carer and an older woman planting flowers together in her garden', img: '/images/care-live-in.jpg' },
+  { slug: 'overnight-care', name: 'Overnight care', line: 'Someone there through the night, awake or asleep.', link: 'Overnight care', brief: 'A carer bringing an older man a cup of tea in the evening', img: '/images/care-overnight.jpg' },
+  { slug: 'dementia-care-at-home', name: 'Dementia care at home', line: 'Familiar faces, familiar routines, at home.', link: 'Dementia care at home', brief: 'A carer and an older woman looking through a photo album together', img: '/images/care-dementia.jpg' },
+  { slug: 'respite-care-at-home', name: 'Respite care', line: 'Cover at home so a family carer can rest.', link: 'Respite care at home', brief: 'A daughter relaxing with a cup of tea while her father chats with his carer', img: '/images/care-respite.jpg' },
 ]
 
 export default function Home() {
@@ -52,7 +52,7 @@ export default function Home() {
               <p>Visiting care, live-in care, overnight and dementia care, from agencies near you.</p>
               <span className="go">Get matched, it’s free →</span>
             </div>
-            <Slot className="round" brief="a family member on the phone, smiling, at home" />
+            <Slot className="round" brief="A smiling woman on the phone at home" src="/images/family-phone.jpg" />
           </Link>
           <Link className="path dark" href="/for-agencies">
             <div>
@@ -61,7 +61,7 @@ export default function Home() {
               <p>Enquiries from families in the postcodes you cover. Pay per enquiry, no contract.</p>
               <span className="go">How it works for agencies →</span>
             </div>
-            <Slot className="round" brief="a care manager at a desk with a headset" />
+            <Slot className="round" brief="A care manager on a headset at her desk" src="/images/agency-manager.jpg" />
           </Link>
         </div>
       </div></section>
@@ -74,7 +74,7 @@ export default function Home() {
         <div className="care-cards">
           {CARE.map((c) => (
             <Link className="care-card" key={c.slug} href={`/${c.slug}`}>
-              <Slot brief={c.brief} />
+              <Slot brief={c.brief} src={c.img} />
               <div className="body"><h3>{c.name}</h3><p>{c.line}</p><span className="go">{c.link} →</span></div>
             </Link>
           ))}
@@ -96,7 +96,7 @@ export default function Home() {
             </ul>
             <p><Link className="btn" href="/how-it-works">How matching works</Link></p>
           </div>
-          <Slot className="big" brief="a relaxed family and carer chatting in a sunny kitchen" />
+          <Slot className="big wide" brief="A family and their carer chatting over tea around the kitchen table" src="/images/why-kitchen.jpg" />
         </div>
       </div></section>
 

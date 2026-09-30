@@ -6,7 +6,6 @@ import { Footer } from '@/components/Footer'
 import { MobileBar } from '@/components/Blocks'
 import { BRAND } from '@/lib/site'
 import { Attribution } from '@/components/Attribution'
-import { PaletteSwitch } from '@/components/PaletteSwitch'
 
 const atkinson = Atkinson_Hyperlegible({ subsets: ['latin'], weight: ['400', '700'], variable: '--font-atkinson', display: 'swap' })
 const newsreader = Newsreader({ subsets: ['latin'], weight: ['500', '600'], variable: '--font-newsreader', display: 'swap' })
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
   // Until launch every page is noindex; flip NEXT_PUBLIC_SITE_LIVE=true on the real domain.
   robots: BRAND.live ? { index: true, follow: true } : { index: false, follow: false },
 }
-export const viewport: Viewport = { width: 'device-width', initialScale: 1, viewportFit: 'cover', themeColor: '#F4F6F1' }
+export const viewport: Viewport = { width: 'device-width', initialScale: 1, viewportFit: 'cover', themeColor: '#FBF7F0' }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -31,7 +30,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <MobileBar />
         <Attribution />
-        {!BRAND.live && <PaletteSwitch />}
       </body>
     </html>
   )

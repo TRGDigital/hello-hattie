@@ -1,12 +1,12 @@
-/* Garden: calm greens, one marigold highlight, large legible type. Static heroes, no motion.
+/* Garden (warm): green and marigold brand on cream and sand neutrals, large legible type. Static heroes, no motion.
    Layout: a single 1120px column; sections alternate plain and tinted bands. */
 :root {
-  --bg: #F4F6F1;
-  --alt: #E6EDE3;
+  --bg: #FBF7F0;
+  --alt: #F3ECE1;
   --card: #FFFFFF;
   --ink: #173828;
-  --soft: #3F5A4B;
-  --line: #C9D6C6;
+  --soft: #4E5B52;
+  --line: #E6DCCC;
   --btn: #1E5A41;
   --btn-hover: #174733;
   --btn-ink: #FFFFFF;
@@ -306,19 +306,8 @@ th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--li
 .path .slot { aspect-ratio: 1 / 1; width: 100%; }
 .path .slot span { display: none; }
 
-/* Warm variant for comparison: same green and marigold brand, warmer neutrals (cream ground, sand bands). */
-:root[data-palette="warm"] {
-  --bg: #FBF7F0;
-  --alt: #F3ECE1;
-  --card: #FFFFFF;
-  --soft: #4E5B52;
-  --line: #E6DCCC;
-}
-:root[data-palette="warm"] .slot { background: linear-gradient(160deg, #F3ECE1, #F6E3B4); }
-
-/* Preview-only palette switch */
-.palette-switch { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 50; background: #1C2230; color: #fff; border-radius: 999px; padding: 6px; display: flex; gap: 4px; align-items: center; font: 600 13px/1 system-ui, sans-serif; box-shadow: 0 8px 24px rgba(0, 0, 0, .25); }
-.palette-switch span { padding: 0 8px 0 10px; opacity: .8; }
-.palette-switch button { font: inherit; border: 0; border-radius: 999px; padding: 8px 12px; cursor: pointer; background: transparent; color: #fff; }
-.palette-switch button[aria-pressed="true"] { background: #fff; color: #1C2230; }
-@media (max-width: 900px) { .palette-switch { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); } }
+/* Photos in slots */
+.slot.pic { display: block; width: 100%; height: auto; object-fit: cover; background: var(--alt); }
+.care-card .slot.pic { aspect-ratio: 4 / 3; }
+.path .slot.pic { aspect-ratio: 1 / 1; border-radius: 50%; }
+.slot.big.wide { aspect-ratio: 2 / 1; }
