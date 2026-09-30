@@ -623,14 +623,14 @@ const BASE: Article[] = [
 
 // Topic and lead photo for the guides and cost pages. A missing src shows a placeholder with the brief.
 const META: Record<string, { category: string; image: Img }> = {
-  'home-care-cost-per-hour': { category: 'Costs and funding', image: { brief: 'an older couple looking through household paperwork at the kitchen table with a pot of tea' } },
-  'live-in-care-cost': { category: 'Costs and funding', image: { brief: 'a live-in carer and an older woman chatting over lunch at her dining table' } },
+  'home-care-cost-per-hour': { category: 'Costs and funding', image: { src: '/images/guide-cost-hour.jpg', brief: 'An older couple looking through paperwork at the kitchen table with a pot of tea' } },
+  'live-in-care-cost': { category: 'Costs and funding', image: { src: '/images/guide-live-in-cost.jpg', brief: 'A live-in carer and an older woman chatting over lunch' } },
   'paying-for-home-care': { category: 'Costs and funding', image: { src: '/images/hattie-phone.jpg', brief: 'A woman smiling on the phone at home, arranging care for her mum' } },
   'live-in-care-vs-care-home': { category: 'Choosing care', image: { src: '/images/care-live-in.jpg', brief: 'A live-in carer and an older woman planting flowers together in her garden' } },
   'choosing-a-home-care-agency': { category: 'Choosing care', image: { src: '/images/agency-desk.jpg', brief: 'A care manager smiling on a headset at her desk' } },
   'what-does-a-home-carer-do': { category: 'Understanding care', image: { src: '/images/care-visiting.jpg', brief: 'A carer sharing breakfast with an older man in his kitchen' } },
   'arranging-care-after-hospital': { category: 'Arranging care', image: { src: '/images/svc-hourly-side.jpg', brief: 'A carer helping an older man on with his coat in his hallway' } },
-  'signs-a-parent-needs-help-at-home': { category: 'Family life', image: { brief: 'a daughter and her mum talking gently at the kitchen table over a cup of tea' } },
+  'signs-a-parent-needs-help-at-home': { category: 'Family life', image: { src: '/images/guide-signs.jpg', brief: 'A daughter and her mum talking at the kitchen table over tea' } },
 }
 
 export const ARTICLES: Article[] = [...BASE.map((a) => ({ ...META[a.slug], ...a })), ...POSTS]

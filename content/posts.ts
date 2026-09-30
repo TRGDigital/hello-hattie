@@ -23,7 +23,7 @@ export const POSTS: Article[] = [
     summary:
       'The first phone call tells you a lot about an agency. These are the questions that help you compare agencies fairly and spot the ones that will be easy to work with.',
     updated: '2026-09-30',
-    image: { brief: 'a woman at her kitchen table with a notepad and phone, making calls about care for her mum' },
+    image: { src: '/images/post-questions.jpg', brief: 'A woman at her kitchen table with a notepad and phone, making calls about care for her mum' },
     sections: [
       {
         heading: 'Why does the first call matter so much?',
@@ -179,7 +179,7 @@ export const POSTS: Article[] = [
     summary:
       'It is very common for a parent to say no to help at first. With patience, small steps and the right conversation, most families find a way forward that everyone can live with.',
     updated: '2026-09-30',
-    image: { brief: 'an adult son and his elderly father talking on a garden bench, relaxed and warm' },
+    image: { src: '/images/post-parent-help.jpg', brief: 'An adult son and his elderly father talking on a garden bench' },
     sections: [
       {
         heading: 'Why do so many parents say no?',

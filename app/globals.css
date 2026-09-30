@@ -524,8 +524,8 @@ th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--li
 
 /* Post with sidebar */
 .post-wrap .in { padding-block: 28px clamp(40px, 6vw, 72px); display: grid; gap: 22px; }
-.post-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 340px); gap: clamp(28px, 4vw, 56px); align-items: start; }
-.post-layout .post-col { max-width: 800px; margin: 0; }
+.post-layout { display: grid; grid-template-columns: minmax(0, 880px) minmax(0, 340px); gap: clamp(24px, 3vw, 40px); align-items: start; justify-content: start; }
+.post-layout .post-col { max-width: none; margin: 0; }
 .post-layout h1 { font-size: clamp(2.1rem, 4vw, 3rem); line-height: 1.08; text-wrap: balance; }
 .post-side { display: grid; gap: 16px; }
 @media (min-width: 1001px) and (min-height: 790px) { .post-side { position: sticky; top: calc(88px + env(safe-area-inset-top, 0px)); } }

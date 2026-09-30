@@ -5,27 +5,27 @@ type Img = { src?: string; brief: string }
 export const SERVICE_IMAGES: Record<string, { main: Img; side: Img }> = {
   'live-in-care': {
     main: { src: '/images/care-live-in.jpg', brief: 'A live-in carer and an older woman planting flowers together in her garden' },
-    side: { brief: 'a live-in carer and an older man cooking lunch together in his kitchen' },
+    side: { src: '/images/svc-live-in-side.jpg', brief: 'A live-in carer and an older man cooking lunch together in his kitchen' },
   },
   'home-care': {
     main: { src: '/images/care-visiting.jpg', brief: 'A carer sharing breakfast with an older man in his kitchen' },
-    side: { brief: 'a care worker arriving at an older woman’s front door, both smiling' },
+    side: { src: '/images/svc-visiting-side.jpg', brief: 'A care worker arriving at an older woman’s front door, both smiling' },
   },
   'overnight-care': {
     main: { src: '/images/care-overnight.jpg', brief: 'A carer bringing an older man a cup of tea in the evening' },
-    side: { brief: 'a carer reading quietly in a softly lit living room at night' },
+    side: { src: '/images/svc-overnight-side.jpg', brief: 'A carer reading quietly in a softly lit living room at night' },
   },
   'dementia-care-at-home': {
     main: { src: '/images/care-dementia.jpg', brief: 'A carer and an older woman looking through a photo album together' },
-    side: { brief: 'a carer and an older man folding laundry together at home' },
+    side: { src: '/images/svc-dementia-side.jpg', brief: 'A carer and an older man folding laundry together at home' },
   },
   'respite-care-at-home': {
     main: { src: '/images/care-respite.jpg', brief: 'A daughter relaxing with a cup of tea while her father chats with his carer' },
-    side: { brief: 'a family carer out on a countryside walk with a friend, relaxed and smiling' },
+    side: { src: '/images/svc-respite-side.jpg', brief: 'A family carer out on a countryside walk with a friend' },
   },
   'companionship-care': {
     main: { src: '/images/hero-home.jpg', brief: 'A smiling carer holding hands with an older woman in her living room' },
-    side: { brief: 'a companion and an older man playing cards at the dining table' },
+    side: { src: '/images/svc-companion-side.jpg', brief: 'A companion and an older man playing cards at the dining table' },
   },
   'palliative-care-at-home': {
     main: { src: '/images/svc-palliative.jpg', brief: 'A carer gently holding the hand of an older woman resting in bed at home' },
