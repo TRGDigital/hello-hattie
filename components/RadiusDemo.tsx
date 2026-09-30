@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 // Service area demo. Enter a postcode, pick a distance, and see how many CQC-registered home care
 // agencies are based within it, on a map of nearby towns. Agencies are counted, never drawn or named.
@@ -34,16 +34,12 @@ export function RadiusDemo() {
   const [data, setData] = useState<{ pts: Pt[]; towns: Town[] } | null>(null)
   const [err, setErr] = useState('')
   const [busy, setBusy] = useState(false)
-  const panel = useRef<HTMLDivElement>(null)
 
-  // Show the example area as soon as the section comes into view, so it never sits empty,
-  // and only then download the map data.
+  // Load the example area quietly once the page is idle, so the map is ready before anyone scrolls to it.
   useEffect(() => {
-    const el = panel.current
-    if (!el || !('IntersectionObserver' in window)) { look(); return }
-    const io = new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) { io.disconnect(); look() } }, { rootMargin: '200px' })
-    io.observe(el)
-    return () => io.disconnect()
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number }
+    const id = w.requestIdleCallback ? w.requestIdleCallback(() => look(), { timeout: 2500 }) : window.setTimeout(() => look(), 1200)
+    return () => { if (!w.requestIdleCallback) window.clearTimeout(id) }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -112,7 +108,7 @@ export function RadiusDemo() {
 
   const r = map ? radius * map.scale : 0
   return (
-    <div className="radius-panel" ref={panel}>
+    <div className="radius-panel">
       <div className="radius-copy">
         <h2>How service areas work</h2>
         <p>Every home care agency covers an area around its office, usually set by how far its carers can travel between visits. That’s often a few miles in a town and further in the countryside.</p>
