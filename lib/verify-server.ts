@@ -66,10 +66,12 @@ async function checkPhoneLive(raw: string): Promise<PhoneCheck> {
     const r = await ideal(`/phone_numbers?query=${encodeURIComponent(e164)}`)
     if (!r || r.status !== 200 || !r.body?.result) return { status: 'unchecked', e164, type: /^\+447/.test(e164) ? 'mobile' : undefined }
     const x = r.body.result
-    const nt = String(x.current_carrier?.network_type ?? '').toLowerCase()
+    // The current carrier is often blank (ported or unknown), so fall back to the original allocation.
+    const carrier = x.current_carrier?.network_type ? x.current_carrier : x.original_carrier ?? {}
+    const nt = String(carrier.network_type ?? '').toLowerCase()
     return {
-      status: x.valid ? 'valid' : 'invalid', e164, national: x.national_format ?? undefined, network: x.current_carrier?.name ?? undefined,
-      type: nt.includes('mobile') ? 'mobile' : nt.includes('landline') || nt.includes('fixed') ? 'landline' : 'other',
+      status: x.valid ? 'valid' : 'invalid', e164, national: x.national_format ?? undefined, network: carrier.name ?? undefined,
+      type: nt.includes('mobile') ? 'mobile' : nt.includes('landline') || nt.includes('fixed') ? 'landline' : /^\+447[1-9]/.test(e164) ? 'mobile' : 'other',
     }
   } catch { return { status: 'unchecked', e164, type: /^\+447/.test(e164) ? 'mobile' : undefined } }
 }
