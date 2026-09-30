@@ -33,10 +33,10 @@ export function PageHero({ crumbs, title, intro, children, aside }: { crumbs: { 
   )
 }
 
-export function Faqs({ faqs, title = 'Questions families ask' }: { faqs: Faq[]; title?: string }) {
+export function Faqs({ faqs, title = 'Questions families ask', band = false }: { faqs: Faq[]; title?: string; band?: boolean }) {
   if (!faqs.length) return null
   return (
-    <section className="section"><div className="in">
+    <section className={band ? 'section band' : 'section'}><div className="in">
       <h2>{title}</h2>
       <div className="faq">{faqs.map((f, i) => <details key={f.q} open={i === 0}><summary>{f.q}</summary><p>{f.a}</p></details>)}</div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
