@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { LANDINGS, cleanLoc, landingBySlug } from '@/content/landings'
@@ -30,8 +31,7 @@ export default function GoPage({ params, searchParams }: { params: { slug: strin
           <p className="lede">{l.sub}</p>
           <ul className="checklist">{l.bullets.map((b) => <li key={b}>{b}</li>)}</ul>
           <figure className="go-photo">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={img?.main.src ?? '/images/hero-home.jpg'} alt={img?.main.brief ?? ''} width={800} height={600} />
+            <Image src={img?.main.src ?? '/images/hero-home.jpg'} alt={img?.main.brief ?? ''} width={800} height={600} sizes="(max-width: 900px) 100vw, 640px" />
             <figcaption className="hattie-note">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/brand/hello-hattie-mark.svg" alt="" />

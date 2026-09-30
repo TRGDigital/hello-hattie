@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { BRAND } from '@/lib/site'
+import { SERVICES } from '@/content/services'
 
 // Accreditations held by TRG Digital Ltd, which runs Hello Hattie. Each links to the body that
 // issued it, so a visitor can check the claim. Only add a badge we actually hold. The CPD mark is
@@ -41,11 +42,7 @@ export function Footer() {
             <p><a href={`mailto:${BRAND.email}`}>{BRAND.email}</a></p>
           </div>
           <div><h3>Types of care</h3><ul>
-            <li><Link href="/live-in-care">Live-in care</Link></li>
-            <li><Link href="/home-care">Visiting home care</Link></li>
-            <li><Link href="/overnight-care">Overnight care</Link></li>
-            <li><Link href="/dementia-care-at-home">Dementia care at home</Link></li>
-            <li><Link href="/types-of-care">All types of care</Link></li>
+            {SERVICES.map((x) => <li key={x.slug}><Link href={`/${x.slug}`}>{x.name}</Link></li>)}
           </ul></div>
           <div><h3>Help and advice</h3><ul>
             <li><Link href="/costs">Care costs</Link></li>

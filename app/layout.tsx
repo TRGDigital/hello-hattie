@@ -30,6 +30,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <MobileBar />
         <Attribution />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'Organization', '@id': `${BRAND.url}/#org`, name: BRAND.name, url: BRAND.url,
+              logo: `${BRAND.url}/brand/hello-hattie-mark-512.png`, email: BRAND.email,
+              description: 'A free service that matches families in England with a CQC-registered home care agency near them.',
+              parentOrganization: { '@type': 'Organization', name: 'TRG Digital Ltd', url: 'https://www.trgdigital.co.uk' },
+              address: { '@type': 'PostalAddress', streetAddress: 'Suite Ra01, 195-197 Wood Street', addressLocality: 'London', postalCode: 'E17 3NU', addressCountry: 'GB' },
+              areaServed: { '@type': 'Country', name: 'England' },
+            },
+            { '@type': 'WebSite', '@id': `${BRAND.url}/#site`, name: BRAND.name, url: BRAND.url, inLanguage: 'en-GB', publisher: { '@id': `${BRAND.url}/#org` } },
+          ],
+        }) }} />
       </body>
     </html>
   )

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { CtaBand, Faqs, Crumbs, Trust } from '@/components/Blocks'
@@ -50,8 +51,7 @@ export default function HowItWorks() {
             <Trust />
           </div>
           <figure className="hero-photo">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/hero-home.jpg" alt="A smiling carer holding hands with an older woman in her living room" width={1800} height={1092} />
+            <Image src="/images/hero-home.jpg" alt="A smiling carer holding hands with an older woman in her living room" width={1800} height={1092} priority sizes="(max-width: 900px) 100vw, 640px" />
             <figcaption className="hattie-note">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/brand/hello-hattie-mark.svg" alt="" />

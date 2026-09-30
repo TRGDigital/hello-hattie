@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Suspense } from 'react'
@@ -25,8 +26,7 @@ export default function GetMatched({ searchParams }: { searchParams: { postcode?
 
       <aside className="match-side" aria-label="What happens next">
         <figure className="match-photo">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/hero-home.jpg" alt="A smiling carer holding hands with an older woman in her living room" width={1800} height={1092} />
+          <Image src="/images/hero-home.jpg" alt="A smiling carer holding hands with an older woman in her living room" width={1800} height={1092} sizes="(max-width: 1000px) 100vw, 400px" />
           <figcaption className="hattie-note">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/brand/hello-hattie-mark.svg" alt="" />

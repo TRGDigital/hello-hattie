@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import type { Article } from '@/content/types'
-import { ARTICLES, readMins } from '@/content/articles'
+import { ARTICLES, articlePath, readMins } from '@/content/articles'
+import { BRAND } from '@/lib/site'
 import { AUTHOR } from '@/lib/author'
 import { Crumbs, CtaBand, Faqs } from '@/components/Blocks'
 import { ArticleCard, categoryOf, fmtDate } from '@/components/ArticleCard'
 import { MatchLink } from '@/components/MatchLink'
 import { PostSidebar } from '@/components/PostSidebar'
+import { makeLinker } from '@/lib/autolink'
 import { Slot } from '@/components/Slot'
 
 const idOf = (h: string) => h.toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
@@ -17,6 +19,7 @@ export function ArticleView({ a, crumb }: { a: Article; crumb: { href: string; l
   const related = [...others.filter((x) => categoryOf(x) === categoryOf(a)), ...others.filter((x) => x.kind === a.kind), ...others]
     .filter((x, i, all) => all.findIndex((y) => y.slug === x.slug) === i).slice(0, 3)
   const midAt = Math.min(2, a.sections.length - 1)
+  const link = makeLinker(articlePath(a))
   const allLabel = a.kind === 'blog' ? 'All posts' : a.kind === 'cost' ? 'All cost guides' : 'All guides'
   return (
     <>
@@ -32,7 +35,7 @@ export function ArticleView({ a, crumb }: { a: Article; crumb: { href: string; l
               <img src={AUTHOR.photo} alt="" width={56} height={56} />
               <div><p><b>Written by {AUTHOR.name}</b>, {AUTHOR.role}</p><p className="bio">{AUTHOR.bio}</p></div>
             </div>
-            <Slot className="post-hero" brief={a.image?.brief ?? a.title} src={a.image?.src} />
+            <Slot className="post-hero" brief={a.image?.brief ?? a.title} src={a.image?.src} sizes="(max-width: 1000px) 100vw, 880px" priority />
             <p className="post-lede">{a.summary}</p>
             {a.sections.length > 2 && (
               <nav className="toc" aria-label="On this page">
@@ -43,8 +46,8 @@ export function ArticleView({ a, crumb }: { a: Article; crumb: { href: string; l
             {a.sections.map((s, i) => (
               <div key={s.heading} className="post-sec">
                 <h2 id={idOf(s.heading)}>{s.heading}</h2>
-                {s.paragraphs.map((p) => <p key={p}>{p}</p>)}
-                {s.bullets && <ul className="checklist">{s.bullets.map((b) => <li key={b}>{b}</li>)}</ul>}
+                {s.paragraphs.map((p) => <p key={p}>{link(p)}</p>)}
+                {s.bullets && <ul className="checklist">{s.bullets.map((b) => <li key={b}>{link(b)}</li>)}</ul>}
                 {i === midAt && a.sections.length > 3 && (
                   <aside className="post-cta">
                     <p className="eyebrow">Free for families</p>
@@ -70,6 +73,14 @@ export function ArticleView({ a, crumb }: { a: Article; crumb: { href: string; l
         </div>
       </div></section>
 
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org', '@type': a.kind === 'blog' ? 'BlogPosting' : 'Article',
+        headline: a.title, description: a.metaDescription, datePublished: a.updated, dateModified: a.updated, inLanguage: 'en-GB',
+        mainEntityOfPage: `${BRAND.url}${articlePath(a)}`,
+        ...(a.image?.src ? { image: `${BRAND.url}${a.image.src}` } : {}),
+        author: { '@type': 'Person', name: AUTHOR.name, jobTitle: AUTHOR.role },
+        publisher: { '@id': `${BRAND.url}/#org` },
+      }) }} />
       <Faqs faqs={a.faqs} band />
 
       <section className="section"><div className="in">

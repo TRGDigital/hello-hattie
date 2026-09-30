@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { PostcodeStart } from '@/components/PostcodeStart'
 import { CtaBand, Faqs, Trust } from '@/components/Blocks'
@@ -5,6 +6,7 @@ import { RadiusDemo } from '@/components/RadiusDemo'
 import { Slot } from '@/components/Slot'
 import { DarkFeature, StoryPanel } from '@/components/Feature'
 import { ARTICLES } from '@/content/articles'
+import { SERVICES } from '@/content/services'
 import { ArticleCard } from '@/components/ArticleCard'
 import { AREAS, AREAS_GENERATED, RATINGS, REGIONS, TOTAL_AGENCIES } from '@/lib/areas'
 import { PROMISE } from '@/lib/site'
@@ -33,8 +35,7 @@ export default function Home() {
           <Trust />
         </div>
         <figure className="hero-photo">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/hero-home.jpg" alt="A smiling carer holding hands with an older woman in her living room" width={1800} height={1092} fetchPriority="high" />
+          <Image src="/images/hero-home.jpg" alt="A smiling carer holding hands with an older woman in her living room" width={1800} height={1092} priority sizes="(max-width: 900px) 100vw, 640px" />
           <figcaption className="hattie-note">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/brand/hello-hattie-mark.svg" alt="" />
@@ -55,7 +56,7 @@ export default function Home() {
               <p>Visiting care, live-in care, overnight and dementia care, from agencies near you.</p>
               <span className="go">Get matched, it’s free →</span>
             </div>
-            <Slot className="round" brief="A smiling woman on the phone at home" src="/images/family-phone.jpg" />
+            <Slot className="round" brief="A smiling woman on the phone at home" src="/images/family-phone.jpg" sizes="140px" />
           </Link>
           <Link className="path dark" href="/for-agencies">
             <div>
@@ -64,7 +65,7 @@ export default function Home() {
               <p>Enquiries from families in the postcodes you cover. Pay per enquiry, no contract.</p>
               <span className="go">How it works for agencies →</span>
             </div>
-            <Slot className="round" brief="A care manager on a headset at her desk" src="/images/agency-manager.jpg" />
+            <Slot className="round" brief="A care manager on a headset at her desk" src="/images/agency-manager.jpg" sizes="140px" />
           </Link>
         </div>
       </div></section>
@@ -77,12 +78,12 @@ export default function Home() {
         <div className="care-cards">
           {CARE.map((c) => (
             <Link className="care-card" key={c.slug} href={`/${c.slug}`}>
-              <Slot brief={c.brief} src={c.img} />
+              <Slot brief={c.brief} src={c.img} sizes="(max-width: 700px) 50vw, (max-width: 1100px) 33vw, 260px" />
               <div className="body"><h3>{c.name}</h3><p>{c.line}</p><span className="go">{c.link} →</span></div>
             </Link>
           ))}
         </div>
-        <p><Link href="/types-of-care">See all types of care</Link></p>
+        <ul className="chips">{SERVICES.filter((x) => !CARE.some((c) => c.slug === x.slug)).map((x) => <li key={x.slug}><Link href={`/${x.slug}`}>{x.name}</Link></li>)}<li><Link href="/types-of-care">All types of care →</Link></li></ul>
       </div></section>
 
       <section className="section"><div className="in">

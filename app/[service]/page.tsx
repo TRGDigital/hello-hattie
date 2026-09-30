@@ -9,6 +9,8 @@ import { DarkFeature, StoryPanel } from '@/components/Feature'
 import { HeroMatch } from '@/components/HeroMatch'
 import { MatchLink } from '@/components/MatchLink'
 import { Slot } from '@/components/Slot'
+import { ArticleCard } from '@/components/ArticleCard'
+import { articlesFor } from '@/lib/autolink'
 
 export const dynamicParams = false
 export function generateStaticParams() { return SERVICES.map((s) => ({ service: s.slug })) }
@@ -30,6 +32,7 @@ export default function ServicePage({ params }: { params: { service: string } })
   const img = SERVICE_IMAGES[s.slug]
   const related = s.related.map(serviceBySlug).filter(Boolean)
   const lower = s.name.toLowerCase()
+  const guides = articlesFor(s.name)
   return (
     <>
       <PageHero crumbs={[{ href: '/types-of-care', label: 'Types of care' }, { label: s.name }]} title={s.name} intro={s.intro}
@@ -99,22 +102,30 @@ export default function ServicePage({ params }: { params: { service: string } })
         </div></section>
       )}
 
-      <Faqs faqs={s.faqs} band={!s.areaPages} />
+      {guides.length > 0 && (
+        <section className={s.areaPages ? 'section' : 'section band'}><div className="in">
+          <div className="head-row"><h2>Guides about {lower}</h2><Link href="/guides">All guides</Link></div>
+          <div className="post-grid">{guides.map((g) => <ArticleCard key={g.slug} a={g} />)}</div>
+        </div></section>
+      )}
+
+      <Faqs faqs={s.faqs} band={!!s.areaPages} />
 
       {related.length > 0 && (
-        <section className={s.areaPages ? 'section band' : 'section'}><div className="in">
+        <section className={s.areaPages ? 'section' : 'section band'}><div className="in">
           <div className="head-row"><h2>Other types of care</h2><Link href="/types-of-care">See all types of care</Link></div>
           <div className="care-cards three">
             {related.map((r) => {
               const ri = SERVICE_IMAGES[r!.slug]
               return (
                 <Link className="care-card" key={r!.slug} href={`/${r!.slug}`}>
-                  <Slot brief={ri.main.brief} src={ri.main.src} />
+                  <Slot brief={ri.main.brief} src={ri.main.src} sizes="(max-width: 800px) 100vw, 420px" />
                   <div className="body"><h3>{r!.name}</h3><p>{r!.short}</p><span className="go">Find out more →</span></div>
                 </Link>
               )
             })}
           </div>
+          <ul className="chips">{SERVICES.filter((x) => x.slug !== s.slug).map((x) => <li key={x.slug}><Link href={`/${x.slug}`}>{x.name}</Link></li>)}</ul>
         </div></section>
       )}
       <CtaBand service={quizService(s.slug)} title={`Find ${lower} near you`} />

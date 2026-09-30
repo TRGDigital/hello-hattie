@@ -13,7 +13,14 @@ export function Crumbs({ items }: { items: { href?: string; label: string }[] })
     <nav aria-label="Breadcrumb"><ol className="crumbs">
       <li><Link href="/">Home</Link></li>
       {items.map((c) => <li key={c.label}>{c.href ? <Link href={c.href}>{c.label}</Link> : <span aria-current="page">{c.label}</span>}</li>)}
-    </ol></nav>
+    </ol>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+      itemListElement: [{ label: 'Home', href: '/' }, ...items].map((c, i) => ({
+        '@type': 'ListItem', position: i + 1, name: c.label, ...(c.href ? { item: `${BRAND.url}${c.href}` } : {}),
+      })),
+    }) }} />
+    </nav>
   )
 }
 

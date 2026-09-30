@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import { AgencyForm } from '@/components/AgencyForm'
 import { Crumbs, Faqs } from '@/components/Blocks'
@@ -48,8 +49,7 @@ export default function ForAgencies() {
             <ul className="trust-chips"><li>Exclusive enquiries</li><li>Pay per enquiry</li><li>No contract</li><li>A monthly cap you set</li></ul>
           </div>
           <div className="agency-visual">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/agency-desk.jpg" alt="A care manager smiling on a headset at her desk" width={1000} height={750} />
+            <Image src="/images/agency-desk.jpg" alt="A care manager smiling on a headset at her desk" width={1000} height={750} priority sizes="(max-width: 900px) 100vw, 640px" />
             <EnquiryMock />
           </div>
         </div>

@@ -311,9 +311,11 @@ th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--li
 .path .slot span { display: none; }
 
 /* Photos in slots */
-.slot.pic { display: block; width: 100%; height: auto; object-fit: cover; background: var(--alt); }
+.slot.pic { display: block; position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: var(--alt); }
+.slot.pic img { object-fit: cover; }
 .care-card .slot.pic { aspect-ratio: 4 / 3; }
 .path .slot.pic { aspect-ratio: 1 / 1; border-radius: 50%; }
+.story-pic .slot.pic, .svc-photo .slot.pic, .post-hero.pic, .care-card .slot.pic { isolation: isolate; }
 .slot.big.wide { aspect-ratio: 2 / 1; }
 
 /* Story panel: image in a tinted panel, story beside it */

@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { ARTICLES } from '@/content/articles'
+import { articlePath, articlesFor } from '@/lib/autolink'
 import { notFound } from 'next/navigation'
 import { SERVICES, serviceBySlug } from '@/content/services'
 import { AREAS, AREAS_GENERATED, areaBySlugs, regionBySlug } from '@/lib/areas'
@@ -33,7 +35,15 @@ export default function AreaPage({ params }: { params: { service: string; region
   const rInspected = r.areas.reduce((n, x) => n + x.total - x.notRated, 0)
   const rGood = r.areas.reduce((n, x) => n + x.good + x.outstanding, 0)
   const rank = [...r.areas].sort((x, y) => y.total - x.total).findIndex((x) => x.slug === a.slug) + 1
-  const nearby = r.areas.filter((x) => x.slug !== a.slug).sort((x, y) => y.total - x.total).slice(0, 8)
+  // The four areas either side in the region's A to Z list (wrapping round), so every area gets the
+  // same number of links from its neighbours instead of the biggest areas collecting them all.
+  // Three guides, rotating through the most relevant ones so each gets links from many area pages.
+  const pool = [...articlesFor(s.name, 6), ...ARTICLES].filter((x, i, all) => all.indexOf(x) === i)
+  const guides = [0, 1, 2].map((k) => pool[(AREAS.findIndex((x) => x.slug === a.slug) * 3 + k) % pool.length])
+  const ring = [...r.areas].sort((x, y) => x.name.localeCompare(y.name))
+  const at = ring.findIndex((x) => x.slug === a.slug)
+  const nearby = ring.length <= 9 ? ring.filter((x) => x.slug !== a.slug)
+    : [-4, -3, -2, -1, 1, 2, 3, 4].map((d) => ring[(at + d + ring.length) % ring.length])
   const others = SERVICES.filter((x) => x.areaPages && x.slug !== s.slug)
   const c = FIGURES.capitalLimits
   const faqs = [
@@ -84,6 +94,8 @@ export default function AreaPage({ params }: { params: { service: string; region
         <ul className="chips">{nearby.map((x) => <li key={x.slug}><Link href={`/${s.slug}/${x.regionSlug}/${x.slug}`}>{s.name} in {x.name}</Link></li>)}</ul>
         <h2 style={{ marginTop: 12 }}>Other care in {a.name}</h2>
         <ul className="chips">{others.map((x) => <li key={x.slug}><Link href={`/${x.slug}/${a.regionSlug}/${a.slug}`}>{x.name} in {a.name}</Link></li>)}</ul>
+        <h2 style={{ marginTop: 12 }}>Helpful guides</h2>
+        <ul className="chips">{guides.map((g) => <li key={g.slug}><Link href={articlePath(g)}>{g.title}</Link></li>)}</ul>
       </div></section>
 
       <CtaBand service={quizService(s.slug)} title={`Find ${svc} in ${a.name}`} />

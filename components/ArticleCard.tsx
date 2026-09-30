@@ -11,7 +11,7 @@ export const fmtDate = (d: string) => new Date(d).toLocaleDateString('en-GB', { 
 export function ArticleCard({ a, wide = false }: { a: Article; wide?: boolean }) {
   return (
     <Link className={`post-card${wide ? ' wide' : ''}`} href={articlePath(a)}>
-      <Slot brief={a.image?.brief ?? a.title} src={a.image?.src} />
+      <Slot brief={a.image?.brief ?? a.title} src={a.image?.src} sizes={wide ? '(max-width: 800px) 100vw, 700px' : '(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 420px'} />
       <div className="body">
         <p className="post-meta"><span className="chip">{categoryOf(a)}</span><span>{readMins(a)} min read</span></p>
         <h3>{a.title}</h3>

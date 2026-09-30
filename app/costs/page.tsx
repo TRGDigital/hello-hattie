@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ARTICLES } from '@/content/articles'
@@ -46,8 +47,7 @@ export default function Costs() {
             <p className="btn-row"><Link className="btn" href="/tools/care-cost-calculator">Work out a cost</Link><Link className="btn ghost" href="/tools/funding-checker">Check funding help</Link></p>
           </div>
           <figure className="hero-photo">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/why-kitchen.jpg" alt="A family and their carer chatting over tea around the kitchen table" width={1400} height={702} />
+            <Image src="/images/why-kitchen.jpg" alt="A family and their carer chatting over tea around the kitchen table" width={1400} height={702} priority sizes="(max-width: 900px) 100vw, 640px" />
             <figcaption className="hattie-note">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/brand/hello-hattie-mark.svg" alt="" />
