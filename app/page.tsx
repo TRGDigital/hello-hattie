@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PostcodeStart } from '@/components/PostcodeStart'
@@ -19,6 +20,12 @@ const CARE = [
   { slug: 'dementia-care-at-home', name: 'Dementia care at home', line: 'Familiar faces, familiar routines, at home.', link: 'Dementia care at home', brief: 'A carer and an older woman looking through a photo album together', img: '/images/care-dementia.jpg' },
   { slug: 'respite-care-at-home', name: 'Respite care', line: 'Cover at home so a family carer can rest.', link: 'Respite care at home', brief: 'A daughter relaxing with a cup of tea while her father chats with his carer', img: '/images/care-respite.jpg' },
 ]
+
+export const metadata: Metadata = {
+  title: { absolute: 'Hello Hattie: find trusted home care near you, free' },
+  description: 'Tell us where care at home is needed and we’ll match you with a CQC-registered home care agency near you. Visiting, live-in, overnight and dementia care. Free for families.',
+  alternates: { canonical: '/' },
+}
 
 export default function Home() {
   const guides = ARTICLES.filter((a) => a.kind === 'guide').slice(0, 2)
