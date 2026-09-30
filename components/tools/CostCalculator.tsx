@@ -41,7 +41,7 @@ export default function CostCalculator() {
           aria-describedby="cc-rate-hint"
         />
         <p id="cc-rate-hint" className="hint">
-          {gbp(FIGURES.hcaMinimumHourly.value)} is the Homecare Association minimum price for 2025 to 2026. Private agency prices are usually higher, so enter a quote if you have one.
+          {gbp(FIGURES.hcaMinimumHourly.value)} is the Homecare Association minimum price for {FIGURES.hcaMinimumHourly.short}. Private agency prices are usually higher, so enter a quote if you have one.
         </p>
       </div>
 

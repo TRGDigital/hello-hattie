@@ -53,7 +53,7 @@ export default function ThankYou() {
             <p><Link className="btn ghost" href="/blog/questions-to-ask-a-home-care-agency">Read the full article</Link></p>
           </div>
           <div className="thanks-side">
-          <a className="guide-dl" href="/downloads/hello-hattie-home-care-call-guide.pdf" download>
+          <a className="guide-dl" href="/downloads/hello-hattie-home-care-call-guide-2026.pdf" download>
             <Image src="/downloads/call-guide-cover.jpg" alt="Cover of the Hello Hattie home care call guide" width={420} height={594} sizes="140px" />
             <span className="guide-dl-copy">
               <span className="eyebrow">Free download</span>

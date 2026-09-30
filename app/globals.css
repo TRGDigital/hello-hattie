@@ -534,7 +534,15 @@ th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--li
 .post-layout .post-col { max-width: none; margin: 0; }
 .post-layout h1 { font-size: clamp(2.1rem, 4vw, 3rem); line-height: 1.08; text-wrap: balance; }
 .post-side { display: grid; gap: 16px; }
-@media (min-width: 1001px) and (min-height: 790px) { .post-side { position: sticky; top: calc(88px + env(safe-area-inset-top, 0px)); } }
+@media (min-width: 1001px) and (min-height: 600px) { .post-side { position: sticky; top: calc(88px + env(safe-area-inset-top, 0px)); } }
+/* Shorter laptop screens: a compact sidebar so it still fits and stays in view */
+@media (min-width: 1001px) and (max-height: 860px) {
+  .post-side { gap: 12px; }
+  .post-side .side-card { padding: 14px 16px; gap: 6px; }
+  .post-side .side-card.search > p, .post-side .side-trust, .post-side .side-tools small, .post-side .pc label { display: none; }
+  .post-side .side-card h3 { font-size: 1.12rem; }
+  .post-side .side-tools a { padding: 6px 8px; }
+}
 @media (max-width: 1000px) { .post-layout { grid-template-columns: 1fr; } .post-side { position: static; max-width: 800px; } }
 .side-card.search { background: linear-gradient(160deg, color-mix(in srgb, var(--hi) 30%, var(--card)), var(--alt)); border-color: color-mix(in srgb, var(--hi) 45%, var(--line)); }
 .side-card.search h3 { display: flex; gap: 10px; align-items: center; }
@@ -733,3 +741,20 @@ body:has(.go-page) .site-head .head-cta { margin-left: auto; }
 .verify-grid .vm .vm-bad { color: var(--danger); }
 .verify-grid .vm .vm-hint { color: var(--soft); }
 .verify-grid .vm .vm-stamp { color: #fff; font-size: .72rem; }
+/* FAQs sit centred on every page */
+.faq-sec .in { justify-items: center; }
+.faq-sec h2 { text-align: center; text-wrap: balance; }
+.faq-sec .faq { width: 100%; max-width: 860px; margin-inline: auto; }
+
+/* Region and area pages */
+.region-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
+@media (max-width: 900px) { .region-intro { grid-template-columns: 1fr; } }
+.area-cards { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.area-cards a { display: grid; gap: 4px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px; text-decoration: none; color: var(--ink); height: 100%; }
+.area-cards a:hover { border-color: var(--btn); }
+.area-cards b { font-family: var(--display); font-size: 1.15rem; font-weight: 600; }
+.area-cards span { font-size: .88rem; color: var(--soft); }
+.area-cards .go { color: var(--btn); font-weight: 700; margin-top: 4px; }
+@media (max-width: 1000px) { .area-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .area-cards { grid-template-columns: 1fr; } }
+.region-stats .card { gap: 14px; }

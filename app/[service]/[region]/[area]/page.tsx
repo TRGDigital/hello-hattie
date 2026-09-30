@@ -8,6 +8,11 @@ import { AREAS, AREAS_GENERATED, areaBySlugs, regionBySlug } from '@/lib/areas'
 import { FIGURES, gbp } from '@/lib/figures'
 import { CtaBand, Faqs, PageHero, Trust } from '@/components/Blocks'
 import { HeroMatch } from '@/components/HeroMatch'
+import { Legwork } from '@/components/Legwork'
+import { MatchLink } from '@/components/MatchLink'
+import { Slot } from '@/components/Slot'
+import { StoryPanel } from '@/components/Feature'
+import { SERVICE_IMAGES } from '@/content/service-images'
 import { quizService } from '../../page'
 
 export const dynamicParams = false
@@ -42,6 +47,7 @@ export default function AreaPage({ params }: { params: { service: string; region
   const guides = [0, 1, 2].map((k) => pool[(AREAS.findIndex((x) => x.slug === a.slug) * 3 + k) % pool.length])
   const ring = [...r.areas].sort((x, y) => x.name.localeCompare(y.name))
   const at = ring.findIndex((x) => x.slug === a.slug)
+  const img = SERVICE_IMAGES[s.slug]
   const nearby = ring.length <= 9 ? ring.filter((x) => x.slug !== a.slug)
     : [-4, -3, -2, -1, 1, 2, 3, 4].map((d) => ring[(at + d + ring.length) % ring.length])
   const others = SERVICES.filter((x) => x.areaPages && x.slug !== s.slug)
@@ -67,22 +73,53 @@ export default function AreaPage({ params }: { params: { service: string; region
           <div className="stat"><b>{goodPlus}</b><span>rated Good or Outstanding, {pct(goodPlus, inspected)}% of those inspected</span></div>
           <div className="stat"><b>{a.notRated}</b><span>newer agencies not yet rated by the CQC</span></div>
         </div>
-        <p className="small muted">From the CQC register, {AREAS_GENERATED}. {a.name} has the {rank === 1 ? 'most' : `${rank}${['th', 'st', 'nd', 'rd'][rank % 10 > 3 || [11, 12, 13].includes(rank % 100) ? 0 : rank % 10]} most`} home care agencies of the {r.areas.length} council areas in {r.name}, where {pct(rGood, rInspected)}% of inspected agencies are rated Good or Outstanding.</p>
+        <p className="small muted">From the CQC register, {new Date(AREAS_GENERATED).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}. {a.name} has the {rank === 1 ? 'most' : `${rank}${['th', 'st', 'nd', 'rd'][rank % 10 > 3 || [11, 12, 13].includes(rank % 100) ? 0 : rank % 10]} most`} home care agencies of the {r.areas.length} council areas in {r.name}, where {pct(rGood, rInspected)}% of inspected agencies are rated Good or Outstanding.</p>
+      </div></section>
+
+      <section className="section band"><div className="in">
+        <div className="region-intro">
+          <div className="prose">
+            <p className="eyebrow">{s.name} in {a.name}</p>
+            <h2>Arranging {svc} in {a.name}</h2>
+            <p>{s.whatItIs[0]}</p>
+            <p>When you use our free matching, we look for an agency registered with the Care Quality Commission that covers your postcode in {a.name}, offers {svc} and has told us it can take on new clients. That agency, and only that agency, calls you to talk it through, usually before arranging an assessment.</p>
+            <p><Link href={`/${s.slug}`}>Read more about {svc}</Link></p>
+          </div>
+          <figure className="svc-photo">
+            <Slot brief={img.main.brief} src={img.main.src} sizes="(max-width: 900px) 100vw, 560px" />
+            <figcaption className="hattie-note">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/brand/hello-hattie-mark.svg" alt="" />
+              <div><p>“Tell me your postcode in {a.name} and I’ll find an agency that covers your street.”</p><small>{a.total} agencies registered in {a.name}</small></div>
+            </figcaption>
+          </figure>
+        </div>
+      </div></section>
+
+      <Legwork place={a.name} />
+
+      <section className="section"><div className="in">
+        <StoryPanel eyebrow={`Is ${svc} right for you?`} title={`${s.name} can suit you if`} image={img.side} ticks={s.suits}
+          cta={<p><MatchLink>Find {svc} in {a.name}</MatchLink></p>} />
       </div></section>
 
       <section className="section band"><div className="in">
         <div className="grid-2">
-          <div className="prose">
-            <h2>Arranging {svc} in {a.name}</h2>
-            <p>{s.whatItIs[0]}</p>
-            <p>When you use our free matching, we look for agencies registered with the Care Quality Commission that cover your postcode in {a.name} and offer {svc}. The agency we match you with will call you to talk it through, usually after arranging an assessment.</p>
-            <p>Before you choose, you can read each agency’s latest inspection report on the CQC website. Our guide to <Link href="/guides/choosing-a-home-care-agency">choosing a home care agency</Link> lists the questions worth asking.</p>
-          </div>
           <div className="panel hi">
             <h2>Help with paying in {a.name}</h2>
             <p>The council for {a.name} can assess care needs for anyone who asks, and then look at finances. In England, if savings are over {gbp(c.upper, 0)} you will usually pay for your own care; below {gbp(c.lower, 0)} the council may meet more of the cost, subject to income.</p>
             <p>{FIGURES.homeNotCounted.text}</p>
             <p><Link href="/tools/funding-checker">Check what help you might get</Link></p>
+          </div>
+          <div className="panel line">
+            <h2>Before you agree to care</h2>
+            <ul className="checklist">
+              <li>Read the agency’s latest CQC report and check the date</li>
+              <li>Ask for every rate in writing, including weekends</li>
+              <li>Ask who the carers will be and how they’re introduced</li>
+              <li>Check the notice period in the contract</li>
+            </ul>
+            <p><Link href="/blog/questions-to-ask-a-home-care-agency">Questions to ask an agency</Link> · <Link href="/downloads/hello-hattie-home-care-call-guide-2026.pdf">Free call guide (PDF)</Link></p>
           </div>
         </div>
       </div></section>

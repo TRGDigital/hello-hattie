@@ -28,7 +28,7 @@ export default function CostCalculatorPage() {
       sources={[FIGURES.hcaMinimumHourly]}
       faqs={[
         { q: 'Why do short visits cost more per hour?', a: 'Carers still need to travel between homes, and that time has to be paid. Many agencies charge a higher hourly rate for visits of 30 or 45 minutes to cover this.' },
-        { q: `Why does the calculator start at ${hca} an hour?`, a: 'This is the Homecare Association minimum price for 2025 to 2026. It is the least an agency needs to charge to pay carers properly and run safely. Private prices are usually higher.' },
+        { q: `Why does the calculator start at ${hca} an hour?`, a: `This is the Homecare Association minimum price for ${FIGURES.hcaMinimumHourly.short}. It is the least an agency needs to charge to pay carers properly and run safely. Private prices are usually higher.` },
         { q: 'Can I use this for live-in care?', a: 'No. Live-in care is usually priced by the week rather than by the hour. Our live-in care cost page explains how it is charged.' },
         { q: 'Will I get an exact price?', a: 'Not from this tool. An agency will visit or call to assess what is needed, then give you a quote.' },
       ]}

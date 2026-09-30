@@ -1,15 +1,16 @@
 import type { Article, Img } from './types'
 import { POSTS } from './posts'
+import { EXPANDED } from './expanded'
 
 const UPDATED = '2026-09-30'
 
 const HCA_SOURCE = {
-  label: 'Homecare Association Minimum Price for Homecare, England, April 2025 to March 2026',
-  url: 'https://www.homecareassociation.org.uk/static/3a39caec-73af-428f-a261647e5a309c2f/Homecare-Association-Minimum-Price-for-Homecare-England-2025-2026.pdf',
+  label: 'Homecare Association Minimum Price for Homecare, England, April 2026 to March 2027',
+  url: 'https://www.homecareassociation.org.uk/about-us/research-and-reports.html',
 }
 const CAPITAL_SOURCE = {
-  label: 'GOV.UK, Social care charging for care and support 2025 to 2026',
-  url: 'https://www.gov.uk/government/publications/social-care-charging-for-local-authorities-2025-to-2026/social-care-charging-for-care-and-support-2025-to-2026-local-authority-circular',
+  label: 'GOV.UK, Social care charging for care and support 2026 to 2027',
+  url: 'https://www.gov.uk/government/publications/social-care-charging-for-local-authorities-2026-to-2027/social-care-charging-for-care-and-support-2026-to-2027-local-authority-circular',
 }
 const HOME_SOURCE = {
   label: 'Age UK, Financial assessment for care',
@@ -31,7 +32,7 @@ const BASE: Article[] = [
     title: 'How much does home care cost per hour?',
     metaTitle: 'Home care cost per hour: what affects the price',
     metaDescription:
-      'What changes the hourly price of home care, what the £32.14 Homecare Association minimum means, and how to compare quotes from agencies.',
+      'What changes the hourly price of home care, what the £34.42 Homecare Association minimum means, and how to compare quotes from agencies.',
     summary:
       'Home care is usually charged by the hour, but the price depends on where you live, when visits happen and how long they last. Here is what shapes the cost and how to compare quotes fairly.',
     updated: UPDATED,
@@ -633,7 +634,7 @@ const META: Record<string, { category: string; image: Img }> = {
   'signs-a-parent-needs-help-at-home': { category: 'Family life', image: { src: '/images/guide-signs.jpg', brief: 'A daughter and her mum talking at the kitchen table over tea' } },
 }
 
-export const ARTICLES: Article[] = [...BASE.map((a) => ({ ...META[a.slug], ...a })), ...POSTS]
+export const ARTICLES: Article[] = [...BASE.map((a) => ({ ...META[a.slug], ...a })), ...POSTS].map((a) => ({ ...a, ...EXPANDED[a.slug] }))
 
 export const articleBySlug = (kind: Article['kind'], s: string) =>
   ARTICLES.find((a) => a.kind === kind && a.slug === s)

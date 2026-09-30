@@ -12,7 +12,7 @@ export const metadata: Metadata = { title: 'Care at home costs', description: 'W
 
 const F = FIGURES
 const FACTS = [
-  { value: gbp(F.hcaMinimumHourly.value), unit: 'an hour', label: 'The Homecare Association minimum price for home care in England, 2025 to 2026. Private prices are usually higher.', src: F.hcaMinimumHourly },
+  { value: gbp(F.hcaMinimumHourly.value), unit: 'an hour', label: `The Homecare Association minimum price for home care in England, ${F.hcaMinimumHourly.short}.`.slice(0, -1) + '. Private prices are usually higher.', src: F.hcaMinimumHourly },
   { value: gbp(F.capitalLimits.upper, 0), unit: 'upper limit', label: 'Over this in savings, you will usually pay the full cost of care yourself.', src: F.capitalLimits },
   { value: gbp(F.capitalLimits.lower, 0), unit: 'lower limit', label: 'Under this, the council may meet more of the cost, depending on income.', src: F.capitalLimits },
   { value: gbp(F.attendanceAllowance.higher), unit: 'a week', label: `Attendance Allowance at the higher rate (${gbp(F.attendanceAllowance.lower)} at the lower rate). Not means tested.`, src: F.attendanceAllowance },
