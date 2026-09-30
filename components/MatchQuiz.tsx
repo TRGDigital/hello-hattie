@@ -44,12 +44,12 @@ function Choice({ name, value, current, onPick, children }: { name: string; valu
  *  `service` and `place` come from the page instead. */
 /** /get-matched: takes the postcode and service from the address (?postcode=&service=). */
 export function MatchQuizFromUrl() {
+  const params = useSearchParams()
   return <MatchQuiz service={params.get('service') ?? undefined} postcode={params.get('postcode') ?? undefined} />
 }
 
 export function MatchQuiz({ service, place, postcode, embedded = false }: { service?: string; place?: string; postcode?: string; embedded?: boolean }) {
   const router = useRouter()
-  const params = useSearchParams()
   const idem = useRef(typeof crypto !== 'undefined' && 'randomUUID' in crypto ? crypto.randomUUID() : String(Date.now()))
   const wanted = service ?? ''
   const startService = SERVICES.includes(wanted) ? wanted : ''
