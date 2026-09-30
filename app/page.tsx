@@ -3,9 +3,10 @@ import { PostcodeStart } from '@/components/PostcodeStart'
 import { CtaBand, Faqs, Trust } from '@/components/Blocks'
 import { RadiusDemo } from '@/components/RadiusDemo'
 import { Slot } from '@/components/Slot'
+import { DarkFeature, StoryPanel } from '@/components/Feature'
 import { ARTICLES } from '@/content/articles'
 import { AREAS, AREAS_GENERATED, RATINGS, REGIONS, TOTAL_AGENCIES } from '@/lib/areas'
-import { HONEST, PROMISE } from '@/lib/site'
+import { PROMISE } from '@/lib/site'
 
 // The five types of care shown with thumbnails. Each links to its own page.
 const CARE = [
@@ -140,19 +141,25 @@ export default function Home() {
         </div>
       </div></section>
 
-      <section className="section"><div className="in">
-        <div className="grid-2">
-          <div className="panel hi">
-            <h2>What does care at home cost?</h2>
-            <p>Prices depend on where you live, the hours and the type of care. Our cost guides explain what affects the price, and our calculator helps you estimate a weekly budget.</p>
-            <p><Link href="/costs">See care costs</Link> · <Link href="/tools/care-cost-calculator">Use the calculator</Link></p>
-          </div>
-          <div className="panel line">
-            <h2>How we’re paid</h2>
-            <p>{HONEST}</p>
-            <p><Link href="/how-it-works">How matching works</Link></p>
-          </div>
-        </div>
+      <section className="section"><div className="in" style={{ display: 'grid', gap: 'clamp(40px, 6vw, 72px)' }}>
+        <StoryPanel eyebrow="Who is Hattie?" title="A friendly name for a free matching service"
+          image={{ src: '/images/hattie-phone.jpg', brief: 'A woman smiling on the phone at home, arranging care for her mum' }}
+          ticks={[
+            'Run by TRG Digital, a UK company that has worked with care providers for many years',
+            'Built by people who have worked in UK care homes and nursing homes',
+            'We only introduce you to CQC-registered agencies that cover your postcode',
+            'Free for families. Agencies pay us, and we’re open about that',
+          ]}
+          cta={{ href: '/about', label: 'About Hello Hattie' }}>
+          <p>Hattie isn’t a care agency, and she isn’t one person. She’s the name we gave our matching service, because finding care should feel like talking to someone who knows the way. We started it after seeing how hard it is for families to find a good agency in a hurry, and how often good local agencies are hard to find.</p>
+        </StoryPanel>
+
+        <DarkFeature eyebrow="For care agencies" title="Enquiries from families in the postcodes you cover"
+          pills={['Pay per enquiry', 'A monthly cap you set', 'Your postcodes only', 'No contract', 'Bad details credited']}
+          cta={{ href: '/for-agencies', label: 'How it works for agencies' }}
+          image={{ src: '/images/agency-desk.jpg', brief: 'A care manager smiling on a headset at her desk' }}>
+          <p>Tell us the postcode districts you cover and the care you offer. When a family nearby is looking, their enquiry comes straight to you by email and text, with the type of care, hours, start date and funding, so you can call them back quickly.</p>
+        </DarkFeature>
       </div></section>
 
       <section className="section band"><div className="in">
