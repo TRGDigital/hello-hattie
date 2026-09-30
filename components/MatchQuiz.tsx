@@ -256,6 +256,7 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
             <select id="q-addr" value={a.uprn || a.address} onChange={(e) => {
               const x = addrs.list.find((l) => (l.uprn ?? l.line) === e.target.value)
               set('address', x ? `${x.line}, ${x.town}, ${x.postcode}` : ''); set('uprn', x?.uprn ?? '')
+              setErr('')
             }}>
               <option value="">Choose the address ({addrs.list.length} found)</option>
               {addrs.list.map((l) => <option key={l.uprn ?? l.line} value={l.uprn ?? l.line}>{l.line}</option>)}
@@ -264,7 +265,7 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
           {manual && (
             <>
               {addrs?.status === 'not_found' && <p className="small muted">We couldn’t find that postcode in the address list. Please type the address.</p>}
-              <div className="field"><label htmlFor="q-line">House number and street</label><input id="q-line" type="text" autoComplete="address-line1" value={manualLine} onChange={(e) => setManualLine(e.target.value)} /></div>
+              <div className="field"><label htmlFor="q-line">House number and street</label><input id="q-line" type="text" autoComplete="address-line1" value={manualLine} onChange={(e) => { setManualLine(e.target.value); setErr('') }} /></div>
               <div className="field"><label htmlFor="q-town">Town or city</label><input id="q-town" type="text" autoComplete="address-level2" value={manualTown} onChange={(e) => setManualTown(e.target.value)} /></div>
             </>
           )}
@@ -312,7 +313,7 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
       {err && <p className="error" role="alert">{err}</p>}
       <div className="quiz-nav">
         {i > 0 ? <button type="button" className="btn ghost" onClick={() => { setErr(''); if (codeStage) { setCodeStage(false); return } setI((n) => n - 1) }}>Back</button> : <span />}
-        <button type="submit" className="btn" disabled={busy}>{step === 'contact' ? (busy ? 'Checking…' : codeStage ? 'Confirm and send' : 'Find my match') : 'Next'}</button>
+        <button type="submit" className="btn" disabled={busy || (step === 'address' && !manual && addrs?.status === 'loading')}>{step === 'contact' ? (busy ? 'Checking…' : codeStage ? 'Confirm and send' : 'Find my match') : 'Next'}</button>
       </div>
     </form>
   )
