@@ -21,7 +21,7 @@ function EnquiryMock() {
           <div><dt>Funding</dt><dd>Privately</dd></div>
           <div><dt>Best time</dt><dd>Mornings</dd></div>
         </dl>
-        <div className="mock-rec alt"><small>Consent</small><b>Agreed to be contacted by local agencies</b></div>
+        <div className="mock-rec alt"><small>Consent</small><b>Agreed to be contacted by a local agency</b></div>
       </div>
     </div>
   )
@@ -30,7 +30,7 @@ function EnquiryMock() {
 const STEPS = [
   { n: '01', t: 'Tell us your patch', d: 'Choose the postcode districts you cover and the types of care you offer: visiting, live-in, overnight and more.' },
   { n: '02', t: 'Families tell us what’s needed', d: 'Families answer a few short questions about the care, the hours, how soon and how it will be paid for.' },
-  { n: '03', t: 'The enquiry comes to you', d: 'Matching enquiries arrive by email and text as soon as a family finishes, so you can call while they’re ready to talk.' },
+  { n: '03', t: 'The enquiry comes to you alone', d: 'Each enquiry goes to one agency only. It arrives by email and text as soon as a family finishes, so you can call while they’re ready to talk.' },
   { n: '04', t: 'You call, assess and quote', d: 'Talk it through, arrange your assessment and give your quote. The family agrees the care directly with you.' },
 ]
 
@@ -43,9 +43,9 @@ export default function ForAgencies() {
             <Crumbs items={[{ label: 'For care agencies' }]} />
             <p className="eyebrow">For CQC-registered care agencies</p>
             <h1>Enquiries from local families, in the postcodes you cover</h1>
-            <p className="lede">Families come to Hello Hattie when they need care at home. When one is looking in your area for the care you offer, their enquiry comes straight to you.</p>
+            <p className="lede">Families come to Hello Hattie when they need care at home. When one is looking in your area for the care you offer, their enquiry comes straight to you, and only to you. Every enquiry is exclusive.</p>
             <p className="btn-row"><a className="btn" href="#join">Ask about joining</a><a className="btn ghost" href="#how">How it works</a></p>
-            <ul className="trust-chips"><li>Pay per enquiry</li><li>No contract</li><li>A monthly cap you set</li></ul>
+            <ul className="trust-chips"><li>Exclusive enquiries</li><li>Pay per enquiry</li><li>No contract</li><li>A monthly cap you set</li></ul>
           </div>
           <div className="agency-visual">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -73,6 +73,7 @@ export default function ForAgencies() {
             'How the care will be paid for: privately, by the council, by the NHS or not sure yet',
             'Only postcodes inside the area you told us you cover',
             'Contact details checked for format, with the family’s agreement to be contacted',
+            'Exclusive to you, never sent to another agency',
           ]}>
           <p>Every enquiry comes from a family who has told us what they need and agreed to hear from local agencies. We never ask families about medical conditions, so you have the conversation that matters on the first call.</p>
         </StoryPanel>
@@ -91,9 +92,9 @@ export default function ForAgencies() {
 
       <section className="section"><div className="in">
         <DarkFeature eyebrow="Simple, fair terms" title="Pay for the enquiries you receive, nothing else"
-          pills={['Pay per enquiry', 'A monthly cap you set', 'No contract', 'Bad details credited']}
+          pills={['Exclusive to you', 'Pay per enquiry', 'A monthly cap you set', 'No contract', 'Bad details credited']}
           image={{ src: '/images/hattie-phone.jpg', brief: 'A woman smiling on the phone at home, arranging care for her mum' }}>
-          <p>You pay per enquiry you receive, and set a monthly cap so you never spend more than you planned. If an enquiry has bad details, such as a wrong number, you can return it for a credit.</p>
+          <p>Every enquiry is exclusive: we never sell the same family to another agency, so you’re not racing competitors to the phone. You pay per enquiry you receive, and set a monthly cap so you never spend more than you planned. If an enquiry has bad details, such as a wrong number, you can return it for a credit.</p>
           <p>We’ll talk you through pricing for your area when you get in touch.</p>
         </DarkFeature>
       </div></section>
@@ -117,6 +118,7 @@ export default function ForAgencies() {
       <Faqs title="Questions agencies ask" faqs={[
         { q: 'How do families find Hello Hattie?', a: 'Through our website, search engines and online advertising. Families use our guides and free tools, then ask to be matched with agencies near them.' },
         { q: 'Do families know an agency will contact them?', a: 'Yes. On the last step, every family agrees to their details being passed to CQC-registered agencies that cover their area, so they can be contacted about care.' },
+        { q: 'Are enquiries shared with other agencies?', a: 'No. Every enquiry is exclusive. Each family’s enquiry is sent to one agency only, and never sold again.' },
         { q: 'How much does an enquiry cost?', a: 'It depends on your area and the types of care you offer. Get in touch and we’ll talk you through it. You always set a monthly cap.' },
         { q: 'What counts as bad details?', a: 'Contact details that are wrong or unreachable, such as a wrong phone number. You can return those for a credit.' },
         { q: 'Is there a contract?', a: 'No. You pay per enquiry you receive, with a monthly cap you set.' },

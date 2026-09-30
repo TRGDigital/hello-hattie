@@ -16,7 +16,7 @@ export function PostSidebar() {
     <aside className="post-side" aria-label="Find care and free tools">
       <div className="side-card search">
         <h3><img src="/brand/hello-hattie-mark.svg" alt="" width={32} height={32} />Ready to start your search?</h3>
-        <p>Tell us where care is needed and we’ll put you in touch with CQC-registered agencies near you.</p>
+        <p>Tell us where care is needed and we’ll match you with a CQC-registered agency near you.</p>
         <PostcodeStart label="Postcode where care is needed" />
         <ul className="side-trust">{TRUST.slice(0, 3).map((t) => <li key={t}>{t}</li>)}</ul>
       </div>

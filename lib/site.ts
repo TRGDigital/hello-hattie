@@ -19,6 +19,6 @@ export const NAV = [
 ]
 
 // The family-facing promise, used in several places so it never drifts.
-export const PROMISE = 'Tell us what’s needed and we’ll put you in touch with CQC-registered care agencies near you. Free for families, with no obligation.'
+export const PROMISE = 'Tell us what’s needed and we’ll match you with a CQC-registered care agency near you. Free for families, with no obligation.'
 export const TRUST = ['Only CQC-registered agencies', 'Free for families', 'No obligation', 'Takes about 2 minutes']
 export const HONEST = 'We’re a free matching service, not a care provider. Care agencies pay us when we introduce them to a family, so you never pay us anything.'

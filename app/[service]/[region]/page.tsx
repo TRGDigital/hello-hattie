@@ -25,7 +25,7 @@ export default function RegionPage({ params }: { params: { service: string; regi
     <>
       <PageHero crumbs={[{ href: '/types-of-care', label: 'Types of care' }, { href: `/${s.slug}`, label: s.name }, { label: r.name }]}
         title={`${s.name} in ${r.name}`}
-        intro={`There are ${r.total.toLocaleString('en-GB')} CQC-registered home care agencies across ${r.areas.length} council areas in ${r.name}. Tell us what’s needed and we’ll match you with registered agencies that cover your postcode.`}
+        intro={`There are ${r.total.toLocaleString('en-GB')} CQC-registered home care agencies across ${r.areas.length} council areas in ${r.name}. Tell us what’s needed and we’ll match you with a registered agency that covers your postcode.`}
         aside={<HeroMatch title={`Find ${s.name.toLowerCase()} in ${r.name}`} service={quizService(s.slug)} place={r.name} />}>
         <Trust />
       </PageHero>

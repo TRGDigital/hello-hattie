@@ -47,7 +47,7 @@ export function Faqs({ faqs, title = 'Questions families ask', band = false }: {
   )
 }
 
-export function CtaBand({ title = 'Find care at home near you', text = 'Answer a few simple questions and we’ll put you in touch with CQC-registered agencies that cover your area.', service }: { title?: string; text?: string; service?: string }) {
+export function CtaBand({ title = 'Find care at home near you', text = 'Answer a few simple questions and we’ll match you with a CQC-registered agency that covers your area.', service }: { title?: string; text?: string; service?: string }) {
   return (
     <section className="cta-band"><div className="in">
       <div style={{ display: 'grid', gap: 8 }}><h2>{title}</h2><p>{text}</p></div>

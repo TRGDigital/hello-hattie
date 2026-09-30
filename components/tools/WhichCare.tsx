@@ -163,7 +163,7 @@ export default function WhichCare() {
             <p className="small muted">This is a guide based on your answers, not an assessment. An agency will talk it through with you before care starts.</p>
             <p><Link href={rec.href}>Read more about {rec.name.toLowerCase()}</Link></p>
             <div className="quiz-nav">
-              <Link className="btn" href={`/get-matched?service=${rec.service}`}>Find agencies near you</Link>
+              <Link className="btn" href={`/get-matched?service=${rec.service}`}>Find an agency near you</Link>
               <button type="button" className="btn ghost" onClick={restart}>Start again</button>
             </div>
           </div>

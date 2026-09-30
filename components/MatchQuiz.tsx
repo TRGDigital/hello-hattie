@@ -1,7 +1,7 @@
 'use client'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useMemo, useRef, useState } from 'react'
-import { attribution, CONSENT_TEXT, CONSENT_VERSION, submitLead } from '@/lib/leads'
+import { attribution, CONSENT_TEXT, CONSENT_VERSION, pingDistribution, submitLead } from '@/lib/leads'
 
 // The matching quiz. It asks about arrangements only (type and amount of care, kind of help,
 // timing, funding), never about conditions or health. The lead is saved on the last step.
@@ -78,7 +78,7 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
     if (step === 'funding' && !a.funding) return 'Please choose how care is likely to be paid for.'
     if (step === 'contact') {
       if (a.name.trim().length < 2) return 'Please enter your name.'
-      if (!/^(\+44|0)[0-9]{9,10}$/.test(a.phone.replace(/[^0-9+]/g, ''))) return 'Please enter a UK phone number so the agencies can call you.'
+      if (!/^(\+44|0)[0-9]{9,10}$/.test(a.phone.replace(/[^0-9+]/g, ''))) return 'Please enter a UK phone number so the agency can call you.'
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(a.email.trim())) return 'Please enter a valid email address.'
       if (!a.contact_consent) return 'Please tick the box to agree to local agencies contacting you.'
     }
@@ -93,13 +93,14 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
     setBusy(true)
     try {
       const hours = HOURS.find((h) => h[0] === a.hours)?.[2] ?? null
-      await submitLead({
+      const saved = await submitLead({
         name: a.name, email: a.email, phone: a.phone, postcode: a.postcode, care_for: a.care_for, service: a.service,
         hours_per_week: hours, funding: a.funding, urgency: a.urgency, contact_consent: a.contact_consent,
         marketing_consent: a.marketing_consent, consent_version: CONSENT_VERSION, idempotency_key: idem.current,
         user_agent: navigator.userAgent, ...attribution(),
         answers: { help: a.help, hours_band: a.hours, best_time: a.best_time, consent_text: CONSENT_TEXT },
       })
+      if (saved?.id && !saved.duplicate) pingDistribution(saved.id)
       router.push(`/thank-you?service=${a.service}`)
     } catch (x) {
       setErr(x instanceof Error ? x.message : 'Something went wrong. Please try again.')
@@ -181,7 +182,7 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
 
       {step === 'contact' && (
         <div style={{ display: 'grid', gap: 16 }}>
-          <h2>Where should the agencies contact you?</h2>
+          <h2>Where should the agency contact you?</h2>
           <div className="field"><label htmlFor="q-name">Your name</label><input id="q-name" type="text" autoComplete="name" value={a.name} onChange={(e) => set('name', e.target.value)} /></div>
           <div className="field"><label htmlFor="q-phone">Phone number</label><input id="q-phone" type="tel" autoComplete="tel" value={a.phone} onChange={(e) => set('phone', e.target.value)} /></div>
           <div className="field"><label htmlFor="q-email">Email address</label><input id="q-email" type="email" autoComplete="email" value={a.email} onChange={(e) => set('email', e.target.value)} /></div>
@@ -191,7 +192,7 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
             </select></div>
           <label className="check"><input type="checkbox" checked={a.contact_consent} onChange={(e) => set('contact_consent', e.target.checked)} /><span>{CONSENT_TEXT}</span></label>
           <label className="check"><input type="checkbox" checked={a.marketing_consent} onChange={(e) => set('marketing_consent', e.target.checked)} /><span className="muted">Send me occasional guides about arranging care. Optional, and you can unsubscribe at any time.</span></label>
-          <p className="small muted">We’ll only share your details with the agencies we match you with. See our <a href="/privacy" target="_blank" rel="noopener">privacy notice</a>.</p>
+          <p className="small muted">We’ll only share your details with the agency we match you with. See our <a href="/privacy" target="_blank" rel="noopener">privacy notice</a>.</p>
         </div>
       )}
 

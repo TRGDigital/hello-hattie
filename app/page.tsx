@@ -39,7 +39,7 @@ export default function Home() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/brand/hello-hattie-mark.svg" alt="" />
             <div>
-              <p>“Hello, I’m Hattie. Tell me where care is needed and I’ll find registered agencies near you.”</p>
+              <p>“Hello, I’m Hattie. Tell me where care is needed and I’ll find a registered agency near you.”</p>
               <small>Free for families, with no obligation</small>
             </div>
           </figcaption>
@@ -90,12 +90,13 @@ export default function Home() {
           <div className="prose">
             <p className="eyebrow">Why Hello Hattie</p>
             <h2>One conversation instead of a ring-round</h2>
-            <p>Finding a care agency usually means searching, phoning round and telling the same story again and again, often while a parent is waiting to come home from hospital. With Hello Hattie you tell us once, and the right local agencies come to you.</p>
+            <p>Finding a care agency usually means searching, phoning round and telling the same story again and again, often while a parent is waiting to come home from hospital. With Hello Hattie you tell us once, and the right local agency comes to you.</p>
             <ul className="checklist">
               <li>Only agencies registered with the Care Quality Commission, the regulator for care in England</li>
-              <li>Agencies that cover your postcode, so carers are local</li>
-              <li>Agencies that offer the type of care you need and can take on new clients</li>
-              <li>Free for families, with no obligation to choose any of them</li>
+              <li>An agency that covers your postcode, so carers are local</li>
+              <li>One that offers the type of care you need and can take on new clients</li>
+              <li>Your details go to that one agency only, never to a list</li>
+              <li>Free for families, with no obligation to go ahead</li>
             </ul>
             <p><Link className="btn" href="/how-it-works">How matching works</Link></p>
           </div>
@@ -111,8 +112,8 @@ export default function Home() {
         <div className="work">
           <div className="card"><span className="num">01</span><h3>You tell us</h3><p>Where care is needed, the kind of help, roughly how many hours and when. It takes about 2 minutes, and we never ask about medical conditions.</p></div>
           <div className="card"><span className="num">02</span><h3>We check</h3><p>We look for agencies registered with the CQC that cover your postcode, offer that type of care and can take on new clients.</p></div>
-          <div className="card"><span className="num">03</span><h3>Agencies call you</h3><p>The agencies we match get in touch to talk it through. Most will arrange an assessment before giving you a written quote.</p></div>
-          <div className="card"><span className="num">04</span><h3>You choose</h3><p>Compare what each one offers and how they made you feel. Choose one, or none. There’s no obligation and nothing to pay us.</p></div>
+          <div className="card"><span className="num">03</span><h3>Your agency calls you</h3><p>The agency we match you with gets in touch to talk it through. Most will arrange an assessment before giving you a written quote.</p></div>
+          <div className="card"><span className="num">04</span><h3>You decide</h3><p>Take your time over the quote and how they made you feel. Go ahead only if it feels right. There’s no obligation and nothing to pay us.</p></div>
         </div>
       </div></section>
 
@@ -149,7 +150,7 @@ export default function Home() {
           ticks={[
             'Run by TRG Digital, a UK company that has worked with care providers for many years',
             'Built by people who have worked in UK care homes and nursing homes',
-            'We only introduce you to CQC-registered agencies that cover your postcode',
+            'We only introduce you to a CQC-registered agency that covers your postcode',
             'Free for families. Agencies pay us, and we’re open about that',
           ]}
           cta={{ href: '/about', label: 'About Hello Hattie' }}>
@@ -157,10 +158,10 @@ export default function Home() {
         </StoryPanel>
 
         <DarkFeature eyebrow="For care agencies" title="Enquiries from families in the postcodes you cover"
-          pills={['Pay per enquiry', 'A monthly cap you set', 'Your postcodes only', 'No contract', 'Bad details credited']}
+          pills={['Exclusive to you', 'Pay per enquiry', 'A monthly cap you set', 'Your postcodes only', 'No contract', 'Bad details credited']}
           cta={{ href: '/for-agencies', label: 'How it works for agencies' }}
           image={{ src: '/images/agency-desk.jpg', brief: 'A care manager smiling on a headset at her desk' }}>
-          <p>Tell us the postcode districts you cover and the care you offer. When a family nearby is looking, their enquiry comes straight to you by email and text, with the type of care, hours, start date and funding, so you can call them back quickly.</p>
+          <p>Tell us the postcode districts you cover and the care you offer. When a family nearby is looking, their enquiry comes to you alone, by email and text, with the type of care, hours, start date and funding, so you can call them back quickly.</p>
         </DarkFeature>
       </div></section>
 
@@ -187,8 +188,8 @@ export default function Home() {
 
       <Faqs band faqs={[
         { q: 'Is it really free?', a: 'Yes. Families never pay us anything. Care agencies pay us when we introduce them to a family.' },
-        { q: 'Who will contact me?', a: 'CQC-registered home care agencies that cover your postcode and offer the care you need. They’ll call to talk through what you need and how they could help.' },
-        { q: 'Do I have to choose one of the agencies?', a: 'No. There’s no obligation. You can compare what they offer, ask questions and take your time.' },
+        { q: 'Who will contact me?', a: 'One CQC-registered home care agency that covers your postcode and offers the care you need. Your details go to that agency only, never to a list. They’ll call to talk through what you need and how they could help.' },
+        { q: 'Do I have to use the agency you match me with?', a: 'No. There’s no obligation. Ask questions, get a quote and take your time. If it isn’t right, just say so.' },
         { q: 'Are you a care agency?', a: 'No. We’re a matching service. We don’t employ carers or provide care. The agency you choose provides the care and agrees the details with you.' },
         { q: 'Which areas do you cover?', a: 'We match families with agencies across England. Care agencies in England are registered and inspected by the Care Quality Commission.' },
       ]} />

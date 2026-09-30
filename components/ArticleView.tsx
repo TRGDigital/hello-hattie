@@ -49,7 +49,7 @@ export function ArticleView({ a, crumb }: { a: Article; crumb: { href: string; l
                   <aside className="post-cta">
                     <p className="eyebrow">Free for families</p>
                     <h3>Want help finding a good local agency?</h3>
-                    <p>Tell us what’s needed and we’ll put you in touch with CQC-registered agencies that cover your postcode.</p>
+                    <p>Tell us what’s needed and we’ll match you with a CQC-registered agency that covers your postcode.</p>
                     <p><MatchLink className="btn">Get matched, it’s free</MatchLink></p>
                   </aside>
                 )}
@@ -61,7 +61,7 @@ export function ArticleView({ a, crumb }: { a: Article; crumb: { href: string; l
             <aside className="post-end">
               <div>
                 <h2>Ready to find care at home?</h2>
-                <p>It takes about 2 minutes, it’s free, and there’s no obligation to choose any of the agencies.</p>
+                <p>It takes about 2 minutes, it’s free, and there’s no obligation to go ahead.</p>
               </div>
               <MatchLink className="btn">Get matched</MatchLink>
             </aside>

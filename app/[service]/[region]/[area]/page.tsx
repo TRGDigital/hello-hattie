@@ -38,15 +38,15 @@ export default function AreaPage({ params }: { params: { service: string; region
   const c = FIGURES.capitalLimits
   const faqs = [
     { q: `How many home care agencies are there in ${a.name}?`, a: `${a.total} CQC-registered home care agencies are registered in ${a.name}. Of the ${inspected} that have been inspected, ${goodPlus} are rated Good or Outstanding. Agencies based nearby may also cover your area.` },
-    { q: `How much does ${svc} cost in ${a.name}?`, a: `Prices depend on the hours, the type of care and the agency. The agencies we match you with will give you a written quote after an assessment. Our cost guide and calculator can help you plan a budget first.` },
+    { q: `How much does ${svc} cost in ${a.name}?`, a: `Prices depend on the hours, the type of care and the agency. The agency we match you with will give you a written quote after an assessment. Our cost guide and calculator can help you plan a budget first.` },
     { q: `Can ${a.name} council help pay for care at home?`, a: `The council can assess the care needs of anyone who asks. If you have savings over ${gbp(c.upper, 0)}, not counting the home you live in, you will usually pay for care yourself. Below that, the council may help, depending on your income and savings.` },
-    { q: `How quickly can ${svc} start in ${a.name}?`, a: `It depends on the agencies’ availability. When you tell us when care is needed, we pass that on, so the agencies can say straight away whether they can meet it.` },
+    { q: `How quickly can ${svc} start in ${a.name}?`, a: `It depends on the agency’s availability. When you tell us when care is needed, we pass that on, so the agency can say straight away whether they can meet it.` },
   ]
   return (
     <>
       <PageHero crumbs={[{ href: `/${s.slug}`, label: s.name }, { href: `/${s.slug}/${r.slug}`, label: r.name }, { label: a.name }]}
         title={`${s.name} in ${a.name}`}
-        intro={`There are ${a.total} CQC-registered home care agencies registered in ${a.name}. Tell us what’s needed and we’ll match you with registered agencies that cover your postcode, free and with no obligation.`}
+        intro={`There are ${a.total} CQC-registered home care agencies registered in ${a.name}. Tell us what’s needed and we’ll match you with a registered agency that covers your postcode, free and with no obligation.`}
         aside={<HeroMatch title={`Find ${svc} in ${a.name}`} service={quizService(s.slug)} place={a.name} />}>
         <Trust />
       </PageHero>
@@ -65,7 +65,7 @@ export default function AreaPage({ params }: { params: { service: string; region
           <div className="prose">
             <h2>Arranging {svc} in {a.name}</h2>
             <p>{s.whatItIs[0]}</p>
-            <p>When you use our free matching, we look for agencies registered with the Care Quality Commission that cover your postcode in {a.name} and offer {svc}. The best matched of them will call you to talk it through, usually after arranging an assessment.</p>
+            <p>When you use our free matching, we look for agencies registered with the Care Quality Commission that cover your postcode in {a.name} and offer {svc}. The agency we match you with will call you to talk it through, usually after arranging an assessment.</p>
             <p>Before you choose, you can read each agency’s latest inspection report on the CQC website. Our guide to <Link href="/guides/choosing-a-home-care-agency">choosing a home care agency</Link> lists the questions worth asking.</p>
           </div>
           <div className="panel hi">

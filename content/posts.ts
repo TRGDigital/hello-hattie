@@ -4,7 +4,7 @@ import type { Article } from './types'
 // statistics or prices, no named agencies, and we never claim to provide care ourselves.
 
 const MATCH =
-  'If you would like help finding a CQC-registered agency near you, our free matching service can put you in touch with local agencies.'
+  'If you would like help finding a CQC-registered agency near you, our free matching service can match you with a local agency.'
 
 const CQC_SOURCE = { label: 'Care Quality Commission, search for a care service', url: 'https://www.cqc.org.uk/search/all' }
 const CARE_ACT_SOURCE = { label: 'GOV.UK, Care and support statutory guidance', url: 'https://www.gov.uk/government/publications/care-act-statutory-guidance/care-and-support-statutory-guidance' }

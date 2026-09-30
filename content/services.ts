@@ -7,9 +7,9 @@ export const SERVICES: Service[] = [
     short: 'A carer lives in the home, giving support through the day and company at night.',
     metaTitle: 'Live-in care at home: how it works and who it suits',
     metaDescription:
-      'Live-in care means a carer lives with your parent at home. Find out what it involves and get matched with CQC-registered agencies near you, free.',
+      'Live-in care means a carer lives with your parent at home. Find out what it involves and get matched with a CQC-registered agency near you, free.',
     intro:
-      'With live-in care, a trained carer moves into your parent’s home and supports them day to day. It lets someone who needs a lot of help stay in the place they know, with the same familiar face around. We can put you in touch with CQC-registered agencies near you.',
+      'With live-in care, a trained carer moves into your parent’s home and supports them day to day. It lets someone who needs a lot of help stay in the place they know, with the same familiar face around. We can match you with a CQC-registered agency near you.',
     whatItIs: [
       'Live-in care is when a care worker lives in the home of the person they support. They help with daily routines, keep the house running and are there if something goes wrong. Carers usually work on a rota, so one carer does a stretch and then another takes over, often with the same small team rotating.',
       'The carer needs their own bedroom and proper breaks each day. They are not expected to be awake all night. If your parent needs help often through the night, the agency may suggest adding a night carer or moving to round-the-clock care instead.',
@@ -72,7 +72,7 @@ export const SERVICES: Service[] = [
     metaDescription:
       'Visiting home care means care workers call at set times to help with daily tasks. Learn how it works and find CQC-registered agencies near you, free.',
     intro:
-      'Visiting home care means a care worker comes to your parent’s home at agreed times to help with the things they find hard. It might be a short morning call or several visits a day. We can put you in touch with CQC-registered agencies near you.',
+      'Visiting home care means a care worker comes to your parent’s home at agreed times to help with the things they find hard. It might be a short morning call or several visits a day. We can match you with a CQC-registered agency near you.',
     whatItIs: [
       'Visiting home care is sometimes called domiciliary care, which simply means care given in someone’s own home. Care workers from an agency call at set times, help with what is in the care plan, and then leave until the next visit.',
       'Visits can be short and focused, such as help getting up and dressed, or longer, such as help with lunch and some time out. You can start with a little support and add more as needs change.',
@@ -134,7 +134,7 @@ export const SERVICES: Service[] = [
     metaDescription:
       'Overnight care gives support through the night at home. Understand waking and sleeping nights and find CQC-registered agencies near you, free.',
     intro:
-      'Overnight care means a carer stays in your parent’s home through the night. It can bring real peace of mind if nights have become worrying. We can put you in touch with CQC-registered agencies near you.',
+      'Overnight care means a carer stays in your parent’s home through the night. It can bring real peace of mind if nights have become worrying. We can match you with a CQC-registered agency near you.',
     whatItIs: [
       'There are two main types of overnight care. With a waking night, the carer stays awake all night and is ready to help whenever needed. With a sleeping night, the carer sleeps in a spare room and gets up if your parent needs them now and then.',
       'Which one is right depends on how often your parent needs help at night. If they wake often, wander or need turning, a waking night is usually the safer choice. If they mostly sleep through but you want someone there just in case, a sleeping night may be enough.',
@@ -192,7 +192,7 @@ export const SERVICES: Service[] = [
     metaDescription:
       'Dementia care at home helps someone living with dementia stay in familiar surroundings. See what it involves and find CQC-registered agencies near you.',
     intro:
-      'Dementia care at home helps someone living with dementia keep living in the place they know best. Familiar rooms, routines and faces can make a big difference. We can put you in touch with CQC-registered agencies near you.',
+      'Dementia care at home helps someone living with dementia keep living in the place they know best. Familiar rooms, routines and faces can make a big difference. We can match you with a CQC-registered agency near you.',
     whatItIs: [
       'Dementia care at home is support from care workers who understand how dementia can affect memory, mood, communication and daily life. It can be a few visits a day, overnight care, or a live-in carer, depending on what your parent needs.',
       'Good dementia care is about more than tasks. Carers get to know the person, their history and what matters to them, and use this to keep days calm, familiar and as enjoyable as possible.',
@@ -255,7 +255,7 @@ export const SERVICES: Service[] = [
     metaDescription:
       'Respite care at home lets a care worker step in while you take a break. Learn how it works and find CQC-registered agencies near you, free.',
     intro:
-      'Respite care at home means a care worker takes over for a while so you can have a break from caring. Your parent stays at home with their own routines, and you get time to rest. We can put you in touch with CQC-registered agencies near you.',
+      'Respite care at home means a care worker takes over for a while so you can have a break from caring. Your parent stays at home with their own routines, and you get time to rest. We can match you with a CQC-registered agency near you.',
     whatItIs: [
       'If you look after a parent, you need time off too. Respite care means a professional carer covers the care you would usually give, for a few hours, a few days or longer while you go away.',
       'It can be visiting care, overnight care or a live-in carer, depending on how much you normally do. Because your parent stays in their own home, there is less upheaval than a short stay in a care home.',
@@ -317,7 +317,7 @@ export const SERVICES: Service[] = [
     metaDescription:
       'Companionship care offers regular company, outings and light help at home. Find out what it involves and get matched with CQC-registered agencies.',
     intro:
-      'Companionship care is about company. A regular carer spends time with your parent, chatting, going out and helping with small jobs. We can put you in touch with CQC-registered agencies near you.',
+      'Companionship care is about company. A regular carer spends time with your parent, chatting, going out and helping with small jobs. We can match you with a CQC-registered agency near you.',
     whatItIs: [
       'Loneliness can affect how someone eats, sleeps and feels. Companionship care means a friendly, regular visitor who spends time with your parent doing the things they enjoy, from a cup of tea and a chat to a trip to the shops or a favourite café.',
       'It is usually lighter than personal care. The focus is on company and a helping hand, rather than help with washing or dressing, although many agencies can add personal care later if it is needed.',
@@ -375,7 +375,7 @@ export const SERVICES: Service[] = [
     metaDescription:
       'Palliative and end of life care at home helps someone be comfortable where they want to be. Learn what it involves and find CQC-registered agencies.',
     intro:
-      'Palliative and end of life care at home supports someone with a life-limiting illness to be comfortable in their own home, surrounded by the people and things they love. It supports the family too. We can put you in touch with CQC-registered agencies near you.',
+      'Palliative and end of life care at home supports someone with a life-limiting illness to be comfortable in their own home, surrounded by the people and things they love. It supports the family too. We can match you with a CQC-registered agency near you.',
     whatItIs: [
       'Palliative care focuses on comfort and quality of life for someone whose illness cannot be cured. End of life care is part of this, for the time when someone is nearing the end of their life. Many people want to spend that time at home.',
       'Care workers from a home care agency help with personal care, comfort and daily life, and give families time to simply be together. They work alongside others who may be involved, such as the GP, district nurses and specialist palliative care teams.',
@@ -437,7 +437,7 @@ export const SERVICES: Service[] = [
     metaDescription:
       'Complex care at home supports people with serious health needs to live at home. Learn what it involves and find CQC-registered agencies near you.',
     intro:
-      'Complex care at home supports people with serious or long-term health conditions who need more specialist help. It lets them stay at home rather than in hospital or a care home. We can put you in touch with CQC-registered agencies near you.',
+      'Complex care at home supports people with serious or long-term health conditions who need more specialist help. It lets them stay at home rather than in hospital or a care home. We can match you with a CQC-registered agency near you.',
     whatItIs: [
       'Complex care is for people whose health needs go beyond everyday personal care. This might be because of a neurological condition, a brain or spinal injury, breathing support, feeding through a tube, or several conditions at once.',
       'Carers are trained for the specific tasks in your parent’s care plan, and are often supported by nurses employed by the agency. Other people such as the GP, district nurses and specialist teams may also be involved.',
@@ -495,7 +495,7 @@ export const SERVICES: Service[] = [
     metaDescription:
       '24 hour care means someone is there day and night. Learn how it differs from live-in care and find CQC-registered agencies near you, free.',
     intro:
-      '24 hour care means there is always someone with your parent, day and night. It is for people who may need help at any moment. We can put you in touch with CQC-registered agencies near you.',
+      '24 hour care means there is always someone with your parent, day and night. It is for people who may need help at any moment. We can match you with a CQC-registered agency near you.',
     whatItIs: [
       '24 hour care gives round-the-clock support at home. It is often provided by a team of carers working in shifts, so there is always someone awake and ready to help. Some agencies provide it with two live-in carers who share the day and night between them.',
       'It is different from live-in care. A single live-in carer lives in the home and is there through the day, but needs a proper break and a night’s sleep. With 24 hour care, someone is awake and on duty at all times, including through the night.',
@@ -557,7 +557,7 @@ export const SERVICES: Service[] = [
     metaDescription:
       'Hourly care lets you book help at home by the hour, as often as needed. See how it works and find CQC-registered agencies near you, free.',
     intro:
-      'Hourly care means booking a care worker for as many hours as you need, when you need them. It is flexible and easy to change as needs change. We can put you in touch with CQC-registered agencies near you.',
+      'Hourly care means booking a care worker for as many hours as you need, when you need them. It is flexible and easy to change as needs change. We can match you with a CQC-registered agency near you.',
     whatItIs: [
       'Hourly care is care booked and paid for by the hour. You might book a block of hours on certain days, a regular weekly slot, or a few extra hours at a busy time.',
       'It is a flexible way to use visiting home care. It can cover personal care, housework, company or outings, and it can fit around what family and friends already do.',

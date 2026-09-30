@@ -35,7 +35,7 @@ export default function ToolsPage() {
         </StoryPanel>
 
         <StoryPanel flip eyebrow="Tool 2 · Types of care" title="Which type of care is right?" visual={<WhichMock />}
-          ticks={['Five quick questions about help, nights and living arrangements', 'A suggested type of care with the reasons why', 'A link to read more, and to find agencies near you']}
+          ticks={['Five quick questions about help, nights and living arrangements', 'A suggested type of care with the reasons why', 'A link to read more, and to find an agency near you']}
           cta={{ href: '/tools/which-care-is-right', label: 'Answer five questions' }}>
           <p>Visiting care, overnight care, live-in care, respite: it is not always obvious which fits. Answer a few questions and we’ll suggest a good place to start.</p>
         </StoryPanel>
@@ -58,11 +58,11 @@ export default function ToolsPage() {
       </div></section>
 
       <section className="section"><div className="in">
-        <DarkFeature eyebrow="The next step" title="Ready to talk to agencies near you?"
+        <DarkFeature eyebrow="The next step" title="Ready to talk to an agency near you?"
           pills={['Free for families', 'Only CQC-registered agencies', 'No obligation']}
           cta={{ href: '/get-matched', label: 'Get matched' }}
           image={{ src: '/images/family-phone.jpg', brief: 'A smiling woman on the phone at home' }}>
-          <p>When you have a rough idea of the care and the budget, tell us where care is needed. We’ll put you in touch with local agencies that can give you a proper quote.</p>
+          <p>When you have a rough idea of the care and the budget, tell us where care is needed. We’ll match you with a local agency that can give you a proper quote.</p>
         </DarkFeature>
       </div></section>
     </>
