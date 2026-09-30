@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
-import { MatchQuiz } from '@/components/MatchQuiz'
+import { MatchQuizFromUrl } from '@/components/MatchQuiz'
 import { Trust } from '@/components/Blocks'
 
 export const metadata: Metadata = { title: 'Get matched with local care agencies', robots: { index: false, follow: false } }
@@ -13,7 +13,7 @@ export default function GetMatched() {
         <p className="muted">A few quick questions, then up to 3 CQC-registered agencies that cover your area will be in touch. Free, with no obligation.</p>
         <Trust />
       </div>
-      <Suspense fallback={<div className="quiz">Loading…</div>}><MatchQuiz /></Suspense>
+      <Suspense fallback={<div className="quiz">Loading…</div>}><MatchQuizFromUrl /></Suspense>
     </div></section>
   )
 }

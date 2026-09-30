@@ -42,14 +42,19 @@ function Choice({ name, value, current, onPick, children }: { name: string; valu
 
 /** Used on /get-matched (reads ?postcode= and ?service=) and embedded in page heroes, where
  *  `service` and `place` come from the page instead. */
-export function MatchQuiz({ service, place, embedded = false }: { service?: string; place?: string; embedded?: boolean } = {}) {
+/** /get-matched: takes the postcode and service from the address (?postcode=&service=). */
+export function MatchQuizFromUrl() {
+  return <MatchQuiz service={params.get('service') ?? undefined} postcode={params.get('postcode') ?? undefined} />
+}
+
+export function MatchQuiz({ service, place, postcode, embedded = false }: { service?: string; place?: string; postcode?: string; embedded?: boolean }) {
   const router = useRouter()
   const params = useSearchParams()
   const idem = useRef(typeof crypto !== 'undefined' && 'randomUUID' in crypto ? crypto.randomUUID() : String(Date.now()))
-  const wanted = service ?? params.get('service') ?? ''
+  const wanted = service ?? ''
   const startService = SERVICES.includes(wanted) ? wanted : ''
   const [a, setA] = useState<Answers>({
-    postcode: embedded ? '' : (params.get('postcode') || '').toUpperCase(), care_for: '', service: startService, hours: '', help: [],
+    postcode: embedded ? '' : (postcode || '').toUpperCase(), care_for: '', service: startService, hours: '', help: [],
     urgency: '', funding: '', name: '', phone: '', email: '', best_time: '', contact_consent: false, marketing_consent: false,
   })
   const set = <K extends keyof Answers>(k: K, v: Answers[K]) => setA((x) => ({ ...x, [k]: v }))
