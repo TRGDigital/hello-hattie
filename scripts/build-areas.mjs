@@ -13,7 +13,7 @@ const KEY = env.SUPABASE_SERVICE_ROLE_KEY
 const slug = (s) => s.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 const rows = []
 for (let from = 0; ; from += 1000) {
-  const r = await fetch(`${DB_URL}/rest/v1/care_homes?select=county,county_slug,region,cqc_rating&type_homecare=eq.true&status=eq.published&county_slug=not.is.null&order=id`, {
+  const r = await fetch(`${DB_URL}/rest/v1/care_homes?select=county,county_slug,region,cqc_rating,lat,lng&type_homecare=eq.true&status=eq.published&county_slug=not.is.null&order=id`, {
     headers: { apikey: KEY, Authorization: `Bearer ${KEY}`, Range: `${from}-${from + 999}`, 'Range-Unit': 'items' },
   })
   if (!r.ok) throw new Error(`${r.status} ${await r.text()}`)
@@ -34,8 +34,17 @@ for (const h of rows) {
   else a.notRated++
   by.set(h.county_slug, a)
 }
+// Anonymous locations for the service radius demo: rounded coordinates and a rating code, no names.
+const R = { outstanding: 4, good: 3, requires_improvement: 2, inadequate: 1 }
+const points = rows.filter((h) => h.region && h.region !== 'Wales' && h.lat && h.lng)
+  .map((h) => [Math.round(h.lat * 1000), Math.round(h.lng * 1000), R[h.cqc_rating] ?? 0])
+fs.mkdirSync(new URL('../public/data/', import.meta.url), { recursive: true })
+fs.writeFileSync(new URL('../public/data/agency-points.json', import.meta.url), JSON.stringify(points))
+
 // Council names as CQC stores them ("Herefordshire, County of") read oddly on a page.
 const tidy = (n) => n.replace(/^(.*), County of$/, '$1').replace(/^(.*), City of$/, '$1').replace(/^Kingston upon Hull$/, 'Hull')
 const areas = [...by.values()].map((a) => ({ ...a, name: tidy(a.name) })).sort((x, y) => x.region.localeCompare(y.region) || x.name.localeCompare(y.name))
-fs.writeFileSync(new URL('../data/areas.json', import.meta.url), JSON.stringify({ generated: new Date().toISOString().slice(0, 10), source: 'CareAssura (CQC register)', totalAgencies: areas.reduce((n, a) => n + a.total, 0), areas }, null, 1))
-console.log(rows.length, 'rows ->', areas.length, 'areas,', areas.reduce((n, a) => n + a.total, 0), 'agencies')
+const sum = (k) => areas.reduce((n, a) => n + a[k], 0)
+const ratings = { outstanding: sum('outstanding'), good: sum('good'), requiresImprovement: sum('requiresImprovement'), inadequate: sum('inadequate'), notRated: sum('notRated') }
+fs.writeFileSync(new URL('../data/areas.json', import.meta.url), JSON.stringify({ generated: new Date().toISOString().slice(0, 10), source: 'CareAssura (CQC register)', totalAgencies: sum('total'), mappedAgencies: points.length, ratings, areas }, null, 1))
+console.log(rows.length, 'rows ->', areas.length, 'areas,', sum('total'), 'agencies,', points.length, 'mapped', ratings)

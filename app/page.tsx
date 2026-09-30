@@ -3,7 +3,8 @@ import { PostcodeStart } from '@/components/PostcodeStart'
 import { CtaBand, Faqs, PhotoSlot, Trust } from '@/components/Blocks'
 import { SERVICES } from '@/content/services'
 import { ARTICLES } from '@/content/articles'
-import { AREAS, REGIONS, TOTAL_AGENCIES } from '@/lib/areas'
+import { AREAS, AREAS_GENERATED, RATINGS, REGIONS, TOTAL_AGENCIES } from '@/lib/areas'
+import { RadiusDemo } from '@/components/RadiusDemo'
 import { HONEST, PROMISE } from '@/lib/site'
 
 const MAIN = ['live-in-care', 'home-care', 'overnight-care', 'dementia-care-at-home', 'respite-care-at-home', 'companionship-care']
@@ -39,6 +40,41 @@ export default function Home() {
           <li><h3>They call you to talk it through</h3><p>Compare what each one offers and choose the agency that feels right. There’s no obligation.</p></li>
         </ol>
         <p><Link href="/how-it-works">More about how matching works</Link></p>
+      </div></section>
+
+      <section className="section"><div className="in">
+        <div style={{ display: 'grid', gap: 28 }}>
+          <div className="prose">
+            <h2>How service areas work</h2>
+            <p>Every home care agency covers an area around its office. It’s usually set by how far its carers can travel between visits, often a few miles in a town and further in the countryside.</p>
+            <p>That’s why the postcode matters. We only match you with agencies whose service area includes the address where care is needed, so the carers are local, arrive on time and spend their time with you rather than on the road.</p>
+            <p>Try it: enter a postcode and choose a distance to see how many registered agencies are based nearby.</p>
+          </div>
+          <RadiusDemo />
+        </div>
+      </div></section>
+
+      <section className="section band"><div className="in">
+        <div className="head-row"><h2>Registered home care providers in England</h2><span className="small muted">CQC register, {new Date(AREAS_GENERATED).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span></div>
+        <div className="grid-2">
+          <div style={{ display: 'grid', gap: 14 }}>
+            <h3>{TOTAL_AGENCIES.toLocaleString('en-GB')} agencies, by CQC rating</h3>
+            <div className="bars">
+              {([['Outstanding', RATINGS.outstanding], ['Good', RATINGS.good], ['Requires improvement', RATINGS.requiresImprovement], ['Inadequate', RATINGS.inadequate], ['Not yet rated', RATINGS.notRated]] as [string, number][]).map(([l, n]) => (
+                <div className="bar" key={l}><span>{l}</span><span className="track"><i className={`fill${l === 'Not yet rated' ? ' hi' : ''}`} style={{ width: `${(n / TOTAL_AGENCIES) * 100}%` }} /></span><b>{n.toLocaleString('en-GB')}</b></div>
+              ))}
+            </div>
+            <p className="small muted">“Not yet rated” agencies are usually newer and waiting for their first inspection. We only match you with registered agencies, and you can read any agency’s latest report on the CQC website.</p>
+          </div>
+          <div style={{ display: 'grid', gap: 14 }}>
+            <h3>By region</h3>
+            <div className="bars">
+              {[...REGIONS].sort((a, b) => b.total - a.total).map((r) => (
+                <div className="bar" key={r.slug}><span><Link href={`/areas#${r.slug}`}>{r.name}</Link></span><span className="track"><i className="fill" style={{ width: `${(r.total / REGIONS.reduce((m, x) => Math.max(m, x.total), 0)) * 100}%` }} /></span><b>{r.total.toLocaleString('en-GB')}</b></div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div></section>
 
       <section className="section"><div className="in">

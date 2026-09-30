@@ -2,6 +2,14 @@
  "generated": "2026-09-30",
  "source": "CareAssura (CQC register)",
  "totalAgencies": 14217,
+ "mappedAgencies": 14128,
+ "ratings": {
+  "outstanding": 406,
+  "good": 7021,
+  "requiresImprovement": 1015,
+  "inadequate": 48,
+  "notRated": 5727
+ },
  "areas": [
   {
    "name": "Bedford",

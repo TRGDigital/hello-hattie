@@ -1,11 +1,11 @@
 // One place for everything that changes when the brand is chosen.
 export const BRAND = {
-  name: 'Your brand', // placeholder until the brand and domain are chosen
+  name: 'Hello Hattie',
   tagline: 'Home care matching',
   phone: null as string | null, // set once a tracked number exists; the Call button hides without one
   hours: 'Mon to Sat, 8am to 8pm',
-  email: 'hello@example.com', // placeholder
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://example.com',
+  email: 'hello@hellohattie.co.uk', // mailbox to be set up before launch
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.hellohattie.co.uk',
   live: process.env.NEXT_PUBLIC_SITE_LIVE === 'true', // false: every page is noindex and robots.txt blocks crawlers
 }
 

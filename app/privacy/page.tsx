@@ -20,6 +20,8 @@ export default function Privacy() {
         <p>We don’t ask about medical conditions, and please don’t send us health information.</p>
         <h2>What we do with it</h2>
         <p>With your agreement, we pass your details and answers to up to 3 home care agencies registered with the Care Quality Commission that cover your postcode, so they can contact you about care. Each agency then handles your information under its own privacy notice. If you ticked the box for guides, we’ll also email you occasional guides, and you can unsubscribe at any time.</p>
+        <h2>Postcode look-ups</h2>
+        <p>When you use the service area tool on our home page, we look up the location of your postcode district (the first half of your postcode, such as WR14) using postcodes.io, a free postcode service. We don’t send the full postcode, and we don’t store the look-up.</p>
         <h2>Changing your mind</h2>
         <p>You can withdraw your agreement at any time by emailing {BRAND.email}. We’ll stop sharing your details and tell the agencies we introduced you to.</p>
         <h2>How long we keep it</h2>

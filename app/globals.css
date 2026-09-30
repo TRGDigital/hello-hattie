@@ -16,7 +16,7 @@
   --r: 12px;
   --display: var(--font-newsreader), Georgia, "Times New Roman", serif;
   --body: var(--font-atkinson), system-ui, -apple-system, "Segoe UI", sans-serif;
-  --max: 1120px;
+  --max: 1320px;
 }
 
 * { box-sizing: border-box; }
@@ -34,7 +34,7 @@ h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); }
 h2 { font-size: clamp(1.55rem, 3.2vw, 2.1rem); }
 h3 { font-size: 1.2rem; }
 p { margin: 0; }
-.prose { display: grid; gap: 16px; max-width: 68ch; }
+.prose { display: grid; gap: 16px; max-width: 68ch; align-content: start; }
 .prose ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
 .muted { color: var(--soft); }
 .small { font-size: .9rem; }
@@ -199,3 +199,31 @@ th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--li
   .quiz, .tool { padding: 20px; }
 }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+
+/* Service area demo */
+.radius { display: grid; gap: 20px; }
+.radius-pick { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.radius-pick legend { font-weight: 700; margin-bottom: 8px; width: 100%; }
+.chip-btn { font: inherit; cursor: pointer; border: 2px solid var(--line); background: var(--card); color: var(--ink); border-radius: 999px; padding: 8px 16px; font-weight: 700; }
+.chip-btn.on { border-color: var(--btn); background: var(--btn); color: var(--btn-ink); }
+.radius-out { display: grid; grid-template-columns: minmax(0, 460px) minmax(0, 1fr); gap: 32px; align-items: center; }
+.radius-map { width: 100%; max-width: 460px; height: auto; display: block; }
+.rm-bg { fill: var(--card); stroke: var(--line); }
+.rm-area { fill: color-mix(in srgb, var(--btn) 12%, transparent); stroke: var(--btn); stroke-width: 2; }
+.rm-in { fill: var(--btn); }
+.rm-out { fill: color-mix(in srgb, var(--soft) 35%, transparent); }
+.rm-home { fill: var(--hi); stroke: var(--hi-ink); stroke-width: 2; }
+.rm-hint { fill: var(--soft); font-size: 14px; }
+
+/* Figure bars */
+.bars { display: grid; gap: 10px; }
+.bar { display: grid; grid-template-columns: 11em 1fr 5em; gap: 12px; align-items: center; font-variant-numeric: tabular-nums; }
+.bar .track { background: var(--alt); border-radius: 999px; height: 14px; overflow: hidden; }
+.bar .fill { display: block; height: 100%; background: var(--btn); border-radius: 999px; }
+.bar .fill.hi { background: var(--hi); }
+.bar b { text-align: right; }
+@media (max-width: 900px) {
+  .radius-out { grid-template-columns: 1fr; }
+  .bar { grid-template-columns: 8em 1fr 4em; font-size: .92rem; }
+}
+.band .bar .track { background: var(--card); }

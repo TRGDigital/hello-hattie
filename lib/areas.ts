@@ -4,6 +4,8 @@ export type Area = (typeof data.areas)[number]
 export const AREAS: Area[] = data.areas
 export const TOTAL_AGENCIES: number = data.totalAgencies
 export const AREAS_GENERATED: string = data.generated
+export const RATINGS = data.ratings
+export const MAPPED_AGENCIES: number = data.mappedAgencies
 
 export const REGIONS = Array.from(new Set(AREAS.map((a) => a.regionSlug))).map((slug) => {
   const areas = AREAS.filter((a) => a.regionSlug === slug)
