@@ -26,8 +26,9 @@ export default function CostCalculator() {
   const yearly = weekly * 52
 
   return (
-    <div className="tool">
-      <div className="field">
+    <div className="tool calc">
+      <div className="calc-fields">
+      <div className="field span-2">
         <label htmlFor="cc-rate">Hourly rate (£)</label>
         <input
           id="cc-rate"
@@ -65,14 +66,18 @@ export default function CostCalculator() {
         </select>
       </div>
 
-      <div className="result" aria-live="polite">
+      </div>
+
+      <div className="calc-result" aria-live="polite">
         {valid ? (
           <>
-            <p className="muted">Estimated weekly cost</p>
+            <p className="label">Estimated weekly cost</p>
             <p className="big">{gbp(weekly)}</p>
-            <p>Every four weeks: <b>{gbp(fourWeekly)}</b></p>
-            <p>Over a year: <b>{gbp(yearly)}</b></p>
-            <p>Hours of care each week: <b>{hoursPerWeek.toLocaleString('en-GB', { maximumFractionDigits: 2 })}</b></p>
+            <dl className="calc-split">
+              <div><dt>Every four weeks</dt><dd>{gbp(fourWeekly)}</dd></div>
+              <div><dt>Over a year</dt><dd>{gbp(yearly)}</dd></div>
+              <div><dt>Hours each week</dt><dd>{hoursPerWeek.toLocaleString('en-GB', { maximumFractionDigits: 2 })}</dd></div>
+            </dl>
           </>
         ) : (
           <p className="error">Enter an hourly rate above £0 to see an estimate.</p>

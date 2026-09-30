@@ -28,19 +28,19 @@ export const SERVICE_IMAGES: Record<string, { main: Img; side: Img }> = {
     side: { brief: 'a companion and an older man playing cards at the dining table' },
   },
   'palliative-care-at-home': {
-    main: { brief: 'a carer gently holding the hand of an older woman resting in bed at home' },
-    side: { brief: 'a family sitting together in a calm living room while a carer makes tea' },
+    main: { src: '/images/svc-palliative.jpg', brief: 'A carer gently holding the hand of an older woman resting in bed at home' },
+    side: { src: '/images/svc-palliative-side.jpg', brief: 'A family sitting together in a calm living room at home' },
   },
   'complex-care-at-home': {
-    main: { brief: 'a care worker and a younger adult in a wheelchair laughing together at home' },
-    side: { brief: 'a carer adjusting a profiling bed in a bright bedroom at home' },
+    main: { src: '/images/svc-complex.jpg', brief: 'A care worker and a young man in a wheelchair laughing together at home' },
+    side: { src: '/images/svc-complex-side.jpg', brief: 'A carer adjusting a profiling bed for an older woman at home' },
   },
   '24-hour-care': {
-    main: { brief: 'two carers doing a friendly handover in an older woman’s kitchen' },
-    side: { brief: 'a carer opening the curtains in the morning for an older woman sitting up in bed' },
+    main: { src: '/images/svc-24h.jpg', brief: 'Two carers doing a friendly handover in an older woman’s kitchen' },
+    side: { src: '/images/svc-24h-side.jpg', brief: 'A carer opening the curtains in the morning for an older woman sitting up in bed' },
   },
   'hourly-care': {
-    main: { brief: 'a carer and an older woman walking arm in arm to the local shop' },
-    side: { brief: 'a carer helping an older man on with his coat before an appointment' },
+    main: { src: '/images/svc-hourly.jpg', brief: 'A carer and an older woman walking arm in arm to the local shops' },
+    side: { src: '/images/svc-hourly-side.jpg', brief: 'A carer helping an older man on with his coat before an appointment' },
   },
 }

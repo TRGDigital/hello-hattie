@@ -19,10 +19,14 @@ export type Service = {
   areaPages: boolean      // true only for the services that get council-area pages
 }
 
-/** A guide or cost page: /guides/{slug} or /costs/{slug}. */
+export type Img = { src?: string; brief: string }
+
+/** A guide, cost page or blog post: /guides/{slug}, /costs/{slug} or /blog/{slug}. */
 export type Article = {
   slug: string
-  kind: 'guide' | 'cost'
+  kind: 'guide' | 'cost' | 'blog'
+  category?: string       // topic chip, e.g. "Arranging care"; defaults by kind
+  image?: Img             // lead photo; a missing src shows a placeholder with the brief
   title: string
   metaTitle: string
   metaDescription: string

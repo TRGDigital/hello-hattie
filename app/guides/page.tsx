@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { ARTICLES } from '@/content/articles'
-import { CtaBand, PageHero } from '@/components/Blocks'
+import { CtaBand, Crumbs } from '@/components/Blocks'
+import { PostBrowser } from '@/components/PostBrowser'
+import { StoryPanel } from '@/components/Feature'
 
 export const metadata: Metadata = { title: 'Guides to arranging care at home', description: 'Plain guides for families: choosing an agency, live-in care or a care home, care after hospital and more.', alternates: { canonical: '/guides' } }
 
@@ -9,9 +10,24 @@ export default function Guides() {
   const guides = ARTICLES.filter((a) => a.kind === 'guide')
   return (
     <>
-      <PageHero crumbs={[{ label: 'Guides' }]} title="Guides for families" intro="Plain answers to the questions families ask when arranging care at home." />
-      <section className="section"><div className="in">
-        <div className="grid-3">{guides.map((a) => <Link className="card" key={a.slug} href={`/guides/${a.slug}`}><h3>{a.title}</h3><p>{a.summary}</p><b className="more">Read the guide</b></Link>)}</div>
+      <section className="blog-head"><div className="in">
+        <Crumbs items={[{ label: 'Guides' }]} />
+        <div className="blog-title">
+          <p className="eyebrow">Guides for families</p>
+          <h1>Plain answers for arranging care at home</h1>
+          <p className="lede">The questions families ask most, answered in a few minutes each: which care suits, how to choose an agency, and what to do after a hospital stay.</p>
+        </div>
+      </div></section>
+      <section className="section" style={{ paddingTop: 12 }}><div className="in">
+        <PostBrowser posts={guides} />
+      </div></section>
+      <section className="section band"><div className="in">
+        <StoryPanel eyebrow="Not sure where to start?" title="Answer five questions and we’ll suggest a type of care"
+          image={{ src: '/images/care-dementia.jpg', brief: 'A carer and an older woman looking through a photo album together' }}
+          ticks={['Takes about a minute', 'Nothing is saved or sent', 'Explains why each type of care may suit']}
+          cta={{ href: '/tools/which-care-is-right', label: 'Which care is right?' }}>
+          <p>Our free tool asks about the help needed, nights, living arrangements and space at home, then points you to the type of care that is a good place to start.</p>
+        </StoryPanel>
       </div></section>
       <CtaBand />
     </>

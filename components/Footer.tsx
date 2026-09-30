@@ -23,6 +23,7 @@ export function Footer() {
           <li><Link href="/costs">Care costs</Link></li>
           <li><Link href="/tools">Tools</Link></li>
           <li><Link href="/guides">Guides</Link></li>
+          <li><Link href="/blog">Blog</Link></li>
           <li><Link href="/areas">Areas we cover</Link></li>
         </ul></div>
         <div><h3>About</h3><ul>

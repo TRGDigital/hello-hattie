@@ -1,4 +1,5 @@
-import type { Article } from './types'
+import type { Article, Img } from './types'
+import { POSTS } from './posts'
 
 const UPDATED = '2026-09-30'
 
@@ -22,7 +23,7 @@ const AA_SOURCE = {
 const MATCH_INVITE =
   'If you would like help finding a CQC-registered agency near you, our free matching service can put you in touch with up to 3 local agencies.'
 
-export const ARTICLES: Article[] = [
+const BASE: Article[] = [
   // ---------------------------------------------------------------- COSTS
   {
     slug: 'home-care-cost-per-hour',
@@ -620,5 +621,28 @@ export const ARTICLES: Article[] = [
   },
 ]
 
+// Topic and lead photo for the guides and cost pages. A missing src shows a placeholder with the brief.
+const META: Record<string, { category: string; image: Img }> = {
+  'home-care-cost-per-hour': { category: 'Costs and funding', image: { brief: 'an older couple looking through household paperwork at the kitchen table with a pot of tea' } },
+  'live-in-care-cost': { category: 'Costs and funding', image: { brief: 'a live-in carer and an older woman chatting over lunch at her dining table' } },
+  'paying-for-home-care': { category: 'Costs and funding', image: { src: '/images/hattie-phone.jpg', brief: 'A woman smiling on the phone at home, arranging care for her mum' } },
+  'live-in-care-vs-care-home': { category: 'Choosing care', image: { src: '/images/care-live-in.jpg', brief: 'A live-in carer and an older woman planting flowers together in her garden' } },
+  'choosing-a-home-care-agency': { category: 'Choosing care', image: { src: '/images/agency-desk.jpg', brief: 'A care manager smiling on a headset at her desk' } },
+  'what-does-a-home-carer-do': { category: 'Understanding care', image: { src: '/images/care-visiting.jpg', brief: 'A carer sharing breakfast with an older man in his kitchen' } },
+  'arranging-care-after-hospital': { category: 'Arranging care', image: { src: '/images/svc-hourly-side.jpg', brief: 'A carer helping an older man on with his coat in his hallway' } },
+  'signs-a-parent-needs-help-at-home': { category: 'Family life', image: { brief: 'a daughter and her mum talking gently at the kitchen table over a cup of tea' } },
+}
+
+export const ARTICLES: Article[] = [...BASE.map((a) => ({ ...META[a.slug], ...a })), ...POSTS]
+
 export const articleBySlug = (kind: Article['kind'], s: string) =>
   ARTICLES.find((a) => a.kind === kind && a.slug === s)
+
+/** Where an article lives. */
+export const articlePath = (a: Article) => `/${a.kind === 'cost' ? 'costs' : a.kind === 'blog' ? 'blog' : 'guides'}/${a.slug}`
+
+/** Reading time in minutes, at about 200 words a minute. */
+export const readMins = (a: Article) => {
+  const words = [a.summary, ...a.sections.flatMap((x) => [x.heading, ...x.paragraphs, ...(x.bullets ?? [])])].join(' ').split(/\s+/).length
+  return Math.max(2, Math.round(words / 200))
+}
