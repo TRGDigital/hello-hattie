@@ -43,15 +43,7 @@ export default function Home() {
       </div></section>
 
       <section className="section"><div className="in">
-        <div style={{ display: 'grid', gap: 28 }}>
-          <div className="prose">
-            <h2>How service areas work</h2>
-            <p>Every home care agency covers an area around its office. It’s usually set by how far its carers can travel between visits, often a few miles in a town and further in the countryside.</p>
-            <p>That’s why the postcode matters. We only match you with agencies whose service area includes the address where care is needed, so the carers are local, arrive on time and spend their time with you rather than on the road.</p>
-            <p>Try it: enter a postcode and choose a distance to see how many registered agencies are based nearby.</p>
-          </div>
-          <RadiusDemo />
-        </div>
+        <RadiusDemo />
       </div></section>
 
       <section className="section band"><div className="in">

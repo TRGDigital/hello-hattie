@@ -7,7 +7,8 @@ export function Footer() {
     <footer className="site-foot">
       <div className="in">
         <div style={{ display: 'grid', gap: 10 }}>
-          <b style={{ color: 'var(--ink)', fontFamily: 'var(--display)', fontSize: '1.2rem' }}>{BRAND.name}</b>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/brand/hello-hattie-logo.svg" alt={BRAND.name} width={121} height={40} />
           <p>{HONEST}</p>
           <p>We match families with CQC-registered home care agencies across England, from {TOTAL_AGENCIES.toLocaleString('en-GB')} on the CQC register.</p>
         </div>

@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(BRAND.url),
   title: { default: `${BRAND.name}: find home care near you`, template: `%s | ${BRAND.name}` },
   description: 'Free matching with CQC-registered home care, live-in care and overnight care agencies near you.',
+  openGraph: { siteName: BRAND.name, type: 'website', locale: 'en_GB' },
   // Until launch every page is noindex; flip NEXT_PUBLIC_SITE_LIVE=true on the real domain.
   robots: BRAND.live ? { index: true, follow: true } : { index: false, follow: false },
 }

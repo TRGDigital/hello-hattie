@@ -6,8 +6,8 @@ export function Header() {
     <header className="site-head">
       <div className="in">
         <Link className="logo" href="/" aria-label={`${BRAND.name} home`}>
-          <i aria-hidden="true" />
-          <span><b>{BRAND.name}</b><small>{BRAND.tagline}</small></span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/brand/hello-hattie-logo.svg" alt="" width={175} height={58} />
         </Link>
         <nav className="nav" aria-label="Main">
           {NAV.map((n) => <Link key={n.href} href={n.href}>{n.label}</Link>)}
