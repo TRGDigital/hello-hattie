@@ -111,7 +111,7 @@ export default function Home() {
         <div className="work">
           <div className="card"><span className="num">01</span><h3>You tell us</h3><p>Where care is needed, the kind of help, roughly how many hours and when. It takes about 2 minutes, and we never ask about medical conditions.</p></div>
           <div className="card"><span className="num">02</span><h3>We check</h3><p>We look for agencies registered with the CQC that cover your postcode, offer that type of care and can take on new clients.</p></div>
-          <div className="card"><span className="num">03</span><h3>Agencies call you</h3><p>Up to 3 agencies get in touch to talk it through. Most will arrange an assessment before giving you a written quote.</p></div>
+          <div className="card"><span className="num">03</span><h3>Agencies call you</h3><p>The agencies we match get in touch to talk it through. Most will arrange an assessment before giving you a written quote.</p></div>
           <div className="card"><span className="num">04</span><h3>You choose</h3><p>Compare what each one offers and how they made you feel. Choose one, or none. There’s no obligation and nothing to pay us.</p></div>
         </div>
       </div></section>
@@ -187,7 +187,7 @@ export default function Home() {
 
       <Faqs band faqs={[
         { q: 'Is it really free?', a: 'Yes. Families never pay us anything. Care agencies pay us when we introduce them to a family.' },
-        { q: 'Who will contact me?', a: 'Up to 3 CQC-registered home care agencies that cover your postcode. They’ll call to talk through what you need and how they could help.' },
+        { q: 'Who will contact me?', a: 'CQC-registered home care agencies that cover your postcode and offer the care you need. They’ll call to talk through what you need and how they could help.' },
         { q: 'Do I have to choose one of the agencies?', a: 'No. There’s no obligation. You can compare what they offer, ask questions and take your time.' },
         { q: 'Are you a care agency?', a: 'No. We’re a matching service. We don’t employ carers or provide care. The agency you choose provides the care and agrees the details with you.' },
         { q: 'Which areas do you cover?', a: 'We match families with agencies across England. Care agencies in England are registered and inspected by the Care Quality Commission.' },

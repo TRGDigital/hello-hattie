@@ -49,7 +49,7 @@ export function ArticleView({ a, crumb }: { a: Article; crumb: { href: string; l
                   <aside className="post-cta">
                     <p className="eyebrow">Free for families</p>
                     <h3>Want help finding a good local agency?</h3>
-                    <p>Tell us what’s needed and we’ll put you in touch with up to 3 CQC-registered agencies that cover your postcode.</p>
+                    <p>Tell us what’s needed and we’ll put you in touch with CQC-registered agencies that cover your postcode.</p>
                     <p><MatchLink className="btn">Get matched, it’s free</MatchLink></p>
                   </aside>
                 )}

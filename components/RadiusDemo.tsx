@@ -131,7 +131,7 @@ export function RadiusDemo() {
         <div className="radius-result" aria-live="polite">
           {map ? <>
             <p><span className="big">{map.count.toLocaleString('en-GB')}</span> CQC-registered home care agencies are based within {radius} miles of {centre!.district}, and {map.goodPlus.toLocaleString('en-GB')} of them are rated Good or Outstanding.</p>
-            <a className="btn" href={`/get-matched?postcode=${encodeURIComponent(input.trim().toUpperCase())}`}>Get matched with up to 3</a>
+            <a className="btn" href={`/get-matched?postcode=${encodeURIComponent(input.trim().toUpperCase())}`}>Get matched</a>
           </> : <p className="muted">Enter a postcode to see your area and how many registered agencies are nearby.</p>}
         </div>
       </div>

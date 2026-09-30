@@ -46,7 +46,7 @@ export default function AreaPage({ params }: { params: { service: string; region
     <>
       <PageHero crumbs={[{ href: `/${s.slug}`, label: s.name }, { href: `/${s.slug}/${r.slug}`, label: r.name }, { label: a.name }]}
         title={`${s.name} in ${a.name}`}
-        intro={`There are ${a.total} CQC-registered home care agencies registered in ${a.name}. Tell us what’s needed and we’ll match you with up to 3 that cover your postcode, free and with no obligation.`}
+        intro={`There are ${a.total} CQC-registered home care agencies registered in ${a.name}. Tell us what’s needed and we’ll match you with registered agencies that cover your postcode, free and with no obligation.`}
         aside={<HeroMatch title={`Find ${svc} in ${a.name}`} service={quizService(s.slug)} place={a.name} />}>
         <Trust />
       </PageHero>
@@ -65,7 +65,7 @@ export default function AreaPage({ params }: { params: { service: string; region
           <div className="prose">
             <h2>Arranging {svc} in {a.name}</h2>
             <p>{s.whatItIs[0]}</p>
-            <p>When you use our free matching, we look for agencies registered with the Care Quality Commission that cover your postcode in {a.name} and offer {svc}. Up to 3 of them will call you to talk it through, usually after arranging an assessment.</p>
+            <p>When you use our free matching, we look for agencies registered with the Care Quality Commission that cover your postcode in {a.name} and offer {svc}. The best matched of them will call you to talk it through, usually after arranging an assessment.</p>
             <p>Before you choose, you can read each agency’s latest inspection report on the CQC website. Our guide to <Link href="/guides/choosing-a-home-care-agency">choosing a home care agency</Link> lists the questions worth asking.</p>
           </div>
           <div className="panel hi">

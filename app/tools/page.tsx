@@ -59,7 +59,7 @@ export default function ToolsPage() {
 
       <section className="section"><div className="in">
         <DarkFeature eyebrow="The next step" title="Ready to talk to agencies near you?"
-          pills={['Free for families', 'Up to 3 CQC-registered agencies', 'No obligation']}
+          pills={['Free for families', 'Only CQC-registered agencies', 'No obligation']}
           cta={{ href: '/get-matched', label: 'Get matched' }}
           image={{ src: '/images/family-phone.jpg', brief: 'A smiling woman on the phone at home' }}>
           <p>When you have a rough idea of the care and the budget, tell us where care is needed. We’ll put you in touch with local agencies that can give you a proper quote.</p>

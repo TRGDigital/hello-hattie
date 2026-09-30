@@ -41,7 +41,7 @@ export function ToolShell({ href, title, intro, chips, steps, tool, explainTitle
           <div className="side-card dark">
             <p className="eyebrow">Free for families</p>
             <h3>Talk to agencies near you</h3>
-            <p>We’ll put you in touch with up to 3 CQC-registered agencies that cover your postcode, so you can get a proper quote.</p>
+            <p>We’ll put you in touch with CQC-registered agencies that cover your postcode, so you can get a proper quote.</p>
             <MatchLink className="btn hi">Get matched</MatchLink>
           </div>
         </aside>

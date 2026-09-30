@@ -21,7 +21,7 @@ const AA_SOURCE = {
 }
 
 const MATCH_INVITE =
-  'If you would like help finding a CQC-registered agency near you, our free matching service can put you in touch with up to 3 local agencies.'
+  'If you would like help finding a CQC-registered agency near you, our free matching service can put you in touch with local agencies.'
 
 const BASE: Article[] = [
   // ---------------------------------------------------------------- COSTS

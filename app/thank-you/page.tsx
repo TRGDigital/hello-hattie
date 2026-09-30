@@ -8,7 +8,7 @@ export default function ThankYou() {
     <>
       <section className="section"><div className="in" style={{ maxWidth: 760 }}>
         <h1>Thank you, we’ve got your details</h1>
-        <p className="lede">Up to 3 CQC-registered home care agencies that cover your area will be in touch, usually by phone. Keep your phone nearby over the next day or so.</p>
+        <p className="lede">CQC-registered home care agencies that cover your area will be in touch, usually by phone. Keep your phone nearby over the next day or so.</p>
         <div className="panel line">
           <h2>What happens next</h2>
           <ol className="steps" style={{ gridTemplateColumns: '1fr' }}>

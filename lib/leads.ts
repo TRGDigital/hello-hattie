@@ -2,8 +2,8 @@
 // the browser cannot read or write the leads table directly). The key is the public anon key.
 const DB = process.env.NEXT_PUBLIC_LEADS_DB_URL || 'https://bloeazbeoqtddtmjanws.supabase.co'
 const KEY = process.env.NEXT_PUBLIC_LEADS_DB_KEY || 'sb_publishable_Kc5ivNM66xL8ZcTpHDUNjQ_-HX-CC3S'
-export const CONSENT_VERSION = 'v1-2026-09-30'
-export const CONSENT_TEXT = 'I agree to my details being passed to up to 3 CQC-registered home care agencies near me so they can contact me about care.'
+export const CONSENT_VERSION = 'v2-2026-09-30'
+export const CONSENT_TEXT = 'I agree to my details being passed to CQC-registered home care agencies that cover my area, so they can contact me about care.'
 
 async function rpc<T>(fn: string, p: Record<string, unknown>): Promise<T> {
   const r = await fetch(`${DB}/rest/v1/rpc/${fn}`, {

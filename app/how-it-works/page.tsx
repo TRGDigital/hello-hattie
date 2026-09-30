@@ -7,7 +7,7 @@ import { RadiusDemo } from '@/components/RadiusDemo'
 import { TOTAL_AGENCIES } from '@/lib/areas'
 import { HONEST } from '@/lib/site'
 
-export const metadata: Metadata = { title: 'How it works', description: 'How our free matching works: a few questions, then up to 3 CQC-registered agencies near you get in touch.', alternates: { canonical: '/how-it-works' } }
+export const metadata: Metadata = { title: 'How it works', description: 'How our free matching works: a few questions, then CQC-registered agencies near you get in touch.', alternates: { canonical: '/how-it-works' } }
 
 const STEPS = [
   {
@@ -23,10 +23,10 @@ const STEPS = [
     ticks: ['Registered with the Care Quality Commission', 'Covers the postcode where care is needed', 'Offers the type of care you asked for', 'Can take on new clients'],
   },
   {
-    n: '03', eyebrow: 'Step 3 · Agencies call you', title: 'Up to 3 agencies get in touch',
+    n: '03', eyebrow: 'Step 3 · Agencies call you', title: 'Matched agencies get in touch',
     image: { src: '/images/svc-24h.jpg', brief: 'Two care staff with a clipboard talking with an older woman in her kitchen' },
     text: 'Each agency calls to talk things through. Most will arrange a visit to assess what’s needed, then give you a written quote and a care plan.',
-    ticks: ['Never more than 3 agencies', 'Ask them the questions that matter to you', 'Take your time, there’s no deadline'],
+    ticks: ['Only agencies matched to your needs, never a long list', 'Ask them the questions that matter to you', 'Take your time, there’s no deadline'],
   },
   {
     n: '04', eyebrow: 'Step 4 · When you’re ready', title: 'You choose, or choose none',
@@ -45,7 +45,7 @@ export default function HowItWorks() {
             <Crumbs items={[{ label: 'How it works' }]} />
             <p className="eyebrow">How it works</p>
             <h1>One short conversation instead of a ring-round</h1>
-            <p className="lede">Tell us once what’s needed and we’ll put you in touch with up to 3 CQC-registered home care agencies that cover your area. Free for families, with no obligation.</p>
+            <p className="lede">Tell us once what’s needed and we’ll put you in touch with CQC-registered home care agencies that cover your area. Free for families, with no obligation.</p>
             <PostcodeStart />
             <Trust />
           </div>
@@ -88,10 +88,10 @@ export default function HowItWorks() {
 
       <section className="section"><div className="in" style={{ display: 'grid', gap: 20 }}>
         <DarkFeature eyebrow="Being open with you" title="How we’re paid, and what we share"
-          pills={['Free for families', 'Agencies pay per introduction', 'Up to 3 agencies only', 'No medical questions']}
+          pills={['Free for families', 'Agencies pay per introduction', 'Never a long list', 'No medical questions']}
           image={{ src: '/images/family-phone.jpg', brief: 'A smiling woman on the phone at home' }}>
           <p>{HONEST}</p>
-          <p>With your agreement, we pass your contact details and your answers about the care needed to up to 3 local agencies, so they can contact you. Nothing else is shared. Read our <Link href="/privacy">privacy notice</Link>.</p>
+          <p>With your agreement, we pass your contact details and your answers about the care needed to the local agencies we match you with, so they can contact you. Nothing else is shared. Read our <Link href="/privacy">privacy notice</Link>.</p>
         </DarkFeature>
       </div></section>
 
