@@ -670,3 +670,5 @@ body:has(.go-page) .site-head .head-cta { margin-left: auto; }
 .enq-badges li::before { content: "✓ "; }
 .agency-visual .enquiry-mock .enq div.span { display: block; }
 .agency-visual .enquiry-mock .enq div:nth-child(n+4) { display: none; }
+/* Join copy stays in view beside the (taller) form on wide screens */
+@media (min-width: 901px) { .join-grid > .prose { position: sticky; top: calc(96px + env(safe-area-inset-top, 0px)); } }
