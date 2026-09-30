@@ -640,3 +640,9 @@ body:has(.go-page) .site-head .logo { pointer-events: none; }
 .go-final h2 { color: var(--hi-ink); }
 .go-final .btn.hi { background: var(--ink); color: #fff; }
 body:has(.go-page) .site-head .head-cta { margin-left: auto; }
+
+/* Form checks */
+.linkish { background: none; border: 0; padding: 0; font: inherit; color: var(--btn); text-decoration: underline; cursor: pointer; }
+.check-note { font-size: .88rem; color: var(--soft); }
+.check-note.good { color: var(--btn); }
+.check-note.bad { color: var(--danger); font-weight: 700; }

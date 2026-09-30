@@ -16,16 +16,18 @@ async function rpc<T>(fn: string, p: Record<string, unknown>): Promise<T> {
   return body as T
 }
 
-export const submitLead = (p: Record<string, unknown>) => rpc<{ id: string; duplicate: boolean }>('submit_homecare_lead', p)
-// Ask the TRG platform to send the lead to its agency straight away. Fire and forget: if this
-// fails, the platform's one-minute sweep sends it anyway.
-const DISTRIBUTE = process.env.NEXT_PUBLIC_DISTRIBUTE_URL || 'https://www.trgdigital.co.uk/api/homecare/distribute'
-export function pingDistribution(leadId: string) {
-  try {
-    fetch(DISTRIBUTE, { method: 'POST', keepalive: true, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ lead_id: leadId }) }).catch(() => {})
-  } catch {}
+/** Leads go through this site's own server (/api/lead), which checks the phone and email, checks
+ *  the text-code proof and signs the lead; the database only accepts signed leads. */
+export async function submitLead(p: Record<string, unknown>): Promise<{ id: string; duplicate: boolean; verified: boolean }> {
+  const r = await fetch('/api/lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(p) })
+  const body = await r.json().catch(() => null)
+  if (!r.ok) throw Object.assign(new Error(body?.message || 'Something went wrong. Please try again.'), { field: body?.field })
+  return body
 }
-
+export const postJson = async <T,>(url: string, body: unknown): Promise<T> => {
+  const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+  return r.json()
+}
 export const submitAgency = (p: Record<string, unknown>) => rpc<string>('submit_homecare_agency', p)
 
 const KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'gclid'] as const

@@ -1,7 +1,7 @@
 'use client'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useMemo, useRef, useState } from 'react'
-import { attribution, CONSENT_TEXT, CONSENT_VERSION, pingDistribution, submitLead } from '@/lib/leads'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { attribution, CONSENT_TEXT, CONSENT_VERSION, postJson, submitLead } from '@/lib/leads'
 
 // The matching quiz. It asks about arrangements only (type and amount of care, kind of help,
 // timing, funding), never about conditions or health. The lead is saved on the last step.
@@ -19,7 +19,12 @@ type Answers = {
   best_time: string
   contact_consent: boolean
   marketing_consent: boolean
+  address: string
+  uprn: string
 }
+type Addr = { line: string; town: string; postcode: string; uprn: string | null }
+type PhoneState = { status: 'valid' | 'invalid' | 'unchecked'; type?: string; needsCode?: boolean } | null
+type EmailState = { status: string; suggestion?: string } | null
 
 const PC = /^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$/
 const SERVICES = ['visiting', 'live_in', 'overnight', 'not_sure']
@@ -55,19 +60,55 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
   const startService = SERVICES.includes(wanted) ? wanted : ''
   const [a, setA] = useState<Answers>({
     postcode: embedded ? '' : (postcode || '').toUpperCase(), care_for: '', service: startService, hours: '', help: [],
-    urgency: '', funding: '', name: '', phone: '', email: '', best_time: '', contact_consent: false, marketing_consent: false,
+    urgency: '', funding: '', name: '', phone: '', email: '', best_time: '', contact_consent: false, marketing_consent: false, address: '', uprn: '',
   })
   const set = <K extends keyof Answers>(k: K, v: Answers[K]) => setA((x) => ({ ...x, [k]: v }))
 
   // Live-in and overnight care are not booked by the hour, so the hours question is skipped for them.
   const steps = useMemo(() => {
-    const s = ['postcode', 'care_for', 'service', 'hours', 'help', 'urgency', 'funding', 'contact']
+    const s = ['postcode', 'care_for', 'service', 'hours', 'help', 'urgency', 'funding', 'address', 'contact']
     return a.service === 'live_in' || a.service === 'overnight' ? s.filter((x) => x !== 'hours') : s
   }, [a.service])
   const [i, setI] = useState(PC.test(a.postcode.trim()) ? 1 : 0)
   const step = steps[Math.min(i, steps.length - 1)]
   const [err, setErr] = useState('')
   const [busy, setBusy] = useState(false)
+  // Address picker for the postcode, fetched when the address step opens.
+  const [addrs, setAddrs] = useState<{ pc: string; status: string; list: Addr[] } | null>(null)
+  const [manual, setManual] = useState(false)
+  const [manualLine, setManualLine] = useState('')
+  const [manualTown, setManualTown] = useState('')
+  // Instant checks and the text code for mobiles.
+  const [phoneState, setPhoneState] = useState<PhoneState>(null)
+  const [emailState, setEmailState] = useState<EmailState>(null)
+  const [codeStage, setCodeStage] = useState(false)
+  const [code, setCode] = useState('')
+  const [phoneToken, setPhoneToken] = useState('')
+  const checked = useRef<{ phone?: string; email?: string }>({})
+
+  useEffect(() => {
+    if (step !== 'address') return
+    const pc = a.postcode.trim().toUpperCase()
+    if (addrs?.pc === pc) return
+    setAddrs({ pc, status: 'loading', list: [] })
+    fetch(`/api/address?postcode=${encodeURIComponent(pc)}`).then((r) => r.json()).then((b) => {
+      setAddrs({ pc, status: b.status ?? 'unavailable', list: b.addresses ?? [] })
+      if (b.status !== 'ok') setManual(true)
+    }).catch(() => { setAddrs({ pc, status: 'unavailable', list: [] }); setManual(true) })
+  }, [step, a.postcode, addrs?.pc])
+
+  async function runChecks(which: 'phone' | 'email' | 'both') {
+    const body: Record<string, string> = {}
+    if (which !== 'email' && a.phone.trim() && checked.current.phone !== a.phone) body.phone = a.phone
+    if (which !== 'phone' && a.email.trim() && checked.current.email !== a.email) body.email = a.email
+    if (!Object.keys(body).length) return { phone: phoneState, email: emailState }
+    try {
+      const r = await postJson<{ phone: PhoneState; email: EmailState }>('/api/check', body)
+      if (body.phone) { checked.current.phone = body.phone; setPhoneState(r.phone); setPhoneToken('') }
+      if (body.email) { checked.current.email = body.email; setEmailState(r.email) }
+      return { phone: body.phone ? r.phone : phoneState, email: body.email ? r.email : emailState }
+    } catch { return { phone: phoneState, email: emailState } }
+  }
 
   const valid = (): string => {
     if (step === 'postcode' && !PC.test(a.postcode.trim().toUpperCase().replace(/\s+/g, ' '))) return 'Please enter a full UK postcode, for example WR14 1AB.'
@@ -76,6 +117,10 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
     if (step === 'hours' && !a.hours) return 'Please choose roughly how much help is needed.'
     if (step === 'urgency' && !a.urgency) return 'Please choose when care is needed.'
     if (step === 'funding' && !a.funding) return 'Please choose how care is likely to be paid for.'
+    if (step === 'address') {
+      if (!manual && !a.address) return 'Please choose the address where care is needed, or enter it yourself.'
+      if (manual && (manualLine.trim().length < 3 || manualTown.trim().length < 2)) return 'Please enter the first line of the address and the town.'
+    }
     if (step === 'contact') {
       if (a.name.trim().length < 2) return 'Please enter your name.'
       if (!/^(\+44|0)[0-9]{9,10}$/.test(a.phone.replace(/[^0-9+]/g, ''))) return 'Please enter a UK phone number so the agency can call you.'
@@ -89,7 +134,28 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
     const e = valid()
     if (e) { setErr(e); return }
     setErr('')
+    if (step === 'address' && manual) { set('address', `${manualLine.trim()}, ${manualTown.trim()}, ${a.postcode.trim().toUpperCase()}`); set('uprn', '') }
     if (step !== 'contact') { setI((n) => n + 1); return }
+    setBusy(true)
+    const chk = await runChecks('both')
+    if (chk.phone?.status === 'invalid') { setErr('Please check the phone number. It doesn’t look like a working UK number.'); setBusy(false); return }
+    if (chk.email?.status === 'undeliverable') { setErr('Please check the email address. It doesn’t look like it can receive email.'); setBusy(false); return }
+    if (chk.phone?.needsCode && !phoneToken) {
+      if (!codeStage) {
+        const sent = await postJson<{ ok: boolean; error?: string }>('/api/otp', { action: 'send', phone: a.phone }).catch(() => ({ ok: false, error: '' }))
+        if (sent.ok) { setCodeStage(true); setBusy(false); return }
+        // A text that can't be sent never loses the enquiry: it goes through, marked unverified.
+      } else {
+        const v = await postJson<{ ok: boolean; token?: string; error?: string }>('/api/otp', { action: 'check', phone: a.phone, code }).catch(() => ({ ok: false, error: 'Please try again.' } as { ok: boolean; token?: string; error?: string }))
+        if (!v.ok || !v.token) { setErr(v.error || 'That code isn’t right.'); setBusy(false); return }
+        setPhoneToken(v.token)
+        return submit(v.token)
+      }
+    }
+    return submit(phoneToken)
+  }
+
+  async function submit(token: string) {
     setBusy(true)
     try {
       const hours = HOURS.find((h) => h[0] === a.hours)?.[2] ?? null
@@ -99,8 +165,9 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
         marketing_consent: a.marketing_consent, consent_version: CONSENT_VERSION, idempotency_key: idem.current,
         user_agent: navigator.userAgent, ...attribution(),
         answers: { help: a.help, hours_band: a.hours, best_time: a.best_time, consent_text: CONSENT_TEXT },
+        address: a.address, uprn: a.uprn, phone_token: token,
       })
-      if (saved?.id && !saved.duplicate) pingDistribution(saved.id)
+      void saved
       router.push(`/thank-you?service=${a.service}`)
     } catch (x) {
       setErr(x instanceof Error ? x.message : 'Something went wrong. Please try again.')
@@ -180,12 +247,58 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
         </fieldset>
       )}
 
-      {step === 'contact' && (
+      {step === 'address' && (
+        <div style={{ display: 'grid', gap: 14 }}>
+          <h2><label htmlFor="q-addr">What’s the address where care is needed?</label></h2>
+          <span className="hint">So the agency knows exactly where to visit. {a.postcode.toUpperCase()} <button type="button" className="linkish" onClick={() => { setI(0); setAddrs(null) }}>Change postcode</button></span>
+          {!manual && addrs?.status === 'loading' && <p className="muted">Finding addresses…</p>}
+          {!manual && addrs?.status === 'ok' && (
+            <select id="q-addr" value={a.uprn || a.address} onChange={(e) => {
+              const x = addrs.list.find((l) => (l.uprn ?? l.line) === e.target.value)
+              set('address', x ? `${x.line}, ${x.town}, ${x.postcode}` : ''); set('uprn', x?.uprn ?? '')
+            }}>
+              <option value="">Choose the address ({addrs.list.length} found)</option>
+              {addrs.list.map((l) => <option key={l.uprn ?? l.line} value={l.uprn ?? l.line}>{l.line}</option>)}
+            </select>
+          )}
+          {manual && (
+            <>
+              {addrs?.status === 'not_found' && <p className="small muted">We couldn’t find that postcode in the address list. Please type the address.</p>}
+              <div className="field"><label htmlFor="q-line">House number and street</label><input id="q-line" type="text" autoComplete="address-line1" value={manualLine} onChange={(e) => setManualLine(e.target.value)} /></div>
+              <div className="field"><label htmlFor="q-town">Town or city</label><input id="q-town" type="text" autoComplete="address-level2" value={manualTown} onChange={(e) => setManualTown(e.target.value)} /></div>
+            </>
+          )}
+          {!manual && addrs?.status === 'ok' && <button type="button" className="linkish" onClick={() => { setManual(true); set('address', ''); set('uprn', '') }}>I can’t find the address in the list</button>}
+          <p className="small muted">We only share the address with the one agency we match you with.</p>
+        </div>
+      )}
+
+      {step === 'contact' && codeStage && (
+        <div style={{ display: 'grid', gap: 14 }}>
+          <h2><label htmlFor="q-code">Enter the code we’ve just texted you</label></h2>
+          <span className="hint">We sent a 6-digit code to {a.phone}. This confirms the agency has the right number to call.</span>
+          <input id="q-code" type="text" inputMode="numeric" autoComplete="one-time-code" maxLength={6} value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))} style={{ fontSize: '1.5em', letterSpacing: '.3em', maxWidth: 220 }} />
+          <p className="small muted">
+            <button type="button" className="linkish" onClick={async () => { setErr(''); const r = await postJson<{ ok: boolean; error?: string }>('/api/otp', { action: 'send', phone: a.phone }); if (!r.ok) setErr(r.error || 'Please try again.') }}>Send a new code</button>
+            {' · '}
+            <button type="button" className="linkish" onClick={() => { setCodeStage(false); setCode(''); setErr('') }}>Change the number</button>
+          </p>
+        </div>
+      )}
+
+      {step === 'contact' && !codeStage && (
         <div style={{ display: 'grid', gap: 16 }}>
           <h2>Where should the agency contact you?</h2>
           <div className="field"><label htmlFor="q-name">Your name</label><input id="q-name" type="text" autoComplete="name" value={a.name} onChange={(e) => set('name', e.target.value)} /></div>
-          <div className="field"><label htmlFor="q-phone">Phone number</label><input id="q-phone" type="tel" autoComplete="tel" value={a.phone} onChange={(e) => set('phone', e.target.value)} /></div>
-          <div className="field"><label htmlFor="q-email">Email address</label><input id="q-email" type="email" autoComplete="email" value={a.email} onChange={(e) => set('email', e.target.value)} /></div>
+          <div className="field"><label htmlFor="q-phone">Phone number</label><input id="q-phone" type="tel" autoComplete="tel" value={a.phone} onChange={(e) => { set('phone', e.target.value); setPhoneState(null) }} onBlur={() => runChecks('phone')} aria-describedby="q-phone-note" />
+            <span id="q-phone-note" className={`check-note ${phoneState?.status === 'invalid' ? 'bad' : phoneState ? 'good' : ''}`}>
+              {phoneState?.status === 'invalid' ? 'That doesn’t look like a working UK number. Please check it.' : phoneState?.needsCode ? '✓ Mobile number. We’ll text you a code to confirm it.' : phoneState?.type === 'landline' ? '✓ Landline number' : phoneState ? '✓ Looks good' : 'A mobile is best. We’ll text a code to confirm it.'}
+            </span></div>
+          <div className="field"><label htmlFor="q-email">Email address</label><input id="q-email" type="email" autoComplete="email" value={a.email} onChange={(e) => { set('email', e.target.value); setEmailState(null) }} onBlur={() => runChecks('email')} aria-describedby="q-email-note" />
+            {emailState && <span id="q-email-note" className={`check-note ${emailState.status === 'undeliverable' ? 'bad' : 'good'}`}>
+              {emailState.status === 'undeliverable' ? 'That email address doesn’t look like it can receive email.' : '✓ Looks good'}
+              {emailState.suggestion && <> Did you mean <button type="button" className="linkish" onClick={() => { set('email', emailState.suggestion!); setEmailState(null) }}>{emailState.suggestion}</button>?</>}
+            </span>}</div>
           <div className="field"><label htmlFor="q-time">Best time to call (optional)</label>
             <select id="q-time" value={a.best_time} onChange={(e) => set('best_time', e.target.value)}>
               <option value="">Any time</option><option value="morning">Morning</option><option value="afternoon">Afternoon</option><option value="evening">Evening</option>
@@ -198,8 +311,8 @@ export function MatchQuiz({ service, place, postcode, embedded = false }: { serv
 
       {err && <p className="error" role="alert">{err}</p>}
       <div className="quiz-nav">
-        {i > 0 ? <button type="button" className="btn ghost" onClick={() => { setErr(''); setI((n) => n - 1) }}>Back</button> : <span />}
-        <button type="submit" className="btn" disabled={busy}>{step === 'contact' ? (busy ? 'Sending…' : 'Find my matches') : 'Next'}</button>
+        {i > 0 ? <button type="button" className="btn ghost" onClick={() => { setErr(''); if (codeStage) { setCodeStage(false); return } setI((n) => n - 1) }}>Back</button> : <span />}
+        <button type="submit" className="btn" disabled={busy}>{step === 'contact' ? (busy ? 'Checking…' : codeStage ? 'Confirm and send' : 'Find my match') : 'Next'}</button>
       </div>
     </form>
   )

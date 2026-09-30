@@ -13,13 +13,15 @@ export default function Privacy() {
         <p>{BRAND.name} is a trading name of TRG Digital Ltd, a company registered in England and Wales (company number 11731704), Suite Ra01, 195-197 Wood Street, London, England, E17 3NU. We are the controller of the information you give us.</p>
         <h2>What we collect</h2>
         <ul>
-          <li>Your name, phone number, email address and the postcode where care is needed</li>
+          <li>Your name, phone number, email address, and the address and postcode where care is needed</li>
           <li>Your answers about the care arrangements: who it’s for, the type and amount of care, the kind of help, when it’s needed and how it’s likely to be paid for</li>
           <li>How you found us, such as the advert you clicked, and basic technical details about your visit</li>
         </ul>
         <p>We don’t ask about medical conditions, and please don’t send us health information.</p>
         <h2>What we do with it</h2>
         <p>With your agreement, we pass your details and answers to a home care agency registered with the Care Quality Commission that covers your postcode, so they can contact you about care. We send your details to one agency only. That agency then handles your information under its own privacy notice. If you ticked the box for guides, we’ll also email you occasional guides, and you can unsubscribe at any time.</p>
+        <h2>Checking your details</h2>
+        <p>So the agency can reach you, we check your details when you send them. We look up addresses for your postcode, and check that your phone number is live and your email address can receive email, using Ideal Postcodes (Ideal Postcodes Ltd, UK). If you give a mobile number, we send a one-time code by text to confirm it, using Twilio. These companies only process your details to carry out the check.</p>
         <h2>Postcode look-ups</h2>
         <p>When you use the service area tool on our home page, we look up the location of your postcode district (the first half of your postcode, such as WR14) using postcodes.io, a free postcode service. We don’t send the full postcode, and we don’t store the look-up.</p>
         <h2>Changing your mind</h2>
