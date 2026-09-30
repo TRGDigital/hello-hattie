@@ -1,6 +1,7 @@
 'use client'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { fullNameProblem, nameProblem, NAME_MESSAGE } from '@/lib/name-check'
 import { attribution, CONSENT_TEXT, CONSENT_VERSION, postJson, submitLead } from '@/lib/leads'
 
 // The matching quiz. It asks about arrangements only (type and amount of care, kind of help,
@@ -13,7 +14,8 @@ type Answers = {
   help: string[]
   urgency: string
   funding: string
-  name: string
+  first: string
+  last: string
   phone: string
   email: string
   best_time: string
@@ -63,7 +65,7 @@ export function MatchQuiz({ service, place, postcode, embedded = false, postcode
   const startService = SERVICES.includes(wanted) ? wanted : ''
   const [a, setA] = useState<Answers>({
     postcode: embedded ? '' : (postcode || '').toUpperCase(), care_for: '', service: startService, hours: '', help: [],
-    urgency: '', funding: '', name: '', phone: '', email: '', best_time: '', contact_consent: false, marketing_consent: false, address: '', uprn: '',
+    urgency: '', funding: '', first: '', last: '', phone: '', email: '', best_time: '', contact_consent: false, marketing_consent: false, address: '', uprn: '',
   })
   const set = <K extends keyof Answers>(k: K, v: Answers[K]) => setA((x) => ({ ...x, [k]: v }))
 
@@ -90,6 +92,15 @@ export function MatchQuiz({ service, place, postcode, embedded = false, postcode
   const [phoneToken, setPhoneToken] = useState('')
   const [challenge, setChallenge] = useState('')
   const checked = useRef<{ phone?: string; email?: string }>({})
+  // Offensive or made-up names are cleared as soon as the family leaves the box, with a note why.
+  const [nameErr, setNameErr] = useState<{ first?: string; last?: string }>({})
+  function checkName(part: 'first' | 'last') {
+    const v = a[part]
+    if (!v.trim()) return
+    const pr = nameProblem(v)
+    if (pr === 'offensive' || pr === 'fake') set(part, '')
+    setNameErr((x) => ({ ...x, [part]: pr ? NAME_MESSAGE[pr](part === 'first' ? 'first name' : 'last name') : '' }))
+  }
 
   useEffect(() => {
     if (step !== 'address') return
@@ -129,7 +140,9 @@ export function MatchQuiz({ service, place, postcode, embedded = false, postcode
       if (manual && (manualLine.trim().length < 3 || manualTown.trim().length < 2)) return 'Please enter the first line of the address and the town.'
     }
     if (step === 'contact') {
-      if (a.name.trim().length < 2) return 'Please enter your name.'
+      const np = nameProblem(a.first); if (np) return NAME_MESSAGE[np]('first name')
+      const lp = nameProblem(a.last); if (lp) return NAME_MESSAGE[lp]('last name')
+      const fp = fullNameProblem(a.first, a.last); if (fp) return NAME_MESSAGE[fp]('name')
       if (!/^(\+44|0)[0-9]{9,10}$/.test(a.phone.replace(/[^0-9+]/g, ''))) return 'Please enter a UK phone number so the agency can call you.'
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(a.email.trim())) return 'Please enter a valid email address.'
       if (!a.contact_consent) return 'Please tick the box to agree to local agencies contacting you.'
@@ -167,7 +180,7 @@ export function MatchQuiz({ service, place, postcode, embedded = false, postcode
     try {
       const hours = HOURS.find((h) => h[0] === a.hours)?.[2] ?? null
       const saved = await submitLead({
-        name: a.name, email: a.email, phone: a.phone, postcode: a.postcode, care_for: a.care_for, service: a.service,
+        name: `${a.first.trim()} ${a.last.trim()}`, first_name: a.first.trim(), last_name: a.last.trim(), email: a.email, phone: a.phone, postcode: a.postcode, care_for: a.care_for, service: a.service,
         hours_per_week: hours, funding: a.funding, urgency: a.urgency, contact_consent: a.contact_consent,
         marketing_consent: a.marketing_consent, consent_version: CONSENT_VERSION, idempotency_key: idem.current,
         user_agent: navigator.userAgent, ...attribution(),
@@ -176,7 +189,7 @@ export function MatchQuiz({ service, place, postcode, embedded = false, postcode
       })
       // For the thank-you page greeting (this tab only), and a dataLayer event for ad conversion tracking.
       try {
-        sessionStorage.setItem('hh_done', JSON.stringify({ first: a.name.trim().split(/\s+/)[0], district: a.postcode.trim().toUpperCase().split(' ')[0], verified: !!saved?.verified, best: a.best_time, service: a.service }))
+        sessionStorage.setItem('hh_done', JSON.stringify({ first: a.first.trim(), district: a.postcode.trim().toUpperCase().split(' ')[0], verified: !!saved?.verified, best: a.best_time, service: a.service }))
         const w = window as unknown as { dataLayer?: unknown[] }
         ;(w.dataLayer = w.dataLayer || []).push({ event: 'lead_submitted', service: a.service, verified: !!saved?.verified })
       } catch {}
@@ -310,7 +323,12 @@ export function MatchQuiz({ service, place, postcode, embedded = false, postcode
       {step === 'contact' && !codeStage && (
         <div style={{ display: 'grid', gap: 16 }}>
           <h2>Where should the agency contact you?</h2>
-          <div className="field"><label htmlFor="q-name">Your name</label><input id="q-name" type="text" autoComplete="name" value={a.name} onChange={(e) => set('name', e.target.value)} /></div>
+          <div className="name-row">
+            <div className="field"><label htmlFor="q-first">First name</label><input id="q-first" type="text" autoComplete="given-name" value={a.first} onChange={(e) => { set('first', e.target.value); setNameErr((x) => ({ ...x, first: '' })) }} onBlur={() => checkName('first')} aria-describedby="q-first-note" />
+              {nameErr.first && <span id="q-first-note" className="check-note bad">{nameErr.first}</span>}</div>
+            <div className="field"><label htmlFor="q-last">Last name</label><input id="q-last" type="text" autoComplete="family-name" value={a.last} onChange={(e) => { set('last', e.target.value); setNameErr((x) => ({ ...x, last: '' })) }} onBlur={() => checkName('last')} aria-describedby="q-last-note" />
+              {nameErr.last && <span id="q-last-note" className="check-note bad">{nameErr.last}</span>}</div>
+          </div>
           <div className="field"><label htmlFor="q-phone">Phone number</label><input id="q-phone" type="tel" autoComplete="tel" value={a.phone} onChange={(e) => { set('phone', e.target.value); setPhoneState(null) }} onBlur={() => runChecks('phone')} aria-describedby="q-phone-note" />
             <span id="q-phone-note" className={`check-note ${phoneState?.status === 'invalid' ? 'bad' : phoneState ? 'good' : ''}`}>
               {phoneState?.status === 'invalid' ? 'That doesn’t look like a working UK number. Please check it.' : phoneState?.needsCode ? '✓ Mobile number. We’ll text you a code to confirm it.' : phoneState?.type === 'landline' ? '✓ Landline number' : phoneState ? '✓ Looks good' : 'A mobile is best. We’ll text a code to confirm it.'}

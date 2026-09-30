@@ -758,3 +758,5 @@ body:has(.go-page) .site-head .head-cta { margin-left: auto; }
 @media (max-width: 1000px) { .area-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .area-cards { grid-template-columns: 1fr; } }
 .region-stats .card { gap: 14px; }
+.name-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 520px) { .name-row { grid-template-columns: 1fr; } }

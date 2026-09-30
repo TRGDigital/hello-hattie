@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { fullNameProblem, NAME_MESSAGE } from '@/lib/name-check'
 import { checkEmail, checkPhone, ipOf, limited, OTP_ENABLED, phoneTokenOk, signLead } from '@/lib/verify-server'
 
 const DB = process.env.NEXT_PUBLIC_LEADS_DB_URL || 'https://bloeazbeoqtddtmjanws.supabase.co'
@@ -12,6 +13,13 @@ export async function POST(req: Request) {
   if (limited(`lead|${ipOf(req)}`, 6, 10 * 60e3)) return bad('Too many attempts. Please try again in a few minutes.')
   const p = await req.json().catch(() => null)
   if (!p || typeof p !== 'object') return bad('Something went wrong. Please try again.')
+
+  // Names: split if an older form sent one field, then block offensive or made-up names.
+  const parts = String(p.name ?? '').trim().split(/\s+/)
+  const first = String(p.first_name ?? parts[0] ?? '').trim(), last = String(p.last_name ?? parts.slice(1).join(' ')).trim()
+  const np = fullNameProblem(first, last)
+  if (np) return bad(NAME_MESSAGE[np]('name'), 'name')
+  p.name = `${first} ${last}`
 
   const [phone, email] = await Promise.all([checkPhone(String(p.phone ?? '')), checkEmail(String(p.email ?? ''))])
   if (phone.status === 'invalid' || !phone.e164) return bad('Please check the phone number. It doesn’t look like a working UK number.', 'phone')
