@@ -40,13 +40,16 @@ function Choice({ name, value, current, onPick, children }: { name: string; valu
   )
 }
 
-export function MatchQuiz() {
+/** Used on /get-matched (reads ?postcode= and ?service=) and embedded in page heroes, where
+ *  `service` and `place` come from the page instead. */
+export function MatchQuiz({ service, place, embedded = false }: { service?: string; place?: string; embedded?: boolean } = {}) {
   const router = useRouter()
   const params = useSearchParams()
   const idem = useRef(typeof crypto !== 'undefined' && 'randomUUID' in crypto ? crypto.randomUUID() : String(Date.now()))
-  const startService = SERVICES.includes(params.get('service') || '') ? params.get('service')! : ''
+  const wanted = service ?? params.get('service') ?? ''
+  const startService = SERVICES.includes(wanted) ? wanted : ''
   const [a, setA] = useState<Answers>({
-    postcode: (params.get('postcode') || '').toUpperCase(), care_for: '', service: startService, hours: '', help: [],
+    postcode: embedded ? '' : (params.get('postcode') || '').toUpperCase(), care_for: '', service: startService, hours: '', help: [],
     urgency: '', funding: '', name: '', phone: '', email: '', best_time: '', contact_consent: false, marketing_consent: false,
   })
   const set = <K extends keyof Answers>(k: K, v: Answers[K]) => setA((x) => ({ ...x, [k]: v }))
@@ -109,7 +112,7 @@ export function MatchQuiz() {
 
       {step === 'postcode' && (
         <div className="field">
-          <h2><label htmlFor="q-postcode">Where is care needed?</label></h2>
+          <h2><label htmlFor="q-postcode">{place ? `Where in ${place} is care needed?` : 'Where is care needed?'}</label></h2>
           <span className="hint">The postcode of the person who needs care.</span>
           <input id="q-postcode" type="text" autoComplete="postal-code" placeholder="e.g. WR14 1AB" value={a.postcode}
             onChange={(e) => set('postcode', e.target.value.toUpperCase())} style={{ textTransform: 'uppercase' }} />

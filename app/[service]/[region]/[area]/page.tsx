@@ -5,7 +5,7 @@ import { SERVICES, serviceBySlug } from '@/content/services'
 import { AREAS, AREAS_GENERATED, areaBySlugs, regionBySlug } from '@/lib/areas'
 import { FIGURES, gbp } from '@/lib/figures'
 import { CtaBand, Faqs, PageHero, Trust } from '@/components/Blocks'
-import { PostcodeStart } from '@/components/PostcodeStart'
+import { HeroMatch } from '@/components/HeroMatch'
 import { quizService } from '../../page'
 
 export const dynamicParams = false
@@ -46,8 +46,8 @@ export default function AreaPage({ params }: { params: { service: string; region
     <>
       <PageHero crumbs={[{ href: `/${s.slug}`, label: s.name }, { href: `/${s.slug}/${r.slug}`, label: r.name }, { label: a.name }]}
         title={`${s.name} in ${a.name}`}
-        intro={`There are ${a.total} CQC-registered home care agencies registered in ${a.name}. Tell us what’s needed and we’ll match you with up to 3 that cover your postcode, free and with no obligation.`}>
-        <PostcodeStart label={`Find ${svc} in ${a.name}`} service={quizService(s.slug)} />
+        intro={`There are ${a.total} CQC-registered home care agencies registered in ${a.name}. Tell us what’s needed and we’ll match you with up to 3 that cover your postcode, free and with no obligation.`}
+        aside={<HeroMatch title={`Find ${svc} in ${a.name}`} service={quizService(s.slug)} place={a.name} />}>
         <Trust />
       </PageHero>
 

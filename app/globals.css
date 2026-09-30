@@ -91,7 +91,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { border-color
 /* Hero (static by design) */
 .hero .in { display: grid; grid-template-columns: 1.1fr .9fr; gap: 44px; align-items: center; padding-block: 56px; }
 .hero .copy { display: grid; gap: 20px; }
-.photo { aspect-ratio: 4 / 3.4; max-width: 100%; border-radius: 20px; background:
+.photo { aspect-ratio: 4 / 3.4; width: 100%; max-width: 100%; align-self: start; border-radius: 20px; background:
   radial-gradient(circle at 70% 30%, color-mix(in srgb, var(--hi) 70%, transparent) 0 22%, transparent 23%),
   radial-gradient(circle at 30% 75%, color-mix(in srgb, var(--btn) 22%, transparent) 0 30%, transparent 31%), var(--alt);
   display: flex; align-items: flex-end; padding: 16px; }
@@ -102,8 +102,8 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { border-color
 .crumbs a { color: var(--soft); }
 
 /* Grids and cards */
-.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; display: grid; gap: 8px; align-content: start; text-decoration: none; color: var(--ink); min-width: 0; }
 a.card:hover { border-color: var(--btn); color: var(--ink); }
 a.card b.more { color: var(--btn); font-size: .95rem; margin-top: 4px; }
@@ -238,3 +238,13 @@ th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--li
   .bar { grid-template-columns: 8em 1fr 4em; font-size: .92rem; }
 }
 .band .bar .track { background: var(--card); }
+
+/* Page hero with the matching form alongside */
+.page-hero.with-aside .in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 520px); gap: clamp(24px, 4vw, 56px); align-items: start; padding-block: 44px 24px; }
+.page-hero-copy { display: grid; gap: 14px; align-content: start; }
+.hero-match { display: grid; gap: 10px; scroll-margin-top: 110px; }
+.hero-match-title { font-family: var(--display); font-weight: 600; font-size: 1.35rem; margin: 0; }
+.hero-match .quiz { max-width: none; box-shadow: 0 12px 32px rgba(23, 56, 40, .08); }
+.hero-match .quiz h2 { font-size: 1.4rem; }
+@media (max-width: 900px) { .page-hero.with-aside .in { grid-template-columns: 1fr; } }
+#q-postcode::placeholder { text-transform: none; }

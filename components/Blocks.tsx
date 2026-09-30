@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { MatchLink } from '@/components/MatchLink'
 import type { ReactNode } from 'react'
 import { BRAND, TRUST } from '@/lib/site'
 import type { Faq } from '@/content/types'
@@ -16,13 +17,18 @@ export function Crumbs({ items }: { items: { href?: string; label: string }[] })
   )
 }
 
-export function PageHero({ crumbs, title, intro, children }: { crumbs: { href?: string; label: string }[]; title: string; intro?: string; children?: ReactNode }) {
+export function PageHero({ crumbs, title, intro, children, aside }: { crumbs: { href?: string; label: string }[]; title: string; intro?: string; children?: ReactNode; aside?: ReactNode }) {
+  const copy = <>
+    <Crumbs items={crumbs} />
+    <h1>{title}</h1>
+    {intro && <p className="lede">{intro}</p>}
+    {children}
+  </>
+  if (!aside) return <section className="page-hero"><div className="in">{copy}</div></section>
   return (
-    <section className="page-hero"><div className="in">
-      <Crumbs items={crumbs} />
-      <h1>{title}</h1>
-      {intro && <p className="lede">{intro}</p>}
-      {children}
+    <section className="page-hero with-aside"><div className="in">
+      <div className="page-hero-copy">{copy}</div>
+      {aside}
     </div></section>
   )
 }
@@ -45,7 +51,7 @@ export function CtaBand({ title = 'Find care at home near you', text = 'Answer a
   return (
     <section className="cta-band"><div className="in">
       <div style={{ display: 'grid', gap: 8 }}><h2>{title}</h2><p>{text}</p></div>
-      <Link className="btn" href={service ? `/get-matched?service=${service}` : '/get-matched'}>Get matched, it’s free</Link>
+      <MatchLink href={service ? `/get-matched?service=${service}` : '/get-matched'}>Get matched, it’s free</MatchLink>
     </div></section>
   )
 }
@@ -53,7 +59,7 @@ export function CtaBand({ title = 'Find care at home near you', text = 'Answer a
 export function MobileBar() {
   return (
     <div className="mbar">
-      <Link className="btn" href="/get-matched">Get matched</Link>
+      <MatchLink>Get matched</MatchLink>
       {BRAND.phone && <span className="btn ghost">Call {BRAND.phone}</span>}
     </div>
   )

@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { SERVICES, serviceBySlug } from '@/content/services'
 import { REGIONS } from '@/lib/areas'
 import { CtaBand, Faqs, PageHero, PhotoSlot, Trust } from '@/components/Blocks'
-import { PostcodeStart } from '@/components/PostcodeStart'
+import { HeroMatch } from '@/components/HeroMatch'
 
 export const dynamicParams = false
 export function generateStaticParams() { return SERVICES.map((s) => ({ service: s.slug })) }
@@ -23,8 +23,8 @@ export default function ServicePage({ params }: { params: { service: string } })
   const related = s.related.map(serviceBySlug).filter(Boolean)
   return (
     <>
-      <PageHero crumbs={[{ href: '/types-of-care', label: 'Types of care' }, { label: s.name }]} title={s.name} intro={s.intro}>
-        <PostcodeStart label={`Find ${s.name.toLowerCase()} near you`} service={quizService(s.slug)} />
+      <PageHero crumbs={[{ href: '/types-of-care', label: 'Types of care' }, { label: s.name }]} title={s.name} intro={s.intro}
+        aside={<HeroMatch title={`Find ${s.name.toLowerCase()} near you`} service={quizService(s.slug)} />}>
         <Trust />
       </PageHero>
 

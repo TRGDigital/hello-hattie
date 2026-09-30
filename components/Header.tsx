@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { BRAND, NAV } from '@/lib/site'
+import { MatchLink } from '@/components/MatchLink'
 
 export function Header() {
   return (
@@ -15,7 +16,7 @@ export function Header() {
         {BRAND.phone
           ? <div className="phone-line">{BRAND.phone}<span>{BRAND.hours}</span></div>
           : null}
-        <Link className="btn head-cta" href="/get-matched">Get matched</Link>
+        <MatchLink className="btn head-cta">Get matched</MatchLink>
       </div>
     </header>
   )

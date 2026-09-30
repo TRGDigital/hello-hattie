@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import { SERVICES, serviceBySlug } from '@/content/services'
 import { REGIONS, regionBySlug } from '@/lib/areas'
 import { CtaBand, PageHero, Trust } from '@/components/Blocks'
-import { PostcodeStart } from '@/components/PostcodeStart'
+import { HeroMatch } from '@/components/HeroMatch'
 import { quizService } from '../page'
 
 export const dynamicParams = false
@@ -25,8 +25,8 @@ export default function RegionPage({ params }: { params: { service: string; regi
     <>
       <PageHero crumbs={[{ href: '/types-of-care', label: 'Types of care' }, { href: `/${s.slug}`, label: s.name }, { label: r.name }]}
         title={`${s.name} in ${r.name}`}
-        intro={`There are ${r.total.toLocaleString('en-GB')} CQC-registered home care agencies across ${r.areas.length} council areas in ${r.name}. Tell us what’s needed and we’ll match you with up to 3 that cover your postcode.`}>
-        <PostcodeStart label={`Find ${s.name.toLowerCase()} near you`} service={quizService(s.slug)} />
+        intro={`There are ${r.total.toLocaleString('en-GB')} CQC-registered home care agencies across ${r.areas.length} council areas in ${r.name}. Tell us what’s needed and we’ll match you with up to 3 that cover your postcode.`}
+        aside={<HeroMatch title={`Find ${s.name.toLowerCase()} in ${r.name}`} service={quizService(s.slug)} place={r.name} />}>
         <Trust />
       </PageHero>
       <section className="section"><div className="in">
