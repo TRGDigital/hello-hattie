@@ -8,7 +8,7 @@ export function Header() {
       <div className="in">
         <Link className="logo" href="/" aria-label={`${BRAND.name} home`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/hello-hattie-logo.svg" alt="" width={175} height={58} />
+          <img src="/brand/hello-hattie-logo.svg" alt="" width={216} height={50} />
         </Link>
         <nav className="nav" aria-label="Main">
           {NAV.map((n) => <Link key={n.href} href={n.href}>{n.label}</Link>)}
