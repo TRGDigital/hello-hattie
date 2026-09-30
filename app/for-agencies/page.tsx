@@ -4,6 +4,7 @@ import { AgencyForm } from '@/components/AgencyForm'
 import { Crumbs, Faqs } from '@/components/Blocks'
 import { DarkFeature, StoryPanel } from '@/components/Feature'
 import { TOTAL_AGENCIES } from '@/lib/areas'
+import { AddressMock, CodeMock, ConsentMock, EmailMock, NeedsMock, PhoneMock } from '@/components/VerifyMocks'
 
 export const metadata: Metadata = { title: 'For care agencies', description: 'Receive enquiries from local families looking for home care and live-in care. Pay per enquiry, no contract.', alternates: { canonical: '/for-agencies' } }
 
@@ -72,12 +73,12 @@ export default function ForAgencies() {
           <p className="muted">Fake numbers and made-up addresses waste your team’s time. Every family goes through the same checks before their enquiry is sent to you.</p>
         </div>
         <div className="verify-grid">
-          <div className="card"><span className="v-icon">📍</span><h3>Full address, looked up</h3><p>The family enters their postcode and picks their address from the Royal Mail address list, so you get the exact address where care is needed, not just a postcode.</p></div>
-          <div className="card"><span className="v-icon">💬</span><h3>Mobile confirmed by text code</h3><p>We text a one-time code to the mobile number and the family types it in. If the code isn’t entered, the enquiry isn’t marked as verified.</p></div>
-          <div className="card"><span className="v-icon">📞</span><h3>Phone number checked live</h3><p>Every number, mobile or landline, is checked against the network to confirm it’s a real, working UK number before it’s accepted.</p></div>
-          <div className="card"><span className="v-icon">✉️</span><h3>Email checked</h3><p>We check the email address can receive mail, block throwaway addresses, and suggest fixes for typos like “gmial.com” while the family is typing.</p></div>
-          <div className="card"><span className="v-icon">📝</span><h3>What they need, in their words</h3><p>The type of care, who it’s for, the hours, the kind of help, how soon and how it will be paid for, plus the best time to call.</p></div>
-          <div className="card"><span className="v-icon">✅</span><h3>Consent recorded</h3><p>Every family agrees to be contacted by one local agency. We keep the wording they agreed to and when, so you can contact them with confidence.</p></div>
+          <div className="card"><div className="v-pic"><AddressMock /></div><h3>Full address, looked up</h3><p>The family enters their postcode and picks their address from the Royal Mail address list, so you get the exact address where care is needed, not just a postcode.</p></div>
+          <div className="card"><div className="v-pic"><CodeMock /></div><h3>Mobile confirmed by text code</h3><p>We text a one-time code to the mobile number and the family types it in. If the code isn’t entered, the enquiry isn’t marked as verified.</p></div>
+          <div className="card"><div className="v-pic"><PhoneMock /></div><h3>Phone number checked live</h3><p>Every number, mobile or landline, is checked against the network to confirm it’s a real, working UK number before it’s accepted.</p></div>
+          <div className="card"><div className="v-pic"><EmailMock /></div><h3>Email checked</h3><p>We check the email address can receive mail, block throwaway addresses, and suggest fixes for typos like “gmial.com” while the family is typing.</p></div>
+          <div className="card"><div className="v-pic"><NeedsMock /></div><h3>What they need, in their words</h3><p>The type of care, who it’s for, the hours, the kind of help, how soon and how it will be paid for, plus the best time to call.</p></div>
+          <div className="card"><div className="v-pic"><ConsentMock /></div><h3>Consent recorded</h3><p>Every family agrees to be contacted by one local agency. We keep the wording they agreed to and when, so you can contact them with confidence.</p></div>
         </div>
       </div></section>
 

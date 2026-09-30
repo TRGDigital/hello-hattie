@@ -9,6 +9,7 @@ import { DarkFeature, StoryPanel } from '@/components/Feature'
 import { ARTICLES } from '@/content/articles'
 import { SERVICES } from '@/content/services'
 import { ArticleCard } from '@/components/ArticleCard'
+import { Legwork } from '@/components/Legwork'
 import { AREAS, AREAS_GENERATED, RATINGS, REGIONS, TOTAL_AGENCIES } from '@/lib/areas'
 import { PROMISE } from '@/lib/site'
 
@@ -77,7 +78,9 @@ export default function Home() {
         </div>
       </div></section>
 
-      <section className="section band"><div className="in">
+      <Legwork />
+
+      <section className="section"><div className="in">
         <div style={{ display: 'grid', gap: 10, maxWidth: '60ch' }}>
           <h2>Care at home, whatever’s needed</h2>
           <p className="muted">From a hand getting up in the morning to someone there day and night, the right help at home makes staying there possible. Choose a type of care to find out more.</p>
@@ -93,7 +96,7 @@ export default function Home() {
         <ul className="chips">{SERVICES.filter((x) => !CARE.some((c) => c.slug === x.slug)).map((x) => <li key={x.slug}><Link href={`/${x.slug}`}>{x.name}</Link></li>)}<li><Link href="/types-of-care">All types of care →</Link></li></ul>
       </div></section>
 
-      <section className="section"><div className="in">
+      <section className="section band"><div className="in">
         <div className="grid-2" style={{ alignItems: 'center', gap: 'clamp(24px, 4vw, 56px)' }}>
           <div className="prose">
             <p className="eyebrow">Why Hello Hattie</p>
@@ -112,7 +115,7 @@ export default function Home() {
         </div>
       </div></section>
 
-      <section className="section band"><div className="in">
+      <section className="section"><div className="in">
         <div style={{ display: 'grid', gap: 10, maxWidth: '60ch' }}>
           <h2>How we work</h2>
           <p className="muted">What happens from the moment you get in touch.</p>
@@ -125,11 +128,11 @@ export default function Home() {
         </div>
       </div></section>
 
-      <section className="section"><div className="in">
+      <section className="section band"><div className="in">
         <RadiusDemo />
       </div></section>
 
-      <section className="section band"><div className="in">
+      <section className="section"><div className="in">
         <div className="head-row"><h2>Registered home care providers in England</h2><span className="small muted">CQC register, {new Date(AREAS_GENERATED).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span></div>
         <div className="grid-2">
           <div style={{ display: 'grid', gap: 14 }}>
@@ -152,7 +155,7 @@ export default function Home() {
         </div>
       </div></section>
 
-      <section className="section"><div className="in" style={{ display: 'grid', gap: 'clamp(40px, 6vw, 72px)' }}>
+      <section className="section band"><div className="in" style={{ display: 'grid', gap: 'clamp(40px, 6vw, 72px)' }}>
         <StoryPanel eyebrow="Who is Hattie?" title="A friendly name for a free matching service"
           image={{ src: '/images/hattie-phone.jpg', brief: 'A woman smiling on the phone at home, arranging care for her mum' }}
           ticks={[
@@ -173,7 +176,7 @@ export default function Home() {
         </DarkFeature>
       </div></section>
 
-      <section className="section band"><div className="in">
+      <section className="section"><div className="in">
         <div className="head-row"><h2>Helpful resources</h2><span><Link href="/tools">All tools</Link> · <Link href="/guides">All guides</Link></span></div>
         <div className="res">
           <Link className="card" href="/tools/care-cost-calculator"><span className="kind">Tool</span><h3>Care cost calculator</h3><p>Estimate the weekly and yearly cost of visiting care.</p><b className="more">Work it out</b></Link>
@@ -186,7 +189,7 @@ export default function Home() {
         </div>
       </div></section>
 
-      <section className="section"><div className="in">
+      <section className="section band"><div className="in">
         <div className="head-row"><h2>Areas we cover</h2><Link href="/areas">All {AREAS.length} areas</Link></div>
         <p className="muted" style={{ maxWidth: '65ch' }}>We match families with CQC-registered home care agencies in every region of England, from {TOTAL_AGENCIES.toLocaleString('en-GB')} agencies on the register. Choose your region to find your council area.</p>
         <ul className="chips">
@@ -194,7 +197,7 @@ export default function Home() {
         </ul>
       </div></section>
 
-      <Faqs band faqs={[
+      <Faqs faqs={[
         { q: 'Is it really free?', a: 'Yes. Families never pay us anything. Care agencies pay us when we introduce them to a family.' },
         { q: 'Who will contact me?', a: 'One CQC-registered home care agency that covers your postcode and offers the care you need. Your details go to that agency only, never to a list. They’ll call to talk through what you need and how they could help.' },
         { q: 'Do I have to use the agency you match me with?', a: 'No. There’s no obligation. Ask questions, get a quote and take your time. If it isn’t right, just say so.' },
@@ -202,7 +205,7 @@ export default function Home() {
         { q: 'Which areas do you cover?', a: 'We match families with agencies across England. Care agencies in England are registered and inspected by the Care Quality Commission.' },
       ]} />
 
-      <section className="section"><div className="in">
+      <section className="section band"><div className="in">
         <div className="head-row"><div style={{ display: 'grid', gap: 6 }}><p className="eyebrow">From the blog</p><h2>Advice for families arranging care</h2></div><Link href="/blog">All articles</Link></div>
         <div className="post-grid">{posts.map((a) => <ArticleCard key={a.slug} a={a} />)}</div>
       </div></section>

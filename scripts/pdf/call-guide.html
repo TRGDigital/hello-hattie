@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8">
+<title>Your home care call guide | Hello Hattie</title>
+<!-- Source for public/downloads/hello-hattie-home-care-call-guide.pdf. Regenerate with
+     `node scripts/pdf/build.mjs` after changing anything here. Figures come from lib/figures.ts:
+     check them each April when the rates change. Helplines checked 30 September 2026. -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root { --bg:#FBF7F0; --alt:#F3ECE1; --ink:#173828; --soft:#4E5B52; --line:#E6DCCC; --btn:#1E5A41; --hi:#F2C14E; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Atkinson Hyperlegible', Arial, sans-serif; color: var(--ink); font-size: 11.5pt; line-height: 1.5; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; height: 297mm; padding: 18mm 18mm 16mm; position: relative; page-break-after: always; overflow: hidden; background: #fff; }
+  .page:last-child { page-break-after: auto; }
+  h1, h2, h3 { font-family: 'Newsreader', Georgia, serif; font-weight: 600; margin: 0; line-height: 1.15; }
+  h2 { font-size: 22pt; margin-bottom: 4mm; }
+  h3 { font-size: 13.5pt; margin: 5mm 0 2mm; }
+  p { margin: 0 0 3mm; }
+  .eyebrow { font-size: 8.5pt; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--btn); margin-bottom: 2mm; }
+  .muted { color: var(--soft); }
+  .foot { position: absolute; left: 18mm; right: 18mm; bottom: 9mm; display: flex; justify-content: space-between; font-size: 8pt; color: var(--soft); border-top: 1px solid var(--line); padding-top: 2.5mm; }
+  .foot img { height: 5mm; }
+  /* cover */
+  .cover { background: var(--bg); padding: 0; }
+  .cover .top { padding: 18mm 18mm 0; }
+  .cover .logo { height: 13mm; }
+  .cover h1 { font-size: 40pt; margin: 16mm 0 5mm; max-width: 150mm; }
+  .cover .lede { font-size: 14pt; color: var(--soft); max-width: 150mm; }
+  .cover .photo { position: absolute; left: 18mm; right: 18mm; bottom: 44mm; height: 105mm; border-radius: 6mm; background: center/cover url('../../public/images/hattie-phone.jpg'); }
+  .cover .note { position: absolute; left: 26mm; bottom: 32mm; width: 115mm; background: #fff; border-radius: 4mm; padding: 5mm 6mm; box-shadow: 0 4mm 10mm rgba(23,56,40,.15); display: flex; gap: 4mm; align-items: flex-start; }
+  .cover .note img { width: 11mm; }
+  .cover .note p { font-family: 'Newsreader', Georgia, serif; font-size: 12.5pt; margin: 0; }
+  .cover .band { position: absolute; left: 0; right: 0; bottom: 0; height: 22mm; background: var(--ink); color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 18mm; font-size: 9.5pt; }
+  .cover .band b { color: var(--hi); }
+  /* blocks */
+  .box { background: var(--alt); border-radius: 4mm; padding: 5mm 6mm; margin: 3mm 0; }
+  .ticks { list-style: none; padding: 0; margin: 0; display: grid; gap: 2mm; }
+  .ticks li { padding-left: 7mm; position: relative; }
+  .ticks li::before { content: ""; position: absolute; left: 0; top: 1.2mm; width: 4mm; height: 4mm; border-radius: 50%; background: var(--btn) center/2.4mm no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath d='M1 5l3.5 3.5L11 1' fill='none' stroke='%23fff' stroke-width='2.4'/%3E%3C/svg%3E"); }
+  .boxes li::before { background: #fff; border: 1.4px solid var(--btn); border-radius: 1mm; }
+  .q { border-bottom: 1px solid var(--line); padding: 2.2mm 0; display: grid; grid-template-columns: 6mm 1fr; gap: 2mm; }
+  .q .n { font-family: 'Newsreader', serif; font-weight: 600; color: var(--btn); }
+  .q b { display: block; }
+  .q span.why { font-size: 9.5pt; color: var(--soft); }
+  .grp { display: flex; align-items: center; gap: 3mm; margin: 5mm 0 1mm; }
+  .grp i { width: 8mm; height: 8mm; border-radius: 2mm; background: var(--hi); display: grid; place-items: center; font-style: normal; font-weight: 700; font-size: 10pt; }
+  .grp h3 { margin: 0; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  table.notes { width: 100%; border-collapse: collapse; margin-top: 3mm; font-size: 10pt; }
+  table.notes th { text-align: left; width: 38%; font-weight: 700; padding: 3.2mm 3mm; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.notes td { border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); }
+  table.notes tr:nth-child(odd) th, table.notes tr:nth-child(odd) td { background: #FDFBF7; }
+  .flag li::before { background: #9B2C1F center/2.4mm no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 1v5M5 8v1' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E"); }
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin: 3mm 0; }
+  .fact { border: 1px solid var(--line); border-radius: 3mm; padding: 4mm; }
+  .fact b { font-family: 'Newsreader', serif; font-size: 18pt; color: var(--btn); display: block; }
+  .fact span { font-size: 9.5pt; color: var(--soft); }
+  .contact { display: grid; grid-template-columns: 1fr auto; gap: 1mm 4mm; padding: 2.8mm 0; border-bottom: 1px solid var(--line); }
+  .contact b.tel { font-size: 13pt; color: var(--btn); }
+  .contact span { grid-column: 1 / -1; font-size: 9.5pt; color: var(--soft); }
+  .src { font-size: 8pt; color: var(--soft); }
+  .cta { background: var(--ink); color: #fff; border-radius: 4mm; padding: 6mm; margin-top: 5mm; }
+  .cta h3 { color: #fff; margin-top: 0; }
+  .cta b { color: var(--hi); }
+</style></head><body>
+
+<!-- 1. Cover -->
+<section class="page cover">
+  <div class="top">
+    <img class="logo" src="../../public/brand/hello-hattie-logo.svg" alt="Hello Hattie">
+    <h1>Your home care call guide</h1>
+    <p class="lede">What to have ready, the questions to ask, and what happens next when a home care agency calls you.</p>
+  </div>
+  <div class="photo"></div>
+  <div class="note"><img src="../../public/brand/hello-hattie-mark.svg" alt=""><p>“Keep this next to the phone. Tick things off and jot down the answers as you go.”</p></div>
+  <div class="band"><span><b>Hello Hattie</b> · free matching with CQC-registered home care agencies</span><span>hellohattie.co.uk</span></div>
+</section>
+
+<!-- 2. Before the call -->
+<section class="page">
+  <p class="eyebrow">Step 1</p>
+  <h2>Before the call</h2>
+  <p>The first call is usually 15 to 30 minutes. It goes much more smoothly if you have a few things to hand, and if the person who needs care can be part of the conversation where possible.</p>
+  <div class="two">
+    <div>
+      <h3>Have ready</h3>
+      <ul class="ticks boxes">
+        <li>A list of medicines, or the boxes and repeat prescription slip</li>
+        <li>The GP surgery’s name and phone number</li>
+        <li>Any hospital discharge letter or care plan you already have</li>
+        <li>The times of day help is needed, and roughly how long each time</li>
+        <li>Details of any lasting power of attorney</li>
+        <li>A rough weekly budget, if you’re paying privately</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Think about</h3>
+      <ul class="ticks boxes">
+        <li>Their daily routine, from getting up to going to bed</li>
+        <li>What they can do for themselves, and what they find hard</li>
+        <li>Likes, dislikes, hobbies and what matters most to them</li>
+        <li>How carers will get in: a key safe, a neighbour, family</li>
+        <li>Who else helps now: family, friends, community nurses</li>
+        <li>How soon care needs to start</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box">
+    <h3 style="margin-top:0">Your rights, in one line each</h3>
+    <ul class="ticks">
+      <li>Anyone who appears to need care can ask the council for a free needs assessment.</li>
+      <li>If you provide care for a family member, you can ask the council for a carer’s assessment for yourself.</li>
+      <li>Every home care agency in England must be registered with the Care Quality Commission (CQC).</li>
+      <li>You’re never obliged to go ahead with an agency, even after an assessment.</li>
+    </ul>
+  </div>
+  <div class="foot"><img src="../../public/brand/hello-hattie-logo.svg" alt=""><span>Your home care call guide · 2</span></div>
+</section>
+
+<!-- 3. Questions: care and carers -->
+<section class="page">
+  <p class="eyebrow">Step 2</p>
+  <h2>The questions to ask</h2>
+  <p class="muted">Tick each one as you ask it. The line underneath explains why it matters.</p>
+
+  <div class="grp"><i>A</i><h3>The care and the visits</h3></div>
+  <div class="q"><span class="n">1</span><div><b>Can you cover the visit times we need, including weekends and bank holidays?</b><span class="why">Some agencies are full at popular times, especially mornings and bedtime.</span></div></div>
+  <div class="q"><span class="n">2</span><div><b>What’s your shortest visit, and how long will the carer actually be with us?</b><span class="why">Travel time comes out of some visits. You want the full time with your loved one.</span></div></div>
+  <div class="q"><span class="n">3</span><div><b>How soon could care start?</b><span class="why">Important if someone is waiting to come home from hospital.</span></div></div>
+  <div class="q"><span class="n">4</span><div><b>How do carers record each visit, and can the family see the notes?</b><span class="why">Many agencies use an app, so you can check a visit happened and how it went.</span></div></div>
+  <div class="q"><span class="n">5</span><div><b>Can you help with medicines, and how do you record it?</b><span class="why">Medicine support must be agreed in the care plan and written down every time.</span></div></div>
+
+  <div class="grp"><i>B</i><h3>The carers</h3></div>
+  <div class="q"><span class="n">6</span><div><b>Will it be the same small group of carers most of the time?</b><span class="why">Familiar faces matter, especially for someone living with dementia.</span></div></div>
+  <div class="q"><span class="n">7</span><div><b>How do you introduce a new carer, and can we meet them first?</b><span class="why">A good agency won’t send a stranger without an introduction.</span></div></div>
+  <div class="q"><span class="n">8</span><div><b>What training do your carers have, including the Care Certificate?</b><span class="why">The Care Certificate covers the basics of safe, kind care for new care workers.</span></div></div>
+  <div class="q"><span class="n">9</span><div><b>Are carers paid for their travel time between visits?</b><span class="why">Agencies that pay carers properly tend to keep them, so you see the same people.</span></div></div>
+  <div class="q"><span class="n">10</span><div><b>How do you check the quality of care, for example with spot checks?</b><span class="why">Managers should visit and check, not just rely on the carer’s notes.</span></div></div>
+  <div class="foot"><img src="../../public/brand/hello-hattie-logo.svg" alt=""><span>Your home care call guide · 3</span></div>
+</section>
+
+<!-- 4. Questions: problems, money, CQC -->
+<section class="page">
+  <div class="grp" style="margin-top:0"><i>C</i><h3>When something goes wrong</h3></div>
+  <div class="q"><span class="n">11</span><div><b>What happens if a carer is running late or can’t come?</b><span class="why">Ask how they’ll tell you, and how they make sure a visit is never simply missed.</span></div></div>
+  <div class="q"><span class="n">12</span><div><b>Who do we call in the evening or at the weekend?</b><span class="why">There should always be someone on call when the office is closed.</span></div></div>
+  <div class="q"><span class="n">13</span><div><b>How do we raise a concern, and who deals with it?</b><span class="why">A clear complaints process is a sign of a well run agency.</span></div></div>
+
+  <div class="grp"><i>D</i><h3>Money and contracts</h3></div>
+  <div class="q"><span class="n">14</span><div><b>Can we have every rate in writing: weekdays, evenings, weekends and bank holidays?</b><span class="why">Rates often differ. A written quote makes comparing fair and avoids surprises.</span></div></div>
+  <div class="q"><span class="n">15</span><div><b>Is there a charge for the assessment, or for mileage on shopping trips?</b><span class="why">Some costs only appear on the first invoice.</span></div></div>
+  <div class="q"><span class="n">16</span><div><b>How much notice do we need to give to change or stop care?</b><span class="why">Check this before signing, in case needs change or someone goes into hospital.</span></div></div>
+  <div class="q"><span class="n">17</span><div><b>Do you work with council-funded care, if the council helps pay?</b><span class="why">Not every agency does. Worth knowing if a council assessment is under way.</span></div></div>
+
+  <div class="grp"><i>E</i><h3>Checking the agency</h3></div>
+  <div class="q"><span class="n">18</span><div><b>What was your last CQC rating, and what has changed since?</b><span class="why">Look up any agency on the CQC website. Check the date too, and ask about anything the report raised.</span></div></div>
+  <div class="q"><span class="n">19</span><div><b>How long have you been running, and how many people do you support near us?</b><span class="why">Useful context, especially for newer agencies still waiting for a first inspection.</span></div></div>
+  <div class="q"><span class="n">20</span><div><b>Can we speak to you again before we decide?</b><span class="why">A good agency will give you time. There should be no pressure to sign on the first call.</span></div></div>
+  <div class="box" style="margin-top:5mm"><b>Trust your instinct.</b> Did they ask about your loved one as a person: their routines, what they enjoy, what worries them? An agency that listens on the first call is more likely to listen once care begins.</div>
+  <div class="foot"><img src="../../public/brand/hello-hattie-logo.svg" alt=""><span>Your home care call guide · 4</span></div>
+</section>
+
+<!-- 5. Notes -->
+<section class="page">
+  <p class="eyebrow">During the call</p>
+  <h2>Your notes</h2>
+  <p class="muted">Fill this in as you talk, so you have everything in one place when you decide.</p>
+  <table class="notes">
+    <tr><th>Agency name</th><td></td></tr>
+    <tr><th>Who I spoke to, and the date</th><td></td></tr>
+    <tr><th>Their phone number and email</th><td></td></tr>
+    <tr><th>Weekday hourly rate</th><td></td></tr>
+    <tr><th>Evening and weekend rates</th><td></td></tr>
+    <tr><th>Bank holiday rate</th><td></td></tr>
+    <tr><th>Shortest visit</th><td></td></tr>
+    <tr><th>Any other charges</th><td></td></tr>
+    <tr><th>Earliest start date</th><td></td></tr>
+    <tr><th>Latest CQC rating and date</th><td></td></tr>
+    <tr><th>Notice period</th><td></td></tr>
+    <tr><th>Assessment booked for</th><td></td></tr>
+    <tr><th>How they made me feel</th><td style="height:22mm"></td></tr>
+    <tr><th>Anything to follow up</th><td style="height:22mm"></td></tr>
+  </table>
+  <div class="foot"><img src="../../public/brand/hello-hattie-logo.svg" alt=""><span>Your home care call guide · 5</span></div>
+</section>
+
+<!-- 6. After the call -->
+<section class="page">
+  <p class="eyebrow">Step 3</p>
+  <h2>After the call</h2>
+  <h3>The assessment visit</h3>
+  <p>Most agencies visit the home before care starts. It often takes around an hour. They’ll talk about routines, health, moving around the home and what matters most, and look for anything that could make care harder, such as trip hazards or a bathroom that’s difficult to use. It helps if a family member is there, but the conversation should be with the person who needs care as much as possible.</p>
+  <div class="two">
+    <div>
+      <h3>A good care plan includes</h3>
+      <ul class="ticks">
+        <li>What carers will do at each visit, in plain words</li>
+        <li>Visit times and how long each one lasts</li>
+        <li>How your loved one likes things done</li>
+        <li>Medicines support, if any, and how it’s recorded</li>
+        <li>Who to contact, day and night</li>
+        <li>When the plan will be reviewed</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Warning signs</h3>
+      <ul class="ticks flag">
+        <li>Pressure to sign or pay on the first call</li>
+        <li>No written quote, or rates that change when you ask</li>
+        <li>Vague answers about who the carers will be</li>
+        <li>No out-of-hours number</li>
+        <li>They can’t tell you their CQC rating</li>
+        <li>They don’t ask about the person, only the hours</li>
+      </ul>
+    </div>
+  </div>
+  <div class="box">
+    <h3 style="margin-top:0">In the first few weeks</h3>
+    <p style="margin:0">Expect the agency to check in on how things are going. Tell them early if something isn’t working, from visit times to how a carer gets on with your loved one. You can ask for a review of the care plan at any time.</p>
+  </div>
+  <div class="foot"><img src="../../public/brand/hello-hattie-logo.svg" alt=""><span>Your home care call guide · 6</span></div>
+</section>
+
+<!-- 7. Money and contacts -->
+<section class="page">
+  <p class="eyebrow">Good to know</p>
+  <h2>Money facts and useful contacts</h2>
+  <div class="facts">
+    <div class="fact"><b>£32.14 an hour</b><span>The Homecare Association minimum price for home care in England, 2025 to 2026. Private prices are usually higher.</span></div>
+    <div class="fact"><b>£23,250</b><span>With savings over this, you’ll usually pay the full cost yourself. Between £14,250 and £23,250 the council may help and you contribute.</span></div>
+    <div class="fact"><b>Your home isn’t counted</b><span>If care is needed so someone can stay at home, the council’s financial assessment doesn’t include the home they live in.</span></div>
+    <div class="fact"><b>£76.70 or £114.60 a week</b><span>Attendance Allowance, for people of State Pension age who need help or supervision. It isn’t means tested.</span></div>
+  </div>
+  <p class="src">Sources: Homecare Association Minimum Price for Homecare 2025 to 2026; GOV.UK social care charging for care and support 2025 to 2026; Age UK financial assessment for care; GOV.UK Attendance Allowance rates (checked 30 September 2026).</p>
+  <h3>Free advice lines</h3>
+  <div class="contact"><b>Age UK Advice Line</b><b class="tel">0800 678 1602</b><span>Free, 8am to 7pm, every day of the year</span></div>
+  <div class="contact"><b>Carers UK Helpline</b><b class="tel">0808 808 7777</b><span>Free, Monday to Friday, 9am to 6pm</span></div>
+  <div class="contact"><b>Dementia UK Admiral Nurse Helpline</b><b class="tel">0800 888 6678</b><span>Free, Monday to Friday 9am to 9pm, weekends and bank holidays 9am to 5pm</span></div>
+  <div class="contact"><b>Your council’s adult social care team</b><b class="tel">gov.uk/find-local-council</b><span>For a needs assessment, a carer’s assessment and help with the cost of care</span></div>
+  <div class="contact"><b>Care Quality Commission</b><b class="tel">cqc.org.uk</b><span>Look up any agency’s rating and latest inspection report</span></div>
+  <div class="cta">
+    <h3>Need to find another agency?</h3>
+    <p style="margin:0">Hello Hattie is a free matching service, not a care provider. Tell us what’s needed at <b>hellohattie.co.uk</b> and we’ll match you with a CQC-registered agency that covers your postcode. Your details go to one agency only, never a list.</p>
+  </div>
+  <div class="foot"><img src="../../public/brand/hello-hattie-logo.svg" alt=""><span>Hello Hattie is a service of TRG Digital Ltd · Company 11731704 · ICO ZC221613 · Guide updated September 2026</span></div>
+</section>
+</body></html>

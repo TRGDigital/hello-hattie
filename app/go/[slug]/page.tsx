@@ -8,6 +8,7 @@ import { Faqs } from '@/components/Blocks'
 import { StoryPanel } from '@/components/Feature'
 import { HeroMatch } from '@/components/HeroMatch'
 import { MatchLink } from '@/components/MatchLink'
+import { Legwork } from '@/components/Legwork'
 import { TOTAL_AGENCIES } from '@/lib/areas'
 
 // PPC landing template. No site navigation (the header and footer links are hidden for .go-page),
@@ -48,6 +49,8 @@ export default function GoPage({ params, searchParams }: { params: { slug: strin
         <div><b>One agency</b><span>matched to you, never a list</span></div>
         <div><b>{TOTAL_AGENCIES.toLocaleString('en-GB')}</b><span>agencies on the CQC register</span></div>
       </div></section>
+
+      <Legwork place={loc || undefined} />
 
       <section className="section"><div className="in">
         <div style={{ display: 'grid', gap: 10, maxWidth: '60ch' }}><h2>How it works</h2></div>

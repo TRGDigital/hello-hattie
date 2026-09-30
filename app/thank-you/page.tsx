@@ -50,9 +50,20 @@ export default function ThankYou() {
               <li>What happens if a carer is running late or can’t come?</li>
               <li>Can we have every rate in writing, including bank holidays?</li>
             </ul>
-            <p><Link className="btn" href="/blog/questions-to-ask-a-home-care-agency">See all the questions to ask</Link></p>
+            <p><Link className="btn ghost" href="/blog/questions-to-ask-a-home-care-agency">Read the full article</Link></p>
           </div>
-          <div className="side-card thanks-side">
+          <div className="thanks-side">
+          <a className="guide-dl" href="/downloads/hello-hattie-home-care-call-guide.pdf" download>
+            <Image src="/downloads/call-guide-cover.jpg" alt="Cover of the Hello Hattie home care call guide" width={420} height={594} sizes="140px" />
+            <span className="guide-dl-copy">
+              <span className="eyebrow">Free download</span>
+              <b>Your home care call guide</b>
+              <span>20 questions to ask with why each matters, what to have ready, a page for your notes, what happens at the assessment, warning signs, and free advice lines.</span>
+              <span className="btn hi">Download the PDF</span>
+              <small>7 pages · PDF · print it or keep it on your phone</small>
+            </span>
+          </a>
+          <div className="side-card">
             <p className="eyebrow">Useful while you wait</p>
             <ul className="side-links">
               <li><Link href="/tools/care-cost-calculator">Work out a weekly cost</Link></li>
@@ -60,6 +71,7 @@ export default function ThankYou() {
               <li><Link href="/guides/choosing-a-home-care-agency">How to choose a home care agency</Link></li>
               <li><Link href="/types-of-care">Compare types of care at home</Link></li>
             </ul>
+          </div>
           </div>
         </div>
       </div></section>
