@@ -305,3 +305,20 @@ th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--li
 @media (max-width: 900px) { .res { grid-template-columns: 1fr; } }
 .path .slot { aspect-ratio: 1 / 1; width: 100%; }
 .path .slot span { display: none; }
+
+/* Warm variant for comparison: same green and marigold brand, warmer neutrals (cream ground, sand bands). */
+:root[data-palette="warm"] {
+  --bg: #FBF7F0;
+  --alt: #F3ECE1;
+  --card: #FFFFFF;
+  --soft: #4E5B52;
+  --line: #E6DCCC;
+}
+:root[data-palette="warm"] .slot { background: linear-gradient(160deg, #F3ECE1, #F6E3B4); }
+
+/* Preview-only palette switch */
+.palette-switch { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 50; background: #1C2230; color: #fff; border-radius: 999px; padding: 6px; display: flex; gap: 4px; align-items: center; font: 600 13px/1 system-ui, sans-serif; box-shadow: 0 8px 24px rgba(0, 0, 0, .25); }
+.palette-switch span { padding: 0 8px 0 10px; opacity: .8; }
+.palette-switch button { font: inherit; border: 0; border-radius: 999px; padding: 8px 12px; cursor: pointer; background: transparent; color: #fff; }
+.palette-switch button[aria-pressed="true"] { background: #fff; color: #1C2230; }
+@media (max-width: 900px) { .palette-switch { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); } }

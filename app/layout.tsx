@@ -6,6 +6,7 @@ import { Footer } from '@/components/Footer'
 import { MobileBar } from '@/components/Blocks'
 import { BRAND } from '@/lib/site'
 import { Attribution } from '@/components/Attribution'
+import { PaletteSwitch } from '@/components/PaletteSwitch'
 
 const atkinson = Atkinson_Hyperlegible({ subsets: ['latin'], weight: ['400', '700'], variable: '--font-atkinson', display: 'swap' })
 const newsreader = Newsreader({ subsets: ['latin'], weight: ['500', '600'], variable: '--font-newsreader', display: 'swap' })
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <MobileBar />
         <Attribution />
+        {!BRAND.live && <PaletteSwitch />}
       </body>
     </html>
   )
