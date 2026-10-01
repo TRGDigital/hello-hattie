@@ -31,6 +31,9 @@ export function Analytics() {
   return (
     <>
       <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+      {/* Funnel Insights: anonymous page and form measurement for everyone, nothing stored in the
+          browser (memory mode), switched off with ?fi_optout=1. See the privacy notice. */}
+      <Script src="https://trg-funnel-insights.vercel.app/t.js" data-site="hellohattie" data-storage="memory" strategy="afterInteractive" />
       {open && (
         <div className="cookie-bar" role="dialog" aria-label="Cookie choices">
           <p>We’d like to use analytics cookies to see how people use Hello Hattie, so we can make it better. They’re off unless you accept. <a href="/privacy#cookies">More about cookies</a></p>

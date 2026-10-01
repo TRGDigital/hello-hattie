@@ -3,6 +3,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { fullNameProblem, nameProblem, NAME_MESSAGE } from '@/lib/name-check'
 import { attribution, CONSENT_TEXT, CONSENT_VERSION, postJson, submitLead } from '@/lib/leads'
+import { fi } from '@/lib/funnel-insights'
 
 // The matching quiz. It asks about arrangements only (type and amount of care, kind of help,
 // timing, funding), never about conditions or health. The lead is saved on the last step.
@@ -29,6 +30,9 @@ type PhoneState = { status: 'valid' | 'invalid' | 'unchecked'; type?: string; ne
 type EmailState = { status: string; suggestion?: string } | null
 
 const PC = /^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$/
+// Funnel Insights step numbers: fixed per question, so the same question lines up across the
+// full form, the PPC landing version (postcode last) and live-in (no hours question).
+const FI_STEP: Record<string, number> = { postcode: 1, care_for: 2, service: 3, hours: 4, help: 5, urgency: 6, funding: 7, address: 8, contact: 9 }
 const SERVICES = ['visiting', 'live_in', 'overnight', 'not_sure']
 const HOURS: [string, string, number | null][] = [
   ['under7', 'Up to 7 hours a week, for example an hour a day', 5],
@@ -150,10 +154,28 @@ export function MatchQuiz({ service, place, postcode, embedded = false, postcode
     return ''
   }
 
+  // Funnel Insights: the question as shown and the answer picked, never personal details.
+  const fiStarted = useRef(false)
+  function fiAnswer() {
+    const f = formRef.current
+    const label = f?.querySelector('h2')?.textContent?.replace(/\s+/g, ' ').trim() || step
+    const district = a.postcode.trim().toUpperCase().split(' ')[0] || ''
+    let option = ''
+    if (step === 'postcode' || step === 'address') option = district
+    else if (step !== 'contact') {
+      option = Array.from(f?.querySelectorAll('input:checked') ?? [])
+        .map((el) => { const l = el.closest('label'); return (l?.querySelector('b')?.textContent || l?.textContent || '').replace(/\s+/g, ' ').trim() })
+        .filter(Boolean).join(', ')
+    }
+    if (!fiStarted.current) { fiStarted.current = true; fi('funnel_start', { funnel: 'match' }) }
+    fi('answer', { funnel: 'match', step: FI_STEP[step] ?? 0, label, option })
+  }
+
   async function next() {
     const e = valid()
     if (e) { setErr(e); return }
     setErr('')
+    if (step !== 'contact') fiAnswer()
     if (step === 'address' && manual) { set('address', `${manualLine.trim()}, ${manualTown.trim()}, ${a.postcode.trim().toUpperCase()}`); set('uprn', '') }
     if (step !== 'contact') { setI((n) => n + 1); return }
     setBusy(true)
@@ -163,7 +185,7 @@ export function MatchQuiz({ service, place, postcode, embedded = false, postcode
     if (chk.phone?.needsCode && !phoneToken) {
       if (!codeStage) {
         const sent = await postJson<{ ok: boolean; challenge?: string; error?: string }>('/api/otp', { action: 'send', phone: a.phone }).catch(() => ({ ok: false, error: '' } as { ok: boolean; challenge?: string; error?: string }))
-        if (sent.ok) { setChallenge(sent.challenge ?? ''); setCodeStage(true); setBusy(false); return }
+        if (sent.ok) { setChallenge(sent.challenge ?? ''); setCodeStage(true); setBusy(false); fi('funnel_step', { funnel: 'match', step: 10, label: 'Confirm the code sent by text' }); return }
         // A text that can't be sent never loses the enquiry: it goes through, marked unverified.
       } else {
         const v = await postJson<{ ok: boolean; token?: string; error?: string }>('/api/otp', { action: 'check', phone: a.phone, code, challenge }).catch(() => ({ ok: false, error: 'Please try again.' } as { ok: boolean; token?: string; error?: string }))
@@ -194,6 +216,7 @@ export function MatchQuiz({ service, place, postcode, embedded = false, postcode
         ;(w.dataLayer = w.dataLayer || []).push({ event: 'lead_submitted', service: a.service, verified: !!saved?.verified })
         ;(window as unknown as { gtag?: (...x: unknown[]) => void }).gtag?.('event', 'generate_lead', { service: a.service, verified: !!saved?.verified, form: postcodeLast ? 'landing' : 'site' })
       } catch {}
+      fi('lead', { funnel: 'match', option: a.service, label: saved?.verified ? 'verified' : 'unverified' })
       router.push(`/thank-you?service=${a.service}`)
     } catch (x) {
       setErr(x instanceof Error ? x.message : 'Something went wrong. Please try again.')
