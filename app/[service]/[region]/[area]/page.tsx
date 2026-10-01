@@ -22,7 +22,7 @@ function baseMeta({ params }: { params: { service: string; region: string; area:
   const s = serviceBySlug(params.service); const a = areaBySlugs(params.region, params.area)
   if (!s || !a) return {}
   return {
-    title: `${s.name} in ${a.name}`,
+    title: `${s.name} in ${a.name}`.length > 52 ? { absolute: `${s.name} in ${a.name}` } : `${s.name} in ${a.name}`,
     description: `${a.total} CQC-registered home care agencies are registered in ${a.name}. Find ${s.name.toLowerCase()} near you, free and with no obligation.`,
     alternates: { canonical: `/${s.slug}/${a.regionSlug}/${a.slug}` },
   }

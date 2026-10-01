@@ -24,7 +24,7 @@ const CARE = [
 
 const BASE: Metadata = {
   title: { absolute: 'Hello Hattie: find trusted home care near you, free' },
-  description: 'Tell us where care at home is needed and we’ll match you with a CQC-registered home care agency near you. Visiting, live-in, overnight and dementia care. Free for families.',
+  description: 'Tell us where care at home is needed and we’ll match you with a CQC-registered home care agency near you. Visiting, live-in and dementia care. Free.',
   alternates: { canonical: '/' },
 }
 

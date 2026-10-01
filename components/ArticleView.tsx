@@ -32,7 +32,7 @@ export function ArticleView({ a, crumb, all }: { a: Article; crumb: { href: stri
             <h1>{a.title}</h1>
             <div className="author">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={AUTHOR.photo} alt="" width={56} height={56} />
+              <img src={AUTHOR.photo} alt={AUTHOR.name} width={56} height={56} />
               <div><p><b>Written by {AUTHOR.name}</b>, {AUTHOR.role}</p><p className="bio">{AUTHOR.bio}</p></div>
             </div>
             <Slot className="post-hero" brief={a.image?.brief ?? a.title} src={a.image?.src} sizes="(max-width: 1000px) 100vw, 880px" priority />

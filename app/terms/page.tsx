@@ -3,7 +3,7 @@ import { BRAND } from '@/lib/site'
 import { PageHero } from '@/components/Blocks'
 import { withSeo } from '@/lib/cms'
 
-const BASE_META: Metadata = { title: 'Terms', alternates: { canonical: '/terms' } }
+const BASE_META: Metadata = { title: 'Terms of use', description: 'The terms for using Hello Hattie, the free service that matches families in England with a CQC-registered home care agency.', alternates: { canonical: '/terms' } }
 
 export async function generateMetadata() { return withSeo('/terms', BASE_META) }
 

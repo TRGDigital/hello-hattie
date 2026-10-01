@@ -21,7 +21,7 @@ export function generateStaticParams() {
 function baseMeta({ params }: { params: { service: string; region: string } }): Metadata {
   const s = serviceBySlug(params.service); const r = regionBySlug(params.region)
   if (!s || !r) return {}
-  return { title: `${s.name} in ${r.name}`, description: `Find CQC-registered ${s.name.toLowerCase()} agencies in ${r.name}. ${r.total.toLocaleString('en-GB')} home care agencies across ${r.areas.length} council areas. Free matching.`, alternates: { canonical: `/${s.slug}/${r.slug}` } }
+  return { title: `${s.name} in ${r.name}`.length > 52 ? { absolute: `${s.name} in ${r.name}` } : `${s.name} in ${r.name}`, description: `Find CQC-registered ${s.name.toLowerCase()} agencies in ${r.name}. ${r.total.toLocaleString('en-GB')} home care agencies across ${r.areas.length} council areas. Free matching.`, alternates: { canonical: `/${s.slug}/${r.slug}` } }
 }
 
 const n = (x: number) => x.toLocaleString('en-GB')

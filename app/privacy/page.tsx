@@ -3,7 +3,7 @@ import { BRAND } from '@/lib/site'
 import { PageHero } from '@/components/Blocks'
 import { withSeo } from '@/lib/cms'
 
-const BASE_META: Metadata = { title: 'Privacy notice', alternates: { canonical: '/privacy' } }
+const BASE_META: Metadata = { title: 'Privacy notice', description: 'How Hello Hattie collects, uses and shares your details when you ask to be matched with a home care agency, and your rights.', alternates: { canonical: '/privacy' } }
 
 export async function generateMetadata() { return withSeo('/privacy', BASE_META) }
 
