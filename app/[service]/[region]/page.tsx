@@ -11,6 +11,7 @@ import { HeroMatch } from '@/components/HeroMatch'
 import { Legwork } from '@/components/Legwork'
 import { MatchLink } from '@/components/MatchLink'
 import { Slot } from '@/components/Slot'
+import { JsonLd, itemListLd, serviceLd } from '@/components/JsonLd'
 import { articlesFor } from '@/lib/autolink'
 import { quizService } from '../page'
 
@@ -158,6 +159,7 @@ export default async function RegionPage({ params }: { params: { service: string
         <ul className="chips">{otherRegions.map((x) => <li key={x.slug}><Link href={`/${s.slug}/${x.slug}`}>{s.name} in {x.name}</Link></li>)}</ul>
       </div></section>
 
+      <JsonLd data={{ '@graph': [serviceLd({ name: s.name, description: `Free matching with CQC-registered ${lower} agencies in ${r.name}.`, path: `/${s.slug}/${r.slug}`, region: r.name }), itemListLd(`${s.name} by council area in ${r.name}`, areas.map((a) => ({ name: `${s.name} in ${a.name}`, path: `/${s.slug}/${r.slug}/${a.slug}` })))] }} />
       <CtaBand service={quizService(s.slug)} title={`Find ${lower} in ${r.name}`} />
     </>
   )

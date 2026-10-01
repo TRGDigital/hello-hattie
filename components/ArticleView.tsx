@@ -7,6 +7,7 @@ import { Crumbs, CtaBand, Faqs } from '@/components/Blocks'
 import { ArticleCard, categoryOf, fmtDate } from '@/components/ArticleCard'
 import { MatchLink } from '@/components/MatchLink'
 import { PostSidebar } from '@/components/PostSidebar'
+import { authorRef } from '@/components/JsonLd'
 import { makeLinker } from '@/lib/autolink'
 import { Slot } from '@/components/Slot'
 
@@ -78,7 +79,7 @@ export function ArticleView({ a, crumb, all }: { a: Article; crumb: { href: stri
         headline: a.title, description: a.metaDescription, datePublished: a.updated, dateModified: a.updated, inLanguage: 'en-GB',
         mainEntityOfPage: `${BRAND.url}${articlePath(a)}`,
         ...(a.image?.src ? { image: `${BRAND.url}${a.image.src}` } : {}),
-        author: { '@type': 'Person', name: AUTHOR.name, jobTitle: AUTHOR.role },
+        author: { ...authorRef, jobTitle: AUTHOR.role },
         publisher: { '@id': `${BRAND.url}/#org` },
       }) }} />
       <Faqs faqs={a.faqs} band />

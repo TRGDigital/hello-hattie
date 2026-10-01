@@ -10,6 +10,7 @@ import { HeroMatch } from '@/components/HeroMatch'
 import { Legwork } from '@/components/Legwork'
 import { MatchLink } from '@/components/MatchLink'
 import { Slot } from '@/components/Slot'
+import { JsonLd, serviceLd } from '@/components/JsonLd'
 import { StoryPanel } from '@/components/Feature'
 import { getArticles, getServiceImages, withSeo } from '@/lib/cms'
 import { quizService } from '../../page'
@@ -138,6 +139,7 @@ export default async function AreaPage({ params }: { params: { service: string; 
         <ul className="chips">{guides.map((g) => <li key={g.slug}><Link href={articlePath(g)}>{g.title}</Link></li>)}</ul>
       </div></section>
 
+      <JsonLd data={serviceLd({ name: s.name, description: `Free matching with a CQC-registered ${svc} agency that covers your postcode in ${a.name}.`, path: `/${s.slug}/${r.slug}/${a.slug}`, area: a.name, region: r.name })} />
       <CtaBand service={quizService(s.slug)} title={`Find ${svc} in ${a.name}`} />
     </>
   )

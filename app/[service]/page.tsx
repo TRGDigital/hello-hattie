@@ -9,6 +9,7 @@ import { DarkFeature, StoryPanel } from '@/components/Feature'
 import { HeroMatch } from '@/components/HeroMatch'
 import { MatchLink } from '@/components/MatchLink'
 import { Slot } from '@/components/Slot'
+import { JsonLd, serviceLd } from '@/components/JsonLd'
 import { ArticleCard } from '@/components/ArticleCard'
 import { articlesFor } from '@/lib/autolink'
 
@@ -131,6 +132,7 @@ export default async function ServicePage({ params }: { params: { service: strin
           <ul className="chips">{SERVICES.filter((x) => x.slug !== s.slug).map((x) => <li key={x.slug}><Link href={`/${x.slug}`}>{x.name}</Link></li>)}</ul>
         </div></section>
       )}
+      <JsonLd data={serviceLd({ name: s.name, description: s.metaDescription, path: `/${s.slug}` })} />
       <CtaBand service={quizService(s.slug)} title={`Find ${lower} near you`} />
     </>
   )

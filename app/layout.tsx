@@ -39,7 +39,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           '@graph': [
             {
               '@type': 'Organization', '@id': `${BRAND.url}/#org`, name: BRAND.name, url: BRAND.url,
-              logo: `${BRAND.url}/brand/hello-hattie-mark-512.png`, email: BRAND.email,
+              logo: { '@type': 'ImageObject', url: `${BRAND.url}/brand/hello-hattie-mark-512.png`, width: 512, height: 512 }, email: BRAND.email,
+              contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', email: BRAND.email, areaServed: 'GB', availableLanguage: 'en-GB' },
+              founder: { '@id': `${BRAND.url}/about#len-burgess` },
               description: 'A free service that matches families in England with a CQC-registered home care agency near them.',
               parentOrganization: { '@type': 'Organization', name: 'TRG Digital Ltd', url: 'https://www.trgdigital.co.uk' },
               address: { '@type': 'PostalAddress', streetAddress: 'Suite Ra01, 195-197 Wood Street', addressLocality: 'London', postalCode: 'E17 3NU', addressCountry: 'GB' },

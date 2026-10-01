@@ -1,3 +1,5 @@
+import { JsonLd, itemListLd } from '@/components/JsonLd'
+import { articlePath } from '@/content/articles'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getArticles, withSeo } from '@/lib/cms'
@@ -41,6 +43,7 @@ export default async function Blog() {
         <div className="head-row"><h2>Prefer a quick answer?</h2><span><Link href="/guides">Guides</Link> · <Link href="/costs">Costs</Link> · <Link href="/tools">Tools</Link></span></div>
         <p className="muted" style={{ maxWidth: '65ch' }}>Our guides cover the essentials in a few minutes, and the free tools help you estimate costs and see which type of care may suit.</p>
       </div></section>
+      <JsonLd data={itemListLd('Hello Hattie blog', all.map((a) => ({ name: a.title, path: articlePath(a) })))} />
       <CtaBand />
     </>
   )

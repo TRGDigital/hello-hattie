@@ -8,6 +8,7 @@ import { Crumbs, CtaBand, Faqs } from '@/components/Blocks'
 import { DarkFeature, StoryPanel } from '@/components/Feature'
 import { Legwork } from '@/components/Legwork'
 import { altFor, withSeo } from '@/lib/cms'
+import { AUTHOR_ID, JsonLd, ORG_ID } from '@/components/JsonLd'
 
 const BASE_META: Metadata = {
   title: 'About us',
@@ -101,6 +102,10 @@ export default async function About() {
         { q: 'How do you choose the agency?', a: 'The agency must be registered with the CQC, cover the postcode where care is needed, offer the type of care you asked for and have told us it can take on new clients.' },
         { q: 'Do you cover Scotland, Wales or Northern Ireland?', a: 'Not at the moment. We match families with agencies in England, where home care agencies are registered and inspected by the Care Quality Commission.' },
       ]} />
+      <JsonLd data={{ '@graph': [
+        { '@type': 'AboutPage', '@id': `${BRAND.url}/about#page`, url: `${BRAND.url}/about`, name: `About ${BRAND.name}`, about: { '@id': ORG_ID }, mainEntity: { '@id': ORG_ID } },
+        { '@type': 'Person', '@id': AUTHOR_ID, name: AUTHOR.name, jobTitle: AUTHOR.role, description: AUTHOR.bio, image: `${BRAND.url}${AUTHOR.photo}`, url: `${BRAND.url}/about`, worksFor: { '@id': ORG_ID }, knowsAbout: ['Home care', 'Live-in care', 'Care homes', 'Arranging care for older people', 'Paying for care in England'] },
+      ] }} />
       <CtaBand />
     </>
   )

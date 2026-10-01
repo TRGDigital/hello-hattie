@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import type { Faq } from '@/content/types'
 import { Crumbs, CtaBand, Faqs } from '@/components/Blocks'
 import { MatchLink } from '@/components/MatchLink'
+import { JsonLd, toolLd } from '@/components/JsonLd'
 import { CalcMock, FundingMock, WhichMock } from '@/components/tools/Mockups'
 
 const TOOLS = [
@@ -71,6 +72,7 @@ export function ToolShell({ href, title, intro, chips, steps, tool, explainTitle
           ))}
         </div>
       </div></section>
+      <JsonLd data={toolLd({ name: title, description: intro, path: href, category: href.includes('calculator') || href.includes('funding') ? 'FinanceApplication' : 'LifestyleApplication' })} />
       <CtaBand service={service} />
     </>
   )

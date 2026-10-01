@@ -1,3 +1,5 @@
+import { JsonLd, itemListLd } from '@/components/JsonLd'
+import { articlePath } from '@/content/articles'
 import type { Metadata } from 'next'
 import { getArticles, withSeo } from '@/lib/cms'
 import { CtaBand, Crumbs } from '@/components/Blocks'
@@ -33,6 +35,7 @@ export default async function Guides() {
           <p>Our free tool asks about the help needed, nights, living arrangements and space at home, then points you to the type of care that is a good place to start.</p>
         </StoryPanel>
       </div></section>
+      <JsonLd data={itemListLd('Guides to arranging care at home', guides.map((a) => ({ name: a.title, path: articlePath(a) })))} />
       <CtaBand />
     </>
   )

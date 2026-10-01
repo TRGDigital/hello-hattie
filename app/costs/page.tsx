@@ -1,3 +1,5 @@
+import { JsonLd, itemListLd } from '@/components/JsonLd'
+import { articlePath } from '@/content/articles'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -135,6 +137,7 @@ export default async function Costs() {
         { q: 'Does the council pay for home care?', a: 'It may. The council carries out a needs assessment and, if you are eligible, a financial assessment. With savings under the upper limit, the council may contribute.' },
         { q: 'Do families pay Hello Hattie anything?', a: 'No. Our matching service is free for families. Care agencies pay us when we introduce them to a family.' },
       ]} />
+      <JsonLd data={itemListLd('Care at home cost guides', costs.map((a) => ({ name: a.title, path: articlePath(a) })))} />
       <CtaBand />
     </>
   )
