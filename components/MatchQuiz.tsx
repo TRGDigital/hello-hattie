@@ -200,9 +200,19 @@ export function MatchQuiz({ service, place, postcode, embedded = false, postcode
     }
   }
 
+  // On a new step, bring the top of the form back into view if the family had scrolled down, so they
+  // start reading at the question. Not on first load.
+  const formRef = useRef<HTMLFormElement>(null)
+  const firstRender = useRef(true)
+  useEffect(() => {
+    if (firstRender.current) { firstRender.current = false; return }
+    const f = formRef.current
+    if (f && f.getBoundingClientRect().top < 80) f.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
+  }, [i, codeStage])
+
   const pct = Math.round(((i + 1) / steps.length) * 100)
   return (
-    <form className="quiz" onSubmit={(e) => { e.preventDefault(); next() }} noValidate>
+    <form ref={formRef} className="quiz" onSubmit={(e) => { e.preventDefault(); next() }} noValidate>
       <div>
         <p className="small muted">Step {i + 1} of {steps.length}</p>
         <div className="progress" role="progressbar" aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100} aria-label="Progress"><i style={{ width: `${pct}%` }} /></div>

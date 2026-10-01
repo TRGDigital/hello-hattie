@@ -63,14 +63,7 @@ export function CtaBand({ title = 'Find care at home near you', text = 'Answer a
   )
 }
 
-export function MobileBar() {
-  return (
-    <div className="mbar">
-      <MatchLink>Get matched</MatchLink>
-      {BRAND.phone && <span className="btn ghost">Call {BRAND.phone}</span>}
-    </div>
-  )
-}
+export { MobileBar } from '@/components/MobileBar'
 
 export function PhotoSlot({ caption = 'Photo: a carer and client at home (real UK photography)' }: { caption?: string }) {
   return <div className="photo" role="img" aria-label="Photo placeholder"><span>{caption}</span></div>
