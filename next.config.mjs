@@ -6,7 +6,9 @@ const LONG = [{ key: 'Cache-Control', value: 'public, max-age=2592000, stale-whi
 export default {
   reactStrictMode: true,
   trailingSlash: false,
-  images: { formats: ['image/avif', 'image/webp'], deviceSizes: [390, 640, 828, 1080, 1440, 1920], minimumCacheTTL: 2592000 },
+  images: { formats: ['image/avif', 'image/webp'], deviceSizes: [390, 640, 828, 1080, 1440, 1920], minimumCacheTTL: 2592000,
+    // Photos uploaded in the admin live in Vercel Blob.
+    remotePatterns: [{ protocol: 'https', hostname: '*.public.blob.vercel-storage.com' }] },
   async headers() {
     return ['/images/:path*', '/brand/:path*', '/badges/:path*', '/downloads/:path*', '/data/:path*', '/icon.svg', '/apple-icon.png', '/favicon.ico']
       .map((source) => ({ source, headers: LONG }))
