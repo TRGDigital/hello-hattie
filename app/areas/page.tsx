@@ -2,8 +2,11 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { REGIONS, TOTAL_AGENCIES } from '@/lib/areas'
 import { CtaBand, PageHero } from '@/components/Blocks'
+import { withSeo } from '@/lib/cms'
 
-export const metadata: Metadata = { title: 'Areas we cover', description: 'Home care, live-in care and dementia care at home across England, by council area.', alternates: { canonical: '/areas' } }
+const BASE_META: Metadata = { title: 'Areas we cover', description: 'Home care, live-in care and dementia care at home across England, by council area.', alternates: { canonical: '/areas' } }
+
+export async function generateMetadata() { return withSeo('/areas', BASE_META) }
 
 export default function Areas() {
   return (

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { BRAND } from '@/lib/site'
 import { SERVICES } from '@/content/services'
+import { CookieSettingsLink } from '@/components/Analytics'
 
 // Accreditations held by TRG Digital Ltd, which runs Hello Hattie. Each links to the body that
 // issued it, so a visitor can check the claim. Only add a badge we actually hold. The CPD mark is
@@ -57,6 +58,7 @@ export function Footer() {
             <li><Link href="/for-agencies">For care agencies</Link></li>
             <li><Link href="/privacy">Privacy</Link></li>
             <li><Link href="/terms">Terms</Link></li>
+            <li><CookieSettingsLink /></li>
           </ul></div>
         </div>
         <div className="fineprint"><div className="in">

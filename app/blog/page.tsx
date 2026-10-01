@@ -1,17 +1,21 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ARTICLES } from '@/content/articles'
+import { getArticles, withSeo } from '@/lib/cms'
 import { CtaBand, Crumbs } from '@/components/Blocks'
 import { PostBrowser } from '@/components/PostBrowser'
 import { categoryOf } from '@/components/ArticleCard'
 
-export const metadata: Metadata = {
+const BASE: Metadata = {
   title: 'Blog: advice for families arranging care at home',
   description: 'Practical, plain-English advice for families arranging care at home: choosing an agency, assessments, costs and difficult conversations.',
   alternates: { canonical: '/blog' },
 }
 
-export default function Blog() {
+export const revalidate = 3600
+export async function generateMetadata() { return withSeo('/blog', BASE) }
+
+export default async function Blog() {
+  const ARTICLES = await getArticles()
   // Newest first: blog posts, then guides and cost pages, so the page is useful from day one.
   const all = [...ARTICLES].sort((a, b) => (a.kind === 'blog' ? 0 : 1) - (b.kind === 'blog' ? 0 : 1) || b.updated.localeCompare(a.updated))
   const topics = Array.from(new Set(all.map(categoryOf))).map((t) => ({ t, n: all.filter((a) => categoryOf(a) === t).length }))

@@ -6,6 +6,8 @@ import { Footer } from '@/components/Footer'
 import { MobileBar } from '@/components/Blocks'
 import { BRAND } from '@/lib/site'
 import { Attribution } from '@/components/Attribution'
+import { Analytics } from '@/components/Analytics'
+import { CONSENT_DEFAULT } from '@/lib/analytics'
 
 const atkinson = Atkinson_Hyperlegible({ subsets: ['latin'], weight: ['400', '700'], variable: '--font-atkinson', display: 'swap' })
 const newsreader = Newsreader({ subsets: ['latin'], weight: ['500', '600'], variable: '--font-newsreader', display: 'swap' })
@@ -23,6 +25,7 @@ export const viewport: Viewport = { width: 'device-width', initialScale: 1, view
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-GB" className={`${atkinson.variable} ${newsreader.variable}`}>
+      {BRAND.live && <head><script dangerouslySetInnerHTML={{ __html: CONSENT_DEFAULT }} /></head>}
       <body>
         <a className="skip" href="#main">Skip to content</a>
         <Header />
@@ -30,6 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <MobileBar />
         <Attribution />
+        {BRAND.live && <Analytics />}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           '@context': 'https://schema.org',
           '@graph': [

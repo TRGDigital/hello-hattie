@@ -3,15 +3,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ThanksGreeting } from '@/components/ThanksGreeting'
 import { ArticleCard } from '@/components/ArticleCard'
-import { articleBySlug } from '@/content/articles'
+import { getArticles, altFor } from '@/lib/cms'
 import { BRAND } from '@/lib/site'
 
 export const metadata: Metadata = { title: 'Thank you', robots: { index: false, follow: false } }
 
 const READS = [['blog', 'questions-to-ask-a-home-care-agency'], ['blog', 'what-happens-at-a-home-care-assessment'], ['cost', 'home-care-cost-per-hour']] as const
 
-export default function ThankYou() {
-  const reads = READS.map(([k, s]) => articleBySlug(k, s)).filter(Boolean)
+export default async function ThankYou() {
+  const all = await getArticles()
+  const reads = READS.map(([k, s]) => all.find((a) => a.kind === k && a.slug === s)).filter(Boolean)
   return (
     <>
       <section className="thanks-hero"><div className="in">
@@ -20,7 +21,7 @@ export default function ThankYou() {
           <ThanksGreeting />
         </div>
         <figure className="hero-photo">
-          <Image src="/images/hattie-phone.jpg" alt="A woman smiling on the phone at home" width={900} height={900} priority sizes="(max-width: 900px) 100vw, 520px" />
+          <Image src="/images/hattie-phone.jpg" alt={await altFor('/images/hattie-phone.jpg', 'A woman smiling on the phone at home')} width={900} height={900} priority sizes="(max-width: 900px) 100vw, 520px" />
           <figcaption className="hattie-note">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/brand/hello-hattie-mark.svg" alt="" />

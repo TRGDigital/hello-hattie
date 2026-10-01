@@ -1,12 +1,15 @@
 import type { MetadataRoute } from 'next'
 import { BRAND } from '@/lib/site'
 import { SERVICES } from '@/content/services'
-import { ARTICLES, articlePath } from '@/content/articles'
+import { articlePath } from '@/content/articles'
+import { getArticles } from '@/lib/cms'
 import { AREAS, AREAS_GENERATED, REGIONS } from '@/lib/areas'
 
 // Every indexable page. Area pages carry the date the CQC register was last pulled, articles
 // their own updated date, everything else the build date.
-export default function sitemap(): MetadataRoute.Sitemap {
+export const revalidate = 3600
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const ARTICLES = await getArticles()
   const u = (p: string) => `${BRAND.url}${p}`
   const built = new Date()
   const areasAt = new Date(AREAS_GENERATED)

@@ -5,8 +5,9 @@ import { Crumbs, Faqs } from '@/components/Blocks'
 import { DarkFeature, StoryPanel } from '@/components/Feature'
 import { TOTAL_AGENCIES } from '@/lib/areas'
 import { AddressMock, CodeMock, ConsentMock, EmailMock, NeedsMock, PhoneMock } from '@/components/VerifyMocks'
+import { withSeo, altFor } from '@/lib/cms'
 
-export const metadata: Metadata = { title: 'For care agencies', description: 'Receive enquiries from local families looking for home care and live-in care. Pay per enquiry, no contract.', alternates: { canonical: '/for-agencies' } }
+const BASE_META: Metadata = { title: 'For care agencies', description: 'Receive enquiries from local families looking for home care and live-in care. Pay per enquiry, no contract.', alternates: { canonical: '/for-agencies' } }
 
 // A made-up example so agencies can see what an enquiry contains. No real family's details.
 function EnquiryMock() {
@@ -36,7 +37,9 @@ const STEPS = [
   { n: '04', t: 'You call, assess and quote', d: 'Talk it through, arrange your assessment and give your quote. The family agrees the care directly with you.' },
 ]
 
-export default function ForAgencies() {
+export async function generateMetadata() { return withSeo('/for-agencies', BASE_META) }
+
+export default async function ForAgencies() {
   return (
     <>
       <section className="section costs-hero agency-hero"><div className="in">
@@ -50,7 +53,7 @@ export default function ForAgencies() {
             <ul className="trust-chips"><li>Exclusive enquiries</li><li>Verified details</li><li>Pay per enquiry</li><li>No contract</li><li>A monthly cap you set</li></ul>
           </div>
           <div className="agency-visual">
-            <Image src="/images/agency-desk.jpg" alt="A care manager smiling on a headset at her desk" width={1000} height={750} priority sizes="(max-width: 900px) 100vw, 640px" />
+            <Image src="/images/agency-desk.jpg" alt={await altFor('/images/agency-desk.jpg', 'A care manager smiling on a headset at her desk')} width={1000} height={750} priority sizes="(max-width: 900px) 100vw, 640px" />
             <EnquiryMock />
           </div>
         </div>

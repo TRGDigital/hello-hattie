@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
 import { BRAND, HONEST } from '@/lib/site'
 import { CtaBand, PageHero } from '@/components/Blocks'
+import { withSeo } from '@/lib/cms'
 
-export const metadata: Metadata = { title: 'About us', alternates: { canonical: '/about' } }
+const BASE_META: Metadata = { title: 'About us', alternates: { canonical: '/about' } }
+
+export async function generateMetadata() { return withSeo('/about', BASE_META) }
 
 export default function About() {
   return (

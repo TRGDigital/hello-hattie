@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Article } from '@/content/types'
 import { articlePath, readMins } from '@/content/articles'
 import { AUTHOR } from '@/lib/author'
-import { Slot } from '@/components/Slot'
+import { SlotBase as Slot } from '@/components/SlotBase'
 
 export const categoryOf = (a: Article) => a.category ?? (a.kind === 'cost' ? 'Costs and funding' : 'Guides')
 export const fmtDate = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })

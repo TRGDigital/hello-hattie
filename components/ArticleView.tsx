@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { Article } from '@/content/types'
-import { ARTICLES, articlePath, readMins } from '@/content/articles'
+import { articlePath, readMins } from '@/content/articles'
 import { BRAND } from '@/lib/site'
 import { AUTHOR } from '@/lib/author'
 import { Crumbs, CtaBand, Faqs } from '@/components/Blocks'
@@ -13,9 +13,9 @@ import { Slot } from '@/components/Slot'
 const idOf = (h: string) => h.toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 
 /** Blog-post layout used by blog posts, guides and cost pages. */
-export function ArticleView({ a, crumb }: { a: Article; crumb: { href: string; label: string } }) {
+export function ArticleView({ a, crumb, all }: { a: Article; crumb: { href: string; label: string }; all: Article[] }) {
   // Related reading: same topic first, then the same kind, then anything else.
-  const others = ARTICLES.filter((x) => x.slug !== a.slug)
+  const others = all.filter((x) => x.slug !== a.slug)
   const related = [...others.filter((x) => categoryOf(x) === categoryOf(a)), ...others.filter((x) => x.kind === a.kind), ...others]
     .filter((x, i, all) => all.findIndex((y) => y.slug === x.slug) === i).slice(0, 3)
   const midAt = Math.min(2, a.sections.length - 1)

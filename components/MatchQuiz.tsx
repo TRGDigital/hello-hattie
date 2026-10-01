@@ -192,6 +192,7 @@ export function MatchQuiz({ service, place, postcode, embedded = false, postcode
         sessionStorage.setItem('hh_done', JSON.stringify({ first: a.first.trim(), district: a.postcode.trim().toUpperCase().split(' ')[0], verified: !!saved?.verified, best: a.best_time, service: a.service }))
         const w = window as unknown as { dataLayer?: unknown[] }
         ;(w.dataLayer = w.dataLayer || []).push({ event: 'lead_submitted', service: a.service, verified: !!saved?.verified })
+        ;(window as unknown as { gtag?: (...x: unknown[]) => void }).gtag?.('event', 'generate_lead', { service: a.service, verified: !!saved?.verified, form: postcodeLast ? 'landing' : 'site' })
       } catch {}
       router.push(`/thank-you?service=${a.service}`)
     } catch (x) {

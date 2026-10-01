@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { SERVICES, serviceBySlug } from '@/content/services'
-import { SERVICE_IMAGES } from '@/content/service-images'
+import { getArticles, getServiceImages, withSeo } from '@/lib/cms'
 import { AREAS_GENERATED, REGIONS, regionBySlug } from '@/lib/areas'
 import { CtaBand, Faqs, PageHero, Trust } from '@/components/Blocks'
 import { ArticleCard } from '@/components/ArticleCard'
@@ -18,7 +18,7 @@ export const dynamicParams = false
 export function generateStaticParams() {
   return SERVICES.filter((s) => s.areaPages).flatMap((s) => REGIONS.map((r) => ({ service: s.slug, region: r.slug })))
 }
-export function generateMetadata({ params }: { params: { service: string; region: string } }): Metadata {
+function baseMeta({ params }: { params: { service: string; region: string } }): Metadata {
   const s = serviceBySlug(params.service); const r = regionBySlug(params.region)
   if (!s || !r) return {}
   return { title: `${s.name} in ${r.name}`, description: `Find CQC-registered ${s.name.toLowerCase()} agencies in ${r.name}. ${r.total.toLocaleString('en-GB')} home care agencies across ${r.areas.length} council areas. Free matching.`, alternates: { canonical: `/${s.slug}/${r.slug}` } }
@@ -26,18 +26,21 @@ export function generateMetadata({ params }: { params: { service: string; region
 
 const n = (x: number) => x.toLocaleString('en-GB')
 
-export default function RegionPage({ params }: { params: { service: string; region: string } }) {
+export async function generateMetadata(props: { params: { service: string; region: string } }) { return withSeo(`/${props.params.service}/${props.params.region}`, baseMeta(props)) }
+
+export default async function RegionPage({ params }: { params: { service: string; region: string } }) {
+  const IMAGES = await getServiceImages()
   const s = serviceBySlug(params.service); const r = regionBySlug(params.region)
   if (!s || !r || !s.areaPages) notFound()
   const lower = s.name.toLowerCase()
-  const img = SERVICE_IMAGES[s.slug]
+  const img = IMAGES[s.slug]
   const areas = [...r.areas].sort((a, b) => a.name.localeCompare(b.name))
   const sum = (k: 'outstanding' | 'good' | 'requiresImprovement' | 'inadequate' | 'notRated') => r.areas.reduce((t, a) => t + a[k], 0)
   const rated = { outstanding: sum('outstanding'), good: sum('good'), ri: sum('requiresImprovement'), inadequate: sum('inadequate'), notRated: sum('notRated') }
   const goodPlus = rated.outstanding + rated.good
   const biggest = [...r.areas].sort((a, b) => b.total - a.total).slice(0, 6)
   const maxArea = biggest[0]?.total || 1
-  const guides = articlesFor(s.name, 3)
+  const guides = articlesFor(s.name, 3, await getArticles())
   const otherCare = SERVICES.filter((x) => x.areaPages && x.slug !== s.slug)
   const otherRegions = REGIONS.filter((x) => x.slug !== r.slug)
   const asOf = new Date(AREAS_GENERATED).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })

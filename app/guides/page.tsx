@@ -1,12 +1,16 @@
 import type { Metadata } from 'next'
-import { ARTICLES } from '@/content/articles'
+import { getArticles, withSeo } from '@/lib/cms'
 import { CtaBand, Crumbs } from '@/components/Blocks'
 import { PostBrowser } from '@/components/PostBrowser'
 import { StoryPanel } from '@/components/Feature'
 
-export const metadata: Metadata = { title: 'Guides to arranging care at home', description: 'Plain guides for families: choosing an agency, live-in care or a care home, care after hospital and more.', alternates: { canonical: '/guides' } }
+const BASE: Metadata = { title: 'Guides to arranging care at home', description: 'Plain guides for families: choosing an agency, live-in care or a care home, care after hospital and more.', alternates: { canonical: '/guides' } }
 
-export default function Guides() {
+export const revalidate = 3600
+export async function generateMetadata() { return withSeo('/guides', BASE) }
+
+export default async function Guides() {
+  const ARTICLES = await getArticles()
   const guides = ARTICLES.filter((a) => a.kind === 'guide')
   return (
     <>

@@ -1,14 +1,14 @@
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ARTICLES } from '@/content/articles'
+import { getArticles, withSeo, altFor } from '@/lib/cms'
 import { FIGURES, gbp } from '@/lib/figures'
 import { Crumbs, CtaBand, Faqs } from '@/components/Blocks'
 import { ArticleCard } from '@/components/ArticleCard'
 import { DarkFeature, StoryPanel } from '@/components/Feature'
 import { CalcMock } from '@/components/tools/Mockups'
 
-export const metadata: Metadata = { title: 'Care at home costs', description: 'What home care and live-in care cost, what affects the price, and help with paying.', alternates: { canonical: '/costs' } }
+const BASE: Metadata = { title: 'Care at home costs', description: 'What home care and live-in care cost, what affects the price, and help with paying.', alternates: { canonical: '/costs' } }
 
 const F = FIGURES
 const FACTS = [
@@ -33,7 +33,11 @@ const CHARGED = [
   { t: 'Live-in care', how: 'By the week', d: 'A weekly price for a carer who lives in, depending on the level of need.', href: '/live-in-care' },
 ]
 
-export default function Costs() {
+export const revalidate = 3600
+export async function generateMetadata() { return withSeo('/costs', BASE) }
+
+export default async function Costs() {
+  const ARTICLES = await getArticles()
   const costs = ARTICLES.filter((a) => a.kind === 'cost')
   return (
     <>
@@ -47,7 +51,7 @@ export default function Costs() {
             <p className="btn-row"><Link className="btn" href="/tools/care-cost-calculator">Work out a cost</Link><Link className="btn ghost" href="/tools/funding-checker">Check funding help</Link></p>
           </div>
           <figure className="hero-photo">
-            <Image src="/images/why-kitchen.jpg" alt="A family and their carer chatting over tea around the kitchen table" width={1400} height={702} priority sizes="(max-width: 900px) 100vw, 640px" />
+            <Image src="/images/why-kitchen.jpg" alt={await altFor('/images/why-kitchen.jpg', 'A family and their carer chatting over tea around the kitchen table')} width={1400} height={702} priority sizes="(max-width: 900px) 100vw, 640px" />
             <figcaption className="hattie-note">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/brand/hello-hattie-mark.svg" alt="" />

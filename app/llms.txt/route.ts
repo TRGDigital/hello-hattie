@@ -1,13 +1,15 @@
 import { BRAND } from '@/lib/site'
 import { SERVICES } from '@/content/services'
-import { ARTICLES, articlePath } from '@/content/articles'
+import { articlePath } from '@/content/articles'
+import { getArticles } from '@/lib/cms'
 import { REGIONS, TOTAL_AGENCIES } from '@/lib/areas'
 
 // llms.txt (llmstxt.org): a plain summary of the site for AI assistants, with links to the pages
 // worth reading. Built from the same content as the site so it never goes stale.
-export const dynamic = 'force-static'
+export const revalidate = 3600
 
-export function GET() {
+export async function GET() {
+  const ARTICLES = await getArticles()
   const u = (p: string) => `${BRAND.url}${p}`
   const areaSvc = SERVICES.filter((s) => s.areaPages)
   const lines = [

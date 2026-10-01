@@ -3,14 +3,17 @@ import { Crumbs } from '@/components/Blocks'
 import { DarkFeature, StoryPanel } from '@/components/Feature'
 import { CalcMock, FundingMock, WhichMock } from '@/components/tools/Mockups'
 import { FIGURES } from '@/lib/figures'
+import { withSeo } from '@/lib/cms'
 
-export const metadata: Metadata = {
+const BASE_META: Metadata = {
   title: 'Free tools for planning care at home',
   description: 'Free, simple tools to estimate home care costs, see which type of care may suit, and check what funding help may be available in England.',
   alternates: { canonical: '/tools' },
 }
 
 const SOURCES = [FIGURES.hcaMinimumHourly, FIGURES.capitalLimits, FIGURES.homeNotCounted, FIGURES.attendanceAllowance]
+
+export async function generateMetadata() { return withSeo('/tools', BASE_META) }
 
 export default function ToolsPage() {
   return (

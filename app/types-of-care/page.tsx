@@ -2,8 +2,11 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SERVICES } from '@/content/services'
 import { CtaBand, PageHero } from '@/components/Blocks'
+import { withSeo } from '@/lib/cms'
 
-export const metadata: Metadata = { title: 'Types of care at home', description: 'Live-in care, visiting care, overnight care, dementia care and more. What each involves and who it suits.', alternates: { canonical: '/types-of-care' } }
+const BASE_META: Metadata = { title: 'Types of care at home', description: 'Live-in care, visiting care, overnight care, dementia care and more. What each involves and who it suits.', alternates: { canonical: '/types-of-care' } }
+
+export async function generateMetadata() { return withSeo('/types-of-care', BASE_META) }
 
 export default function TypesOfCare() {
   return (

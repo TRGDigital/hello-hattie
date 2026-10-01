@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
 import { BRAND } from '@/lib/site'
 import { PageHero } from '@/components/Blocks'
+import { withSeo } from '@/lib/cms'
 
-export const metadata: Metadata = { title: 'Privacy notice', alternates: { canonical: '/privacy' } }
+const BASE_META: Metadata = { title: 'Privacy notice', alternates: { canonical: '/privacy' } }
+
+export async function generateMetadata() { return withSeo('/privacy', BASE_META) }
 
 export default function Privacy() {
   return (
@@ -24,6 +27,9 @@ export default function Privacy() {
         <p>So the agency can reach you, we check your details when you send them. We look up addresses for your postcode, and check that your phone number is live and your email address can receive email, using Ideal Postcodes (Ideal Postcodes Ltd, UK). If you give a mobile number, we send a one-time code by text to confirm it, using Twilio. These companies only process your details to carry out the check.</p>
         <h2>Postcode look-ups</h2>
         <p>When you use the service area tool on our home page, we look up the location of your postcode district (the first half of your postcode, such as WR14) using postcodes.io, a free postcode service. We don’t send the full postcode, and we don’t store the look-up.</p>
+        <h2 id="cookies">Cookies and analytics</h2>
+        <p>If you accept analytics cookies, we use Google Analytics to see which pages people visit and how they use the site, so we can improve it. Google Analytics doesn’t receive your name, phone number, email or address. If you reject, or don’t choose, analytics cookies stay off. You can change your choice at any time with “Cookie settings” at the bottom of every page.</p>
+        <p>We also keep a note of how you reached us, such as the advert you clicked, for the length of your visit. This is stored in your browser and is not a cookie.</p>
         <h2>Changing your mind</h2>
         <p>You can withdraw your agreement at any time by emailing {BRAND.email}. We’ll stop sharing your details and tell the agency we introduced you to.</p>
         <h2>How long we keep it</h2>

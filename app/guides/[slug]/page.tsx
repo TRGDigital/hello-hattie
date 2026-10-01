@@ -1,16 +1,18 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { ARTICLES, articleBySlug } from '@/content/articles'
+import { getArticle, getArticles, withSeo } from '@/lib/cms'
 import { ArticleView } from '@/components/ArticleView'
 
-export const dynamicParams = false
-export function generateStaticParams() { return ARTICLES.filter((a) => a.kind === 'guide').map((a) => ({ slug: a.slug })) }
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const a = articleBySlug('guide', params.slug)
-  return a ? { title: a.metaTitle, description: a.metaDescription, alternates: { canonical: `/guides/${a.slug}` } } : {}
+// New articles published in the admin get a page on first visit; existing ones refresh when saved.
+export const dynamicParams = true
+export const revalidate = 3600
+export async function generateStaticParams() { return (await getArticles()).filter((a) => a.kind === 'guide').map((a) => ({ slug: a.slug })) }
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const a = await getArticle('guide', params.slug)
+  return a ? withSeo(`/guides/${a.slug}`, { title: a.metaTitle, description: a.metaDescription, alternates: { canonical: `/guides/${a.slug}` } }) : {}
 }
-export default function GuidePage({ params }: { params: { slug: string } }) {
-  const a = articleBySlug('guide', params.slug)
+export default async function Page({ params }: { params: { slug: string } }) {
+  const a = await getArticle('guide', params.slug)
   if (!a) notFound()
-  return <ArticleView a={a} crumb={{ href: '/guides', label: 'Guides' }} />
+  return <ArticleView a={a} all={await getArticles()} crumb={{ href: '/guides', label: 'Guides' }} />
 }

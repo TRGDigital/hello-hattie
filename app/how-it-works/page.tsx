@@ -7,8 +7,9 @@ import { PostcodeStart } from '@/components/PostcodeStart'
 import { RadiusDemo } from '@/components/RadiusDemo'
 import { TOTAL_AGENCIES } from '@/lib/areas'
 import { HONEST } from '@/lib/site'
+import { withSeo, altFor } from '@/lib/cms'
 
-export const metadata: Metadata = { title: 'How it works', description: 'How our free matching works: a few questions, then a CQC-registered agency near you gets in touch.', alternates: { canonical: '/how-it-works' } }
+const BASE_META: Metadata = { title: 'How it works', description: 'How our free matching works: a few questions, then a CQC-registered agency near you gets in touch.', alternates: { canonical: '/how-it-works' } }
 
 const STEPS = [
   {
@@ -37,7 +38,9 @@ const STEPS = [
   },
 ]
 
-export default function HowItWorks() {
+export async function generateMetadata() { return withSeo('/how-it-works', BASE_META) }
+
+export default async function HowItWorks() {
   return (
     <>
       <section className="section costs-hero"><div className="in">
@@ -51,7 +54,7 @@ export default function HowItWorks() {
             <Trust />
           </div>
           <figure className="hero-photo">
-            <Image src="/images/hero-home.jpg" alt="A smiling carer holding hands with an older woman in her living room" width={1800} height={1092} priority sizes="(max-width: 900px) 100vw, 640px" />
+            <Image src="/images/hero-home.jpg" alt={await altFor('/images/hero-home.jpg', 'A smiling carer holding hands with an older woman in her living room')} width={1800} height={1092} priority sizes="(max-width: 900px) 100vw, 640px" />
             <figcaption className="hattie-note">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/brand/hello-hattie-mark.svg" alt="" />

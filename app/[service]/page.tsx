@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { SERVICES, serviceBySlug } from '@/content/services'
-import { SERVICE_IMAGES } from '@/content/service-images'
+import { getArticles, getServiceImages, withSeo } from '@/lib/cms'
 import { REGIONS } from '@/lib/areas'
 import { CtaBand, Faqs, PageHero, Trust } from '@/components/Blocks'
 import { DarkFeature, StoryPanel } from '@/components/Feature'
@@ -14,7 +14,7 @@ import { articlesFor } from '@/lib/autolink'
 
 export const dynamicParams = false
 export function generateStaticParams() { return SERVICES.map((s) => ({ service: s.slug })) }
-export function generateMetadata({ params }: { params: { service: string } }): Metadata {
+function baseMeta({ params }: { params: { service: string } }): Metadata {
   const s = serviceBySlug(params.service)
   return s ? { title: s.metaTitle, description: s.metaDescription, alternates: { canonical: `/${s.slug}` } } : {}
 }
@@ -26,13 +26,16 @@ export const quizService = (slug: string) =>
 // Headings for the three "How it's arranged" paragraphs, which always run: first steps, planning, once care begins.
 const STEPS = ['First steps', 'Planning the care', 'Once care begins']
 
-export default function ServicePage({ params }: { params: { service: string } }) {
+export async function generateMetadata(props: { params: { service: string } }) { return withSeo(`/${props.params.service}`, baseMeta(props)) }
+
+export default async function ServicePage({ params }: { params: { service: string } }) {
+  const IMAGES = await getServiceImages()
   const s = serviceBySlug(params.service)
   if (!s) notFound()
-  const img = SERVICE_IMAGES[s.slug]
+  const img = IMAGES[s.slug]
   const related = s.related.map(serviceBySlug).filter(Boolean)
   const lower = s.name.toLowerCase()
-  const guides = articlesFor(s.name)
+  const guides = articlesFor(s.name, 3, await getArticles())
   return (
     <>
       <PageHero crumbs={[{ href: '/types-of-care', label: 'Types of care' }, { label: s.name }]} title={s.name} intro={s.intro}
@@ -116,7 +119,7 @@ export default function ServicePage({ params }: { params: { service: string } })
           <div className="head-row"><h2>Other types of care</h2><Link href="/types-of-care">See all types of care</Link></div>
           <div className="care-cards three">
             {related.map((r) => {
-              const ri = SERVICE_IMAGES[r!.slug]
+              const ri = IMAGES[r!.slug]
               return (
                 <Link className="care-card" key={r!.slug} href={`/${r!.slug}`}>
                   <Slot brief={ri.main.brief} src={ri.main.src} sizes="(max-width: 800px) 100vw, 420px" />

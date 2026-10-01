@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ARTICLES } from '@/content/articles'
 import { articlePath, articlesFor } from '@/lib/autolink'
 import { notFound } from 'next/navigation'
 import { SERVICES, serviceBySlug } from '@/content/services'
@@ -12,14 +11,14 @@ import { Legwork } from '@/components/Legwork'
 import { MatchLink } from '@/components/MatchLink'
 import { Slot } from '@/components/Slot'
 import { StoryPanel } from '@/components/Feature'
-import { SERVICE_IMAGES } from '@/content/service-images'
+import { getArticles, getServiceImages, withSeo } from '@/lib/cms'
 import { quizService } from '../../page'
 
 export const dynamicParams = false
 export function generateStaticParams() {
   return SERVICES.filter((s) => s.areaPages).flatMap((s) => AREAS.map((a) => ({ service: s.slug, region: a.regionSlug, area: a.slug })))
 }
-export function generateMetadata({ params }: { params: { service: string; region: string; area: string } }): Metadata {
+function baseMeta({ params }: { params: { service: string; region: string; area: string } }): Metadata {
   const s = serviceBySlug(params.service); const a = areaBySlugs(params.region, params.area)
   if (!s || !a) return {}
   return {
@@ -31,7 +30,11 @@ export function generateMetadata({ params }: { params: { service: string; region
 
 const pct = (n: number, d: number) => (d ? Math.round((n / d) * 100) : 0)
 
-export default function AreaPage({ params }: { params: { service: string; region: string; area: string } }) {
+export async function generateMetadata(props: { params: { service: string; region: string; area: string } }) { return withSeo(`/${props.params.service}/${props.params.region}/${props.params.area}`, baseMeta(props)) }
+
+export default async function AreaPage({ params }: { params: { service: string; region: string; area: string } }) {
+  const IMAGES = await getServiceImages()
+  const ALL = await getArticles()
   const s = serviceBySlug(params.service); const a = areaBySlugs(params.region, params.area); const r = regionBySlug(params.region)
   if (!s || !a || !r || !s.areaPages) notFound()
   const svc = s.name.toLowerCase()
@@ -43,11 +46,11 @@ export default function AreaPage({ params }: { params: { service: string; region
   // The four areas either side in the region's A to Z list (wrapping round), so every area gets the
   // same number of links from its neighbours instead of the biggest areas collecting them all.
   // Three guides, rotating through the most relevant ones so each gets links from many area pages.
-  const pool = [...articlesFor(s.name, 6), ...ARTICLES].filter((x, i, all) => all.indexOf(x) === i)
+  const pool = [...articlesFor(s.name, 6, ALL), ...ALL].filter((x, i, all) => all.indexOf(x) === i)
   const guides = [0, 1, 2].map((k) => pool[(AREAS.findIndex((x) => x.slug === a.slug) * 3 + k) % pool.length])
   const ring = [...r.areas].sort((x, y) => x.name.localeCompare(y.name))
   const at = ring.findIndex((x) => x.slug === a.slug)
-  const img = SERVICE_IMAGES[s.slug]
+  const img = IMAGES[s.slug]
   const nearby = ring.length <= 9 ? ring.filter((x) => x.slug !== a.slug)
     : [-4, -3, -2, -1, 1, 2, 3, 4].map((d) => ring[(at + d + ring.length) % ring.length])
   const others = SERVICES.filter((x) => x.areaPages && x.slug !== s.slug)

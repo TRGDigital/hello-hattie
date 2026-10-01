@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import FundingChecker from '@/components/tools/FundingChecker'
 import { ToolShell } from '@/components/tools/ToolShell'
 import { FIGURES, gbp } from '@/lib/figures'
+import { withSeo } from '@/lib/cms'
 
-export const metadata: Metadata = {
+const BASE_META: Metadata = {
   title: 'Care funding checker for England',
   description: 'See if the council may help pay for care at home in England, and whether Attendance Allowance may apply. A free guide, not financial advice.',
   alternates: { canonical: '/tools/funding-checker' },
@@ -11,6 +12,8 @@ export const metadata: Metadata = {
 
 const up = gbp(FIGURES.capitalLimits.upper, 0)
 const low = gbp(FIGURES.capitalLimits.lower, 0)
+
+export async function generateMetadata() { return withSeo('/tools/funding-checker', BASE_META) }
 
 export default function FundingCheckerPage() {
   return (

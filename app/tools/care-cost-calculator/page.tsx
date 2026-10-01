@@ -3,14 +3,17 @@ import Link from 'next/link'
 import CostCalculator from '@/components/tools/CostCalculator'
 import { ToolShell } from '@/components/tools/ToolShell'
 import { FIGURES, gbp } from '@/lib/figures'
+import { withSeo } from '@/lib/cms'
 
-export const metadata: Metadata = {
+const BASE_META: Metadata = {
   title: 'Home care cost calculator',
   description: 'Estimate the weekly, four-weekly and yearly cost of visiting home care. Free, quick, and your answers stay on your device.',
   alternates: { canonical: '/tools/care-cost-calculator' },
 }
 
 const hca = gbp(FIGURES.hcaMinimumHourly.value)
+
+export async function generateMetadata() { return withSeo('/tools/care-cost-calculator', BASE_META) }
 
 export default function CostCalculatorPage() {
   return (

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { SERVICES } from '@/content/services'
-import { ARTICLES, articlePath } from '@/content/articles'
+import { articlePath } from '@/content/articles'
 import type { Article } from '@/content/types'
 
 // Contextual internal links: in article text, the first mention of a type of care or a tool links
@@ -45,12 +45,12 @@ export function makeLinker(selfPath: string) {
 }
 
 /** Articles most about a type of care: scored by how often its name appears in the article. */
-export function articlesFor(serviceName: string, n = 3): Article[] {
+export function articlesFor(serviceName: string, n: number, list: Article[]): Article[] {
   const words = serviceName.toLowerCase().replace(/ at home$/, '')
   const score = (a: Article) => {
     const t = [a.title, a.summary, ...a.sections.flatMap((s) => [s.heading, ...s.paragraphs, ...(s.bullets ?? [])])].join(' ').toLowerCase()
     return (a.title.toLowerCase().includes(words) ? 10 : 0) + t.split(words).length - 1
   }
-  return [...ARTICLES].map((a) => [a, score(a)] as const).filter(([, s]) => s > 0).sort((x, y) => y[1] - x[1]).slice(0, n).map(([a]) => a)
+  return [...list].map((a) => [a, score(a)] as const).filter(([, s]) => s > 0).sort((x, y) => y[1] - x[1]).slice(0, n).map(([a]) => a)
 }
 export { articlePath }

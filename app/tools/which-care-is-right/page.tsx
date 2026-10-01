@@ -1,12 +1,15 @@
 import type { Metadata } from 'next'
 import WhichCare from '@/components/tools/WhichCare'
 import { ToolShell } from '@/components/tools/ToolShell'
+import { withSeo } from '@/lib/cms'
 
-export const metadata: Metadata = {
+const BASE_META: Metadata = {
   title: 'Which type of care at home is right?',
   description: 'Answer five quick questions about the help needed and the home, and see which type of care at home may suit best.',
   alternates: { canonical: '/tools/which-care-is-right' },
 }
+
+export async function generateMetadata() { return withSeo('/tools/which-care-is-right', BASE_META) }
 
 export default function WhichCarePage() {
   return (

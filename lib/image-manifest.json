@@ -1,0 +1,219 @@
+[
+ {
+  "src": "/images/agency-desk.jpg",
+  "width": 1000,
+  "height": 750,
+  "kb": 116,
+  "defaultAlt": "A care manager smiling on a headset at her desk"
+ },
+ {
+  "src": "/images/agency-manager.jpg",
+  "width": 480,
+  "height": 480,
+  "kb": 42,
+  "defaultAlt": ""
+ },
+ {
+  "src": "/images/care-dementia.jpg",
+  "width": 800,
+  "height": 600,
+  "kb": 96,
+  "defaultAlt": "A carer and an older woman looking through a photo album together"
+ },
+ {
+  "src": "/images/care-live-in.jpg",
+  "width": 800,
+  "height": 600,
+  "kb": 123,
+  "defaultAlt": "A live-in carer and an older woman planting flowers together in her garden"
+ },
+ {
+  "src": "/images/care-overnight.jpg",
+  "width": 800,
+  "height": 600,
+  "kb": 88,
+  "defaultAlt": "A carer bringing an older man a cup of tea in the evening"
+ },
+ {
+  "src": "/images/care-respite.jpg",
+  "width": 800,
+  "height": 600,
+  "kb": 101,
+  "defaultAlt": "A daughter relaxing with a cup of tea while her father chats with his carer"
+ },
+ {
+  "src": "/images/care-visiting.jpg",
+  "width": 800,
+  "height": 600,
+  "kb": 84,
+  "defaultAlt": "A carer sharing breakfast with an older man in his kitchen"
+ },
+ {
+  "src": "/images/family-phone.jpg",
+  "width": 480,
+  "height": 480,
+  "kb": 43,
+  "defaultAlt": "A smiling woman on the phone at home"
+ },
+ {
+  "src": "/images/guide-cost-hour.jpg",
+  "width": 1200,
+  "height": 750,
+  "kb": 160,
+  "defaultAlt": "An older couple looking through paperwork at the kitchen table with a pot of tea"
+ },
+ {
+  "src": "/images/guide-live-in-cost.jpg",
+  "width": 1200,
+  "height": 750,
+  "kb": 162,
+  "defaultAlt": "A live-in carer and an older woman chatting over lunch"
+ },
+ {
+  "src": "/images/guide-signs.jpg",
+  "width": 1200,
+  "height": 750,
+  "kb": 145,
+  "defaultAlt": "A daughter and her mum talking at the kitchen table over tea"
+ },
+ {
+  "src": "/images/hattie-phone.jpg",
+  "width": 900,
+  "height": 900,
+  "kb": 134,
+  "defaultAlt": "A woman smiling on the phone at home, arranging care for her mum"
+ },
+ {
+  "src": "/images/hero-home.jpg",
+  "width": 1800,
+  "height": 1092,
+  "kb": 358,
+  "defaultAlt": "A smiling carer holding hands with an older woman in her living room"
+ },
+ {
+  "src": "/images/len-burgess.jpg",
+  "width": 240,
+  "height": 240,
+  "kb": 11,
+  "defaultAlt": ""
+ },
+ {
+  "src": "/images/post-parent-help.jpg",
+  "width": 1200,
+  "height": 750,
+  "kb": 172,
+  "defaultAlt": "An adult son and his elderly father talking on a garden bench"
+ },
+ {
+  "src": "/images/post-questions.jpg",
+  "width": 1200,
+  "height": 750,
+  "kb": 156,
+  "defaultAlt": "A woman at her kitchen table with a notepad and phone, making calls about care for her mum"
+ },
+ {
+  "src": "/images/svc-24h-side.jpg",
+  "width": 900,
+  "height": 720,
+  "kb": 102,
+  "defaultAlt": "A carer opening the curtains in the morning for an older woman sitting up in bed"
+ },
+ {
+  "src": "/images/svc-24h.jpg",
+  "width": 800,
+  "height": 600,
+  "kb": 91,
+  "defaultAlt": "Two care staff with a clipboard talking with an older woman in her kitchen"
+ },
+ {
+  "src": "/images/svc-companion-side.jpg",
+  "width": 900,
+  "height": 510,
+  "kb": 88,
+  "defaultAlt": "A companion and an older man playing cards at the dining table"
+ },
+ {
+  "src": "/images/svc-complex-side.jpg",
+  "width": 900,
+  "height": 720,
+  "kb": 98,
+  "defaultAlt": "A carer adjusting a profiling bed for an older woman at home"
+ },
+ {
+  "src": "/images/svc-complex.jpg",
+  "width": 800,
+  "height": 600,
+  "kb": 88,
+  "defaultAlt": "A care worker and a young man in a wheelchair laughing together at home"
+ },
+ {
+  "src": "/images/svc-dementia-side.jpg",
+  "width": 900,
+  "height": 566,
+  "kb": 101,
+  "defaultAlt": "A carer and an older man folding laundry together at home"
+ },
+ {
+  "src": "/images/svc-hourly-side.jpg",
+  "width": 900,
+  "height": 720,
+  "kb": 98,
+  "defaultAlt": "A carer helping an older man on with his coat in his hallway"
+ },
+ {
+  "src": "/images/svc-hourly.jpg",
+  "width": 800,
+  "height": 600,
+  "kb": 84,
+  "defaultAlt": "A carer and an older woman walking arm in arm to the local shops"
+ },
+ {
+  "src": "/images/svc-live-in-side.jpg",
+  "width": 900,
+  "height": 720,
+  "kb": 113,
+  "defaultAlt": "A live-in carer and an older man cooking lunch together in his kitchen"
+ },
+ {
+  "src": "/images/svc-overnight-side.jpg",
+  "width": 900,
+  "height": 720,
+  "kb": 96,
+  "defaultAlt": "A carer reading quietly in a softly lit living room at night"
+ },
+ {
+  "src": "/images/svc-palliative-side.jpg",
+  "width": 900,
+  "height": 720,
+  "kb": 113,
+  "defaultAlt": "A family sitting together in a calm living room at home"
+ },
+ {
+  "src": "/images/svc-palliative.jpg",
+  "width": 800,
+  "height": 600,
+  "kb": 71,
+  "defaultAlt": "A carer gently holding the hand of an older woman resting in bed at home"
+ },
+ {
+  "src": "/images/svc-respite-side.jpg",
+  "width": 900,
+  "height": 720,
+  "kb": 146,
+  "defaultAlt": "A family carer out on a countryside walk with a friend"
+ },
+ {
+  "src": "/images/svc-visiting-side.jpg",
+  "width": 900,
+  "height": 720,
+  "kb": 140,
+  "defaultAlt": "A care worker arriving at an older woman’s front door, both smiling"
+ },
+ {
+  "src": "/images/why-kitchen.jpg",
+  "width": 1400,
+  "height": 702,
+  "kb": 184,
+  "defaultAlt": "A family and their carer chatting over tea around the kitchen table"
+ }
+]

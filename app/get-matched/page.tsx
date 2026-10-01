@@ -1,3 +1,4 @@
+import { altFor } from '@/lib/cms'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import Link from 'next/link'
@@ -9,7 +10,7 @@ export const metadata: Metadata = { title: 'Get matched with local care agencies
 
 const OUT = /^([A-Z]{1,2}[0-9][A-Z0-9]?)/
 
-export default function GetMatched({ searchParams }: { searchParams: { postcode?: string } }) {
+export default async function GetMatched({ searchParams }: { searchParams: { postcode?: string } }) {
   const district = OUT.exec((searchParams.postcode ?? '').trim().toUpperCase())?.[1]
   return (
     <section className="match-page"><div className="in">
@@ -26,7 +27,7 @@ export default function GetMatched({ searchParams }: { searchParams: { postcode?
 
       <aside className="match-side" aria-label="What happens next">
         <figure className="match-photo">
-          <Image src="/images/hero-home.jpg" alt="A smiling carer holding hands with an older woman in her living room" width={1800} height={1092} sizes="(max-width: 1000px) 100vw, 400px" />
+          <Image src="/images/hero-home.jpg" alt={await altFor('/images/hero-home.jpg', 'A smiling carer holding hands with an older woman in her living room')} width={1800} height={1092} sizes="(max-width: 1000px) 100vw, 400px" />
           <figcaption className="hattie-note">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/brand/hello-hattie-mark.svg" alt="" />

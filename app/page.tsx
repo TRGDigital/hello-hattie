@@ -6,7 +6,7 @@ import { CtaBand, Faqs, Trust } from '@/components/Blocks'
 import { RadiusDemo } from '@/components/RadiusDemo'
 import { Slot } from '@/components/Slot'
 import { DarkFeature, StoryPanel } from '@/components/Feature'
-import { ARTICLES } from '@/content/articles'
+import { getArticles, withSeo, altFor } from '@/lib/cms'
 import { SERVICES } from '@/content/services'
 import { ArticleCard } from '@/components/ArticleCard'
 import { Legwork } from '@/components/Legwork'
@@ -22,13 +22,16 @@ const CARE = [
   { slug: 'respite-care-at-home', name: 'Respite care', line: 'Cover at home so a family carer can rest.', link: 'Respite care at home', brief: 'A daughter relaxing with a cup of tea while her father chats with his carer', img: '/images/care-respite.jpg' },
 ]
 
-export const metadata: Metadata = {
+const BASE: Metadata = {
   title: { absolute: 'Hello Hattie: find trusted home care near you, free' },
   description: 'Tell us where care at home is needed and we’ll match you with a CQC-registered home care agency near you. Visiting, live-in, overnight and dementia care. Free for families.',
   alternates: { canonical: '/' },
 }
 
-export default function Home() {
+export async function generateMetadata() { return withSeo('/', BASE) }
+
+export default async function Home() {
+  const ARTICLES = await getArticles()
   const guides = ARTICLES.filter((a) => a.kind === 'guide').slice(0, 2)
   const costGuide = ARTICLES.find((a) => a.kind === 'cost')
   const posts = ARTICLES.filter((a) => a.kind === 'blog').slice(0, 3)
@@ -43,7 +46,7 @@ export default function Home() {
           <Trust />
         </div>
         <figure className="hero-photo">
-          <Image src="/images/hero-home.jpg" alt="A smiling carer holding hands with an older woman in her living room" width={1800} height={1092} priority sizes="(max-width: 900px) 100vw, 640px" />
+          <Image src="/images/hero-home.jpg" alt={await altFor('/images/hero-home.jpg', 'A smiling carer holding hands with an older woman in her living room')} width={1800} height={1092} priority sizes="(max-width: 900px) 100vw, 640px" />
           <figcaption className="hattie-note">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/brand/hello-hattie-mark.svg" alt="" />

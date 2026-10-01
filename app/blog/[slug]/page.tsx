@@ -1,16 +1,18 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { ARTICLES, articleBySlug } from '@/content/articles'
+import { getArticle, getArticles, withSeo } from '@/lib/cms'
 import { ArticleView } from '@/components/ArticleView'
 
-export const dynamicParams = false
-export function generateStaticParams() { return ARTICLES.filter((a) => a.kind === 'blog').map((a) => ({ slug: a.slug })) }
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const a = articleBySlug('blog', params.slug)
-  return a ? { title: a.metaTitle, description: a.metaDescription, alternates: { canonical: `/blog/${a.slug}` } } : {}
+// New articles published in the admin get a page on first visit; existing ones refresh when saved.
+export const dynamicParams = true
+export const revalidate = 3600
+export async function generateStaticParams() { return (await getArticles()).filter((a) => a.kind === 'blog').map((a) => ({ slug: a.slug })) }
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const a = await getArticle('blog', params.slug)
+  return a ? withSeo(`/blog/${a.slug}`, { title: a.metaTitle, description: a.metaDescription, alternates: { canonical: `/blog/${a.slug}` } }) : {}
 }
-export default function BlogPost({ params }: { params: { slug: string } }) {
-  const a = articleBySlug('blog', params.slug)
+export default async function Page({ params }: { params: { slug: string } }) {
+  const a = await getArticle('blog', params.slug)
   if (!a) notFound()
-  return <ArticleView a={a} crumb={{ href: '/blog', label: 'Blog' }} />
+  return <ArticleView a={a} all={await getArticles()} crumb={{ href: '/blog', label: 'Blog' }} />
 }
