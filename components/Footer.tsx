@@ -58,6 +58,7 @@ export function Footer() {
             <li><Link href="/for-agencies">For care agencies</Link></li>
             <li><Link href="/privacy">Privacy</Link></li>
             <li><Link href="/terms">Terms</Link></li>
+            <li><Link href="/cookies">Cookie policy</Link></li>
             <li><CookieSettingsLink /></li>
           </ul></div>
         </div>

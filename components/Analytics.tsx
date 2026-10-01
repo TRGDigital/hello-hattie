@@ -36,7 +36,7 @@ export function Analytics() {
       <Script src="https://trg-funnel-insights.vercel.app/t.js" data-site="hellohattie" data-storage="memory" strategy="afterInteractive" />
       {open && (
         <div className="cookie-bar" role="dialog" aria-label="Cookie choices">
-          <p>We’d like to use analytics cookies to see how people use Hello Hattie, so we can make it better. They’re off unless you accept. <a href="/privacy#cookies">More about cookies</a></p>
+          <p>We’d like to use analytics cookies to see how people use Hello Hattie, so we can make it better. They’re off unless you accept. <a href="/cookies">More about cookies</a></p>
           <div className="cookie-btns">
             <button type="button" className="btn ghost" onClick={() => choose('denied')}>Reject</button>
             <button type="button" className="btn" onClick={() => choose('granted')}>Accept</button>

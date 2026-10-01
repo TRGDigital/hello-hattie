@@ -23,6 +23,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...ARTICLES.map((a) => page(articlePath(a), 0.7, new Date(a.updated))),
     ...areaSvc.flatMap((s) => REGIONS.map((r) => page(`/${s.slug}/${r.slug}`, 0.6, areasAt))),
     ...areaSvc.flatMap((s) => AREAS.map((a) => page(`/${s.slug}/${a.regionSlug}/${a.slug}`, 0.5, areasAt))),
-    ...['/privacy', '/terms'].map((p) => page(p, 0.2)),
+    ...['/privacy', '/terms', '/cookies'].map((p) => page(p, 0.2)),
   ]
 }
