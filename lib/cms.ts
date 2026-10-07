@@ -98,3 +98,25 @@ export async function getServiceImages() {
     side: { ...v.side, brief: (v.side.src && alts[v.side.src]) || v.side.brief },
   }])) as typeof SERVICE_IMAGES
 }
+
+// ---------- area page intros ----------
+export type IntroRow = { path: string; service: string; region: string; area: string; status: 'draft' | 'published' | 'rejected'; intro: string; drafted_by: string | null; drafted_at: string; published_at: string | null; note: string | null }
+
+/** Published area intros by page path. A page with one is indexable and in the sitemap. */
+export const getIntros = unstable_cache(async (): Promise<Record<string, { intro: string; published_at: string }>> => {
+  try {
+    const rows = await rest<{ path: string; intro: string; published_at: string }[]>('hh_area_intros?select=path,intro,published_at&status=eq.published')
+    return Object.fromEntries(rows.map((x) => [x.path, { intro: x.intro, published_at: x.published_at }]))
+  } catch { return {} }
+}, ['hh-intros'], { tags: ['cms'], revalidate: TTL })
+
+/** The intro to show on a page: the published one, or in preview mode the draft too. */
+export async function getIntro(path: string): Promise<{ intro: string; published: boolean } | null> {
+  if (draftMode().isEnabled) {
+    const { adminRpc } = await import('@/lib/admin-db')
+    const row = (await adminRpc<IntroRow[]>('intros_list').catch(() => [])).find((x) => x.path === path && x.status !== 'rejected')
+    if (row) return { intro: row.intro, published: row.status === 'published' }
+  }
+  const p = (await getIntros())[path]
+  return p ? { intro: p.intro, published: true } : null
+}

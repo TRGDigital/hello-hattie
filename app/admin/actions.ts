@@ -109,3 +109,23 @@ export async function uploadImage(fd: FormData): Promise<{ error?: string; src?:
   refresh()
   return { src: blob.url }
 }
+
+// ---------- area page intros ----------
+// Publishing an intro releases its page: indexable and in the sitemap (see app/sitemap.ts).
+export async function saveIntro(path: string, intro: string): Promise<{ error?: string; problems?: string[] }> {
+  requireAdmin()
+  const { introPage, checkIntro } = await import('@/lib/intro-brief')
+  const page = introPage(path)
+  if (!page) return { error: 'Unknown page.' }
+  const problems = checkIntro(intro, page)
+  await adminRpc('intro_save', { path, intro: intro.replace(/\r/g, '').trim() })
+  refresh()
+  return problems.length ? { problems } : {}
+}
+export async function setIntroStatus(paths: string[], status: 'draft' | 'published' | 'rejected', note = ''): Promise<{ error?: string }> {
+  requireAdmin()
+  for (const path of paths) await adminRpc('intro_status', { path, status, note })
+  refresh()
+  revalidatePath('/sitemap.xml')
+  return {}
+}

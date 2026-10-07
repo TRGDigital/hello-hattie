@@ -6,7 +6,7 @@ import { logout } from './actions'
 export const metadata: Metadata = { title: 'Admin', robots: { index: false, follow: false } }
 export const dynamic = 'force-dynamic'
 
-const NAV = [['/admin', 'Dashboard'], ['/admin/articles', 'Articles'], ['/admin/seo', 'Page SEO'], ['/admin/images', 'Images'], ['/admin/account', 'Account']]
+const NAV = [['/admin', 'Dashboard'], ['/admin/articles', 'Articles'], ['/admin/intros', 'Area intros'], ['/admin/seo', 'Page SEO'], ['/admin/images', 'Images'], ['/admin/account', 'Account']]
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const email = currentAdmin()

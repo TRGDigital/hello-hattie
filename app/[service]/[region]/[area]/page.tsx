@@ -14,22 +14,23 @@ import { MatchLink } from '@/components/MatchLink'
 import { Slot } from '@/components/Slot'
 import { JsonLd, serviceLd } from '@/components/JsonLd'
 import { StoryPanel } from '@/components/Feature'
-import { getArticles, getServiceImages, withSeo } from '@/lib/cms'
+import { getArticles, getIntro, getIntros, getServiceImages, withSeo } from '@/lib/cms'
 import { quizService } from '../../page'
 
 export const dynamicParams = false
 export function generateStaticParams() {
   return SERVICES.filter((s) => s.areaPages).flatMap((s) => AREAS.map((a) => ({ service: s.slug, region: a.regionSlug, area: a.slug })))
 }
-function baseMeta({ params }: { params: { service: string; region: string; area: string } }): Metadata {
+function baseMeta({ params }: { params: { service: string; region: string; area: string } }, released: boolean): Metadata {
   const s = serviceBySlug(params.service); const a = areaBySlugs(params.region, params.area)
   if (!s || !a) return {}
   return {
     title: `${s.name} in ${a.name}`.length > 52 ? { absolute: `${s.name} in ${a.name}` } : `${s.name} in ${a.name}`,
     description: `${a.total} CQC-registered home care agencies are registered in ${a.name}. Find ${s.name.toLowerCase()} near you, free and with no obligation.`,
     alternates: { canonical: `/${s.slug}/${a.regionSlug}/${a.slug}` },
-    // Outside the current indexing wave (lib/area-facts.ts): crawlable, links followed, not indexed yet.
-    ...(BRAND.live && !isIndexedArea(a.slug) ? { robots: { index: false, follow: true } } : {}),
+    // Not released yet (outside wave 1 in lib/area-facts.ts and no published intro): crawlable,
+    // links followed, not indexed.
+    ...(BRAND.live && !released && !isIndexedArea(a.slug) ? { robots: { index: false, follow: true } } : {}),
   }
 }
 
@@ -38,11 +39,15 @@ const num = (x: number) => x.toLocaleString('en-GB')
 const pct1 = (x: number) => (x * 100).toFixed(1).replace(/\.0$/, '')
 const list = (xs: string[]) => (xs.length < 2 ? xs.join('') : `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}`)
 
-export async function generateMetadata(props: { params: { service: string; region: string; area: string } }) { return withSeo(`/${props.params.service}/${props.params.region}/${props.params.area}`, baseMeta(props)) }
+export async function generateMetadata(props: { params: { service: string; region: string; area: string } }) {
+  const path = `/${props.params.service}/${props.params.region}/${props.params.area}`
+  return withSeo(path, baseMeta(props, !!(await getIntros())[path]))
+}
 
 export default async function AreaPage({ params }: { params: { service: string; region: string; area: string } }) {
   const IMAGES = await getServiceImages()
   const ALL = await getArticles()
+  const intro = await getIntro(`/${params.service}/${params.region}/${params.area}`)
   const s = serviceBySlug(params.service); const a = areaBySlugs(params.region, params.area); const r = regionBySlug(params.region)
   if (!s || !a || !r || !s.areaPages) notFound()
   const svc = s.name.toLowerCase()
@@ -94,7 +99,7 @@ export default async function AreaPage({ params }: { params: { service: string; 
           <div className="prose">
             <p className="eyebrow">{s.name} in {a.name}</p>
             <h2>Arranging {svc} in {a.name}</h2>
-            <p>{s.whatItIs[0]}</p>
+            {intro ? intro.intro.split(/\n\s*\n/).map((p, i) => <p key={i}>{p.trim()}</p>) : <p>{s.whatItIs[0]}</p>}
             <p>When you use our free matching, we look for an agency registered with the Care Quality Commission that covers your postcode in {a.name}, offers {svc} and has told us it can take on new clients. That agency, and only that agency, calls you to talk it through, usually before arranging an assessment.</p>
             <p><Link href={`/${s.slug}`}>Read more about {svc}</Link></p>
           </div>
