@@ -1,10 +1,11 @@
 import 'server-only'
 
-// Sends one email through SendGrid. Needs SENDGRID_API_KEY and SENDGRID_FROM_EMAIL (a verified
-// sender) in the Vercel environment; the same values the TRG platform uses.
+// Sends one email through SendGrid. Needs SENDGRID_API_KEY in the Vercel environment (the same key
+// the TRG platform uses). Sends from the trgdigital.co.uk domain, which SendGrid already accepts;
+// SENDGRID_FROM_EMAIL overrides it.
 export async function sendEmail(o: { to: string; subject: string; html: string; text: string }) {
-  const key = process.env.SENDGRID_API_KEY, from = process.env.SENDGRID_FROM_EMAIL
-  if (!key || !from) throw new Error('Email is not configured (SENDGRID_API_KEY / SENDGRID_FROM_EMAIL missing)')
+  const key = process.env.SENDGRID_API_KEY, from = process.env.SENDGRID_FROM_EMAIL || 'hello@trgdigital.co.uk'
+  if (!key) throw new Error('Email is not configured (SENDGRID_API_KEY missing)')
   const r = await fetch('https://api.sendgrid.com/v3/mail/send', {
     method: 'POST', headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
