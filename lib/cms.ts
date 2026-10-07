@@ -103,12 +103,16 @@ export async function getServiceImages() {
 export type IntroRow = { path: string; service: string; region: string; area: string; status: 'draft' | 'published' | 'rejected'; intro: string; drafted_by: string | null; drafted_at: string; published_at: string | null; note: string | null }
 
 /** Published area intros by page path. A page with one is indexable and in the sitemap. */
-export const getIntros = unstable_cache(async (): Promise<Record<string, { intro: string; published_at: string }>> => {
-  try {
-    const rows = await rest<{ path: string; intro: string; published_at: string }[]>('hh_area_intros?select=path,intro,published_at&status=eq.published')
-    return Object.fromEntries(rows.map((x) => [x.path, { intro: x.intro, published_at: x.published_at }]))
-  } catch { return {} }
-}, ['hh-intros'], { tags: ['cms'], revalidate: TTL })
+// A failed fetch throws inside the cache so it is never stored: caching an empty result would hide
+// every intro (and un-release those pages) until the cache expired.
+const cachedIntros = unstable_cache(async (): Promise<Record<string, { intro: string; published_at: string }>> => {
+  const rows = await rest<{ path: string; intro: string; published_at: string }[]>('hh_area_intros?select=path,intro,published_at&status=eq.published')
+  return Object.fromEntries(rows.map((x) => [x.path, { intro: x.intro, published_at: x.published_at }]))
+}, ['hh-intros-v2'], { tags: ['cms'], revalidate: TTL })
+export async function getIntros(): Promise<Record<string, { intro: string; published_at: string }>> {
+  for (let i = 0; i < 3; i++) { try { return await cachedIntros() } catch { await new Promise((ok) => setTimeout(ok, 500 * (i + 1))) } }
+  return {}
+}
 
 /** The intro to show on a page: the published one, or in preview mode the draft too. */
 export async function getIntro(path: string): Promise<{ intro: string; published: boolean } | null> {
