@@ -21,8 +21,10 @@ export type ArticleRow = {
   status: 'draft' | 'published'; published_at: string | null; updated_at: string
 }
 
+// Tagged, cacheable fetch: a 'no-store' fetch is not allowed while pages are built statically, so it
+// failed silently and pages were built without CMS content. Saving in /admin clears the 'cms' tag.
 async function rest<T>(path: string): Promise<T> {
-  const r = await fetch(`${DB}/rest/v1/${path}`, { headers: { apikey: KEY, Authorization: `Bearer ${KEY}` }, cache: 'no-store', signal: AbortSignal.timeout(8000) })
+  const r = await fetch(`${DB}/rest/v1/${path}`, { headers: { apikey: KEY, Authorization: `Bearer ${KEY}` }, next: { revalidate: TTL, tags: ['cms'] }, signal: AbortSignal.timeout(8000) })
   if (!r.ok) throw new Error(`cms ${r.status}`)
   return r.json()
 }
