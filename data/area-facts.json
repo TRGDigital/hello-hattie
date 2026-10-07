@@ -1,0 +1,5151 @@
+{
+ "generated": "2026-10-07",
+ "popYear": "2025",
+ "dementiaPeriod": "2026",
+ "englandDementia": {
+  "rate": 66.3,
+  "diagnosed": 498122,
+  "estimated": 751551
+ },
+ "areas": {
+  "bedford": {
+   "code": "E06000055",
+   "lat": 52.1963,
+   "lng": -0.4546,
+   "pop": {
+    "all": 196398,
+    "over65": 34234,
+    "over85": 4903
+   },
+   "dementia": {
+    "rate": 69.2,
+    "diagnosed": 1547,
+    "estimated": 2235
+   },
+   "council": {
+    "name": "Bedford Borough Council",
+    "url": "https://www.bedford.gov.uk/"
+   },
+   "towns": [
+    "Bedford"
+   ],
+   "nearby": [
+    "central-bedfordshire",
+    "cambridgeshire",
+    "milton-keynes",
+    "north-northamptonshire",
+    "luton",
+    "west-northamptonshire",
+    "hertfordshire",
+    "peterborough"
+   ]
+  },
+  "cambridgeshire": {
+   "code": "E10000003",
+   "lat": 52.3497,
+   "lng": -0.2351,
+   "pop": {
+    "all": 716983,
+    "over65": 138149,
+    "over85": 19060
+   },
+   "dementia": {
+    "rate": 60.5,
+    "diagnosed": 5525,
+    "estimated": 9128
+   },
+   "council": {
+    "name": "Cambridgeshire County Council",
+    "url": "https://www.cambridgeshire.gov.uk/"
+   },
+   "towns": [
+    "Cambridge",
+    "Huntingdon",
+    "Ely",
+    "Wisbech",
+    "March",
+    "St Neots"
+   ],
+   "nearby": [
+    "bedford",
+    "peterborough",
+    "north-northamptonshire",
+    "central-bedfordshire",
+    "rutland",
+    "milton-keynes",
+    "luton",
+    "west-northamptonshire"
+   ]
+  },
+  "central-bedfordshire": {
+   "code": "E06000056",
+   "lat": 51.999,
+   "lng": -0.4775,
+   "pop": {
+    "all": 321605,
+    "over65": 59317,
+    "over85": 7470
+   },
+   "dementia": {
+    "rate": 65.8,
+    "diagnosed": 2421,
+    "estimated": 3679
+   },
+   "council": {
+    "name": "Central Bedfordshire Council",
+    "url": "http://www.centralbedfordshire.gov.uk"
+   },
+   "towns": [
+    "Dunstable",
+    "Leighton Buzzard",
+    "Biggleswade",
+    "Sandy",
+    "Shefford",
+    "Flitwick"
+   ],
+   "nearby": [
+    "luton",
+    "milton-keynes",
+    "bedford",
+    "hertfordshire",
+    "buckinghamshire",
+    "cambridgeshire",
+    "harrow",
+    "barnet"
+   ]
+  },
+  "essex": {
+   "code": "E10000012",
+   "lat": 51.8098,
+   "lng": 0.541,
+   "pop": {
+    "all": 1576125,
+    "over65": 332914,
+    "over85": 46930
+   },
+   "dementia": {
+    "rate": 66.8,
+    "diagnosed": 15001,
+    "estimated": 22445
+   },
+   "council": {
+    "name": "Essex County Council",
+    "url": "https://www.essex.gov.uk/"
+   },
+   "towns": [
+    "Colchester",
+    "Chelmsford",
+    "Basildon",
+    "Harlow",
+    "Brentwood",
+    "Braintree"
+   ],
+   "nearby": [
+    "southend-on-sea",
+    "havering",
+    "thurrock",
+    "medway",
+    "barking-and-dagenham",
+    "redbridge",
+    "waltham-forest",
+    "enfield"
+   ]
+  },
+  "hertfordshire": {
+   "code": "E10000015",
+   "lat": 51.8088,
+   "lng": -0.277,
+   "pop": {
+    "all": 1239398,
+    "over65": 221305,
+    "over85": 33648
+   },
+   "dementia": {
+    "rate": 63.7,
+    "diagnosed": 9967,
+    "estimated": 15658
+   },
+   "council": {
+    "name": "Hertfordshire County Council",
+    "url": "https://www.hertfordshire.gov.uk/"
+   },
+   "towns": [
+    "Watford",
+    "Stevenage",
+    "Hemel Hempstead",
+    "Hatfield",
+    "Welwyn Garden City",
+    "Hitchin"
+   ],
+   "nearby": [
+    "luton",
+    "enfield",
+    "barnet",
+    "harrow",
+    "central-bedfordshire",
+    "brent",
+    "haringey",
+    "waltham-forest"
+   ]
+  },
+  "luton": {
+   "code": "E06000032",
+   "lat": 51.891,
+   "lng": -0.4232,
+   "pop": {
+    "all": 236380,
+    "over65": 27710,
+    "over85": 3951
+   },
+   "dementia": {
+    "rate": 82.1,
+    "diagnosed": 1659,
+    "estimated": 2022
+   },
+   "council": {
+    "name": "Luton Borough Council",
+    "url": "https://m.luton.gov.uk/Page/Show"
+   },
+   "towns": [
+    "Luton"
+   ],
+   "nearby": [
+    "central-bedfordshire",
+    "hertfordshire",
+    "buckinghamshire",
+    "milton-keynes",
+    "harrow",
+    "bedford",
+    "barnet",
+    "enfield"
+   ]
+  },
+  "norfolk": {
+   "code": "E10000020",
+   "lat": 52.6712,
+   "lng": 0.9647,
+   "pop": {
+    "all": 945427,
+    "over65": 239700,
+    "over85": 33501
+   },
+   "dementia": {
+    "rate": 65.4,
+    "diagnosed": 10490,
+    "estimated": 16042
+   },
+   "council": {
+    "name": "Norfolk County Council",
+    "url": "http://www.norfolk.gov.uk/"
+   },
+   "towns": [
+    "Norwich",
+    "Great Yarmouth",
+    "Dereham",
+    "Kings Lynn",
+    "Thetford",
+    "King'S Lynn"
+   ],
+   "nearby": [
+    "suffolk",
+    "peterborough",
+    "cambridgeshire",
+    "lincolnshire",
+    "essex",
+    "rutland",
+    "bedford",
+    "north-northamptonshire"
+   ]
+  },
+  "peterborough": {
+   "code": "E06000031",
+   "lat": 52.5921,
+   "lng": -0.2687,
+   "pop": {
+    "all": 224757,
+    "over65": 32673,
+    "over85": 4424
+   },
+   "dementia": {
+    "rate": 72,
+    "diagnosed": 1503,
+    "estimated": 2089
+   },
+   "council": {
+    "name": "Peterborough City Council",
+    "url": "http://www.peterborough.gov.uk/"
+   },
+   "towns": [
+    "Peterborough"
+   ],
+   "nearby": [
+    "rutland",
+    "cambridgeshire",
+    "north-northamptonshire",
+    "bedford",
+    "lincolnshire",
+    "leicester",
+    "west-northamptonshire",
+    "milton-keynes"
+   ]
+  },
+  "southend-on-sea": {
+   "code": "E06000033",
+   "lat": 51.5492,
+   "lng": 0.7069,
+   "pop": {
+    "all": 185214,
+    "over65": 36514,
+    "over85": 5372
+   },
+   "dementia": {
+    "rate": 83.8,
+    "diagnosed": 2114,
+    "estimated": 2522
+   },
+   "council": {
+    "name": "Southend-on-Sea City Council",
+    "url": "http://www.southend.gov.uk/"
+   },
+   "towns": [
+    "Southend-on-Sea",
+    "Westcliff-on-Sea",
+    "Westcliff on Sea",
+    "Southend on Sea",
+    "Leigh on Sea",
+    "Leigh-on-Sea"
+   ],
+   "nearby": [
+    "medway",
+    "thurrock",
+    "essex",
+    "havering",
+    "kent",
+    "barking-and-dagenham",
+    "bexley",
+    "redbridge"
+   ]
+  },
+  "suffolk": {
+   "code": "E10000029",
+   "lat": 52.2539,
+   "lng": 1.0492,
+   "pop": {
+    "all": 789850,
+    "over65": 194707,
+    "over85": 27695
+   },
+   "dementia": {
+    "rate": 56.9,
+    "diagnosed": 7796,
+    "estimated": 13712
+   },
+   "council": {
+    "name": "Suffolk County Council",
+    "url": "http://www.suffolk.gov.uk/"
+   },
+   "towns": [
+    "Ipswich",
+    "Lowestoft",
+    "Bury St. Edmunds",
+    "Sudbury",
+    "Felixstowe",
+    "Bury St Edmunds"
+   ],
+   "nearby": [
+    "norfolk",
+    "essex",
+    "southend-on-sea",
+    "cambridgeshire",
+    "havering",
+    "medway",
+    "thurrock",
+    "peterborough"
+   ]
+  },
+  "thurrock": {
+   "code": "E06000034",
+   "lat": 51.51,
+   "lng": 0.3349,
+   "pop": {
+    "all": 181664,
+    "over65": 24842,
+    "over85": 2987
+   },
+   "dementia": {
+    "rate": 64.4,
+    "diagnosed": 1049,
+    "estimated": 1629
+   },
+   "council": {
+    "name": "Thurrock Council",
+    "url": "https://www.thurrock.gov.uk/"
+   },
+   "towns": [
+    "Grays",
+    "Tilbury",
+    "South Ockendon",
+    "Stanford-le-Hope"
+   ],
+   "nearby": [
+    "havering",
+    "bexley",
+    "barking-and-dagenham",
+    "medway",
+    "redbridge",
+    "greenwich",
+    "newham",
+    "lewisham"
+   ]
+  },
+  "derby": {
+   "code": "E06000015",
+   "lat": 52.9146,
+   "lng": -1.4719,
+   "pop": {
+    "all": 275344,
+    "over65": 45389,
+    "over85": 6712
+   },
+   "dementia": {
+    "rate": 83.7,
+    "diagnosed": 2763,
+    "estimated": 3301
+   },
+   "council": {
+    "name": "Derby City",
+    "url": "https://www.derby.gov.uk/"
+   },
+   "towns": [
+    "Derby"
+   ],
+   "nearby": [
+    "derbyshire",
+    "nottingham",
+    "leicestershire",
+    "staffordshire",
+    "leicester",
+    "nottinghamshire",
+    "stoke-on-trent",
+    "walsall"
+   ]
+  },
+  "derbyshire": {
+   "code": "E10000007",
+   "lat": 53.0786,
+   "lng": -1.6021,
+   "pop": {
+    "all": 827217,
+    "over65": 189935,
+    "over85": 23319
+   },
+   "dementia": {
+    "rate": 65.9,
+    "diagnosed": 8003,
+    "estimated": 12140
+   },
+   "council": {
+    "name": "Derbyshire County Council",
+    "url": "https://www.derbyshire.gov.uk/"
+   },
+   "towns": [
+    "Chesterfield",
+    "Ilkeston",
+    "Swadlincote",
+    "Alfreton",
+    "Buxton",
+    "Matlock"
+   ],
+   "nearby": [
+    "derby",
+    "nottingham",
+    "staffordshire",
+    "sheffield",
+    "stoke-on-trent",
+    "nottinghamshire",
+    "rotherham",
+    "leicestershire"
+   ]
+  },
+  "leicester": {
+   "code": "E06000016",
+   "lat": 52.6359,
+   "lng": -1.1304,
+   "pop": {
+    "all": 383116,
+    "over65": 47719,
+    "over85": 5848
+   },
+   "dementia": {
+    "rate": 77.7,
+    "diagnosed": 2402,
+    "estimated": 3091
+   },
+   "council": {
+    "name": "Leicester City Council",
+    "url": "https://www.leicester.gov.uk/"
+   },
+   "towns": [
+    "Leicester"
+   ],
+   "nearby": [
+    "leicestershire",
+    "rutland",
+    "nottingham",
+    "coventry",
+    "derby",
+    "north-northamptonshire",
+    "west-northamptonshire",
+    "solihull"
+   ]
+  },
+  "leicestershire": {
+   "code": "E10000018",
+   "lat": 52.6878,
+   "lng": -1.3779,
+   "pop": {
+    "all": 752448,
+    "over65": 160849,
+    "over85": 20731
+   },
+   "dementia": {
+    "rate": 59.4,
+    "diagnosed": 6291,
+    "estimated": 10591
+   },
+   "council": {
+    "name": "Leicestershire County Council",
+    "url": "https://www.leicestershire.gov.uk/"
+   },
+   "towns": [
+    "Loughborough",
+    "Hinckley",
+    "Market Harborough",
+    "Melton Mowbray",
+    "Coalville",
+    "Wigston"
+   ],
+   "nearby": [
+    "leicester",
+    "derby",
+    "coventry",
+    "nottingham",
+    "solihull",
+    "birmingham",
+    "walsall",
+    "derbyshire"
+   ]
+  },
+  "lincolnshire": {
+   "code": "E10000019",
+   "lat": 53.111,
+   "lng": -0.2388,
+   "pop": {
+    "all": 794009,
+    "over65": 195402,
+    "over85": 24992
+   },
+   "dementia": {
+    "rate": 70,
+    "diagnosed": 8956,
+    "estimated": 12791
+   },
+   "council": {
+    "name": "Lincolnshire County Council",
+    "url": "https://www.lincolnshire.gov.uk/"
+   },
+   "towns": [
+    "Lincoln",
+    "Spalding",
+    "Grantham",
+    "Boston",
+    "Gainsborough",
+    "Sleaford"
+   ],
+   "nearby": [
+    "north-east-lincolnshire",
+    "nottinghamshire",
+    "rutland",
+    "north-lincolnshire",
+    "peterborough",
+    "nottingham",
+    "kingston-upon-hull-city-of",
+    "doncaster"
+   ]
+  },
+  "north-northamptonshire": {
+   "code": "E06000061",
+   "lat": 52.4255,
+   "lng": -0.625,
+   "pop": {
+    "all": 379569,
+    "over65": 70585,
+    "over85": 8416
+   },
+   "dementia": {
+    "rate": 71.6,
+    "diagnosed": 3270,
+    "estimated": 4570
+   },
+   "council": {
+    "name": "North Northamptonshire Council",
+    "url": "https://www.northnorthants.gov.uk/"
+   },
+   "towns": [
+    "Kettering",
+    "Wellingborough",
+    "Corby",
+    "Rushden"
+   ],
+   "nearby": [
+    "rutland",
+    "cambridgeshire",
+    "bedford",
+    "peterborough",
+    "west-northamptonshire",
+    "milton-keynes",
+    "leicester",
+    "central-bedfordshire"
+   ]
+  },
+  "nottingham": {
+   "code": "E06000018",
+   "lat": 52.9542,
+   "lng": -1.1667,
+   "pop": {
+    "all": 325765,
+    "over65": 39820,
+    "over85": 5142
+   },
+   "dementia": {
+    "rate": 77.9,
+    "diagnosed": 2187,
+    "estimated": 2806
+   },
+   "council": {
+    "name": "Nottingham City Council",
+    "url": "https://www.nottinghamcity.gov.uk/"
+   },
+   "towns": [
+    "Nottingham"
+   ],
+   "nearby": [
+    "derby",
+    "nottinghamshire",
+    "derbyshire",
+    "leicestershire",
+    "leicester",
+    "rutland",
+    "rotherham",
+    "sheffield"
+   ]
+  },
+  "nottinghamshire": {
+   "code": "E10000024",
+   "lat": 53.1285,
+   "lng": -1.0066,
+   "pop": {
+    "all": 862326,
+    "over65": 188852,
+    "over85": 25032
+   },
+   "dementia": {
+    "rate": 68.5,
+    "diagnosed": 8272,
+    "estimated": 12076
+   },
+   "council": {
+    "name": "Nottinghamshire County Council",
+    "url": "http://www.nottinghamshire.gov.uk/"
+   },
+   "towns": [
+    "Mansfield",
+    "Newark",
+    "Worksop",
+    "Retford",
+    "Sutton-in-Ashfield",
+    "Sutton in Ashfield"
+   ],
+   "nearby": [
+    "nottingham",
+    "rotherham",
+    "derby",
+    "derbyshire",
+    "doncaster",
+    "sheffield",
+    "lincolnshire",
+    "leicestershire"
+   ]
+  },
+  "rutland": {
+   "code": "E06000017",
+   "lat": 52.6677,
+   "lng": -0.6263,
+   "pop": {
+    "all": 41629,
+    "over65": 11243,
+    "over85": 1680
+   },
+   "dementia": {
+    "rate": 52.4,
+    "diagnosed": 422,
+    "estimated": 805
+   },
+   "council": {
+    "name": "Rutland County Council",
+    "url": "https://www.rutland.gov.uk/"
+   },
+   "towns": [
+    "Oakham"
+   ],
+   "nearby": [
+    "peterborough",
+    "north-northamptonshire",
+    "leicester",
+    "cambridgeshire",
+    "nottingham",
+    "leicestershire",
+    "west-northamptonshire",
+    "bedford"
+   ]
+  },
+  "west-northamptonshire": {
+   "code": "E06000062",
+   "lat": 52.269,
+   "lng": -1.0168,
+   "pop": {
+    "all": 444218,
+    "over65": 78808,
+    "over85": 9968
+   },
+   "dementia": {
+    "rate": 63.8,
+    "diagnosed": 3144,
+    "estimated": 4931
+   },
+   "council": {
+    "name": "West Northamptonshire Council",
+    "url": "https://www.westnorthants.gov.uk/"
+   },
+   "towns": [
+    "Northampton",
+    "Daventry",
+    "Towcester",
+    "Brackley"
+   ],
+   "nearby": [
+    "milton-keynes",
+    "north-northamptonshire",
+    "coventry",
+    "warwickshire",
+    "bedford",
+    "leicester",
+    "central-bedfordshire",
+    "solihull"
+   ]
+  },
+  "barking-and-dagenham": {
+   "code": "E09000002",
+   "lat": 51.5456,
+   "lng": 0.1295,
+   "pop": {
+    "all": 238295,
+    "over65": 20520,
+    "over85": 2515
+   },
+   "dementia": {
+    "rate": 63.1,
+    "diagnosed": 874,
+    "estimated": 1386
+   },
+   "council": {
+    "name": "London Borough of Barking and Dagenham",
+    "url": "https://www.lbbd.gov.uk/"
+   },
+   "towns": [
+    "Barking",
+    "Dagenham"
+   ],
+   "nearby": [
+    "redbridge",
+    "newham",
+    "havering",
+    "bexley",
+    "greenwich",
+    "waltham-forest",
+    "tower-hamlets",
+    "hackney"
+   ]
+  },
+  "barnet": {
+   "code": "E09000003",
+   "lat": 51.6111,
+   "lng": -0.2182,
+   "pop": {
+    "all": 408087,
+    "over65": 62555,
+    "over85": 9579
+   },
+   "dementia": {
+    "rate": 64.8,
+    "diagnosed": 2952,
+    "estimated": 4557
+   },
+   "council": {
+    "name": "London Borough of Barnet",
+    "url": "https://www.barnet.gov.uk/"
+   },
+   "towns": [
+    "Barnet",
+    "Edgware"
+   ],
+   "nearby": [
+    "brent",
+    "haringey",
+    "harrow",
+    "camden",
+    "enfield",
+    "islington",
+    "ealing",
+    "westminster"
+   ]
+  },
+  "bexley": {
+   "code": "E09000004",
+   "lat": 51.4582,
+   "lng": 0.1462,
+   "pop": {
+    "all": 257103,
+    "over65": 43380,
+    "over85": 6582
+   },
+   "dementia": {
+    "rate": 73.5,
+    "diagnosed": 2169,
+    "estimated": 2952
+   },
+   "council": {
+    "name": "London Borough of Bexley",
+    "url": "https://www.bexley.gov.uk/"
+   },
+   "towns": [
+    "Erith",
+    "Sidcup",
+    "Bexleyheath",
+    "Welling",
+    "Belvedere"
+   ],
+   "nearby": [
+    "greenwich",
+    "barking-and-dagenham",
+    "lewisham",
+    "newham",
+    "bromley",
+    "havering",
+    "tower-hamlets",
+    "thurrock"
+   ]
+  },
+  "brent": {
+   "code": "E09000005",
+   "lat": 51.5644,
+   "lng": -0.2757,
+   "pop": {
+    "all": 352201,
+    "over65": 44479,
+    "over85": 5891
+   },
+   "dementia": {
+    "rate": 60.7,
+    "diagnosed": 1946,
+    "estimated": 3206
+   },
+   "council": {
+    "name": "London Borough of Brent",
+    "url": "https://www.brent.gov.uk/"
+   },
+   "towns": [
+    "Wembley"
+   ],
+   "nearby": [
+    "ealing",
+    "harrow",
+    "barnet",
+    "camden",
+    "hammersmith-and-fulham",
+    "kensington-and-chelsea",
+    "westminster",
+    "islington"
+   ]
+  },
+  "bromley": {
+   "code": "E09000006",
+   "lat": 51.3727,
+   "lng": 0.0392,
+   "pop": {
+    "all": 336048,
+    "over65": 61366,
+    "over85": 9373
+   },
+   "dementia": {
+    "rate": 73.1,
+    "diagnosed": 3327,
+    "estimated": 4550
+   },
+   "council": {
+    "name": "London Borough of Bromley",
+    "url": "https://www.bromley.gov.uk/"
+   },
+   "towns": [
+    "Bromley",
+    "Orpington",
+    "Beckenham",
+    "Chislehurst",
+    "West Wickham"
+   ],
+   "nearby": [
+    "croydon",
+    "lewisham",
+    "greenwich",
+    "bexley",
+    "southwark",
+    "lambeth",
+    "sutton",
+    "merton"
+   ]
+  },
+  "camden": {
+   "code": "E09000007",
+   "lat": 51.5431,
+   "lng": -0.1629,
+   "pop": {
+    "all": 216658,
+    "over65": 27160,
+    "over85": 3370
+   },
+   "dementia": {
+    "rate": 72.2,
+    "diagnosed": 1382,
+    "estimated": 1915
+   },
+   "council": {
+    "name": "London Borough of Camden",
+    "url": "https://www.camden.gov.uk/"
+   },
+   "nearby": [
+    "westminster",
+    "islington",
+    "kensington-and-chelsea",
+    "city-of-london",
+    "haringey",
+    "hackney",
+    "hammersmith-and-fulham",
+    "brent"
+   ]
+  },
+  "city-of-london": {
+   "code": "E09000001",
+   "lat": 51.5156,
+   "lng": -0.0935,
+   "pop": {
+    "all": 15631,
+    "over65": 1441,
+    "over85": 164
+   },
+   "dementia": {
+    "rate": 33.7,
+    "diagnosed": 30,
+    "estimated": 89
+   },
+   "council": {
+    "name": "City of London Corporation",
+    "url": "https://www.cityoflondon.gov.uk/"
+   },
+   "nearby": [
+    "islington",
+    "tower-hamlets",
+    "westminster",
+    "hackney",
+    "camden",
+    "southwark",
+    "lambeth",
+    "kensington-and-chelsea"
+   ]
+  },
+  "croydon": {
+   "code": "E09000008",
+   "lat": 51.366,
+   "lng": -0.0776,
+   "pop": {
+    "all": 410085,
+    "over65": 58601,
+    "over85": 7990
+   },
+   "dementia": {
+    "rate": 82.7,
+    "diagnosed": 3200,
+    "estimated": 3870
+   },
+   "council": {
+    "name": "London Borough of Croydon",
+    "url": "http://www.croydon.gov.uk"
+   },
+   "towns": [
+    "Croydon",
+    "South Croydon",
+    "Purley",
+    "Thornton Heath",
+    "Coulsdon",
+    "Kenley"
+   ],
+   "nearby": [
+    "sutton",
+    "bromley",
+    "merton",
+    "lewisham",
+    "southwark",
+    "lambeth",
+    "wandsworth",
+    "greenwich"
+   ]
+  },
+  "ealing": {
+   "code": "E09000009",
+   "lat": 51.5244,
+   "lng": -0.3141,
+   "pop": {
+    "all": 387072,
+    "over65": 50302,
+    "over85": 6302
+   },
+   "dementia": {
+    "rate": 67.2,
+    "diagnosed": 2258,
+    "estimated": 3362
+   },
+   "council": {
+    "name": "London Borough of Ealing",
+    "url": "https://www.ealing.gov.uk/"
+   },
+   "towns": [
+    "Southall",
+    "Greenford",
+    "Northolt"
+   ],
+   "nearby": [
+    "brent",
+    "hammersmith-and-fulham",
+    "harrow",
+    "hounslow",
+    "hillingdon",
+    "kensington-and-chelsea",
+    "richmond-upon-thames",
+    "camden"
+   ]
+  },
+  "enfield": {
+   "code": "E09000010",
+   "lat": 51.6489,
+   "lng": -0.0814,
+   "pop": {
+    "all": 329400,
+    "over65": 49734,
+    "over85": 7389
+   },
+   "dementia": {
+    "rate": 66.4,
+    "diagnosed": 2168,
+    "estimated": 3264
+   },
+   "council": {
+    "name": "London Borough of Enfield",
+    "url": "https://new.enfield.gov.uk/"
+   },
+   "towns": [
+    "Enfield"
+   ],
+   "nearby": [
+    "haringey",
+    "waltham-forest",
+    "barnet",
+    "hackney",
+    "islington",
+    "redbridge",
+    "camden",
+    "city-of-london"
+   ]
+  },
+  "greenwich": {
+   "code": "E09000011",
+   "lat": 51.4639,
+   "lng": 0.0501,
+   "pop": {
+    "all": 301225,
+    "over65": 33428,
+    "over85": 3702
+   },
+   "dementia": {
+    "rate": 63.7,
+    "diagnosed": 1314,
+    "estimated": 2062
+   },
+   "council": {
+    "name": "Royal Borough of Greenwich",
+    "url": "http://www.royalgreenwich.gov.uk/"
+   },
+   "nearby": [
+    "lewisham",
+    "bexley",
+    "newham",
+    "tower-hamlets",
+    "southwark",
+    "bromley",
+    "barking-and-dagenham",
+    "lambeth"
+   ]
+  },
+  "hackney": {
+   "code": "E09000012",
+   "lat": 51.5549,
+   "lng": -0.0605,
+   "pop": {
+    "all": 266241,
+    "over65": 23716,
+    "over85": 2293
+   },
+   "dementia": {
+    "rate": 71.4,
+    "diagnosed": 1041,
+    "estimated": 1459
+   },
+   "council": {
+    "name": "London Borough of Hackney",
+    "url": "https://hackney.gov.uk/"
+   },
+   "nearby": [
+    "islington",
+    "tower-hamlets",
+    "haringey",
+    "city-of-london",
+    "waltham-forest",
+    "newham",
+    "camden",
+    "westminster"
+   ]
+  },
+  "hammersmith-and-fulham": {
+   "code": "E09000013",
+   "lat": 51.4873,
+   "lng": -0.2173,
+   "pop": {
+    "all": 190216,
+    "over65": 21378,
+    "over85": 2512
+   },
+   "dementia": {
+    "rate": 67.3,
+    "diagnosed": 1044,
+    "estimated": 1552
+   },
+   "council": {
+    "name": "London Borough of Hammersmith & Fulham",
+    "url": "http://www.lbhf.gov.uk/"
+   },
+   "nearby": [
+    "kensington-and-chelsea",
+    "wandsworth",
+    "westminster",
+    "richmond-upon-thames",
+    "camden",
+    "lambeth",
+    "ealing",
+    "merton"
+   ]
+  },
+  "haringey": {
+   "code": "E09000014",
+   "lat": 51.5877,
+   "lng": -0.1067,
+   "pop": {
+    "all": 266218,
+    "over65": 31069,
+    "over85": 3529
+   },
+   "dementia": {
+    "rate": 65,
+    "diagnosed": 1441,
+    "estimated": 2216
+   },
+   "council": {
+    "name": "London Borough of Haringey",
+    "url": "https://www.haringey.gov.uk/"
+   },
+   "nearby": [
+    "islington",
+    "hackney",
+    "waltham-forest",
+    "camden",
+    "enfield",
+    "city-of-london",
+    "barnet",
+    "westminster"
+   ]
+  },
+  "harrow": {
+   "code": "E09000015",
+   "lat": 51.5947,
+   "lng": -0.336,
+   "pop": {
+    "all": 272612,
+    "over65": 43860,
+    "over85": 6322
+   },
+   "dementia": {
+    "rate": 68,
+    "diagnosed": 1854,
+    "estimated": 2725
+   },
+   "council": {
+    "name": "London Borough of Harrow",
+    "url": "https://www.harrow.gov.uk/"
+   },
+   "towns": [
+    "Harrow",
+    "Stanmore",
+    "Pinner"
+   ],
+   "nearby": [
+    "brent",
+    "ealing",
+    "barnet",
+    "hillingdon",
+    "camden",
+    "hammersmith-and-fulham",
+    "kensington-and-chelsea",
+    "hounslow"
+   ]
+  },
+  "havering": {
+   "code": "E09000016",
+   "lat": 51.5652,
+   "lng": 0.2354,
+   "pop": {
+    "all": 280787,
+    "over65": 48496,
+    "over85": 7371
+   },
+   "dementia": {
+    "rate": 59.1,
+    "diagnosed": 1875,
+    "estimated": 3174
+   },
+   "council": {
+    "name": "London Borough of Havering",
+    "url": "https://www.havering.gov.uk/"
+   },
+   "towns": [
+    "Romford",
+    "Rainham",
+    "Hornchurch",
+    "Upminster"
+   ],
+   "nearby": [
+    "barking-and-dagenham",
+    "thurrock",
+    "redbridge",
+    "bexley",
+    "newham",
+    "greenwich",
+    "waltham-forest",
+    "tower-hamlets"
+   ]
+  },
+  "hillingdon": {
+   "code": "E09000017",
+   "lat": 51.5366,
+   "lng": -0.4418,
+   "pop": {
+    "all": 326671,
+    "over65": 44348,
+    "over85": 6224
+   },
+   "dementia": {
+    "rate": 68.1,
+    "diagnosed": 2060,
+    "estimated": 3025
+   },
+   "council": {
+    "name": "London Borough of Hillingdon",
+    "url": "https://www.hillingdon.gov.uk/"
+   },
+   "towns": [
+    "Uxbridge",
+    "Hayes",
+    "Northwood",
+    "West Drayton",
+    "Ruislip"
+   ],
+   "nearby": [
+    "ealing",
+    "hounslow",
+    "harrow",
+    "slough",
+    "brent",
+    "richmond-upon-thames",
+    "hammersmith-and-fulham",
+    "windsor-and-maidenhead"
+   ]
+  },
+  "hounslow": {
+   "code": "E09000018",
+   "lat": 51.4624,
+   "lng": -0.3785,
+   "pop": {
+    "all": 299486,
+    "over65": 37855,
+    "over85": 4645
+   },
+   "dementia": {
+    "rate": 63,
+    "diagnosed": 1500,
+    "estimated": 2381
+   },
+   "council": {
+    "name": "London Borough of Hounslow",
+    "url": "https://www.hounslow.gov.uk/"
+   },
+   "towns": [
+    "Hounslow",
+    "Feltham",
+    "Brentford",
+    "Isleworth"
+   ],
+   "nearby": [
+    "richmond-upon-thames",
+    "ealing",
+    "hillingdon",
+    "kingston-upon-thames",
+    "hammersmith-and-fulham",
+    "wandsworth",
+    "brent",
+    "kensington-and-chelsea"
+   ]
+  },
+  "islington": {
+   "code": "E09000019",
+   "lat": 51.5455,
+   "lng": -0.1099,
+   "pop": {
+    "all": 224551,
+    "over65": 22477,
+    "over85": 2392
+   },
+   "dementia": {
+    "rate": 80.1,
+    "diagnosed": 1222,
+    "estimated": 1526
+   },
+   "council": {
+    "name": "London Borough of Islington",
+    "url": "https://www.islington.gov.uk/"
+   },
+   "nearby": [
+    "city-of-london",
+    "hackney",
+    "camden",
+    "haringey",
+    "westminster",
+    "tower-hamlets",
+    "kensington-and-chelsea",
+    "waltham-forest"
+   ]
+  },
+  "kensington-and-chelsea": {
+   "code": "E09000020",
+   "lat": 51.4965,
+   "lng": -0.1898,
+   "pop": {
+    "all": 145734,
+    "over65": 23486,
+    "over85": 2902
+   },
+   "dementia": {
+    "rate": 57.3,
+    "diagnosed": 1074,
+    "estimated": 1875
+   },
+   "council": {
+    "name": "Royal Borough of Kensington and Chelsea",
+    "url": "https://www.rbkc.gov.uk/"
+   },
+   "nearby": [
+    "hammersmith-and-fulham",
+    "westminster",
+    "wandsworth",
+    "camden",
+    "lambeth",
+    "city-of-london",
+    "islington",
+    "southwark"
+   ]
+  },
+  "kingston-upon-thames": {
+   "code": "E09000021",
+   "lat": 51.393,
+   "lng": -0.2837,
+   "pop": {
+    "all": 172761,
+    "over65": 26622,
+    "over85": 3825
+   },
+   "dementia": {
+    "rate": 65,
+    "diagnosed": 1250,
+    "estimated": 1924
+   },
+   "council": {
+    "name": "Royal Borough of Kingston upon Thames",
+    "url": "https://www.kingston.gov.uk/"
+   },
+   "towns": [
+    "New Malden",
+    "Surbiton",
+    "Kingston upon Thames",
+    "Chessington"
+   ],
+   "nearby": [
+    "richmond-upon-thames",
+    "merton",
+    "sutton",
+    "wandsworth",
+    "hounslow",
+    "hammersmith-and-fulham",
+    "kensington-and-chelsea",
+    "lambeth"
+   ]
+  },
+  "lambeth": {
+   "code": "E09000022",
+   "lat": 51.4644,
+   "lng": -0.1139,
+   "pop": {
+    "all": 314298,
+    "over65": 31319,
+    "over85": 3486
+   },
+   "dementia": {
+    "rate": 73.2,
+    "diagnosed": 1555,
+    "estimated": 2124
+   },
+   "council": {
+    "name": "London Borough of Lambeth",
+    "url": "http://www.lambeth.gov.uk/"
+   },
+   "nearby": [
+    "southwark",
+    "city-of-london",
+    "westminster",
+    "wandsworth",
+    "kensington-and-chelsea",
+    "lewisham",
+    "hammersmith-and-fulham",
+    "tower-hamlets"
+   ]
+  },
+  "lewisham": {
+   "code": "E09000023",
+   "lat": 51.4423,
+   "lng": -0.0173,
+   "pop": {
+    "all": 301037,
+    "over65": 32532,
+    "over85": 4108
+   },
+   "dementia": {
+    "rate": 72.1,
+    "diagnosed": 1540,
+    "estimated": 2135
+   },
+   "council": {
+    "name": "London Borough of Lewisham",
+    "url": "https://lewisham.gov.uk/"
+   },
+   "nearby": [
+    "southwark",
+    "greenwich",
+    "lambeth",
+    "tower-hamlets",
+    "bromley",
+    "croydon",
+    "city-of-london",
+    "newham"
+   ]
+  },
+  "merton": {
+   "code": "E09000024",
+   "lat": 51.4106,
+   "lng": -0.1887,
+   "pop": {
+    "all": 218891,
+    "over65": 29748,
+    "over85": 3961
+   },
+   "dementia": {
+    "rate": 69.3,
+    "diagnosed": 1353,
+    "estimated": 1952
+   },
+   "council": {
+    "name": "London Borough of Merton",
+    "url": "http://www.merton.gov.uk/"
+   },
+   "towns": [
+    "Mitcham",
+    "Morden"
+   ],
+   "nearby": [
+    "wandsworth",
+    "sutton",
+    "kingston-upon-thames",
+    "richmond-upon-thames",
+    "lambeth",
+    "hammersmith-and-fulham",
+    "croydon",
+    "kensington-and-chelsea"
+   ]
+  },
+  "newham": {
+   "code": "E09000025",
+   "lat": 51.5315,
+   "lng": 0.0273,
+   "pop": {
+    "all": 376542,
+    "over65": 29303,
+    "over85": 3042
+   },
+   "dementia": {
+    "rate": 63.6,
+    "diagnosed": 1120,
+    "estimated": 1762
+   },
+   "council": {
+    "name": "London Borough of Newham",
+    "url": "https://www.newham.gov.uk/"
+   },
+   "nearby": [
+    "tower-hamlets",
+    "hackney",
+    "redbridge",
+    "barking-and-dagenham",
+    "greenwich",
+    "waltham-forest",
+    "city-of-london",
+    "islington"
+   ]
+  },
+  "redbridge": {
+   "code": "E09000026",
+   "lat": 51.5859,
+   "lng": 0.0701,
+   "pop": {
+    "all": 321829,
+    "over65": 41272,
+    "over85": 5535
+   },
+   "dementia": {
+    "rate": 64.6,
+    "diagnosed": 1834,
+    "estimated": 2840
+   },
+   "council": {
+    "name": "London Borough of Redbridge",
+    "url": "https://www.redbridge.gov.uk/"
+   },
+   "towns": [
+    "Ilford",
+    "Woodford Green",
+    "Chigwell"
+   ],
+   "nearby": [
+    "barking-and-dagenham",
+    "waltham-forest",
+    "newham",
+    "hackney",
+    "tower-hamlets",
+    "havering",
+    "haringey",
+    "enfield"
+   ]
+  },
+  "richmond-upon-thames": {
+   "code": "E09000027",
+   "lat": 51.4404,
+   "lng": -0.2891,
+   "pop": {
+    "all": 196713,
+    "over65": 34511,
+    "over85": 4491
+   },
+   "dementia": {
+    "rate": 66.6,
+    "diagnosed": 1688,
+    "estimated": 2534
+   },
+   "council": {
+    "name": "London Borough of Richmond upon Thames",
+    "url": "http://www.richmond.gov.uk/"
+   },
+   "towns": [
+    "Twickenham",
+    "Richmond",
+    "Teddington",
+    "Hampton",
+    "Whitton"
+   ],
+   "nearby": [
+    "kingston-upon-thames",
+    "wandsworth",
+    "hounslow",
+    "hammersmith-and-fulham",
+    "merton",
+    "kensington-and-chelsea",
+    "ealing",
+    "sutton"
+   ]
+  },
+  "southwark": {
+   "code": "E09000028",
+   "lat": 51.4659,
+   "lng": -0.0731,
+   "pop": {
+    "all": 312366,
+    "over65": 29969,
+    "over85": 3226
+   },
+   "dementia": {
+    "rate": 70.8,
+    "diagnosed": 1362,
+    "estimated": 1923
+   },
+   "council": {
+    "name": "London Borough of Southwark",
+    "url": "https://www.southwark.gov.uk/"
+   },
+   "nearby": [
+    "lambeth",
+    "lewisham",
+    "city-of-london",
+    "tower-hamlets",
+    "westminster",
+    "greenwich",
+    "kensington-and-chelsea",
+    "wandsworth"
+   ]
+  },
+  "sutton": {
+   "code": "E09000029",
+   "lat": 51.3576,
+   "lng": -0.1723,
+   "pop": {
+    "all": 213972,
+    "over65": 33529,
+    "over85": 4746
+   },
+   "dementia": {
+    "rate": 80,
+    "diagnosed": 1795,
+    "estimated": 2245
+   },
+   "council": {
+    "name": "London Borough of Sutton",
+    "url": "https://www.sutton.gov.uk/"
+   },
+   "towns": [
+    "Sutton",
+    "Wallington",
+    "Carshalton"
+   ],
+   "nearby": [
+    "merton",
+    "croydon",
+    "kingston-upon-thames",
+    "wandsworth",
+    "richmond-upon-thames",
+    "lambeth",
+    "southwark",
+    "lewisham"
+   ]
+  },
+  "tower-hamlets": {
+   "code": "E09000030",
+   "lat": 51.5155,
+   "lng": -0.0365,
+   "pop": {
+    "all": 334240,
+    "over65": 20317,
+    "over85": 2101
+   },
+   "dementia": {
+    "rate": 80.6,
+    "diagnosed": 1027,
+    "estimated": 1275
+   },
+   "council": {
+    "name": "London Borough of Tower Hamlets",
+    "url": "https://www.towerhamlets.gov.uk/"
+   },
+   "nearby": [
+    "city-of-london",
+    "hackney",
+    "newham",
+    "southwark",
+    "islington",
+    "lambeth",
+    "westminster",
+    "lewisham"
+   ]
+  },
+  "waltham-forest": {
+   "code": "E09000031",
+   "lat": 51.5946,
+   "lng": -0.0188,
+   "pop": {
+    "all": 283713,
+    "over65": 31338,
+    "over85": 3874
+   },
+   "dementia": {
+    "rate": 58,
+    "diagnosed": 1198,
+    "estimated": 2066
+   },
+   "council": {
+    "name": "London Borough of Waltham Forest",
+    "url": "https://www.walthamforest.gov.uk/"
+   },
+   "nearby": [
+    "hackney",
+    "haringey",
+    "redbridge",
+    "enfield",
+    "newham",
+    "islington",
+    "tower-hamlets",
+    "city-of-london"
+   ]
+  },
+  "wandsworth": {
+   "code": "E09000032",
+   "lat": 51.4524,
+   "lng": -0.2002,
+   "pop": {
+    "all": 339859,
+    "over65": 34764,
+    "over85": 4637
+   },
+   "dementia": {
+    "rate": 77.9,
+    "diagnosed": 1900,
+    "estimated": 2439
+   },
+   "council": {
+    "name": "London Borough of Wandsworth",
+    "url": "https://www.wandsworth.gov.uk/"
+   },
+   "nearby": [
+    "hammersmith-and-fulham",
+    "merton",
+    "kensington-and-chelsea",
+    "lambeth",
+    "richmond-upon-thames",
+    "westminster",
+    "kingston-upon-thames",
+    "southwark"
+   ]
+  },
+  "westminster": {
+   "code": "E09000033",
+   "lat": 51.5122,
+   "lng": -0.153,
+   "pop": {
+    "all": 212367,
+    "over65": 27643,
+    "over85": 3516
+   },
+   "dementia": {
+    "rate": 68.7,
+    "diagnosed": 1353,
+    "estimated": 1970
+   },
+   "council": {
+    "name": "City of Westminster",
+    "url": "https://www.westminster.gov.uk/"
+   },
+   "nearby": [
+    "kensington-and-chelsea",
+    "camden",
+    "city-of-london",
+    "islington",
+    "hammersmith-and-fulham",
+    "lambeth",
+    "wandsworth",
+    "southwark"
+   ]
+  },
+  "county-durham": {
+   "code": "E06000047",
+   "lat": 54.6851,
+   "lng": -1.8405,
+   "pop": {
+    "all": 539146,
+    "over65": 120397,
+    "over85": 14466
+   },
+   "dementia": {
+    "rate": 71.5,
+    "diagnosed": 5477,
+    "estimated": 7656
+   },
+   "council": {
+    "name": "Durham County Council",
+    "url": "http://www.durham.gov.uk/"
+   },
+   "towns": [
+    "Durham",
+    "Bishop Auckland",
+    "Chester le Street",
+    "Consett",
+    "Seaham",
+    "Newton Aycliffe"
+   ],
+   "nearby": [
+    "darlington",
+    "gateshead",
+    "sunderland",
+    "hartlepool",
+    "stockton-on-tees",
+    "newcastle-upon-tyne",
+    "south-tyneside",
+    "middlesbrough"
+   ]
+  },
+  "darlington": {
+   "code": "E06000005",
+   "lat": 54.5353,
+   "lng": -1.5684,
+   "pop": {
+    "all": 113402,
+    "over65": 24376,
+    "over85": 3285
+   },
+   "dementia": {
+    "rate": 71.1,
+    "diagnosed": 1111,
+    "estimated": 1563
+   },
+   "council": {
+    "name": "Darlington Borough Council",
+    "url": "https://www.darlington.gov.uk/"
+   },
+   "towns": [
+    "Darlington"
+   ],
+   "nearby": [
+    "stockton-on-tees",
+    "middlesbrough",
+    "county-durham",
+    "hartlepool",
+    "redcar-and-cleveland",
+    "sunderland",
+    "gateshead",
+    "south-tyneside"
+   ]
+  },
+  "gateshead": {
+   "code": "E08000037",
+   "lat": 54.9312,
+   "lng": -1.687,
+   "pop": {
+    "all": 202509,
+    "over65": 41971,
+    "over85": 5666
+   },
+   "dementia": {
+    "rate": 72.8,
+    "diagnosed": 2031,
+    "estimated": 2790
+   },
+   "council": {
+    "name": "Gateshead Metropolitan Borough Council",
+    "url": "https://www.gateshead.gov.uk/"
+   },
+   "towns": [
+    "Gateshead",
+    "Blaydon-on-Tyne",
+    "Blaydon on Tyne",
+    "Ryton"
+   ],
+   "nearby": [
+    "newcastle-upon-tyne",
+    "north-tyneside",
+    "south-tyneside",
+    "sunderland",
+    "county-durham",
+    "hartlepool",
+    "darlington",
+    "northumberland"
+   ]
+  },
+  "hartlepool": {
+   "code": "E06000001",
+   "lat": 54.6761,
+   "lng": -1.2702,
+   "pop": {
+    "all": 99656,
+    "over65": 20214,
+    "over85": 2529
+   },
+   "dementia": {
+    "rate": 76.1,
+    "diagnosed": 959,
+    "estimated": 1260
+   },
+   "council": {
+    "name": "Hartlepool Borough Council",
+    "url": "http://www.hartlepool.gov.uk"
+   },
+   "towns": [
+    "Hartlepool"
+   ],
+   "nearby": [
+    "stockton-on-tees",
+    "middlesbrough",
+    "redcar-and-cleveland",
+    "sunderland",
+    "darlington",
+    "south-tyneside",
+    "county-durham",
+    "gateshead"
+   ]
+  },
+  "middlesbrough": {
+   "code": "E06000002",
+   "lat": 54.5447,
+   "lng": -1.211,
+   "pop": {
+    "all": 152795,
+    "over65": 26536,
+    "over85": 3273
+   },
+   "dementia": {
+    "rate": 74.5,
+    "diagnosed": 1224,
+    "estimated": 1642
+   },
+   "council": {
+    "name": "Middlesbrough Borough Council",
+    "url": "https://www.middlesbrough.gov.uk/"
+   },
+   "towns": [
+    "Middlesbrough"
+   ],
+   "nearby": [
+    "stockton-on-tees",
+    "redcar-and-cleveland",
+    "hartlepool",
+    "darlington",
+    "sunderland",
+    "county-durham",
+    "south-tyneside",
+    "gateshead"
+   ]
+  },
+  "newcastle-upon-tyne": {
+   "code": "E08000021",
+   "lat": 55.021,
+   "lng": -1.653,
+   "pop": {
+    "all": 320838,
+    "over65": 48474,
+    "over85": 6641
+   },
+   "dementia": {
+    "rate": 71.8,
+    "diagnosed": 2143,
+    "estimated": 2984
+   },
+   "council": {
+    "name": "Newcastle City Council",
+    "url": "https://www.newcastle.gov.uk/"
+   },
+   "towns": [
+    "Newcastle upon Tyne"
+   ],
+   "nearby": [
+    "north-tyneside",
+    "gateshead",
+    "south-tyneside",
+    "sunderland",
+    "county-durham",
+    "northumberland",
+    "hartlepool",
+    "darlington"
+   ]
+  },
+  "north-tyneside": {
+   "code": "E08000022",
+   "lat": 55.029,
+   "lng": -1.509,
+   "pop": {
+    "all": 215401,
+    "over65": 46596,
+    "over85": 5754
+   },
+   "dementia": {
+    "rate": 72.7,
+    "diagnosed": 2165,
+    "estimated": 2978
+   },
+   "council": {
+    "name": "North Tyneside Council",
+    "url": "https://my.northtyneside.gov.uk/"
+   },
+   "towns": [
+    "Whitley Bay",
+    "North Shields",
+    "Wallsend"
+   ],
+   "nearby": [
+    "south-tyneside",
+    "newcastle-upon-tyne",
+    "gateshead",
+    "sunderland",
+    "hartlepool",
+    "county-durham",
+    "northumberland",
+    "stockton-on-tees"
+   ]
+  },
+  "northumberland": {
+   "code": "E06000057",
+   "lat": 55.3004,
+   "lng": -2.0752,
+   "pop": {
+    "all": 333975,
+    "over65": 90910,
+    "over85": 10886
+   },
+   "dementia": {
+    "rate": 62.8,
+    "diagnosed": 3623,
+    "estimated": 5772
+   },
+   "council": {
+    "name": "Northumberland County Council",
+    "url": "https://www.northumberland.gov.uk/"
+   },
+   "towns": [
+    "Cramlington",
+    "Morpeth",
+    "Blyth",
+    "Hexham",
+    "Ashington",
+    "Bedlington"
+   ],
+   "nearby": [
+    "newcastle-upon-tyne",
+    "north-tyneside",
+    "gateshead",
+    "south-tyneside",
+    "sunderland",
+    "county-durham",
+    "hartlepool",
+    "darlington"
+   ]
+  },
+  "redcar-and-cleveland": {
+   "code": "E06000003",
+   "lat": 54.5675,
+   "lng": -1.0066,
+   "pop": {
+    "all": 139541,
+    "over65": 34258,
+    "over85": 4342
+   },
+   "dementia": {
+    "rate": 71.6,
+    "diagnosed": 1497,
+    "estimated": 2091
+   },
+   "council": {
+    "name": "Redcar and Cleveland Borough Council",
+    "url": "https://www.redcar-cleveland.gov.uk/"
+   },
+   "towns": [
+    "Redcar",
+    "Saltburn by the Sea",
+    "Guisborough",
+    "Saltburn-by-the-Sea"
+   ],
+   "nearby": [
+    "middlesbrough",
+    "stockton-on-tees",
+    "hartlepool",
+    "darlington",
+    "sunderland",
+    "south-tyneside",
+    "county-durham",
+    "gateshead"
+   ]
+  },
+  "south-tyneside": {
+   "code": "E08000023",
+   "lat": 54.9699,
+   "lng": -1.4469,
+   "pop": {
+    "all": 151255,
+    "over65": 33222,
+    "over85": 4111
+   },
+   "dementia": {
+    "rate": 71.8,
+    "diagnosed": 1499,
+    "estimated": 2088
+   },
+   "council": {
+    "name": "South Tyneside Council",
+    "url": "http://www.southtyneside.gov.uk"
+   },
+   "towns": [
+    "South Shields",
+    "Jarrow",
+    "Hebburn",
+    "Boldon Colliery"
+   ],
+   "nearby": [
+    "north-tyneside",
+    "sunderland",
+    "newcastle-upon-tyne",
+    "gateshead",
+    "hartlepool",
+    "county-durham",
+    "stockton-on-tees",
+    "darlington"
+   ]
+  },
+  "stockton-on-tees": {
+   "code": "E06000004",
+   "lat": 54.5569,
+   "lng": -1.3067,
+   "pop": {
+    "all": 207158,
+    "over65": 41554,
+    "over85": 4880
+   },
+   "dementia": {
+    "rate": 73.7,
+    "diagnosed": 1863,
+    "estimated": 2528
+   },
+   "council": {
+    "name": "Stockton-on-Tees Borough Council",
+    "url": "https://www.stockton.gov.uk/"
+   },
+   "towns": [
+    "Stockton-on-Tees",
+    "Stockton on Tees",
+    "Billingham",
+    "Yarm"
+   ],
+   "nearby": [
+    "middlesbrough",
+    "hartlepool",
+    "darlington",
+    "redcar-and-cleveland",
+    "sunderland",
+    "county-durham",
+    "south-tyneside",
+    "gateshead"
+   ]
+  },
+  "sunderland": {
+   "code": "E08000024",
+   "lat": 54.8571,
+   "lng": -1.4337,
+   "pop": {
+    "all": 287070,
+    "over65": 60843,
+    "over85": 7342
+   },
+   "dementia": {
+    "rate": 67.8,
+    "diagnosed": 2535,
+    "estimated": 3739
+   },
+   "council": {
+    "name": "Sunderland City Council",
+    "url": "https://www.sunderland.gov.uk/"
+   },
+   "towns": [
+    "Sunderland",
+    "Houghton le Spring",
+    "Washington"
+   ],
+   "nearby": [
+    "south-tyneside",
+    "gateshead",
+    "north-tyneside",
+    "hartlepool",
+    "newcastle-upon-tyne",
+    "county-durham",
+    "stockton-on-tees",
+    "darlington"
+   ]
+  },
+  "blackburn-with-darwen": {
+   "code": "E06000008",
+   "lat": 53.7008,
+   "lng": -2.4636,
+   "pop": {
+    "all": 163801,
+    "over65": 23510,
+    "over85": 2655
+   },
+   "dementia": {
+    "rate": 63.9,
+    "diagnosed": 1043,
+    "estimated": 1631
+   },
+   "council": {
+    "name": "Blackburn with Darwen Borough Council",
+    "url": "https://www.blackburn.gov.uk/"
+   },
+   "towns": [
+    "Blackburn",
+    "Darwen"
+   ],
+   "nearby": [
+    "bolton",
+    "bury",
+    "lancashire",
+    "wigan",
+    "rochdale",
+    "salford",
+    "manchester",
+    "st-helens"
+   ]
+  },
+  "blackpool": {
+   "code": "E06000009",
+   "lat": 53.8216,
+   "lng": -3.022,
+   "pop": {
+    "all": 143492,
+    "over65": 30394,
+    "over85": 3868
+   },
+   "dementia": {
+    "rate": 71.1,
+    "diagnosed": 1579,
+    "estimated": 2221
+   },
+   "council": {
+    "name": "Blackpool Borough Council",
+    "url": "https://www.blackpool.gov.uk/Home.aspx"
+   },
+   "towns": [
+    "Blackpool"
+   ],
+   "nearby": [
+    "lancashire",
+    "sefton",
+    "blackburn-with-darwen",
+    "bolton",
+    "knowsley",
+    "wigan",
+    "st-helens",
+    "liverpool"
+   ]
+  },
+  "bolton": {
+   "code": "E08000001",
+   "lat": 53.5845,
+   "lng": -2.4795,
+   "pop": {
+    "all": 309732,
+    "over65": 53127,
+    "over85": 6272
+   },
+   "dementia": {
+    "rate": 70.2,
+    "diagnosed": 2386,
+    "estimated": 3401
+   },
+   "council": {
+    "name": "Bolton Metropolitan Borough Council",
+    "url": "http://www.bolton.gov.uk/"
+   },
+   "towns": [
+    "Bolton"
+   ],
+   "nearby": [
+    "wigan",
+    "bury",
+    "blackburn-with-darwen",
+    "salford",
+    "trafford",
+    "st-helens",
+    "manchester",
+    "rochdale"
+   ]
+  },
+  "bury": {
+   "code": "E08000002",
+   "lat": 53.5931,
+   "lng": -2.3088,
+   "pop": {
+    "all": 199271,
+    "over65": 37185,
+    "over85": 4774
+   },
+   "dementia": {
+    "rate": 76.3,
+    "diagnosed": 1891,
+    "estimated": 2477
+   },
+   "council": {
+    "name": "Bury Metropolitan Borough Council",
+    "url": "https://www.bury.gov.uk/"
+   },
+   "towns": [
+    "Bury"
+   ],
+   "nearby": [
+    "rochdale",
+    "bolton",
+    "salford",
+    "manchester",
+    "blackburn-with-darwen",
+    "oldham",
+    "wigan",
+    "tameside"
+   ]
+  },
+  "cheshire-east": {
+   "code": "E06000049",
+   "lat": 53.1679,
+   "lng": -2.293,
+   "pop": {
+    "all": 425459,
+    "over65": 97536,
+    "over85": 13904
+   },
+   "dementia": {
+    "rate": 68.7,
+    "diagnosed": 4553,
+    "estimated": 6632
+   },
+   "council": {
+    "name": "Cheshire East Council",
+    "url": "https://www.cheshireeast.gov.uk/"
+   },
+   "towns": [
+    "Macclesfield",
+    "Crewe",
+    "Nantwich",
+    "Congleton",
+    "Wilmslow",
+    "Sandbach"
+   ],
+   "nearby": [
+    "stoke-on-trent",
+    "stockport",
+    "cheshire-west-and-chester",
+    "trafford",
+    "warrington",
+    "halton",
+    "staffordshire",
+    "manchester"
+   ]
+  },
+  "cheshire-west-and-chester": {
+   "code": "E06000050",
+   "lat": 53.1634,
+   "lng": -2.703,
+   "pop": {
+    "all": 373951,
+    "over65": 82254,
+    "over85": 11058
+   },
+   "dementia": {
+    "rate": 68.6,
+    "diagnosed": 3781,
+    "estimated": 5513
+   },
+   "council": {
+    "name": "Cheshire West and Chester Council",
+    "url": "https://www.cheshirewestandchester.gov.uk/"
+   },
+   "towns": [
+    "Chester",
+    "Ellesmere Port",
+    "Northwich",
+    "Winsford",
+    "Frodsham",
+    "Tarporley"
+   ],
+   "nearby": [
+    "halton",
+    "warrington",
+    "cheshire-east",
+    "liverpool",
+    "knowsley",
+    "st-helens",
+    "wirral",
+    "trafford"
+   ]
+  },
+  "cumberland": {
+   "code": "E06000063",
+   "lat": 54.6858,
+   "lng": -3.3082,
+   "pop": {
+    "all": 282343,
+    "over65": 69038,
+    "over85": 8831
+   },
+   "dementia": {
+    "rate": 62.2,
+    "diagnosed": 2753,
+    "estimated": 4426
+   },
+   "council": {
+    "name": "Cumberland Council",
+    "url": "https://www.cumberland.gov.uk/"
+   },
+   "towns": [
+    "Carlisle",
+    "Workington",
+    "Maryport",
+    "Wigton",
+    "Whitehaven",
+    "Millom"
+   ],
+   "nearby": [
+    "westmorland-and-furness",
+    "county-durham",
+    "blackpool",
+    "northumberland",
+    "lancashire",
+    "gateshead",
+    "newcastle-upon-tyne",
+    "darlington"
+   ]
+  },
+  "halton": {
+   "code": "E06000006",
+   "lat": 53.3342,
+   "lng": -2.6885,
+   "pop": {
+    "all": 131912,
+    "over65": 25817,
+    "over85": 2610
+   },
+   "dementia": {
+    "rate": 68.8,
+    "diagnosed": 1035,
+    "estimated": 1505
+   },
+   "council": {
+    "name": "Halton Borough Council",
+    "url": "https://www3.halton.gov.uk/"
+   },
+   "towns": [
+    "Widnes",
+    "Runcorn"
+   ],
+   "nearby": [
+    "warrington",
+    "st-helens",
+    "knowsley",
+    "liverpool",
+    "cheshire-west-and-chester",
+    "wigan",
+    "trafford",
+    "wirral"
+   ]
+  },
+  "knowsley": {
+   "code": "E08000011",
+   "lat": 53.4379,
+   "lng": -2.833,
+   "pop": {
+    "all": 163723,
+    "over65": 28984,
+    "over85": 3253
+   },
+   "dementia": {
+    "rate": 67.7,
+    "diagnosed": 1118,
+    "estimated": 1651
+   },
+   "council": {
+    "name": "Knowsley Metropolitan Borough Council",
+    "url": "https://www.knowsley.gov.uk/"
+   },
+   "towns": [
+    "Prescot"
+   ],
+   "nearby": [
+    "liverpool",
+    "st-helens",
+    "sefton",
+    "halton",
+    "wirral",
+    "warrington",
+    "wigan",
+    "bolton"
+   ]
+  },
+  "lancashire": {
+   "code": "E10000017",
+   "lat": 53.8622,
+   "lng": -2.4609,
+   "pop": {
+    "all": 1308567,
+    "over65": 280048,
+    "over85": 35706
+   },
+   "dementia": {
+    "rate": 69.7,
+    "diagnosed": 12002,
+    "estimated": 17226
+   },
+   "council": {
+    "name": "Lancashire County Council",
+    "url": "https://www.lancashire.gov.uk/"
+   },
+   "towns": [
+    "Preston",
+    "Burnley",
+    "Chorley",
+    "Morecambe",
+    "Nelson",
+    "Accrington"
+   ],
+   "nearby": [
+    "blackburn-with-darwen",
+    "bolton",
+    "bury",
+    "rochdale",
+    "calderdale",
+    "blackpool",
+    "bradford",
+    "wigan"
+   ]
+  },
+  "liverpool": {
+   "code": "E08000012",
+   "lat": 53.4083,
+   "lng": -2.9137,
+   "pop": {
+    "all": 507915,
+    "over65": 79708,
+    "over85": 9058
+   },
+   "dementia": {
+    "rate": 68.6,
+    "diagnosed": 3622,
+    "estimated": 5280
+   },
+   "council": {
+    "name": "Liverpool City Council",
+    "url": "https://liverpool.gov.uk/"
+   },
+   "towns": [
+    "Liverpool"
+   ],
+   "nearby": [
+    "knowsley",
+    "sefton",
+    "wirral",
+    "st-helens",
+    "halton",
+    "warrington",
+    "wigan",
+    "cheshire-west-and-chester"
+   ]
+  },
+  "manchester": {
+   "code": "E08000003",
+   "lat": 53.4701,
+   "lng": -2.2336,
+   "pop": {
+    "all": 588256,
+    "over65": 56354,
+    "over85": 6043
+   },
+   "dementia": {
+    "rate": 76.4,
+    "diagnosed": 2968,
+    "estimated": 3886
+   },
+   "council": {
+    "name": "Manchester City Council",
+    "url": "http://www.manchester.gov.uk/"
+   },
+   "nearby": [
+    "salford",
+    "tameside",
+    "trafford",
+    "stockport",
+    "bury",
+    "oldham",
+    "rochdale",
+    "bolton"
+   ]
+  },
+  "oldham": {
+   "code": "E08000004",
+   "lat": 53.5577,
+   "lng": -2.0528,
+   "pop": {
+    "all": 251915,
+    "over65": 40263,
+    "over85": 4860
+   },
+   "dementia": {
+    "rate": 77.4,
+    "diagnosed": 1881,
+    "estimated": 2432
+   },
+   "council": {
+    "name": "Oldham Metropolitan Borough Council",
+    "url": "https://www.oldham.gov.uk/"
+   },
+   "towns": [
+    "Oldham"
+   ],
+   "nearby": [
+    "rochdale",
+    "tameside",
+    "manchester",
+    "bury",
+    "calderdale",
+    "stockport",
+    "kirklees",
+    "salford"
+   ]
+  },
+  "rochdale": {
+   "code": "E08000005",
+   "lat": 53.6074,
+   "lng": -2.1478,
+   "pop": {
+    "all": 237641,
+    "over65": 39319,
+    "over85": 4283
+   },
+   "dementia": {
+    "rate": 76.2,
+    "diagnosed": 1846,
+    "estimated": 2422
+   },
+   "council": {
+    "name": "Rochdale Metropolitan Borough Council",
+    "url": "http://www.rochdale.gov.uk/"
+   },
+   "towns": [
+    "Rochdale",
+    "Heywood",
+    "Littleborough"
+   ],
+   "nearby": [
+    "oldham",
+    "bury",
+    "tameside",
+    "manchester",
+    "calderdale",
+    "salford",
+    "bolton",
+    "blackburn-with-darwen"
+   ]
+  },
+  "salford": {
+   "code": "E08000006",
+   "lat": 53.4793,
+   "lng": -2.3849,
+   "pop": {
+    "all": 297004,
+    "over65": 37448,
+    "over85": 4602
+   },
+   "dementia": {
+    "rate": 75.3,
+    "diagnosed": 1852,
+    "estimated": 2458
+   },
+   "council": {
+    "name": "Salford City Council",
+    "url": "https://www.salford.gov.uk/"
+   },
+   "towns": [
+    "Manchester",
+    "Salford",
+    "Eccles"
+   ],
+   "nearby": [
+    "trafford",
+    "manchester",
+    "wigan",
+    "bolton",
+    "bury",
+    "warrington",
+    "stockport",
+    "tameside"
+   ]
+  },
+  "sefton": {
+   "code": "E08000014",
+   "lat": 53.4821,
+   "lng": -2.9918,
+   "pop": {
+    "all": 287583,
+    "over65": 69531,
+    "over85": 10133
+   },
+   "dementia": {
+    "rate": 68.4,
+    "diagnosed": 3087,
+    "estimated": 4515
+   },
+   "council": {
+    "name": "Sefton Metropolitan Borough Council",
+    "url": "https://www.sefton.gov.uk/"
+   },
+   "towns": [
+    "Southport",
+    "Bootle",
+    "Formby"
+   ],
+   "nearby": [
+    "liverpool",
+    "knowsley",
+    "wirral",
+    "st-helens",
+    "halton",
+    "wigan",
+    "warrington",
+    "bolton"
+   ]
+  },
+  "st-helens": {
+   "code": "E08000013",
+   "lat": 53.4586,
+   "lng": -2.7031,
+   "pop": {
+    "all": 189890,
+    "over65": 39285,
+    "over85": 4928
+   },
+   "dementia": {
+    "rate": 66.8,
+    "diagnosed": 1798,
+    "estimated": 2693
+   },
+   "council": {
+    "name": "St Helens Council",
+    "url": "https://www.sthelens.gov.uk/"
+   },
+   "towns": [
+    "St. Helens",
+    "St Helens",
+    "Newton-le-Willows",
+    "Newton le Willows"
+   ],
+   "nearby": [
+    "knowsley",
+    "wigan",
+    "warrington",
+    "halton",
+    "liverpool",
+    "sefton",
+    "bolton",
+    "salford"
+   ]
+  },
+  "stockport": {
+   "code": "E08000007",
+   "lat": 53.3911,
+   "lng": -2.1247,
+   "pop": {
+    "all": 304879,
+    "over65": 62213,
+    "over85": 9085
+   },
+   "dementia": {
+    "rate": 74.7,
+    "diagnosed": 3238,
+    "estimated": 4335
+   },
+   "council": {
+    "name": "Stockport Metropolitan Borough Council",
+    "url": "https://www.stockport.gov.uk/"
+   },
+   "towns": [
+    "Stockport",
+    "Cheadle"
+   ],
+   "nearby": [
+    "tameside",
+    "manchester",
+    "trafford",
+    "oldham",
+    "salford",
+    "rochdale",
+    "bury",
+    "cheshire-east"
+   ]
+  },
+  "tameside": {
+   "code": "E08000008",
+   "lat": 53.4787,
+   "lng": -2.077,
+   "pop": {
+    "all": 240822,
+    "over65": 42735,
+    "over85": 4830
+   },
+   "dementia": {
+    "rate": 71.1,
+    "diagnosed": 1813,
+    "estimated": 2551
+   },
+   "council": {
+    "name": "Tameside Metropolitan Borough Council",
+    "url": "https://www.tameside.gov.uk/"
+   },
+   "towns": [
+    "Hyde",
+    "Ashton-under-Lyne",
+    "Stalybridge",
+    "Ashton under Lyne",
+    "Dukinfield"
+   ],
+   "nearby": [
+    "oldham",
+    "stockport",
+    "manchester",
+    "rochdale",
+    "bury",
+    "trafford",
+    "salford",
+    "kirklees"
+   ]
+  },
+  "trafford": {
+   "code": "E08000009",
+   "lat": 53.4167,
+   "lng": -2.3657,
+   "pop": {
+    "all": 240981,
+    "over65": 43246,
+    "over85": 6322
+   },
+   "dementia": {
+    "rate": 70.7,
+    "diagnosed": 2088,
+    "estimated": 2953
+   },
+   "council": {
+    "name": "Trafford Metropolitan Borough Council",
+    "url": "https://www.trafford.gov.uk/"
+   },
+   "towns": [
+    "Altrincham",
+    "Sale"
+   ],
+   "nearby": [
+    "salford",
+    "manchester",
+    "warrington",
+    "stockport",
+    "wigan",
+    "bury",
+    "bolton",
+    "tameside"
+   ]
+  },
+  "warrington": {
+   "code": "E06000007",
+   "lat": 53.3916,
+   "lng": -2.5617,
+   "pop": {
+    "all": 215425,
+    "over65": 43594,
+    "over85": 5898
+   },
+   "dementia": {
+    "rate": 71.7,
+    "diagnosed": 2061,
+    "estimated": 2874
+   },
+   "council": {
+    "name": "Warrington Borough Council",
+    "url": "https://www.warrington.gov.uk/"
+   },
+   "towns": [
+    "Warrington",
+    "Lymm"
+   ],
+   "nearby": [
+    "halton",
+    "st-helens",
+    "trafford",
+    "wigan",
+    "salford",
+    "knowsley",
+    "bolton",
+    "liverpool"
+   ]
+  },
+  "westmorland-and-furness": {
+   "code": "E06000064",
+   "lat": 54.4917,
+   "lng": -2.7134,
+   "pop": {
+    "all": 231307,
+    "over65": 62675,
+    "over85": 8485
+   },
+   "dementia": {
+    "rate": 58.1,
+    "diagnosed": 2359,
+    "estimated": 4060
+   },
+   "council": {
+    "name": "Westmorland and Furness Council",
+    "url": "https://www.westmorlandandfurness.gov.uk/"
+   },
+   "towns": [
+    "Kendal",
+    "Carnforth",
+    "Barrow-in-Furness",
+    "Penrith",
+    "Barrow in Furness",
+    "Ulverston"
+   ],
+   "nearby": [
+    "cumberland",
+    "county-durham",
+    "lancashire",
+    "darlington",
+    "blackpool",
+    "gateshead",
+    "north-yorkshire",
+    "blackburn-with-darwen"
+   ]
+  },
+  "wigan": {
+   "code": "E08000010",
+   "lat": 53.5144,
+   "lng": -2.5724,
+   "pop": {
+    "all": 347089,
+    "over65": 67701,
+    "over85": 7540
+   },
+   "dementia": {
+    "rate": 72,
+    "diagnosed": 3020,
+    "estimated": 4196
+   },
+   "council": {
+    "name": "Wigan Metropolitan Borough Council",
+    "url": "https://www.wigan.gov.uk/"
+   },
+   "towns": [
+    "Wigan",
+    "Leigh"
+   ],
+   "nearby": [
+    "bolton",
+    "st-helens",
+    "salford",
+    "warrington",
+    "trafford",
+    "knowsley",
+    "bury",
+    "halton"
+   ]
+  },
+  "wirral": {
+   "code": "E08000015",
+   "lat": 53.3748,
+   "lng": -3.067,
+   "pop": {
+    "all": 329896,
+    "over65": 75771,
+    "over85": 10153
+   },
+   "dementia": {
+    "rate": 66.3,
+    "diagnosed": 3335,
+    "estimated": 5029
+   },
+   "council": {
+    "name": "Wirral Council",
+    "url": "http://www.wirral.gov.uk/"
+   },
+   "towns": [
+    "Wirral",
+    "Birkenhead",
+    "Wallasey",
+    "Prenton"
+   ],
+   "nearby": [
+    "liverpool",
+    "sefton",
+    "knowsley",
+    "halton",
+    "st-helens",
+    "warrington",
+    "cheshire-west-and-chester",
+    "wigan"
+   ]
+  },
+  "bracknell-forest": {
+   "code": "E06000036",
+   "lat": 51.4113,
+   "lng": -0.7337,
+   "pop": {
+    "all": 132145,
+    "over65": 21603,
+    "over85": 2778
+   },
+   "dementia": {
+    "rate": 62,
+    "diagnosed": 851,
+    "estimated": 1372
+   },
+   "council": {
+    "name": "Bracknell Forest Council",
+    "url": "https://www.bracknell-forest.gov.uk/"
+   },
+   "towns": [
+    "Bracknell"
+   ],
+   "nearby": [
+    "windsor-and-maidenhead",
+    "wokingham",
+    "slough",
+    "reading",
+    "hillingdon",
+    "hounslow",
+    "richmond-upon-thames",
+    "kingston-upon-thames"
+   ]
+  },
+  "brighton-and-hove": {
+   "code": "E06000043",
+   "lat": 50.8465,
+   "lng": -0.1508,
+   "pop": {
+    "all": 284170,
+    "over65": 41753,
+    "over85": 5658
+   },
+   "dementia": {
+    "rate": 66.7,
+    "diagnosed": 1957,
+    "estimated": 2932
+   },
+   "council": {
+    "name": "Brighton and Hove City Council",
+    "url": "https://www.brighton-hove.gov.uk/"
+   },
+   "towns": [
+    "Brighton",
+    "Hove"
+   ],
+   "nearby": [
+    "west-sussex",
+    "east-sussex",
+    "surrey",
+    "sutton",
+    "croydon",
+    "bromley",
+    "kingston-upon-thames",
+    "merton"
+   ]
+  },
+  "buckinghamshire": {
+   "code": "E06000060",
+   "lat": 51.7697,
+   "lng": -0.8057,
+   "pop": {
+    "all": 584296,
+    "over65": 113210,
+    "over85": 17052
+   },
+   "dementia": {
+    "rate": 59.3,
+    "diagnosed": 4639,
+    "estimated": 7828
+   },
+   "council": {
+    "name": "Buckinghamshire Council",
+    "url": "https://www.buckinghamshire.gov.uk/"
+   },
+   "towns": [
+    "Aylesbury",
+    "High Wycombe",
+    "Buckingham",
+    "Gerrards Cross",
+    "Chesham",
+    "Amersham"
+   ],
+   "nearby": [
+    "luton",
+    "windsor-and-maidenhead",
+    "oxfordshire",
+    "slough",
+    "milton-keynes",
+    "central-bedfordshire",
+    "hillingdon",
+    "hertfordshire"
+   ]
+  },
+  "east-sussex": {
+   "code": "E10000011",
+   "lat": 50.938,
+   "lng": 0.3345,
+   "pop": {
+    "all": 561855,
+    "over65": 152307,
+    "over85": 22455
+   },
+   "dementia": {
+    "rate": 61.1,
+    "diagnosed": 6361,
+    "estimated": 10406
+   },
+   "council": {
+    "name": "East Sussex County Council",
+    "url": "https://www.eastsussex.gov.uk/"
+   },
+   "towns": [
+    "Eastbourne",
+    "Bexhill on Sea",
+    "Hastings",
+    "St Leonards on Sea",
+    "Seaford",
+    "Hailsham"
+   ],
+   "nearby": [
+    "brighton-and-hove",
+    "kent",
+    "bromley",
+    "croydon",
+    "west-sussex",
+    "sutton",
+    "medway",
+    "bexley"
+   ]
+  },
+  "hampshire": {
+   "code": "E10000014",
+   "lat": 51.0448,
+   "lng": -1.2474,
+   "pop": {
+    "all": 1451703,
+    "over65": 332688,
+    "over85": 49292
+   },
+   "dementia": {
+    "rate": 63.7,
+    "diagnosed": 14337,
+    "estimated": 22515
+   },
+   "council": {
+    "name": "Hampshire County Council",
+    "url": "https://www.hants.gov.uk/"
+   },
+   "towns": [
+    "Fareham",
+    "Basingstoke",
+    "Winchester",
+    "Fleet",
+    "New Milton",
+    "Andover"
+   ],
+   "nearby": [
+    "southampton",
+    "portsmouth",
+    "isle-of-wight",
+    "west-berkshire",
+    "wokingham",
+    "reading",
+    "bournemouth-christchurch-and-poole",
+    "bracknell-forest"
+   ]
+  },
+  "isle-of-wight": {
+   "code": "E06000046",
+   "lat": 50.6713,
+   "lng": -1.3337,
+   "pop": {
+    "all": 140777,
+    "over65": 43599,
+    "over85": 5843
+   },
+   "dementia": {
+    "rate": 59.8,
+    "diagnosed": 1749,
+    "estimated": 2923
+   },
+   "council": {
+    "name": "Isle of Wight Council",
+    "url": "https://www.iow.gov.uk/"
+   },
+   "towns": [
+    "Ryde",
+    "Newport",
+    "Sandown",
+    "Shanklin",
+    "Totland Bay",
+    "Freshwater"
+   ],
+   "nearby": [
+    "portsmouth",
+    "southampton",
+    "bournemouth-christchurch-and-poole",
+    "hampshire",
+    "west-sussex",
+    "dorset",
+    "wiltshire",
+    "brighton-and-hove"
+   ]
+  },
+  "kent": {
+   "code": "E10000016",
+   "lat": 51.193,
+   "lng": 0.7214,
+   "pop": {
+    "all": 1652769,
+    "over65": 342980,
+    "over85": 47429
+   },
+   "dementia": {
+    "rate": 61.9,
+    "diagnosed": 14269,
+    "estimated": 23069
+   },
+   "council": {
+    "name": "Kent County Council",
+    "url": "http://www.kent.gov.uk/"
+   },
+   "towns": [
+    "Dartford",
+    "Maidstone",
+    "Ashford",
+    "Canterbury",
+    "Sittingbourne",
+    "Folkestone"
+   ],
+   "nearby": [
+    "medway",
+    "east-sussex",
+    "southend-on-sea",
+    "thurrock",
+    "bexley",
+    "bromley",
+    "havering",
+    "greenwich"
+   ]
+  },
+  "medway": {
+   "code": "E06000035",
+   "lat": 51.4477,
+   "lng": 0.5632,
+   "pop": {
+    "all": 292697,
+    "over65": 49047,
+    "over85": 5905
+   },
+   "dementia": {
+    "rate": 65,
+    "diagnosed": 2226,
+    "estimated": 3424
+   },
+   "council": {
+    "name": "Medway Council",
+    "url": "https://www.medway.gov.uk/"
+   },
+   "towns": [
+    "Rochester",
+    "Chatham",
+    "Gillingham",
+    "Strood"
+   ],
+   "nearby": [
+    "southend-on-sea",
+    "thurrock",
+    "havering",
+    "bexley",
+    "kent",
+    "barking-and-dagenham",
+    "greenwich",
+    "bromley"
+   ]
+  },
+  "milton-keynes": {
+   "code": "E06000042",
+   "lat": 52.0724,
+   "lng": -0.7407,
+   "pop": {
+    "all": 308866,
+    "over65": 44895,
+    "over85": 5107
+   },
+   "dementia": {
+    "rate": 67.8,
+    "diagnosed": 2044,
+    "estimated": 3016
+   },
+   "council": {
+    "name": "Milton Keynes City Council",
+    "url": "https://www.milton-keynes.gov.uk/"
+   },
+   "towns": [
+    "Milton Keynes",
+    "Newport Pagnell",
+    "Olney"
+   ],
+   "nearby": [
+    "central-bedfordshire",
+    "bedford",
+    "west-northamptonshire",
+    "luton",
+    "buckinghamshire",
+    "north-northamptonshire",
+    "hertfordshire",
+    "cambridgeshire"
+   ]
+  },
+  "oxfordshire": {
+   "code": "E10000025",
+   "lat": 51.7716,
+   "lng": -1.2915,
+   "pop": {
+    "all": 769831,
+    "over65": 144398,
+    "over85": 21393
+   },
+   "dementia": {
+    "rate": 64.7,
+    "diagnosed": 6527,
+    "estimated": 10086
+   },
+   "council": {
+    "name": "Oxfordshire County Council",
+    "url": "https://www.oxfordshire.gov.uk/"
+   },
+   "towns": [
+    "Oxford",
+    "Banbury",
+    "Witney",
+    "Bicester",
+    "Abingdon",
+    "Wantage"
+   ],
+   "nearby": [
+    "buckinghamshire",
+    "west-berkshire",
+    "swindon",
+    "reading",
+    "wokingham",
+    "warwickshire",
+    "milton-keynes",
+    "windsor-and-maidenhead"
+   ]
+  },
+  "portsmouth": {
+   "code": "E06000044",
+   "lat": 50.808,
+   "lng": -1.0701,
+   "pop": {
+    "all": 211475,
+    "over65": 32607,
+    "over85": 4280
+   },
+   "dementia": {
+    "rate": 71.5,
+    "diagnosed": 1606,
+    "estimated": 2248
+   },
+   "council": {
+    "name": "Portsmouth City Council",
+    "url": "https://www.portsmouth.gov.uk/"
+   },
+   "towns": [
+    "Portsmouth",
+    "Southsea"
+   ],
+   "nearby": [
+    "isle-of-wight",
+    "southampton",
+    "hampshire",
+    "west-sussex",
+    "bournemouth-christchurch-and-poole",
+    "brighton-and-hove",
+    "wokingham",
+    "bracknell-forest"
+   ]
+  },
+  "reading": {
+   "code": "E06000038",
+   "lat": 51.453,
+   "lng": -0.9908,
+   "pop": {
+    "all": 183762,
+    "over65": 22678,
+    "over85": 3158
+   },
+   "dementia": {
+    "rate": 66.7,
+    "diagnosed": 1324,
+    "estimated": 1984
+   },
+   "council": {
+    "name": "Reading Borough Council",
+    "url": "https://www.reading.gov.uk/"
+   },
+   "towns": [
+    "Reading"
+   ],
+   "nearby": [
+    "wokingham",
+    "bracknell-forest",
+    "west-berkshire",
+    "windsor-and-maidenhead",
+    "slough",
+    "buckinghamshire",
+    "hillingdon",
+    "oxfordshire"
+   ]
+  },
+  "slough": {
+   "code": "E06000039",
+   "lat": 51.5035,
+   "lng": -0.5762,
+   "pop": {
+    "all": 167450,
+    "over65": 16780,
+    "over85": 1996
+   },
+   "dementia": {
+    "rate": 61.6,
+    "diagnosed": 640,
+    "estimated": 1039
+   },
+   "council": {
+    "name": "Slough Borough Council",
+    "url": "https://www.slough.gov.uk/"
+   },
+   "towns": [
+    "Slough"
+   ],
+   "nearby": [
+    "windsor-and-maidenhead",
+    "hillingdon",
+    "hounslow",
+    "bracknell-forest",
+    "ealing",
+    "harrow",
+    "richmond-upon-thames",
+    "brent"
+   ]
+  },
+  "southampton": {
+   "code": "E06000045",
+   "lat": 50.9212,
+   "lng": -1.3995,
+   "pop": {
+    "all": 259230,
+    "over65": 36191,
+    "over85": 4564
+   },
+   "dementia": {
+    "rate": 71,
+    "diagnosed": 2043,
+    "estimated": 2877
+   },
+   "council": {
+    "name": "Southampton City Council",
+    "url": "http://www.southampton.gov.uk/"
+   },
+   "towns": [
+    "Southampton"
+   ],
+   "nearby": [
+    "hampshire",
+    "portsmouth",
+    "isle-of-wight",
+    "bournemouth-christchurch-and-poole",
+    "wiltshire",
+    "west-berkshire",
+    "reading",
+    "wokingham"
+   ]
+  },
+  "surrey": {
+   "code": "E10000030",
+   "lat": 51.268,
+   "lng": -0.3391,
+   "pop": {
+    "all": 1255255,
+    "over65": 245022,
+    "over85": 39272
+   },
+   "dementia": {
+    "rate": 68.6,
+    "diagnosed": 12209,
+    "estimated": 17802
+   },
+   "council": {
+    "name": "Surrey County Council",
+    "url": "http://www.surreycc.gov.uk/"
+   },
+   "towns": [
+    "Woking",
+    "Epsom",
+    "Camberley",
+    "Guildford",
+    "Redhill",
+    "Farnham"
+   ],
+   "nearby": [
+    "kingston-upon-thames",
+    "sutton",
+    "merton",
+    "richmond-upon-thames",
+    "croydon",
+    "hounslow",
+    "wandsworth",
+    "hammersmith-and-fulham"
+   ]
+  },
+  "west-berkshire": {
+   "code": "E06000037",
+   "lat": 51.4456,
+   "lng": -1.2737,
+   "pop": {
+    "all": 165523,
+    "over65": 34366,
+    "over85": 4400
+   },
+   "dementia": {
+    "rate": 65.7,
+    "diagnosed": 1371,
+    "estimated": 2088
+   },
+   "council": {
+    "name": "West Berkshire Council",
+    "url": "http://www.westberks.gov.uk/"
+   },
+   "towns": [
+    "Newbury",
+    "Thatcham",
+    "Hungerford"
+   ],
+   "nearby": [
+    "reading",
+    "wokingham",
+    "swindon",
+    "oxfordshire",
+    "bracknell-forest",
+    "windsor-and-maidenhead",
+    "hampshire",
+    "wiltshire"
+   ]
+  },
+  "west-sussex": {
+   "code": "E10000032",
+   "lat": 50.9513,
+   "lng": -0.4593,
+   "pop": {
+    "all": 921240,
+    "over65": 217984,
+    "over85": 32785
+   },
+   "dementia": {
+    "rate": 64,
+    "diagnosed": 9842,
+    "estimated": 15382
+   },
+   "council": {
+    "name": "West Sussex County Council",
+    "url": "http://www.westsussex.gov.uk/"
+   },
+   "towns": [
+    "Worthing",
+    "Crawley",
+    "Bognor Regis",
+    "Chichester",
+    "Littlehampton",
+    "Horsham"
+   ],
+   "nearby": [
+    "brighton-and-hove",
+    "surrey",
+    "portsmouth",
+    "sutton",
+    "kingston-upon-thames",
+    "croydon",
+    "merton",
+    "bracknell-forest"
+   ]
+  },
+  "windsor-and-maidenhead": {
+   "code": "E06000040",
+   "lat": 51.4803,
+   "lng": -0.6754,
+   "pop": {
+    "all": 159776,
+    "over65": 30854,
+    "over85": 4835
+   },
+   "dementia": {
+    "rate": 67.8,
+    "diagnosed": 1523,
+    "estimated": 2248
+   },
+   "council": {
+    "name": "Royal Borough of Windsor and Maidenhead",
+    "url": "http://www.rbwm.gov.uk/"
+   },
+   "towns": [
+    "Maidenhead",
+    "Windsor",
+    "Ascot"
+   ],
+   "nearby": [
+    "slough",
+    "bracknell-forest",
+    "wokingham",
+    "hillingdon",
+    "hounslow",
+    "reading",
+    "ealing",
+    "harrow"
+   ]
+  },
+  "wokingham": {
+   "code": "E06000041",
+   "lat": 51.423,
+   "lng": -0.8994,
+   "pop": {
+    "all": 189024,
+    "over65": 33376,
+    "over85": 4887
+   },
+   "dementia": {
+    "rate": 64.2,
+    "diagnosed": 1321,
+    "estimated": 2059
+   },
+   "council": {
+    "name": "Wokingham Borough Council",
+    "url": "https://www.wokingham.gov.uk/"
+   },
+   "towns": [
+    "Wokingham",
+    "Crowthorne"
+   ],
+   "nearby": [
+    "reading",
+    "bracknell-forest",
+    "windsor-and-maidenhead",
+    "slough",
+    "west-berkshire",
+    "hillingdon",
+    "hounslow",
+    "buckinghamshire"
+   ]
+  },
+  "bath-and-north-east-somerset": {
+   "code": "E06000022",
+   "lat": 51.3561,
+   "lng": -2.4866,
+   "pop": {
+    "all": 200898,
+    "over65": 39917,
+    "over85": 5955
+   },
+   "dementia": {
+    "rate": 64.6,
+    "diagnosed": 1951,
+    "estimated": 3022
+   },
+   "council": {
+    "name": "Bath and North East Somerset Council",
+    "url": "http://www.bathnes.gov.uk/"
+   },
+   "towns": [
+    "Bath",
+    "Radstock"
+   ],
+   "nearby": [
+    "bristol-city-of",
+    "north-somerset",
+    "south-gloucestershire",
+    "wiltshire",
+    "gloucestershire",
+    "swindon",
+    "dorset",
+    "somerset"
+   ]
+  },
+  "bournemouth-christchurch-and-poole": {
+   "code": "E06000058",
+   "lat": 50.7461,
+   "lng": -1.8481,
+   "pop": {
+    "all": 405829,
+    "over65": 90622,
+    "over85": 14056
+   },
+   "dementia": {
+    "rate": 63.9,
+    "diagnosed": 4453,
+    "estimated": 6970
+   },
+   "council": {
+    "name": "Bournemouth, Christchurch and Poole Council",
+    "url": "https://www.bcpcouncil.gov.uk/"
+   },
+   "towns": [
+    "Bournemouth",
+    "Poole",
+    "Christchurch",
+    "Broadstone"
+   ],
+   "nearby": [
+    "southampton",
+    "isle-of-wight",
+    "dorset",
+    "hampshire",
+    "portsmouth",
+    "wiltshire",
+    "bath-and-north-east-somerset",
+    "west-berkshire"
+   ]
+  },
+  "bristol-city-of": {
+   "code": "E06000023",
+   "lat": 51.4711,
+   "lng": -2.5774,
+   "pop": {
+    "all": 495260,
+    "over65": 63056,
+    "over85": 8594
+   },
+   "dementia": {
+    "rate": 76,
+    "diagnosed": 3523,
+    "estimated": 4637
+   },
+   "council": {
+    "name": "Bristol City Council",
+    "url": "https://www.bristol.gov.uk/"
+   },
+   "towns": [
+    "Bristol"
+   ],
+   "nearby": [
+    "south-gloucestershire",
+    "bath-and-north-east-somerset",
+    "north-somerset",
+    "wiltshire",
+    "gloucestershire",
+    "swindon",
+    "somerset",
+    "herefordshire-county-of"
+   ]
+  },
+  "cornwall": {
+   "code": "E06000052",
+   "lat": 50.4502,
+   "lng": -4.6425,
+   "pop": {
+    "all": 584782,
+    "over65": 154714,
+    "over85": 19439
+   },
+   "dementia": {
+    "rate": 61.6,
+    "diagnosed": 6221,
+    "estimated": 10097
+   },
+   "council": {
+    "name": "Cornwall Council",
+    "url": "https://www.cornwall.gov.uk/"
+   },
+   "towns": [
+    "Truro",
+    "Redruth",
+    "Liskeard",
+    "Launceston",
+    "Newquay",
+    "Camborne"
+   ],
+   "nearby": [
+    "plymouth",
+    "devon",
+    "torbay",
+    "somerset",
+    "dorset",
+    "north-somerset",
+    "bath-and-north-east-somerset",
+    "bristol-city-of"
+   ]
+  },
+  "devon": {
+   "code": "E10000008",
+   "lat": 50.7256,
+   "lng": -3.657,
+   "pop": {
+    "all": 845541,
+    "over65": 226786,
+    "over85": 31518
+   },
+   "dementia": {
+    "rate": 57.4,
+    "diagnosed": 8330,
+    "estimated": 14514
+   },
+   "council": {
+    "name": "Devon County Council",
+    "url": "https://new.devon.gov.uk/"
+   },
+   "towns": [
+    "Exeter",
+    "Newton Abbot",
+    "Bideford",
+    "Exmouth",
+    "Barnstaple",
+    "Teignmouth"
+   ],
+   "nearby": [
+    "torbay",
+    "somerset",
+    "plymouth",
+    "cornwall",
+    "dorset",
+    "north-somerset",
+    "bath-and-north-east-somerset",
+    "bristol-city-of"
+   ]
+  },
+  "dorset": {
+   "code": "E06000059",
+   "lat": 50.797,
+   "lng": -2.4146,
+   "pop": {
+    "all": 391036,
+    "over65": 121959,
+    "over85": 17592
+   },
+   "dementia": {
+    "rate": 53.3,
+    "diagnosed": 4201,
+    "estimated": 7875
+   },
+   "council": {
+    "name": "Dorset Council",
+    "url": "https://www.dorsetcouncil.gov.uk/"
+   },
+   "towns": [
+    "Dorchester",
+    "Weymouth",
+    "Ferndown",
+    "Wimborne",
+    "Sherborne",
+    "Swanage"
+   ],
+   "nearby": [
+    "bournemouth-christchurch-and-poole",
+    "bath-and-north-east-somerset",
+    "wiltshire",
+    "somerset",
+    "north-somerset",
+    "southampton",
+    "bristol-city-of",
+    "isle-of-wight"
+   ]
+  },
+  "gloucestershire": {
+   "code": "E10000013",
+   "lat": 51.8197,
+   "lng": -2.1524,
+   "pop": {
+    "all": 671908,
+    "over65": 151739,
+    "over85": 21030
+   },
+   "dementia": {
+    "rate": 65.8,
+    "diagnosed": 6776,
+    "estimated": 10299
+   },
+   "council": {
+    "name": "Gloucestershire County Council",
+    "url": "https://www.gloucestershire.gov.uk/"
+   },
+   "towns": [
+    "Gloucester",
+    "Cheltenham",
+    "Stroud",
+    "Cirencester",
+    "Tewkesbury",
+    "Stonehouse"
+   ],
+   "nearby": [
+    "south-gloucestershire",
+    "swindon",
+    "worcestershire",
+    "bristol-city-of",
+    "herefordshire-county-of",
+    "bath-and-north-east-somerset",
+    "warwickshire",
+    "wiltshire"
+   ]
+  },
+  "north-somerset": {
+   "code": "E06000024",
+   "lat": 51.3971,
+   "lng": -2.7544,
+   "pop": {
+    "all": 227160,
+    "over65": 55209,
+    "over85": 8076
+   },
+   "dementia": {
+    "rate": 73.4,
+    "diagnosed": 2841,
+    "estimated": 3872
+   },
+   "council": {
+    "name": "North Somerset Council",
+    "url": "https://www.n-somerset.gov.uk/"
+   },
+   "towns": [
+    "Weston Super Mare",
+    "Weston-Super-Mare",
+    "Clevedon",
+    "Winscombe"
+   ],
+   "nearby": [
+    "bristol-city-of",
+    "bath-and-north-east-somerset",
+    "south-gloucestershire",
+    "somerset",
+    "wiltshire",
+    "gloucestershire",
+    "dorset",
+    "swindon"
+   ]
+  },
+  "plymouth": {
+   "code": "E06000026",
+   "lat": 50.4049,
+   "lng": -4.113,
+   "pop": {
+    "all": 271361,
+    "over65": 52103,
+    "over85": 6925
+   },
+   "dementia": {
+    "rate": 60.1,
+    "diagnosed": 2279,
+    "estimated": 3793
+   },
+   "council": {
+    "name": "Plymouth City Council",
+    "url": "https://www.plymouth.gov.uk/"
+   },
+   "towns": [
+    "Plymouth"
+   ],
+   "nearby": [
+    "cornwall",
+    "torbay",
+    "devon",
+    "somerset",
+    "dorset",
+    "north-somerset",
+    "bath-and-north-east-somerset",
+    "bristol-city-of"
+   ]
+  },
+  "somerset": {
+   "code": "E06000066",
+   "lat": 51.0718,
+   "lng": -3.296,
+   "pop": {
+    "all": 590972,
+    "over65": 152914,
+    "over85": 21019
+   },
+   "dementia": {
+    "rate": 56.1,
+    "diagnosed": 5755,
+    "estimated": 10268
+   },
+   "council": {
+    "name": "Somerset Council",
+    "url": "http://www.somerset.gov.uk/"
+   },
+   "towns": [
+    "Taunton",
+    "Yeovil",
+    "Bridgwater",
+    "Wellington",
+    "Minehead",
+    "Wells"
+   ],
+   "nearby": [
+    "devon",
+    "north-somerset",
+    "bath-and-north-east-somerset",
+    "bristol-city-of",
+    "dorset",
+    "torbay",
+    "south-gloucestershire",
+    "plymouth"
+   ]
+  },
+  "south-gloucestershire": {
+   "code": "E06000025",
+   "lat": 51.5467,
+   "lng": -2.4693,
+   "pop": {
+    "all": 308787,
+    "over65": 58415,
+    "over85": 8614
+   },
+   "dementia": {
+    "rate": 65.2,
+    "diagnosed": 2444,
+    "estimated": 3750
+   },
+   "council": {
+    "name": "South Gloucestershire Council",
+    "url": "http://www.southglos.gov.uk/"
+   },
+   "nearby": [
+    "bristol-city-of",
+    "bath-and-north-east-somerset",
+    "north-somerset",
+    "gloucestershire",
+    "wiltshire",
+    "swindon",
+    "herefordshire-county-of",
+    "worcestershire"
+   ]
+  },
+  "swindon": {
+   "code": "E06000030",
+   "lat": 51.5776,
+   "lng": -1.7337,
+   "pop": {
+    "all": 245286,
+    "over65": 41020,
+    "over85": 5221
+   },
+   "dementia": {
+    "rate": 58.2,
+    "diagnosed": 1531,
+    "estimated": 2630
+   },
+   "council": {
+    "name": "Swindon Borough Council",
+    "url": "https://www.swindon.gov.uk/"
+   },
+   "towns": [
+    "Swindon"
+   ],
+   "nearby": [
+    "wiltshire",
+    "west-berkshire",
+    "oxfordshire",
+    "gloucestershire",
+    "south-gloucestershire",
+    "reading",
+    "bath-and-north-east-somerset",
+    "bristol-city-of"
+   ]
+  },
+  "torbay": {
+   "code": "E06000027",
+   "lat": 50.4709,
+   "lng": -3.5552,
+   "pop": {
+    "all": 139486,
+    "over65": 38913,
+    "over85": 5622
+   },
+   "dementia": {
+    "rate": 63.3,
+    "diagnosed": 1736,
+    "estimated": 2744
+   },
+   "council": {
+    "name": "Torbay Council",
+    "url": "http://www.torbay.gov.uk/"
+   },
+   "towns": [
+    "Torquay",
+    "Paignton",
+    "Brixham"
+   ],
+   "nearby": [
+    "devon",
+    "plymouth",
+    "somerset",
+    "cornwall",
+    "dorset",
+    "north-somerset",
+    "bath-and-north-east-somerset",
+    "bournemouth-christchurch-and-poole"
+   ]
+  },
+  "wiltshire": {
+   "code": "E06000054",
+   "lat": 51.3288,
+   "lng": -1.9266,
+   "pop": {
+    "all": 526392,
+    "over65": 123712,
+    "over85": 17403
+   },
+   "dementia": {
+    "rate": 64.3,
+    "diagnosed": 5436,
+    "estimated": 8448
+   },
+   "council": {
+    "name": "Wiltshire Council",
+    "url": "https://www.wiltshire.gov.uk/"
+   },
+   "towns": [
+    "Salisbury",
+    "Chippenham",
+    "Trowbridge",
+    "Warminster",
+    "Melksham",
+    "Devizes"
+   ],
+   "nearby": [
+    "swindon",
+    "bath-and-north-east-somerset",
+    "south-gloucestershire",
+    "west-berkshire",
+    "bristol-city-of",
+    "gloucestershire",
+    "hampshire",
+    "north-somerset"
+   ]
+  },
+  "birmingham": {
+   "code": "E08000025",
+   "lat": 52.484,
+   "lng": -1.8814,
+   "pop": {
+    "all": 1176960,
+    "over65": 156241,
+    "over85": 21973
+   },
+   "dementia": {
+    "rate": 65.4,
+    "diagnosed": 7511,
+    "estimated": 11489
+   },
+   "council": {
+    "name": "Birmingham City Council",
+    "url": "https://www.birmingham.gov.uk/"
+   },
+   "towns": [
+    "Birmingham",
+    "Sutton Coldfield"
+   ],
+   "nearby": [
+    "sandwell",
+    "solihull",
+    "walsall",
+    "dudley",
+    "wolverhampton",
+    "coventry",
+    "worcestershire",
+    "warwickshire"
+   ]
+  },
+  "coventry": {
+   "code": "E08000026",
+   "lat": 52.4142,
+   "lng": -1.5191,
+   "pop": {
+    "all": 364766,
+    "over65": 51703,
+    "over85": 7333
+   },
+   "dementia": {
+    "rate": 59.4,
+    "diagnosed": 2295,
+    "estimated": 3861
+   },
+   "council": {
+    "name": "Coventry City Council",
+    "url": "https://www.coventry.gov.uk/"
+   },
+   "towns": [
+    "Coventry"
+   ],
+   "nearby": [
+    "solihull",
+    "birmingham",
+    "warwickshire",
+    "leicestershire",
+    "sandwell",
+    "leicester",
+    "walsall",
+    "west-northamptonshire"
+   ]
+  },
+  "dudley": {
+   "code": "E08000027",
+   "lat": 52.4951,
+   "lng": -2.1017,
+   "pop": {
+    "all": 333941,
+    "over65": 67639,
+    "over85": 9444
+   },
+   "dementia": {
+    "rate": 63.5,
+    "diagnosed": 3113,
+    "estimated": 4905
+   },
+   "council": {
+    "name": "Dudley Metropolitan Borough Council",
+    "url": "https://www.dudley.gov.uk/"
+   },
+   "towns": [
+    "Dudley",
+    "Stourbridge",
+    "Halesowen",
+    "Brierley Hill",
+    "Kingswinford"
+   ],
+   "nearby": [
+    "sandwell",
+    "wolverhampton",
+    "birmingham",
+    "walsall",
+    "solihull",
+    "worcestershire",
+    "telford-and-wrekin",
+    "coventry"
+   ]
+  },
+  "herefordshire-county-of": {
+   "code": "E06000019",
+   "lat": 52.0816,
+   "lng": -2.7393,
+   "pop": {
+    "all": 192539,
+    "over65": 52724,
+    "over85": 7159
+   },
+   "dementia": {
+    "rate": 58.5,
+    "diagnosed": 2016,
+    "estimated": 3448
+   },
+   "council": {
+    "name": "Herefordshire Council",
+    "url": "https://www.herefordshire.gov.uk/"
+   },
+   "towns": [
+    "Hereford",
+    "Leominster",
+    "Ledbury",
+    "Ross on Wye",
+    "Kington",
+    "Bromyard"
+   ],
+   "nearby": [
+    "worcestershire",
+    "gloucestershire",
+    "shropshire",
+    "south-gloucestershire",
+    "dudley",
+    "bristol-city-of",
+    "sandwell",
+    "wolverhampton"
+   ]
+  },
+  "sandwell": {
+   "code": "E08000028",
+   "lat": 52.5148,
+   "lng": -2.0077,
+   "pop": {
+    "all": 352918,
+    "over65": 51493,
+    "over85": 6835
+   },
+   "dementia": {
+    "rate": 72.9,
+    "diagnosed": 2307,
+    "estimated": 3163
+   },
+   "council": {
+    "name": "Sandwell Metropolitan Borough Council",
+    "url": "http://www.sandwell.gov.uk/"
+   },
+   "towns": [
+    "Oldbury",
+    "West Bromwich",
+    "Tipton",
+    "Smethwick",
+    "Wednesbury",
+    "Rowley Regis"
+   ],
+   "nearby": [
+    "dudley",
+    "birmingham",
+    "walsall",
+    "wolverhampton",
+    "solihull",
+    "coventry",
+    "worcestershire",
+    "telford-and-wrekin"
+   ]
+  },
+  "shropshire": {
+   "code": "E06000051",
+   "lat": 52.6221,
+   "lng": -2.7367,
+   "pop": {
+    "all": 333162,
+    "over65": 90151,
+    "over85": 12697
+   },
+   "dementia": {
+    "rate": 59.8,
+    "diagnosed": 3585,
+    "estimated": 6000
+   },
+   "council": {
+    "name": "Shropshire Council",
+    "url": "https://next.shropshire.gov.uk/"
+   },
+   "towns": [
+    "Shrewsbury",
+    "Ludlow",
+    "Oswestry",
+    "Market Drayton",
+    "Bridgnorth",
+    "Whitchurch"
+   ],
+   "nearby": [
+    "telford-and-wrekin",
+    "wolverhampton",
+    "dudley",
+    "sandwell",
+    "walsall",
+    "staffordshire",
+    "worcestershire",
+    "stoke-on-trent"
+   ]
+  },
+  "solihull": {
+   "code": "E08000029",
+   "lat": 52.431,
+   "lng": -1.7156,
+   "pop": {
+    "all": 221449,
+    "over65": 47662,
+    "over85": 7277
+   },
+   "dementia": {
+    "rate": 61.1,
+    "diagnosed": 2060,
+    "estimated": 3373
+   },
+   "council": {
+    "name": "Solihull Metropolitan Borough Council",
+    "url": "https://www.solihull.gov.uk/"
+   },
+   "towns": [
+    "Solihull"
+   ],
+   "nearby": [
+    "birmingham",
+    "coventry",
+    "sandwell",
+    "walsall",
+    "dudley",
+    "warwickshire",
+    "wolverhampton",
+    "leicestershire"
+   ]
+  },
+  "staffordshire": {
+   "code": "E10000028",
+   "lat": 52.9093,
+   "lng": -2.0276,
+   "pop": {
+    "all": 913073,
+    "over65": 208682,
+    "over85": 27519
+   },
+   "dementia": {
+    "rate": 68,
+    "diagnosed": 9057,
+    "estimated": 13315
+   },
+   "council": {
+    "name": "Staffordshire County Council",
+    "url": "https://www.staffordshire.gov.uk/"
+   },
+   "towns": [
+    "Stafford",
+    "Cannock",
+    "Tamworth",
+    "Burton-on-Trent",
+    "Burton on Trent",
+    "Newcastle"
+   ],
+   "nearby": [
+    "stoke-on-trent",
+    "cheshire-east",
+    "walsall",
+    "derbyshire",
+    "wolverhampton",
+    "derby",
+    "telford-and-wrekin",
+    "sandwell"
+   ]
+  },
+  "stoke-on-trent": {
+   "code": "E06000021",
+   "lat": 53.0171,
+   "lng": -2.1589,
+   "pop": {
+    "all": 272282,
+    "over65": 46529,
+    "over85": 5836
+   },
+   "dementia": {
+    "rate": 92.8,
+    "diagnosed": 3000,
+    "estimated": 3233
+   },
+   "council": {
+    "name": "Stoke-on-Trent City Council",
+    "url": "https://www.stoke.gov.uk/"
+   },
+   "towns": [
+    "Stoke-on-Trent",
+    "Stoke on Trent",
+    "Staffordshire"
+   ],
+   "nearby": [
+    "staffordshire",
+    "cheshire-east",
+    "derbyshire",
+    "cheshire-west-and-chester",
+    "telford-and-wrekin",
+    "stockport",
+    "trafford",
+    "wolverhampton"
+   ]
+  },
+  "telford-and-wrekin": {
+   "code": "E06000020",
+   "lat": 52.7142,
+   "lng": -2.4894,
+   "pop": {
+    "all": 199378,
+    "over65": 35925,
+    "over85": 4235
+   },
+   "dementia": {
+    "rate": 62,
+    "diagnosed": 1412,
+    "estimated": 2277
+   },
+   "council": {
+    "name": "Telford & Wrekin Council",
+    "url": "https://www.telford.gov.uk/"
+   },
+   "towns": [
+    "Telford",
+    "Newport"
+   ],
+   "nearby": [
+    "shropshire",
+    "wolverhampton",
+    "dudley",
+    "walsall",
+    "staffordshire",
+    "sandwell",
+    "stoke-on-trent",
+    "birmingham"
+   ]
+  },
+  "walsall": {
+   "code": "E08000030",
+   "lat": 52.6051,
+   "lng": -1.9704,
+   "pop": {
+    "all": 295722,
+    "over65": 51197,
+    "over85": 7335
+   },
+   "dementia": {
+    "rate": 67.8,
+    "diagnosed": 2320,
+    "estimated": 3424
+   },
+   "council": {
+    "name": "Walsall Metropolitan Borough Council",
+    "url": "https://go.walsall.gov.uk/"
+   },
+   "towns": [
+    "Walsall",
+    "Willenhall"
+   ],
+   "nearby": [
+    "sandwell",
+    "wolverhampton",
+    "birmingham",
+    "dudley",
+    "solihull",
+    "staffordshire",
+    "telford-and-wrekin",
+    "coventry"
+   ]
+  },
+  "warwickshire": {
+   "code": "E10000031",
+   "lat": 52.1798,
+   "lng": -1.5688,
+   "pop": {
+    "all": 644021,
+    "over65": 133118,
+    "over85": 18851
+   },
+   "dementia": {
+    "rate": 57.9,
+    "diagnosed": 5221,
+    "estimated": 9022
+   },
+   "council": {
+    "name": "Warwickshire County Council",
+    "url": "https://www.warwickshire.gov.uk/"
+   },
+   "towns": [
+    "Rugby",
+    "Nuneaton",
+    "Leamington Spa",
+    "Warwick",
+    "Bedworth",
+    "Stratford upon Avon"
+   ],
+   "nearby": [
+    "coventry",
+    "solihull",
+    "west-northamptonshire",
+    "birmingham",
+    "worcestershire",
+    "sandwell",
+    "oxfordshire",
+    "dudley"
+   ]
+  },
+  "wolverhampton": {
+   "code": "E08000031",
+   "lat": 52.5979,
+   "lng": -2.1275,
+   "pop": {
+    "all": 281434,
+    "over65": 45574,
+    "over85": 6559
+   },
+   "dementia": {
+    "rate": 73.1,
+    "diagnosed": 2276,
+    "estimated": 3114
+   },
+   "council": {
+    "name": "City of Wolverhampton Council",
+    "url": "http://www.wolverhampton.gov.uk"
+   },
+   "towns": [
+    "Wolverhampton",
+    "Bilston"
+   ],
+   "nearby": [
+    "walsall",
+    "dudley",
+    "sandwell",
+    "birmingham",
+    "telford-and-wrekin",
+    "solihull",
+    "staffordshire",
+    "shropshire"
+   ]
+  },
+  "worcestershire": {
+   "code": "E10000034",
+   "lat": 52.2129,
+   "lng": -2.2094,
+   "pop": {
+    "all": 624209,
+    "over65": 148719,
+    "over85": 20445
+   },
+   "dementia": {
+    "rate": 55.7,
+    "diagnosed": 5504,
+    "estimated": 9882
+   },
+   "council": {
+    "name": "Worcestershire County Council",
+    "url": "http://www.worcestershire.gov.uk"
+   },
+   "towns": [
+    "Worcester",
+    "Kidderminster",
+    "Malvern",
+    "Bromsgrove",
+    "Redditch",
+    "Evesham"
+   ],
+   "nearby": [
+    "dudley",
+    "sandwell",
+    "birmingham",
+    "herefordshire-county-of",
+    "solihull",
+    "wolverhampton",
+    "warwickshire",
+    "gloucestershire"
+   ]
+  },
+  "barnsley": {
+   "code": "E08000016",
+   "lat": 53.5258,
+   "lng": -1.5493,
+   "pop": {
+    "all": 252784,
+    "over65": 51461,
+    "over85": 5986
+   },
+   "council": {
+    "name": "Barnsley Metropolitan Borough Council",
+    "url": "https://www.barnsley.gov.uk/"
+   },
+   "nearby": [
+    "sheffield",
+    "wakefield",
+    "kirklees",
+    "rotherham",
+    "doncaster",
+    "leeds",
+    "oldham",
+    "calderdale"
+   ]
+  },
+  "bradford": {
+   "code": "E08000032",
+   "lat": 53.8438,
+   "lng": -1.8739,
+   "pop": {
+    "all": 557758,
+    "over65": 89524,
+    "over85": 11856
+   },
+   "dementia": {
+    "rate": 74.9,
+    "diagnosed": 4741,
+    "estimated": 6333
+   },
+   "council": {
+    "name": "City of Bradford Metropolitan District Council",
+    "url": "https://www.bradford.gov.uk/"
+   },
+   "towns": [
+    "Bradford",
+    "Keighley",
+    "Shipley",
+    "Ilkley",
+    "Bingley"
+   ],
+   "nearby": [
+    "calderdale",
+    "kirklees",
+    "leeds",
+    "rochdale",
+    "oldham",
+    "north-yorkshire",
+    "wakefield",
+    "lancashire"
+   ]
+  },
+  "calderdale": {
+   "code": "E08000033",
+   "lat": 53.7205,
+   "lng": -1.9618,
+   "pop": {
+    "all": 210734,
+    "over65": 42185,
+    "over85": 4920
+   },
+   "dementia": {
+    "rate": 67.7,
+    "diagnosed": 1837,
+    "estimated": 2714
+   },
+   "council": {
+    "name": "Calderdale Metropolitan Borough Council",
+    "url": "https://www.calderdale.gov.uk/"
+   },
+   "towns": [
+    "Halifax",
+    "Brighouse",
+    "Todmorden",
+    "Elland",
+    "Hebden Bridge"
+   ],
+   "nearby": [
+    "kirklees",
+    "bradford",
+    "rochdale",
+    "oldham",
+    "bury",
+    "tameside",
+    "leeds",
+    "blackburn-with-darwen"
+   ]
+  },
+  "doncaster": {
+   "code": "E08000017",
+   "lat": 53.527,
+   "lng": -1.109,
+   "pop": {
+    "all": 323016,
+    "over65": 64028,
+    "over85": 7723
+   },
+   "dementia": {
+    "rate": 67.7,
+    "diagnosed": 2689,
+    "estimated": 3971
+   },
+   "council": {
+    "name": "Doncaster Metropolitan Borough Council",
+    "url": "http://www.doncaster.gov.uk/"
+   },
+   "towns": [
+    "Doncaster",
+    "Mexborough"
+   ],
+   "nearby": [
+    "rotherham",
+    "wakefield",
+    "barnsley",
+    "sheffield",
+    "north-lincolnshire",
+    "leeds",
+    "nottinghamshire",
+    "kirklees"
+   ]
+  },
+  "east-riding-of-yorkshire": {
+   "code": "E06000011",
+   "lat": 53.8811,
+   "lng": -0.662,
+   "pop": {
+    "all": 360334,
+    "over65": 99256,
+    "over85": 13200
+   },
+   "dementia": {
+    "rate": 61.7,
+    "diagnosed": 3753,
+    "estimated": 6082
+   },
+   "council": {
+    "name": "East Riding of Yorkshire Council",
+    "url": "http://www.eastriding.gov.uk/"
+   },
+   "towns": [
+    "Goole",
+    "Bridlington",
+    "Beverley",
+    "Driffield",
+    "Hessle",
+    "Hornsea"
+   ],
+   "nearby": [
+    "kingston-upon-hull-city-of",
+    "york",
+    "north-lincolnshire",
+    "doncaster",
+    "north-east-lincolnshire",
+    "wakefield",
+    "leeds",
+    "north-yorkshire"
+   ]
+  },
+  "kingston-upon-hull-city-of": {
+   "code": "E06000010",
+   "lat": 53.7692,
+   "lng": -0.3039,
+   "pop": {
+    "all": 273257,
+    "over65": 43349,
+    "over85": 4918
+   },
+   "dementia": {
+    "rate": 67.4,
+    "diagnosed": 1983,
+    "estimated": 2942
+   },
+   "council": {
+    "name": "Hull City Council",
+    "url": "https://www.hull.gov.uk"
+   },
+   "towns": [
+    "Hull"
+   ],
+   "nearby": [
+    "north-lincolnshire",
+    "east-riding-of-yorkshire",
+    "north-east-lincolnshire",
+    "york",
+    "doncaster",
+    "lincolnshire",
+    "wakefield",
+    "rotherham"
+   ]
+  },
+  "kirklees": {
+   "code": "E08000034",
+   "lat": 53.6423,
+   "lng": -1.7809,
+   "pop": {
+    "all": 445832,
+    "over65": 82473,
+    "over85": 10464
+   },
+   "dementia": {
+    "rate": 66.7,
+    "diagnosed": 3422,
+    "estimated": 5132
+   },
+   "council": {
+    "name": "Kirklees Council",
+    "url": "https://www.kirklees.gov.uk/"
+   },
+   "towns": [
+    "Huddersfield",
+    "Dewsbury",
+    "Batley",
+    "Mirfield",
+    "Holmfirth",
+    "Liversedge"
+   ],
+   "nearby": [
+    "calderdale",
+    "barnsley",
+    "oldham",
+    "bradford",
+    "wakefield",
+    "rochdale",
+    "tameside",
+    "leeds"
+   ]
+  },
+  "leeds": {
+   "code": "E08000035",
+   "lat": 53.8227,
+   "lng": -1.5074,
+   "pop": {
+    "all": 840550,
+    "over65": 133810,
+    "over85": 18343
+   },
+   "dementia": {
+    "rate": 74.7,
+    "diagnosed": 7104,
+    "estimated": 9506
+   },
+   "council": {
+    "name": "Leeds City Council",
+    "url": "https://www.leeds.gov.uk/"
+   },
+   "towns": [
+    "Leeds",
+    "Pudsey",
+    "Wetherby"
+   ],
+   "nearby": [
+    "wakefield",
+    "bradford",
+    "kirklees",
+    "north-yorkshire",
+    "calderdale",
+    "york",
+    "barnsley",
+    "doncaster"
+   ]
+  },
+  "north-east-lincolnshire": {
+   "code": "E06000012",
+   "lat": 53.5233,
+   "lng": -0.1391,
+   "pop": {
+    "all": 160101,
+    "over65": 35303,
+    "over85": 4806
+   },
+   "dementia": {
+    "rate": 75,
+    "diagnosed": 1787,
+    "estimated": 2383
+   },
+   "council": {
+    "name": "North East Lincolnshire Council",
+    "url": "http://www.nelincs.gov.uk/"
+   },
+   "towns": [
+    "Grimsby",
+    "Cleethorpes",
+    "Immingham"
+   ],
+   "nearby": [
+    "north-lincolnshire",
+    "kingston-upon-hull-city-of",
+    "lincolnshire",
+    "east-riding-of-yorkshire",
+    "doncaster",
+    "nottinghamshire",
+    "rotherham",
+    "york"
+   ]
+  },
+  "north-lincolnshire": {
+   "code": "E06000013",
+   "lat": 53.5864,
+   "lng": -0.5241,
+   "pop": {
+    "all": 171421,
+    "over65": 40054,
+    "over85": 5133
+   },
+   "dementia": {
+    "rate": 65.5,
+    "diagnosed": 1770,
+    "estimated": 2704
+   },
+   "council": {
+    "name": "North Lincolnshire Council",
+    "url": "https://www.northlincs.gov.uk/"
+   },
+   "towns": [
+    "Scunthorpe",
+    "Brigg",
+    "Barton upon Humber",
+    "Barrow upon Humber"
+   ],
+   "nearby": [
+    "kingston-upon-hull-city-of",
+    "north-east-lincolnshire",
+    "east-riding-of-yorkshire",
+    "doncaster",
+    "rotherham",
+    "york",
+    "lincolnshire",
+    "wakefield"
+   ]
+  },
+  "north-yorkshire": {
+   "code": "E06000065",
+   "lat": 54.0937,
+   "lng": -1.5503,
+   "pop": {
+    "all": 639133,
+    "over65": 170388,
+    "over85": 22958
+   },
+   "dementia": {
+    "rate": 60.1,
+    "diagnosed": 6299,
+    "estimated": 10475
+   },
+   "council": {
+    "name": "North Yorkshire Council",
+    "url": "http://www.northyorks.gov.uk/"
+   },
+   "towns": [
+    "Harrogate",
+    "Scarborough",
+    "Selby",
+    "Whitby",
+    "Northallerton",
+    "Ripon"
+   ],
+   "nearby": [
+    "leeds",
+    "york",
+    "bradford",
+    "wakefield",
+    "darlington",
+    "calderdale",
+    "kirklees",
+    "stockton-on-tees"
+   ]
+  },
+  "rotherham": {
+   "code": "E08000018",
+   "lat": 53.3955,
+   "lng": -1.2865,
+   "pop": {
+    "all": 279161,
+    "over65": 55447,
+    "over85": 7064
+   },
+   "dementia": {
+    "rate": 88.8,
+    "diagnosed": 2996,
+    "estimated": 3376
+   },
+   "council": {
+    "name": "Rotherham Metropolitan Borough Council",
+    "url": "https://www.rotherham.gov.uk/"
+   },
+   "towns": [
+    "Rotherham"
+   ],
+   "nearby": [
+    "sheffield",
+    "doncaster",
+    "barnsley",
+    "wakefield",
+    "nottinghamshire",
+    "derbyshire",
+    "kirklees",
+    "leeds"
+   ]
+  },
+  "sheffield": {
+   "code": "E08000019",
+   "lat": 53.4036,
+   "lng": -1.5426,
+   "pop": {
+    "all": 579517,
+    "over65": 99123,
+    "over85": 13865
+   },
+   "council": {
+    "name": "Sheffield City Council",
+    "url": "https://www.sheffield.gov.uk/"
+   },
+   "nearby": [
+    "barnsley",
+    "rotherham",
+    "wakefield",
+    "kirklees",
+    "doncaster",
+    "derbyshire",
+    "tameside",
+    "oldham"
+   ]
+  },
+  "wakefield": {
+   "code": "E08000036",
+   "lat": 53.6592,
+   "lng": -1.4209,
+   "pop": {
+    "all": 369450,
+    "over65": 71492,
+    "over85": 8408
+   },
+   "dementia": {
+    "rate": 65,
+    "diagnosed": 2843,
+    "estimated": 4377
+   },
+   "council": {
+    "name": "Wakefield Metropolitan District Council",
+    "url": "https://www.wakefield.gov.uk/"
+   },
+   "towns": [
+    "Wakefield",
+    "Pontefract",
+    "Castleford",
+    "Normanton",
+    "Knottingley",
+    "Ossett"
+   ],
+   "nearby": [
+    "barnsley",
+    "leeds",
+    "kirklees",
+    "doncaster",
+    "sheffield",
+    "rotherham",
+    "bradford",
+    "calderdale"
+   ]
+  },
+  "york": {
+   "code": "E06000014",
+   "lat": 53.9658,
+   "lng": -1.0738,
+   "pop": {
+    "all": 209118,
+    "over65": 40836,
+    "over85": 6140
+   },
+   "dementia": {
+    "rate": 60.7,
+    "diagnosed": 1854,
+    "estimated": 3057
+   },
+   "council": {
+    "name": "City of York Council",
+    "url": "https://www.york.gov.uk/"
+   },
+   "towns": [
+    "York"
+   ],
+   "nearby": [
+    "east-riding-of-yorkshire",
+    "leeds",
+    "north-yorkshire",
+    "wakefield",
+    "doncaster",
+    "bradford",
+    "kingston-upon-hull-city-of",
+    "north-lincolnshire"
+   ]
+  }
+ }
+}

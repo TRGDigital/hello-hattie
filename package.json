@@ -6,6 +6,7 @@
     "build": "next build",
     "start": "next start",
     "areas": "node scripts/build-areas.mjs",
+    "area-facts": "node scripts/build-area-facts.mjs",
     "prebuild": "node scripts/cms/image-manifest.mjs"
   },
   "dependencies": {

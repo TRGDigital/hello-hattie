@@ -151,7 +151,7 @@ a.card b.more { color: var(--btn); font-size: .95rem; margin-top: 4px; }
 
 /* Footer */
 .site-foot { border-top: 1px solid var(--line); font-size: .92rem; color: var(--soft); }
-.site-foot .in { padding-block: 36px; display: grid; gap: 24px; grid-template-columns: 1.4fr repeat(3, 1fr); }
+.site-foot .in { padding-block: 36px; display: grid; gap: 24px; grid-template-columns: 1.4fr repeat(4, 1fr); }
 .site-foot h3 { font-family: var(--body); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); margin-bottom: 8px; }
 .site-foot ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
 .site-foot a { color: var(--soft); }

@@ -4,9 +4,11 @@ import { SERVICES } from '@/content/services'
 import { articlePath } from '@/content/articles'
 import { getArticles } from '@/lib/cms'
 import { AREAS, AREAS_GENERATED, REGIONS } from '@/lib/areas'
+import { isIndexedArea } from '@/lib/area-facts'
 
 // Every indexable page. Area pages carry the date the CQC register was last pulled, articles
-// their own updated date, everything else the build date.
+// their own updated date, everything else the build date. Area pages outside the current
+// indexing wave (lib/area-facts.ts) are noindex and left out until their wave is released.
 export const revalidate = 3600
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const ARTICLES = await getArticles()
@@ -22,7 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...['/tools', '/tools/care-cost-calculator', '/tools/which-care-is-right', '/tools/funding-checker', '/guides', '/blog', '/for-agencies', '/about'].map((p) => page(p, 0.7)),
     ...ARTICLES.map((a) => page(articlePath(a), 0.7, new Date(a.updated))),
     ...areaSvc.flatMap((s) => REGIONS.map((r) => page(`/${s.slug}/${r.slug}`, 0.6, areasAt))),
-    ...areaSvc.flatMap((s) => AREAS.map((a) => page(`/${s.slug}/${a.regionSlug}/${a.slug}`, 0.5, areasAt))),
+    ...areaSvc.flatMap((s) => AREAS.filter((a) => isIndexedArea(a.slug)).map((a) => page(`/${s.slug}/${a.regionSlug}/${a.slug}`, 0.5, areasAt))),
     ...['/privacy', '/terms', '/cookies'].map((p) => page(p, 0.2)),
   ]
 }

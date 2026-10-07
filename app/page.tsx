@@ -151,7 +151,7 @@ export default async function Home() {
             <h3>By region</h3>
             <div className="bars">
               {[...REGIONS].sort((a, b) => b.total - a.total).map((r) => (
-                <div className="bar" key={r.slug}><span><Link href={`/areas#${r.slug}`}>{r.name}</Link></span><span className="track"><i className="fill" style={{ width: `${(r.total / REGIONS.reduce((m, x) => Math.max(m, x.total), 0)) * 100}%` }} /></span><b>{r.total.toLocaleString('en-GB')}</b></div>
+                <div className="bar" key={r.slug}><span><Link href={`/home-care/${r.slug}`}>{r.name}</Link></span><span className="track"><i className="fill" style={{ width: `${(r.total / REGIONS.reduce((m, x) => Math.max(m, x.total), 0)) * 100}%` }} /></span><b>{r.total.toLocaleString('en-GB')}</b></div>
               ))}
             </div>
           </div>
@@ -196,8 +196,10 @@ export default async function Home() {
         <div className="head-row"><h2>Areas we cover</h2><Link href="/areas">All {AREAS.length} areas</Link></div>
         <p className="muted" style={{ maxWidth: '65ch' }}>We match families with CQC-registered home care agencies in every region of England, from {TOTAL_AGENCIES.toLocaleString('en-GB')} agencies on the register. Choose your region to find your council area.</p>
         <ul className="chips">
-          {REGIONS.map((r) => <li key={r.slug}><Link href={`/areas#${r.slug}`}>{r.name}</Link></li>)}
+          {REGIONS.map((r) => <li key={r.slug}><Link href={`/home-care/${r.slug}`}>Home care in {r.name}</Link></li>)}
         </ul>
+        <p className="small muted" style={{ marginTop: 12 }}>Live-in care: {REGIONS.map((r, i) => <span key={r.slug}>{i ? ' · ' : ''}<Link href={`/live-in-care/${r.slug}`}>{r.name}</Link></span>)}</p>
+        <p className="small muted">Dementia care at home: {REGIONS.map((r, i) => <span key={r.slug}>{i ? ' · ' : ''}<Link href={`/dementia-care-at-home/${r.slug}`}>{r.name}</Link></span>)}</p>
       </div></section>
 
       <Faqs faqs={[
